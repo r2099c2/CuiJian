@@ -9,97 +9,91 @@
 import UIKit
 import QuartzCore
 import SceneKit
+import CoreMotion
 
 class GameViewController: UIViewController {
 
+    @IBOutlet var rootView: UIView!
+    
+    @IBOutlet weak var sceneView: SCNView!
+    
+    var motionManager: CMMotionManager?
+    let camerasNode: SCNNode? = SCNNode()
+    var cameraRollNode: SCNNode?
+    var cameraPitchNode: SCNNode?
+    var cameraYawNode: SCNNode?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
         
-        // create and add a camera to the scene
-        let cameraNode = SCNNode()
-        cameraNode.camera = SCNCamera()
-        scene.rootNode.addChildNode(cameraNode)
+        // Create Scene
+        let scene = SCNScene()
         
-        // place the camera
-        cameraNode.position = SCNVector3(x: 0, y: 0, z: 15)
+        sceneView!.scene = scene
+        sceneView!.autoenablesDefaultLighting = true
         
-        // create and add a light to the scene
-        let lightNode = SCNNode()
-        lightNode.light = SCNLight()
-        lightNode.light!.type = SCNLightTypeOmni
-        lightNode.position = SCNVector3(x: 0, y: 10, z: 10)
-        scene.rootNode.addChildNode(lightNode)
+        // Add camera to scene.
+        let camara = SCNCamera()
+        camara.xFov = 45
+        camara.yFov = 45
         
-        // create and add an ambient light to the scene
-        let ambientLightNode = SCNNode()
-        ambientLightNode.light = SCNLight()
-        ambientLightNode.light!.type = SCNLightTypeAmbient
-        ambientLightNode.light!.color = UIColor.darkGrayColor()
-        scene.rootNode.addChildNode(ambientLightNode)
+        self.camerasNode!.camera = camara
+        self.camerasNode!.position = SCNVector3(0, 0, 0)
         
-        // retrieve the ship node
-        let ship = scene.rootNode.childNodeWithName("ship", recursively: true)!
+        // 用户使用时手机是垂直的，所以需要相机旋转-90度
+        self.camerasNode!.eulerAngles = SCNVector3Make(degreesToRadians(-90), 0, 0)
         
-        // animate the 3d object
-        ship.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y: 2, z: 0, duration: 1)))
+        let cameraRollNode = SCNNode()
+        cameraRollNode.addChildNode(camerasNode!)
         
-        // retrieve the SCNView
-        let scnView = self.view as! SCNView
+        let cameraPitchNode = SCNNode()
+        cameraPitchNode.addChildNode(cameraRollNode)
         
-        // set the scene to the view
-        scnView.scene = scene
+        let cameraYawNode = SCNNode()
+        cameraYawNode.addChildNode(cameraPitchNode)
         
-        // allows the user to manipulate the camera
-        scnView.allowsCameraControl = true
+        scene.rootNode.addChildNode(cameraYawNode)
         
-        // show statistics such as fps and timing information
-        scnView.showsStatistics = true
+        self.sceneView!.pointOfView = camerasNode
         
-        // configure the view
-        scnView.backgroundColor = UIColor.blackColor()
+        // Motion; 
+        // Respond to user head movement
+        self.motionManager = CMMotionManager()
+        self.motionManager?.deviceMotionUpdateInterval = 1/60
+        self.motionManager?.startDeviceMotionUpdatesUsingReferenceFrame(CMAttitudeReferenceFrame.XArbitraryZVertical, toQueue: NSOperationQueue.mainQueue(), withHandler: { (motion: CMDeviceMotion?, error: NSError?) -> Void in
+            let currentAttitude = motion!.attitude
+            let roll = Float(currentAttitude.roll)
+            let pitch = Float(currentAttitude.pitch)
+            let yaw = Float(currentAttitude.yaw)
+            
+            cameraRollNode.eulerAngles = SCNVector3Make(0, 0, -roll)
+            cameraPitchNode.eulerAngles = SCNVector3Make(pitch, 0, 0)
+            cameraYawNode.eulerAngles = SCNVector3Make(0, yaw, 0)
+        })
         
-        // add a tap gesture recognizer
-        let tapGesture = UITapGestureRecognizer(target: self, action: "handleTap:")
-        scnView.addGestureRecognizer(tapGesture)
+        
+        
+        // Sky box
+        scene.background.contents = UIImage(named: "skybox")
+        
+        // Floor ground
+        let floor = SCNFloor()
+        floor.reflectivity = 0
+        floor.firstMaterial!.diffuse.contents = UIImage(named: "ground")
+        let floorNode = SCNNode()
+        floorNode.geometry = floor
+        floorNode.position = SCNVector3(0, -20, 0)
+        scene.rootNode.addChildNode(floorNode)
+        
     }
     
-    func handleTap(gestureRecognize: UIGestureRecognizer) {
-        // retrieve the SCNView
-        let scnView = self.view as! SCNView
-        
-        // check what nodes are tapped
-        let p = gestureRecognize.locationInView(scnView)
-        let hitResults = scnView.hitTest(p, options: nil)
-        // check that we clicked on at least one object
-        if hitResults.count > 0 {
-            // retrieved the first clicked object
-            let result: AnyObject! = hitResults[0]
-            
-            // get its material
-            let material = result.node!.geometry!.firstMaterial!
-            
-            // highlight it
-            SCNTransaction.begin()
-            SCNTransaction.setAnimationDuration(0.5)
-            
-            // on completion - unhighlight
-            SCNTransaction.setCompletionBlock {
-                SCNTransaction.begin()
-                SCNTransaction.setAnimationDuration(0.5)
-                
-                material.emission.contents = UIColor.blackColor()
-                
-                SCNTransaction.commit()
-            }
-            
-            material.emission.contents = UIColor.redColor()
-            
-            SCNTransaction.commit()
-        }
+    // 角度转弧度
+    func degreesToRadians(degrees: Float) -> Float {
+        return (degrees * Float(M_PI)) / 180.0
     }
+    
+    
     
     override func shouldAutorotate() -> Bool {
         return true
