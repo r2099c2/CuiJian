@@ -23,7 +23,6 @@ class GameViewController: UIViewController {
     var cameraPitchNode: SCNNode?
     var cameraYawNode: SCNNode?
     
-    //bricezhou
     
     override func viewDidLoad() {
         super.viewDidLoad()
