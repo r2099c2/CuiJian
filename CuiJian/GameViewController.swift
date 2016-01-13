@@ -23,11 +23,7 @@ class GameViewController: UIViewController {
     var cameraPitchNode: SCNNode?
     var cameraYawNode: SCNNode?
     
-    // test from fork
-    
-    // test master
-    
-    // new test from rick
+    // new master test from rick
     
     override func viewDidLoad() {
         super.viewDidLoad()
