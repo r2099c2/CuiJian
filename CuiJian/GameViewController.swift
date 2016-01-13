@@ -36,7 +36,7 @@ class GameViewController: UIViewController {
         
         // Add camera to scene.
         let camara = SCNCamera()
-        camara.xFov = 55
+        camara.xFov = 45
         camara.yFov = 45
         
         self.camerasNode!.camera = camara
