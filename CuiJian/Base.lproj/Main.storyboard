@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8EM-FC-HkE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HCF-Xw-WXa">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -22,13 +22,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </sceneKitView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdT-Yj-hoF">
-                                <rect key="frame" x="547" y="28" width="33" height="22"/>
+                                <rect key="frame" x="547" y="40" width="33" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="33" id="wTp-m8-eAu"/>
                                 </constraints>
                                 <state key="normal" image="hamburger"/>
                                 <connections>
-                                    <segue destination="vQp-Ch-gUU" kind="push" id="6Lu-p6-cE5"/>
+                                    <segue destination="GFv-yb-n9U" kind="popoverPresentation" identifier="open nav" popoverAnchorView="pdT-Yj-hoF" id="x8e-3F-m38">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
@@ -39,7 +41,7 @@
                             <constraint firstItem="b7U-Bx-Fsd" firstAttribute="top" secondItem="bbd-pQ-Xlw" secondAttribute="top" id="Pb1-w7-9X3"/>
                             <constraint firstAttribute="trailing" secondItem="b7U-Bx-Fsd" secondAttribute="trailing" id="V6E-2R-14m"/>
                             <constraint firstItem="b7U-Bx-Fsd" firstAttribute="bottom" secondItem="LyI-pn-o4s" secondAttribute="top" id="aVN-ca-ezL"/>
-                            <constraint firstItem="pdT-Yj-hoF" firstAttribute="top" secondItem="gmh-zm-H5T" secondAttribute="bottom" constant="8" symbolic="YES" id="kod-0l-bk1"/>
+                            <constraint firstItem="pdT-Yj-hoF" firstAttribute="top" secondItem="gmh-zm-H5T" secondAttribute="bottom" constant="20" id="kod-0l-bk1"/>
                             <constraint firstItem="b7U-Bx-Fsd" firstAttribute="bottom" secondItem="LyI-pn-o4s" secondAttribute="top" id="xC8-ig-bN8"/>
                         </constraints>
                         <variation key="default">
@@ -57,7 +59,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kLk-Qo-e2T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2153" y="436"/>
+            <point key="canvasLocation" x="2259" y="275"/>
+        </scene>
+        <!--Nav View Controller-->
+        <scene sceneID="7k6-Qm-INm">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="formSheet" id="GFv-yb-n9U" customClass="NavViewController" customModule="CuiJian" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MYK-RH-Ljr"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hzz-G3-ecy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PF3-MA-c5w">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UIm-1w-7EQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q2O-JA-Gmo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3050" y="417"/>
         </scene>
         <!--专辑试听-->
         <scene sceneID="R3b-nb-gSF">
@@ -92,11 +113,14 @@
                     </view>
                     <navigationItem key="navigationItem" title="专辑试听" id="ePW-1T-o3C">
                         <barButtonItem key="leftBarButtonItem" image="backArrow" style="done" id="8P2-4g-o78">
+                            <color key="tintColor" red="0.53333333333333333" green="0.51372549019607838" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="backBtn:" destination="vQp-Ch-gUU" id="Xsf-9E-O16"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="hamburger" id="8cb-Yi-teJ"/>
+                        <barButtonItem key="rightBarButtonItem" image="hamburger" id="8cb-Yi-teJ">
+                            <color key="tintColor" red="0.53333333333333333" green="0.51372549019607838" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
@@ -105,25 +129,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f7d-0E-8TA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2860" y="436"/>
+            <point key="canvasLocation" x="4360" y="300"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="ZuO-qP-42I">
+        <scene sceneID="TJl-tv-WP3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8EM-FC-HkE" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mtR-Sj-aN5" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cB0-id-9M3">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2ug-fk-e1a">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="HCF-Xw-WXa" kind="relationship" relationship="rootViewController" id="c7l-4m-UZH"/>
+                        <segue destination="GFv-yb-n9U" kind="relationship" relationship="rootViewController" id="76f-gr-18o"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="odh-SM-fV9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xVu-at-n1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1341" y="436"/>
+            <point key="canvasLocation" x="2959" y="-284"/>
         </scene>
     </scenes>
     <resources>
@@ -132,4 +156,7 @@
         <image name="songBgImage" width="750" height="1334"/>
         <image name="songBgParaImage" width="958" height="1618"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="x8e-3F-m38"/>
+    </inferredMetricsTieBreakers>
 </document>

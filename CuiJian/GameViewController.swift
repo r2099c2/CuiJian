@@ -11,7 +11,7 @@ import QuartzCore
 import SceneKit
 import CoreMotion
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, UIPopoverPresentationControllerDelegate {
 
     @IBOutlet var rootView: UIView!
     
@@ -122,7 +122,49 @@ class GameViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
+    
+    
+    // Mark: Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "open nav" {
+            if let nvc = segue.destinationViewController.contentViewController as? NavViewController {
+                if let ppc = nvc.popoverPresentationController {
+                    nvc.preferredContentSize = CGSizeMake(100, 100)
+                    nvc.modalPresentationStyle = .Popover
+                    ppc.delegate = self
+                    ppc.sourceView = sender as? UIView
+                    ppc.sourceRect = CGRect(x: 0, y: 0, width: 10, height: 10)
+                }
+            }
+        }
+    }
+    
+    func adaptivePresentationStyleForPresentationController(
+        controller: UIPresentationController) -> UIModalPresentationStyle {
+            return .None
+    }
+    
+    
 
 }
 
-// brice test master
+
+// Mark: -contentViewController
+// description: by doing this can use navigationController
+extension UIViewController {
+    var contentViewController: UIViewController {
+        if let navcon = self as? UINavigationController {
+            return navcon.visibleViewController!
+        } else {
+            return self
+        }
+    }
+}
+
+
+
+
+
+
+

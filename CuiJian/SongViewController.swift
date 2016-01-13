@@ -18,7 +18,7 @@ class SongViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationController?.navigationBarHidden = false
-        
+                
         bgParrallax()
 
         // Do any additional setup after loading the view.

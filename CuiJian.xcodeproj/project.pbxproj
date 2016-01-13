@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D3285BE1C46611800ADAFDC /* TransparentNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3285BD1C46611800ADAFDC /* TransparentNavBar.swift */; };
+		1D3285C01C4667D900ADAFDC /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3285BF1C4667D900ADAFDC /* NavViewController.swift */; };
 		1D57B04C1C43BC0C001C18F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D57B04B1C43BC0C001C18F7 /* AppDelegate.swift */; };
 		1D57B04E1C43BC0C001C18F7 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D57B04D1C43BC0C001C18F7 /* art.scnassets */; };
 		1D57B0501C43BC0C001C18F7 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D57B04F1C43BC0C001C18F7 /* GameViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D3285BD1C46611800ADAFDC /* TransparentNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransparentNavBar.swift; sourceTree = "<group>"; };
+		1D3285BF1C4667D900ADAFDC /* NavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		1D57B0481C43BC0C001C18F7 /* CuiJian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CuiJian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D57B04B1C43BC0C001C18F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D57B04D1C43BC0C001C18F7 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -39,6 +43,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D3285C11C4667ED00ADAFDC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1D57B04F1C43BC0C001C18F7 /* GameViewController.swift */,
+				1DD024F01C461AC40000D316 /* SongViewController.swift */,
+				1D3285BD1C46611800ADAFDC /* TransparentNavBar.swift */,
+				1D3285BF1C4667D900ADAFDC /* NavViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		1D57B03F1C43BC0B001C18F7 = {
 			isa = PBXGroup;
 			children = (
@@ -58,10 +73,9 @@
 		1D57B04A1C43BC0C001C18F7 /* CuiJian */ = {
 			isa = PBXGroup;
 			children = (
+				1D3285C11C4667ED00ADAFDC /* Controller */,
 				1D57B04B1C43BC0C001C18F7 /* AppDelegate.swift */,
 				1D57B04D1C43BC0C001C18F7 /* art.scnassets */,
-				1D57B04F1C43BC0C001C18F7 /* GameViewController.swift */,
-				1DD024F01C461AC40000D316 /* SongViewController.swift */,
 				1D57B0511C43BC0C001C18F7 /* Main.storyboard */,
 				1D57B0541C43BC0C001C18F7 /* Assets.xcassets */,
 				1D57B0561C43BC0C001C18F7 /* LaunchScreen.storyboard */,
@@ -143,7 +157,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DD024F11C461AC40000D316 /* SongViewController.swift in Sources */,
+				1D3285C01C4667D900ADAFDC /* NavViewController.swift in Sources */,
 				1D57B0501C43BC0C001C18F7 /* GameViewController.swift in Sources */,
+				1D3285BE1C46611800ADAFDC /* TransparentNavBar.swift in Sources */,
 				1D57B04C1C43BC0C001C18F7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
