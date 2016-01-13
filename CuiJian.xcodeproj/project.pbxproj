@@ -13,6 +13,7 @@
 		1D57B0531C43BC0C001C18F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D57B0511C43BC0C001C18F7 /* Main.storyboard */; };
 		1D57B0551C43BC0C001C18F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D57B0541C43BC0C001C18F7 /* Assets.xcassets */; };
 		1D57B0581C43BC0C001C18F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D57B0561C43BC0C001C18F7 /* LaunchScreen.storyboard */; };
+		1DD024F11C461AC40000D316 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD024F01C461AC40000D316 /* SongViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		1D57B0541C43BC0C001C18F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D57B0571C43BC0C001C18F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D57B0591C43BC0C001C18F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DD024F01C461AC40000D316 /* SongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				1D57B04B1C43BC0C001C18F7 /* AppDelegate.swift */,
 				1D57B04D1C43BC0C001C18F7 /* art.scnassets */,
 				1D57B04F1C43BC0C001C18F7 /* GameViewController.swift */,
+				1DD024F01C461AC40000D316 /* SongViewController.swift */,
 				1D57B0511C43BC0C001C18F7 /* Main.storyboard */,
 				1D57B0541C43BC0C001C18F7 /* Assets.xcassets */,
 				1D57B0561C43BC0C001C18F7 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DD024F11C461AC40000D316 /* SongViewController.swift in Sources */,
 				1D57B0501C43BC0C001C18F7 /* GameViewController.swift in Sources */,
 				1D57B04C1C43BC0C001C18F7 /* AppDelegate.swift in Sources */,
 			);
@@ -290,6 +294,7 @@
 				1D57B05E1C43BC0C001C18F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

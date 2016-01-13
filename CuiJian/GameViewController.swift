@@ -26,7 +26,6 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         // Create Scene
         let scene = SCNScene()
         
@@ -86,6 +85,12 @@ class GameViewController: UIViewController {
         floorNode.position = SCNVector3(0, -20, 0)
         scene.rootNode.addChildNode(floorNode)
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.navigationController?.navigationBarHidden = true
     }
     
     // 角度转弧度
