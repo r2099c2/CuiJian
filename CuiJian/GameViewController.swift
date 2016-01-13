@@ -27,6 +27,8 @@ class GameViewController: UIViewController {
     
     // test master
     
+    // new test from rick
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
