@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D267C2E1C47894800FEAFB6 /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D267C2D1C47894800FEAFB6 /* TimeLineViewController.swift */; };
 		1D3285BE1C46611800ADAFDC /* TransparentNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3285BD1C46611800ADAFDC /* TransparentNavBar.swift */; };
 		1D3285C01C4667D900ADAFDC /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3285BF1C4667D900ADAFDC /* NavViewController.swift */; };
 		1D57B04C1C43BC0C001C18F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D57B04B1C43BC0C001C18F7 /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D267C2D1C47894800FEAFB6 /* TimeLineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
 		1D3285BD1C46611800ADAFDC /* TransparentNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransparentNavBar.swift; sourceTree = "<group>"; };
 		1D3285BF1C4667D900ADAFDC /* NavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		1D57B0481C43BC0C001C18F7 /* CuiJian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CuiJian.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +52,7 @@
 				1DD024F01C461AC40000D316 /* SongViewController.swift */,
 				1D3285BD1C46611800ADAFDC /* TransparentNavBar.swift */,
 				1D3285BF1C4667D900ADAFDC /* NavViewController.swift */,
+				1D267C2D1C47894800FEAFB6 /* TimeLineViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -75,8 +78,8 @@
 			children = (
 				1D3285C11C4667ED00ADAFDC /* Controller */,
 				1D57B04B1C43BC0C001C18F7 /* AppDelegate.swift */,
-				1D57B04D1C43BC0C001C18F7 /* art.scnassets */,
 				1D57B0511C43BC0C001C18F7 /* Main.storyboard */,
+				1D57B04D1C43BC0C001C18F7 /* art.scnassets */,
 				1D57B0541C43BC0C001C18F7 /* Assets.xcassets */,
 				1D57B0561C43BC0C001C18F7 /* LaunchScreen.storyboard */,
 				1D57B0591C43BC0C001C18F7 /* Info.plist */,
@@ -161,6 +164,7 @@
 				1D57B0501C43BC0C001C18F7 /* GameViewController.swift in Sources */,
 				1D3285BE1C46611800ADAFDC /* TransparentNavBar.swift in Sources */,
 				1D57B04C1C43BC0C001C18F7 /* AppDelegate.swift in Sources */,
+				1D267C2E1C47894800FEAFB6 /* TimeLineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

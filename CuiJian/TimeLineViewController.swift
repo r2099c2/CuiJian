@@ -1,27 +1,28 @@
 //
-//  SongViewController.swift
+//  TimeLineViewController.swift
 //  CuiJian
 //
-//  Created by Rick on 16/1/13.
+//  Created by Rick on 16/1/14.
 //  Copyright © 2016年 Rick. All rights reserved.
 //
 
 import UIKit
 
-class SongViewController: UIViewController {
+class TimeLineViewController: UIViewController {
 
-    @IBOutlet weak var bgImageView: UIImageView! 
-    
-    
+    @IBOutlet weak var bgImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        bgParrallax()
 
+        bgParrallax()
         // Do any additional setup after loading the view.
     }
-    
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     // BackGroundImageView Parallax
     func bgParrallax() {
@@ -44,25 +45,18 @@ class SongViewController: UIViewController {
         bgImageView.addMotionEffect(group)
     }
     
-    
-    
-    
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    
+    /*
     // MARK: - Navigation
 
-    @IBAction func backBtn(sender: UIBarButtonItem) {
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+    @IBAction func dismissVC(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
-    
-    
-    
-    
-
 }

@@ -11,7 +11,7 @@ import QuartzCore
 import SceneKit
 import CoreMotion
 
-class GameViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+class GameViewController: UIViewController {
 
     @IBOutlet var rootView: UIView!
     
@@ -23,7 +23,6 @@ class GameViewController: UIViewController, UIPopoverPresentationControllerDeleg
     var cameraPitchNode: SCNNode?
     var cameraYawNode: SCNNode?
     
-    // new master test from rick
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,23 +126,9 @@ class GameViewController: UIViewController, UIPopoverPresentationControllerDeleg
     // Mark: Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "open nav" {
-            if let nvc = segue.destinationViewController.contentViewController as? NavViewController {
-                if let ppc = nvc.popoverPresentationController {
-                    nvc.preferredContentSize = CGSizeMake(100, 100)
-                    nvc.modalPresentationStyle = .Popover
-                    ppc.delegate = self
-                    ppc.sourceView = sender as? UIView
-                    ppc.sourceRect = CGRect(x: 0, y: 0, width: 10, height: 10)
-                }
-            }
-        }
+        
     }
     
-    func adaptivePresentationStyleForPresentationController(
-        controller: UIPresentationController) -> UIModalPresentationStyle {
-            return .None
-    }
     
     
 
