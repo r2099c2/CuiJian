@@ -144,20 +144,11 @@
         <scene sceneID="9mB-zI-EWv">
             <objects>
                 <viewController id="MrU-AQ-Rod" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="MM8-Ex-vC8"/>
-                        <viewControllerLayoutGuide type="bottom" id="zai-Xf-yPQ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="yUX-LY-Eeh">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="U8F-Fe-DiV"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENq-bp-8cs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3822" y="678"/>
+            <point key="canvasLocation" x="3774" y="697"/>
         </scene>
         <!--专辑试听-->
         <scene sceneID="R3b-nb-gSF">
@@ -205,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f7d-0E-8TA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4373" y="-282"/>
+            <point key="canvasLocation" x="4456" y="-285"/>
         </scene>
         <!--关于崔健-->
         <scene sceneID="sSe-Qa-XUq">
@@ -224,6 +215,10 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="songBgParaImage" translatesAutoresizingMaskIntoConstraints="NO" id="8uD-LC-d7m">
                                 <rect key="frame" x="-20" y="0.0" width="640" height="600"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="zaZ-5R-5Bx" appends="YES" id="RvO-GO-L41"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -251,6 +246,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FfH-G8-Ia3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="zaZ-5R-5Bx"/>
             </objects>
             <point key="canvasLocation" x="4456" y="380"/>
         </scene>

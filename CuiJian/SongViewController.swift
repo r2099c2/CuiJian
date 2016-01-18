@@ -18,6 +18,8 @@ class SongViewController: UIViewController {
         super.viewDidLoad()
         
         bgParrallax()
+        
+        self.navigationItem.title = "some thing"
 
         // Do any additional setup after loading the view.
     }
