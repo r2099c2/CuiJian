@@ -30,23 +30,26 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="lFd-8w-oek" firstAttribute="leading" secondItem="V7u-XS-rVe" secondAttribute="leading" id="28p-77-k99"/>
                 <constraint firstAttribute="trailing" secondItem="qw8-bL-ONF" secondAttribute="trailing" id="8io-kc-HdJ"/>
-                <constraint firstItem="lFd-8w-oek" firstAttribute="leading" secondItem="V7u-XS-rVe" secondAttribute="leading" id="DMc-ey-HIY"/>
                 <constraint firstAttribute="trailing" secondItem="V7u-XS-rVe" secondAttribute="trailing" constant="92" id="DOK-lE-Xfk"/>
                 <constraint firstAttribute="bottom" secondItem="lFd-8w-oek" secondAttribute="bottom" constant="49" id="JnS-Dw-XbP"/>
                 <constraint firstItem="qw8-bL-ONF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="QFi-vq-Ze2"/>
                 <constraint firstItem="lFd-8w-oek" firstAttribute="bottom" secondItem="qw8-bL-ONF" secondAttribute="bottom" id="SI5-9u-kbm"/>
+                <constraint firstAttribute="bottom" secondItem="lFd-8w-oek" secondAttribute="bottom" constant="49" id="Zws-qV-T4Y"/>
                 <constraint firstItem="V7u-XS-rVe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="92" id="aed-h8-5B2"/>
                 <constraint firstAttribute="bottom" secondItem="qw8-bL-ONF" secondAttribute="bottom" id="bYB-j4-JEl"/>
                 <constraint firstItem="V7u-XS-rVe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="75" id="h6u-az-Yem"/>
                 <constraint firstItem="qw8-bL-ONF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="icu-9M-o73"/>
-                <constraint firstItem="lFd-8w-oek" firstAttribute="trailing" secondItem="V7u-XS-rVe" secondAttribute="trailing" id="r14-Jn-l2q"/>
+                <constraint firstItem="lFd-8w-oek" firstAttribute="top" secondItem="V7u-XS-rVe" secondAttribute="bottom" constant="8" symbolic="YES" id="kj3-1z-FgU"/>
                 <constraint firstItem="lFd-8w-oek" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="rVq-MP-S8o"/>
-                <constraint firstItem="lFd-8w-oek" firstAttribute="top" secondItem="V7u-XS-rVe" secondAttribute="bottom" constant="8" symbolic="YES" id="zHf-Xj-TWc"/>
+                <constraint firstItem="lFd-8w-oek" firstAttribute="trailing" secondItem="V7u-XS-rVe" secondAttribute="trailing" id="uGe-5M-xz7"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="JnS-Dw-XbP"/>
                     <exclude reference="SI5-9u-kbm"/>
+                    <exclude reference="rVq-MP-S8o"/>
                 </mask>
             </variation>
             <connections>

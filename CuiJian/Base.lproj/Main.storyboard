@@ -216,9 +216,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="songBgParaImage" translatesAutoresizingMaskIntoConstraints="NO" id="8uD-LC-d7m">
                                 <rect key="frame" x="-20" y="0.0" width="640" height="600"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="zaZ-5R-5Bx" appends="YES" id="RvO-GO-L41"/>
-                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -246,7 +243,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FfH-G8-Ia3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="zaZ-5R-5Bx"/>
             </objects>
             <point key="canvasLocation" x="4456" y="380"/>
         </scene>

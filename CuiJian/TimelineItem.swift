@@ -10,13 +10,13 @@ import UIKit
 
 class TimelineItem: UIView {
 
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
+    
+//     Only override drawRect: if you perform custom drawing.
+//     An empty implementation adversely affects performance during animation.
+//    override func drawRect(rect: CGRect) {
+//        
+//    }
+    
     
     @IBOutlet weak var image: UIImageView!
     
