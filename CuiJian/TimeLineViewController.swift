@@ -20,8 +20,9 @@ class TimeLineViewController: UIViewController {
     var nextItem: TimelineItem?
     
     
+    var isAnimating: Bool = false
     
-    var slideFactor: CGFloat! = 0.01
+    var slideFactor: CGFloat! = 0.015
     
     // the postion and size for Tileline items
     struct TimelineItemState {
@@ -30,7 +31,7 @@ class TimeLineViewController: UIViewController {
         static let itemInshow1: CGRect = CGRectMake(77, 190, 260, 260)
         static let itemInshow2: CGRect = CGRectMake(97, 149, 220, 220)
         static let itemInshow3: CGRect = CGRectMake(117, 116, 180, 180)
-        static let nextItem: CGRect = CGRectMake(117, 116, 170, 170)
+        static let nextItem: CGRect = CGRectMake(117, 130, 170, 170)
     }
 
     
@@ -117,33 +118,48 @@ class TimeLineViewController: UIViewController {
         
         switch pan.state {
         case UIGestureRecognizerState.Changed:
-            if translationInView >= 0 {
-                currentItem.frame.origin.y += velocityInView * slideFactor
-                
-                itemInshow1?.frame.origin.y += velocityInView * slideFactor * itemDisCurTo1 / itemDisPreToCur
-                itemInshow1?.bounds.size.width += velocityInView * slideFactor * (TimelineItemState.currentItem.width - TimelineItemState.itemInshow1.width) / TimelineItemState.currentItem.width
-                itemInshow1?.bounds.size.height += velocityInView * slideFactor * (TimelineItemState.currentItem.width - TimelineItemState.itemInshow1.width) / TimelineItemState.currentItem.width
-                itemInshow1?.frame.origin.x = centerXItem((itemInshow1?.bounds.width)!)
-                
-                itemInshow2?.frame.origin.y += velocityInView * slideFactor * itemDis1To2 / itemDisPreToCur
-                itemInshow2?.bounds.size.width += velocityInView * slideFactor * (TimelineItemState.currentItem.width - TimelineItemState.itemInshow2.width) / TimelineItemState.currentItem.width
-                itemInshow2?.bounds.size.height += velocityInView * slideFactor * (TimelineItemState.currentItem.width - TimelineItemState.itemInshow2.width) / TimelineItemState.currentItem.width
-                itemInshow2?.frame.origin.x = centerXItem((itemInshow2?.bounds.width)!)
-                
-                itemInshow3?.frame.origin.y += velocityInView * slideFactor * itemDis2To3 / itemDisPreToCur
-                itemInshow3?.bounds.size.width += velocityInView * slideFactor * (TimelineItemState.currentItem.width - TimelineItemState.itemInshow3.width) / TimelineItemState.currentItem.width
-                itemInshow3?.bounds.size.height += velocityInView * slideFactor * (TimelineItemState.currentItem.width - TimelineItemState.itemInshow3.width) / TimelineItemState.currentItem.width
-                itemInshow3?.frame.origin.x = centerXItem((itemInshow3?.bounds.width)!)
-                
-                
-//                currentItem.frame.origin.y += itemChangeDelta(velocityInView, preOrigY: TimelineItemState.preItem.origin.y, curOrigY: TimelineItemState.currentItem.origin.y, selfOrigY: currentItem.frame.origin.y)
-//                itemInshow1!.frame.origin.y += itemChangeDelta(velocityInView, preOrigY: TimelineItemState.currentItem.origin.y, curOrigY: TimelineItemState.itemInshow1.origin.y, selfOrigY: itemInshow1!.frame.origin.y)
-//                itemInshow2!.frame.origin.y += itemChangeDelta(velocityInView, preOrigY: TimelineItemState.itemInshow1.origin.y, curOrigY: TimelineItemState.itemInshow2.origin.y, selfOrigY: itemInshow2!.frame.origin.y)
-//                itemInshow3!.frame.origin.y += itemChangeDelta(velocityInView, preOrigY: TimelineItemState.itemInshow2.origin.y, curOrigY: TimelineItemState.itemInshow3.origin.y, selfOrigY: itemInshow3!.frame.origin.y)
-//                
-//                currentItem.frame.size
-            }
             
+            if !isAnimating {
+                if translationInView >= 0 {
+                    // slide down
+                    
+                    currentItem.frame.origin.y += velocityInView * slideFactor
+                    
+                     itemInshow1?.frame.origin.y += velocityInView * slideFactor * itemDisCurTo1 / itemDisPreToCur
+                    itemInshow1?.bounds.size.width += velocityInView * slideFactor * (TimelineItemState.currentItem.width - TimelineItemState.itemInshow1.width) / TimelineItemState.currentItem.width
+                    itemInshow1?.bounds.size.height += velocityInView * slideFactor * (TimelineItemState.currentItem.width - TimelineItemState.itemInshow1.width) / TimelineItemState.currentItem.width
+                    itemInshow1?.frame.origin.x = centerXItem((itemInshow1?.bounds.width)!)
+                    
+                    itemInshow2?.frame.origin.y += velocityInView * slideFactor * itemDis1To2 / itemDisPreToCur
+                    itemInshow2?.bounds.size.width += velocityInView * slideFactor * (TimelineItemState.itemInshow1.width - TimelineItemState.itemInshow2.width) / TimelineItemState.itemInshow1.width
+                    itemInshow2?.bounds.size.height += velocityInView * slideFactor * (TimelineItemState.itemInshow1.width - TimelineItemState.itemInshow2.width) / TimelineItemState.itemInshow1.width
+                    itemInshow2?.frame.origin.x = centerXItem((itemInshow2?.bounds.width)!)
+                    
+                    itemInshow3?.frame.origin.y += velocityInView * slideFactor * itemDis2To3 / itemDisPreToCur
+                    itemInshow3?.bounds.size.width += velocityInView * slideFactor * (TimelineItemState.itemInshow2.width - TimelineItemState.itemInshow3.width) / TimelineItemState.itemInshow2.width
+                    itemInshow3?.bounds.size.height += velocityInView * slideFactor * (TimelineItemState.itemInshow2.width - TimelineItemState.itemInshow3.width) / TimelineItemState.itemInshow2.width
+                    itemInshow3?.frame.origin.x = centerXItem((itemInshow3?.bounds.width)!)
+                } else {
+                    // slide up
+                    preItem?.frame.origin.y += velocityInView * slideFactor * 2
+                    
+                    currentItem.frame.origin.y += velocityInView * slideFactor * itemDisCurTo1 / itemDisPreToCur
+                    currentItem.bounds.size.width += velocityInView * slideFactor * (TimelineItemState.currentItem.width - TimelineItemState.itemInshow1.width) / TimelineItemState.currentItem.width
+                    currentItem.bounds.size.height += velocityInView * slideFactor * (TimelineItemState.currentItem.width - TimelineItemState.itemInshow1.width) / TimelineItemState.currentItem.width
+                    currentItem.frame.origin.x = centerXItem(currentItem.bounds.width)
+                    
+                    itemInshow1?.frame.origin.y += velocityInView * slideFactor * itemDis1To2 / itemDisPreToCur
+                    itemInshow1?.bounds.size.width += velocityInView * slideFactor * (TimelineItemState.itemInshow1.width - TimelineItemState.itemInshow2.width) / TimelineItemState.itemInshow1.width
+                    itemInshow1?.bounds.size.height += velocityInView * slideFactor * (TimelineItemState.itemInshow1.width - TimelineItemState.itemInshow2.width) / TimelineItemState.itemInshow1.width
+                    itemInshow1?.frame.origin.x = centerXItem((itemInshow1?.bounds.width)!)
+                    
+                    itemInshow2?.frame.origin.y += velocityInView * slideFactor * itemDis2To3 / itemDisPreToCur
+                    itemInshow2?.bounds.size.width += velocityInView * slideFactor * (TimelineItemState.itemInshow2.width - TimelineItemState.itemInshow3.width) / TimelineItemState.itemInshow2.width
+                    itemInshow2?.bounds.size.height += velocityInView * slideFactor * (TimelineItemState.itemInshow2.width - TimelineItemState.itemInshow3.width) / TimelineItemState.itemInshow2.width
+                    itemInshow2?.frame.origin.x = centerXItem((itemInshow2?.bounds.width)!)
+                }
+                
+            }
             break
         case UIGestureRecognizerState.Ended:
             fallthrough
@@ -153,23 +169,20 @@ class TimeLineViewController: UIViewController {
             if translationInView >= 60 {
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
                     
+                    self.isAnimating = true
+                    
+                    self.itemInshow1?.bounds.size = TimelineItemState.currentItem.size
+                    self.itemInshow2?.bounds.size = TimelineItemState.itemInshow1.size
+                    self.itemInshow3?.bounds.size = TimelineItemState.itemInshow2.size
+                    self.nextItem?.bounds.size = TimelineItemState.itemInshow3.size
+                    
                     self.currentItem.frame.origin.y = TimelineItemState.preItem.origin.y
                     self.itemInshow1?.frame.origin.y = TimelineItemState.currentItem.origin.y
                     self.itemInshow2?.frame.origin.y = TimelineItemState.itemInshow1.origin.y
                     self.itemInshow3?.frame.origin.y = TimelineItemState.itemInshow2.origin.y
                     self.nextItem?.frame.origin.y = TimelineItemState.itemInshow3.origin.y
                     
-                    self.currentItem.bounds.size = TimelineItemState.preItem.size
-                    self.itemInshow1?.bounds.size = TimelineItemState.currentItem.size
-                    self.itemInshow2?.bounds.size = TimelineItemState.itemInshow1.size
-                    self.itemInshow3?.bounds.size = TimelineItemState.itemInshow2.size
-                    self.nextItem?.bounds.size = TimelineItemState.itemInshow3.size
-                    
-                    self.currentItem.frame.origin.x = self.centerXItem(self.currentItem.bounds.width)
-                    self.itemInshow1!.frame.origin.x = self.centerXItem(self.itemInshow1!.bounds.width)
-                    self.itemInshow2!.frame.origin.x = self.centerXItem(self.itemInshow2!.bounds.width)
-                    self.itemInshow3!.frame.origin.x = self.centerXItem(self.itemInshow3!.bounds.width)
-                    self.nextItem!.frame.origin.x = self.centerXItem(self.nextItem!.bounds.width)
+                    self.centerAllItems()
                     
                     
                     }, completion: { (Bool finished) -> Void in
@@ -183,6 +196,69 @@ class TimeLineViewController: UIViewController {
                         self.nextItem = self.createNewItem(TimelineItemState.nextItem)
                         self.view.addSubview(self.nextItem!)
                         self.view.insertSubview(self.nextItem!, aboveSubview: self.view.subviews[1])
+                        
+                        self.isAnimating = false
+                        print(self.currentItem.frame.origin.y)
+                })
+            } else if translationInView <= -60 {
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    
+                    self.isAnimating = true
+                    
+                    self.preItem?.bounds.size = TimelineItemState.currentItem.size
+                    self.currentItem.bounds.size = TimelineItemState.itemInshow1.size
+                    self.itemInshow1?.bounds.size = TimelineItemState.itemInshow2.size
+                    self.itemInshow2?.bounds.size = TimelineItemState.itemInshow3.size
+                    self.itemInshow3?.bounds.size = TimelineItemState.nextItem.size
+                    self.nextItem?.bounds.size = TimelineItemState.nextItem.size
+                    
+                    self.preItem?.frame.origin.y = TimelineItemState.currentItem.origin.y
+                    self.currentItem.frame.origin.y = TimelineItemState.itemInshow1.origin.y
+                    self.itemInshow1?.frame.origin.y = TimelineItemState.itemInshow2.origin.y
+                    self.itemInshow2?.frame.origin.y = TimelineItemState.itemInshow3.origin.y
+                    self.itemInshow3?.frame.origin.y = TimelineItemState.nextItem.origin.y
+                    self.nextItem?.frame.origin.y = TimelineItemState.nextItem.origin.y
+                    
+                    self.centerAllItems()
+                    
+                    }, completion: { (Bool finished) -> Void in
+                        
+                        self.nextItem?.removeFromSuperview()
+                        self.nextItem = self.itemInshow3
+                        self.itemInshow3 = self.itemInshow2
+                        self.itemInshow2 = self.itemInshow1
+                        self.itemInshow1 = self.currentItem
+                        self.currentItem = self.preItem
+                        self.preItem = self.createNewItem(TimelineItemState.preItem)
+                        self.view.addSubview(self.preItem!)
+                        
+                        self.isAnimating = false
+                        print(self.currentItem.frame.origin.y)
+                })
+            } else {
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    
+                    self.isAnimating = true
+                    
+                    self.preItem?.frame.origin.y = TimelineItemState.preItem.origin.y
+                    self.currentItem.frame.origin.y = TimelineItemState.currentItem.origin.y
+                    self.itemInshow1?.frame.origin.y = TimelineItemState.itemInshow1.origin.y
+                    self.itemInshow2?.frame.origin.y = TimelineItemState.itemInshow2.origin.y
+                    self.itemInshow3?.frame.origin.y = TimelineItemState.itemInshow3.origin.y
+                    self.nextItem?.frame.origin.y = TimelineItemState.nextItem.origin.y
+                    
+                    self.preItem?.bounds.size = TimelineItemState.preItem.size
+                    self.currentItem.bounds.size = TimelineItemState.currentItem.size
+                    self.itemInshow1?.bounds.size = TimelineItemState.itemInshow1.size
+                    self.itemInshow2?.bounds.size = TimelineItemState.itemInshow2.size
+                    self.itemInshow3?.bounds.size = TimelineItemState.itemInshow3.size
+                    self.nextItem?.bounds.size = TimelineItemState.nextItem.size
+                    
+                    self.centerAllItems()
+                    
+                    
+                    }, completion: { (Bool finished) -> Void in
+                        self.isAnimating = false
                 })
             }
             break
@@ -190,12 +266,21 @@ class TimeLineViewController: UIViewController {
         }
     }
     
+    func centerAllItems(){
+        self.preItem?.frame.origin.x = self.centerXItem(self.preItem!.bounds.width)
+        self.currentItem.frame.origin.x = self.centerXItem(self.currentItem.bounds.width)
+        self.itemInshow1!.frame.origin.x = self.centerXItem(self.itemInshow1!.bounds.width)
+        self.itemInshow2!.frame.origin.x = self.centerXItem(self.itemInshow2!.bounds.width)
+        self.itemInshow3!.frame.origin.x = self.centerXItem(self.itemInshow3!.bounds.width)
+        self.nextItem!.frame.origin.x = self.centerXItem(self.nextItem!.bounds.width)
+    }
+    
     func createNewItem(itemRect: CGRect) -> TimelineItem {
         let item = NSBundle.mainBundle().loadNibNamed("TimelineItem", owner: nil, options: nil)[0] as! TimelineItem
         item.bounds.size = itemRect.size
         item.frame.origin = itemRect.origin
         item.frame.origin.x = centerXItem(item.bounds.width)
-        item.backgroundColor = UIColor(red: CGFloat((random() % 255)/255), green: 120/255, blue: 120/255, alpha: 1)
+        item.backgroundColor = UIColor(red: CGFloat((random() % 255)/255), green: CGFloat((random() % 255))/255, blue: CGFloat((random() % 255))/255, alpha: 1)
         return item
     }
     
