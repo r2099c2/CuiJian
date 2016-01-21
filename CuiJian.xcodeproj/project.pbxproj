@@ -81,16 +81,24 @@
 			isa = PBXGroup;
 			children = (
 				1D3285C11C4667ED00ADAFDC /* Controller */,
+				1DEE7A2E1C50C80F0081D6BD /* TimelineItem */,
 				1D57B04B1C43BC0C001C18F7 /* AppDelegate.swift */,
 				1D57B0511C43BC0C001C18F7 /* Main.storyboard */,
-				1D1ED46E1C4CB7670012EDD1 /* TimelineItem.xib */,
-				1D1ED4701C4CB7A70012EDD1 /* TimelineItem.swift */,
 				1D57B04D1C43BC0C001C18F7 /* art.scnassets */,
 				1D57B0541C43BC0C001C18F7 /* Assets.xcassets */,
 				1D57B0561C43BC0C001C18F7 /* LaunchScreen.storyboard */,
 				1D57B0591C43BC0C001C18F7 /* Info.plist */,
 			);
 			path = CuiJian;
+			sourceTree = "<group>";
+		};
+		1DEE7A2E1C50C80F0081D6BD /* TimelineItem */ = {
+			isa = PBXGroup;
+			children = (
+				1D1ED46E1C4CB7670012EDD1 /* TimelineItem.xib */,
+				1D1ED4701C4CB7A70012EDD1 /* TimelineItem.swift */,
+			);
+			name = TimelineItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

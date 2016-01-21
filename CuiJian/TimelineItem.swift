@@ -16,7 +16,31 @@ class TimelineItem: UIView {
 //    override func drawRect(rect: CGRect) {
 //        
 //    }
-    
+//    func loadContentView() {
+//        let contentNib = UINib(nibName: "TimelineItem", bundle: nil)
+//        
+//        if let contentView = contentNib.instantiateWithOwner(self, options: nil).first as? UIView
+//        {
+//            self.addSubview(contentView)
+//            
+//            //  We could use autoresizing or manually setting some constraints here for the content view
+//            contentView.translatesAutoresizingMaskIntoConstraints = true
+//            contentView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
+//            contentView.frame = self.bounds
+//        }
+//    }
+//    
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        
+//        loadContentView()
+//    }
+//    
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//        
+//        loadContentView()
+//    }
     
     @IBOutlet weak var image: UIImageView!
     
