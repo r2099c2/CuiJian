@@ -12,6 +12,9 @@ class TimeLineViewController: UIViewController {
 
     @IBOutlet weak var bgImageView: UIImageView!
     
+    @IBOutlet weak var itemsView: UIView!
+    @IBOutlet weak var sliderView: UIView!
+    
     var preItem: TimelineItem?
     var currentItem: TimelineItem!
     var itemInshow1: TimelineItem?
@@ -19,10 +22,10 @@ class TimeLineViewController: UIViewController {
     var itemInshow3: TimelineItem?
     var nextItem: TimelineItem?
     
-    
     var isAnimating: Bool = false
     
     var slideFactor: CGFloat! = 0.015
+    
     
     // the postion and size for Tileline items
     private struct TLItemState {
@@ -43,10 +46,11 @@ class TimeLineViewController: UIViewController {
         // init timeline item
         initTimeLineItem()
         
+        
         // add gesture to timeline item super view
         let panGusture = UIPanGestureRecognizer()
         panGusture.addTarget(self, action: "handleOnViewPanGusture:")
-        self.view.addGestureRecognizer(panGusture)
+        self.itemsView.addGestureRecognizer(panGusture)
         
     }
     
@@ -54,7 +58,7 @@ class TimeLineViewController: UIViewController {
     func initTimeLineItem() {
         for index in 1...6 {
             if let item = NSBundle.mainBundle().loadNibNamed("TimelineItem", owner: nil, options: nil)[0] as? TimelineItem {
-                self.view.addSubview(item)
+                self.itemsView.addSubview(item)
                 
                 item.title.text = String(index)
                 item.backgroundColor = UIColor(red: CGFloat(index*40)/255, green: 123/255, blue: 123/255, alpha: 1)
@@ -107,8 +111,8 @@ class TimeLineViewController: UIViewController {
     
     func handleOnViewPanGusture(pan: UIPanGestureRecognizer) {
         
-        let translationInView = pan.translationInView(self.view).y
-        let itemVelocity = pan.velocityInView(self.view).y * slideFactor
+        let translationInView = pan.translationInView(self.itemsView).y
+        let itemVelocity = pan.velocityInView(self.itemsView).y * slideFactor
         
         switch pan.state {
         case UIGestureRecognizerState.Changed:
@@ -169,8 +173,8 @@ class TimeLineViewController: UIViewController {
                         self.itemInshow2 = self.itemInshow3
                         self.itemInshow3 = self.nextItem
                         self.nextItem = self.createNewItem(TLItemState.nextItem)
-                        self.view.addSubview(self.nextItem!)
-                        self.view.insertSubview(self.nextItem!, aboveSubview: self.view.subviews[1])
+                        self.itemsView.addSubview(self.nextItem!)
+                        self.itemsView.sendSubviewToBack(self.nextItem!)
                         
                         self.isAnimating = false
                 })
@@ -204,7 +208,7 @@ class TimeLineViewController: UIViewController {
                         self.itemInshow1 = self.currentItem
                         self.currentItem = self.preItem
                         self.preItem = self.createNewItem(TLItemState.preItem)
-                        self.view.addSubview(self.preItem!)
+                        self.itemsView.addSubview(self.preItem!)
                         
                         self.isAnimating = false
                 })
@@ -269,7 +273,7 @@ class TimeLineViewController: UIViewController {
     }
     
     func centerXItem(itemWidth: CGFloat) -> CGFloat {
-        return (self.view.bounds.size.width - itemWidth) / 2
+        return (self.itemsView.bounds.size.width - itemWidth) / 2
     }
    
     func calcDistance(fromView: UIView, toRect: CGRect) -> CGFloat {
