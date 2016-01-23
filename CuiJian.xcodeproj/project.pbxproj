@@ -18,6 +18,7 @@
 		1D57B0531C43BC0C001C18F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D57B0511C43BC0C001C18F7 /* Main.storyboard */; };
 		1D57B0551C43BC0C001C18F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D57B0541C43BC0C001C18F7 /* Assets.xcassets */; };
 		1D57B0581C43BC0C001C18F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D57B0561C43BC0C001C18F7 /* LaunchScreen.storyboard */; };
+		1D9D2B971C53C4F500B5332D /* TimelineSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9D2B961C53C4F500B5332D /* TimelineSlider.swift */; };
 		1DD024F11C461AC40000D316 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD024F01C461AC40000D316 /* SongViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		1D57B0541C43BC0C001C18F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D57B0571C43BC0C001C18F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D57B0591C43BC0C001C18F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D9D2B961C53C4F500B5332D /* TimelineSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineSlider.swift; sourceTree = "<group>"; };
 		1DD024F01C461AC40000D316 /* SongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +99,7 @@
 			children = (
 				1D1ED46E1C4CB7670012EDD1 /* TimelineItem.xib */,
 				1D1ED4701C4CB7A70012EDD1 /* TimelineItem.swift */,
+				1D9D2B961C53C4F500B5332D /* TimelineSlider.swift */,
 			);
 			name = TimelineItem;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DD024F11C461AC40000D316 /* SongViewController.swift in Sources */,
+				1D9D2B971C53C4F500B5332D /* TimelineSlider.swift in Sources */,
 				1D3285C01C4667D900ADAFDC /* NavViewController.swift in Sources */,
 				1D57B0501C43BC0C001C18F7 /* GameViewController.swift in Sources */,
 				1D1ED4711C4CB7A70012EDD1 /* TimelineItem.swift in Sources */,
