@@ -75,7 +75,7 @@ class GameViewController: UIViewController {
         
         
         // Sky box
-        scene.background.contents = UIImage(named: "skybox")
+        scene.background.contents = [UIImage(named: "skybox1")!,UIImage(named: "skybox2")!,UIImage(named: "skybox3")!,UIImage(named: "skybox4")!,UIImage(named: "skybox5")!,UIImage(named: "skybox6")!] as NSArray
         
         // Floor ground
         let floor = SCNFloor()

@@ -19,6 +19,7 @@
 		1D57B0551C43BC0C001C18F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D57B0541C43BC0C001C18F7 /* Assets.xcassets */; };
 		1D57B0581C43BC0C001C18F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D57B0561C43BC0C001C18F7 /* LaunchScreen.storyboard */; };
 		1D9D2B971C53C4F500B5332D /* TimelineSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9D2B961C53C4F500B5332D /* TimelineSlider.swift */; };
+		1DAA83FA1C563D2200355E47 /* SlideMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAA83F91C563D2200355E47 /* SlideMaskView.swift */; };
 		1DD024F11C461AC40000D316 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD024F01C461AC40000D316 /* SongViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		1D57B0571C43BC0C001C18F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D57B0591C43BC0C001C18F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D9D2B961C53C4F500B5332D /* TimelineSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineSlider.swift; sourceTree = "<group>"; };
+		1DAA83F91C563D2200355E47 /* SlideMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMaskView.swift; sourceTree = "<group>"; };
 		1DD024F01C461AC40000D316 /* SongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +102,7 @@
 				1D1ED46E1C4CB7670012EDD1 /* TimelineItem.xib */,
 				1D1ED4701C4CB7A70012EDD1 /* TimelineItem.swift */,
 				1D9D2B961C53C4F500B5332D /* TimelineSlider.swift */,
+				1DAA83F91C563D2200355E47 /* SlideMaskView.swift */,
 			);
 			name = TimelineItem;
 			sourceTree = "<group>";
@@ -136,6 +139,7 @@
 				TargetAttributes = {
 					1D57B0471C43BC0C001C18F7 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 4F7E7U4KV3;
 					};
 				};
 			};
@@ -185,6 +189,7 @@
 				1D3285BE1C46611800ADAFDC /* TransparentNavBar.swift in Sources */,
 				1D57B04C1C43BC0C001C18F7 /* AppDelegate.swift in Sources */,
 				1D267C2E1C47894800FEAFB6 /* TimeLineViewController.swift in Sources */,
+				1DAA83FA1C563D2200355E47 /* SlideMaskView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,10 +302,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CuiJian/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.logicdesign.CuiJian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -308,10 +317,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CuiJian/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.logicdesign.CuiJian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

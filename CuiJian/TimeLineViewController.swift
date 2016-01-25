@@ -13,7 +13,10 @@ class TimeLineViewController: UIViewController {
     @IBOutlet weak var bgImageView: UIImageView!
     
     @IBOutlet weak var itemsView: UIView!
-    @IBOutlet weak var sliderView: UIView!
+    
+    @IBOutlet weak var slideMaskView: SlideMaskView!
+    
+    @IBOutlet weak var TimelineSlideView: TimelineSlider!
     
     var preItem: TimelineItem?
     var currentItem: TimelineItem!
@@ -51,6 +54,10 @@ class TimeLineViewController: UIViewController {
         let panGusture = UIPanGestureRecognizer()
         panGusture.addTarget(self, action: "handleOnViewPanGusture:")
         self.itemsView.addGestureRecognizer(panGusture)
+        
+        let panGesture = UIPanGestureRecognizer()
+        panGesture.addTarget(self, action: "slideGestureHandle:")
+        slideMaskView.addGestureRecognizer(panGesture)
         
     }
     
@@ -299,6 +306,22 @@ class TimeLineViewController: UIViewController {
         
         // Add both effects to your view
         bgImageView.addMotionEffect(group)
+    }
+    
+    // Slider PanGesture
+    func slideGestureHandle(pan: UIPanGestureRecognizer) {
+        let translationInView = pan.translationInView(self.itemsView).x
+        let itemVelocity = pan.velocityInView(self.itemsView).x * slideFactor
+        
+        switch pan.state {
+        case .Ended:
+            fallthrough
+        case .Changed:
+            TimelineSlideView.frame.origin.x += itemVelocity
+            break
+        default:
+            break
+        }
     }
     
 
