@@ -21,6 +21,10 @@
 		1D9D2B971C53C4F500B5332D /* TimelineSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9D2B961C53C4F500B5332D /* TimelineSlider.swift */; };
 		1DAA83FA1C563D2200355E47 /* SlideMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAA83F91C563D2200355E47 /* SlideMaskView.swift */; };
 		1DD024F11C461AC40000D316 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD024F01C461AC40000D316 /* SongViewController.swift */; };
+		1DDEC2ED1C572A1E00C59F0D /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDEC2EC1C572A1E00C59F0D /* Data.swift */; };
+		1DDEC2F01C57380200C59F0D /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1DDEC2EE1C57380200C59F0D /* Data.xcdatamodeld */; };
+		1DDEC2F31C573FA700C59F0D /* Timeline+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDEC2F11C573FA700C59F0D /* Timeline+CoreDataProperties.swift */; };
+		1DDEC2F41C573FA700C59F0D /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDEC2F21C573FA700C59F0D /* Timeline.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		1D9D2B961C53C4F500B5332D /* TimelineSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineSlider.swift; sourceTree = "<group>"; };
 		1DAA83F91C563D2200355E47 /* SlideMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMaskView.swift; sourceTree = "<group>"; };
 		1DD024F01C461AC40000D316 /* SongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
+		1DDEC2EC1C572A1E00C59F0D /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		1DDEC2EF1C57380200C59F0D /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
+		1DDEC2F11C573FA700C59F0D /* Timeline+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Timeline+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1DDEC2F21C573FA700C59F0D /* Timeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,7 @@
 			children = (
 				1D3285C11C4667ED00ADAFDC /* Controller */,
 				1DEE7A2E1C50C80F0081D6BD /* TimelineItem */,
+				1DDEC2EB1C5729CA00C59F0D /* Model */,
 				1D57B04B1C43BC0C001C18F7 /* AppDelegate.swift */,
 				1D57B0511C43BC0C001C18F7 /* Main.storyboard */,
 				1D57B04D1C43BC0C001C18F7 /* art.scnassets */,
@@ -94,6 +103,17 @@
 				1D57B0591C43BC0C001C18F7 /* Info.plist */,
 			);
 			path = CuiJian;
+			sourceTree = "<group>";
+		};
+		1DDEC2EB1C5729CA00C59F0D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1DDEC2F11C573FA700C59F0D /* Timeline+CoreDataProperties.swift */,
+				1DDEC2F21C573FA700C59F0D /* Timeline.swift */,
+				1DDEC2EC1C572A1E00C59F0D /* Data.swift */,
+				1DDEC2EE1C57380200C59F0D /* Data.xcdatamodeld */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		1DEE7A2E1C50C80F0081D6BD /* TimelineItem */ = {
@@ -182,13 +202,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DD024F11C461AC40000D316 /* SongViewController.swift in Sources */,
+				1DDEC2ED1C572A1E00C59F0D /* Data.swift in Sources */,
 				1D9D2B971C53C4F500B5332D /* TimelineSlider.swift in Sources */,
 				1D3285C01C4667D900ADAFDC /* NavViewController.swift in Sources */,
 				1D57B0501C43BC0C001C18F7 /* GameViewController.swift in Sources */,
 				1D1ED4711C4CB7A70012EDD1 /* TimelineItem.swift in Sources */,
+				1DDEC2F01C57380200C59F0D /* Data.xcdatamodeld in Sources */,
 				1D3285BE1C46611800ADAFDC /* TransparentNavBar.swift in Sources */,
 				1D57B04C1C43BC0C001C18F7 /* AppDelegate.swift in Sources */,
 				1D267C2E1C47894800FEAFB6 /* TimeLineViewController.swift in Sources */,
+				1DDEC2F41C573FA700C59F0D /* Timeline.swift in Sources */,
+				1DDEC2F31C573FA700C59F0D /* Timeline+CoreDataProperties.swift in Sources */,
 				1DAA83FA1C563D2200355E47 /* SlideMaskView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,6 +374,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1DDEC2EE1C57380200C59F0D /* Data.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1DDEC2EF1C57380200C59F0D /* Data.xcdatamodel */,
+			);
+			currentVersion = 1DDEC2EF1C57380200C59F0D /* Data.xcdatamodel */;
+			path = Data.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1D57B0401C43BC0B001C18F7 /* Project object */;
 }

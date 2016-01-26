@@ -61,7 +61,13 @@ class TimeLineViewController: UIViewController {
         
     }
     
-    // MARK: Page item slide
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        TimelineSlideView.centerFrame()
+    }
+    
+    // MARK: - Page item slide
     func initTimeLineItem() {
         for index in 1...6 {
             if let item = NSBundle.mainBundle().loadNibNamed("TimelineItem", owner: nil, options: nil)[0] as? TimelineItem {
@@ -308,20 +314,34 @@ class TimeLineViewController: UIViewController {
         bgImageView.addMotionEffect(group)
     }
     
+    // MARK: - Timeline View
     // Slider PanGesture
     func slideGestureHandle(pan: UIPanGestureRecognizer) {
         let translationInView = pan.translationInView(self.itemsView).x
         let itemVelocity = pan.velocityInView(self.itemsView).x * slideFactor
         
         switch pan.state {
-        case .Ended:
-            fallthrough
+        case .Began:
+            TimelineSlideView.isSlide = true
+            updateTimeline()
+            break
         case .Changed:
+            // TODO: cant slide when out range
+            TimelineSlideView.isSlide = false
             TimelineSlideView.frame.origin.x += itemVelocity
+            break
+        case .Ended:
+            // TODO: add animation
+            TimelineSlideView.curDecadeIndex = TimelineSlideView.getCurDecade(TimelineSlideView.frame.origin.x)
+            updateTimeline()
             break
         default:
             break
         }
+    }
+    
+    func updateTimeline() {
+        TimelineSlideView.setNeedsDisplay()
     }
     
 
