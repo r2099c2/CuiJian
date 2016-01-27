@@ -30,6 +30,12 @@ class NavViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func MVClicked(sender: AnyObject) {
+        let storyboard = UIStoryboard(name: "MVStoryboard", bundle: nil)
+        let controller = storyboard.instantiateViewControllerWithIdentifier("MvController") as UIViewController
+        
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

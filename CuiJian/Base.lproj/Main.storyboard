@@ -82,7 +82,7 @@
                                             <rect key="frame" x="145" y="305" width="30" height="30"/>
                                             <state key="normal" title="MV"/>
                                             <connections>
-                                                <segue destination="MrU-AQ-Rod" kind="push" id="OyN-cg-LNa"/>
+                                                <action selector="MVClicked:" destination="GFv-yb-n9U" eventType="touchUpInside" id="kqA-VS-JdA"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gV-Oo-ieJ">
@@ -134,17 +134,6 @@
             </objects>
             <point key="canvasLocation" x="1978.6666666666667" y="-84.25333333333333"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="9mB-zI-EWv">
-            <objects>
-                <viewController id="MrU-AQ-Rod" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="10a-Q4-ry7"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ENq-bp-8cs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2012.8" y="659.82666666666671"/>
-        </scene>
         <!--专辑试听-->
         <scene sceneID="R3b-nb-gSF">
             <objects>
@@ -191,7 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f7d-0E-8TA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2376" y="-270"/>
+            <point key="canvasLocation" x="2732" y="-310"/>
         </scene>
         <!--关于崔健-->
         <scene sceneID="sSe-Qa-XUq">
@@ -269,7 +258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FfH-G8-Ia3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2425" y="351"/>
+            <point key="canvasLocation" x="2732" y="355"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Xps-mj-ShA">
