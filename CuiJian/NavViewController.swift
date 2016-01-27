@@ -36,6 +36,10 @@ class NavViewController: UIViewController {
         
         self.presentViewController(controller, animated: true, completion: nil)
     }
+    
+    @IBAction func newsClicked(sender: AnyObject) {
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

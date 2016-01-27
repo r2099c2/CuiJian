@@ -99,6 +99,13 @@
                                                 <segue destination="vQp-Ch-gUU" kind="push" id="8SK-Qx-k3t"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFu-uI-7pm">
+                                            <rect key="frame" x="134" y="267" width="46" height="30"/>
+                                            <state key="normal" title="News"/>
+                                            <connections>
+                                                <action selector="newsClicked:" destination="GFv-yb-n9U" eventType="touchUpInside" id="Kth-9M-M1E"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="4gV-Oo-ieJ" firstAttribute="top" secondItem="iob-cU-15p" secondAttribute="bottom" constant="12" id="4pZ-JN-drC"/>
