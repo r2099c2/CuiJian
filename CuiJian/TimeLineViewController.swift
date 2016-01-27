@@ -18,6 +18,8 @@ class TimeLineViewController: UIViewController {
     
     @IBOutlet weak var TimelineSlideView: TimelineSlider!
     
+    var firstLoadTimeline = true
+    
     var preItem: TimelineItem?
     var currentItem: TimelineItem!
     var itemInshow1: TimelineItem?
@@ -61,11 +63,18 @@ class TimeLineViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        
+        firstLoadTimeline = true
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         TimelineSlideView.centerFrame()
     }
+    
     
     // MARK: - Page item slide
     func initTimeLineItem() {
@@ -332,8 +341,11 @@ class TimeLineViewController: UIViewController {
             break
         case .Ended:
             // TODO: add animation
-            TimelineSlideView.curDecadeIndex = TimelineSlideView.getCurDecade(TimelineSlideView.frame.origin.x)
-            updateTimeline()
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.TimelineSlideView.curDecadeIndex = self.TimelineSlideView.getCurDecade(self.TimelineSlideView.frame.origin.x)
+                self.updateTimeline()
+            })
+            
             break
         default:
             break

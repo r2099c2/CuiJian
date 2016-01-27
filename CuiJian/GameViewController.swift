@@ -11,7 +11,7 @@ import QuartzCore
 import SceneKit
 import CoreMotion
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, SCNSceneRendererDelegate {
 
     @IBOutlet var rootView: UIView!
     
@@ -27,10 +27,11 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // MARK: - 3D Scene
         // Create Scene
-        let scene = SCNScene()
+        let rootScene = SCNScene()
         
-        sceneView!.scene = scene
+        sceneView!.scene = rootScene
         sceneView!.autoenablesDefaultLighting = true
         
         // Add camera to scene.
@@ -42,7 +43,7 @@ class GameViewController: UIViewController {
         self.camerasNode!.position = SCNVector3(0, 0, 0)
         
         // 用户使用时手机是垂直的，所以需要相机旋转-90度
-        self.camerasNode!.eulerAngles = SCNVector3Make(degreesToRadians(-90), 0, 0)
+        self.camerasNode!.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
         
         let cameraRollNode = SCNNode()
         cameraRollNode.addChildNode(camerasNode!)
@@ -53,7 +54,7 @@ class GameViewController: UIViewController {
         let cameraYawNode = SCNNode()
         cameraYawNode.addChildNode(cameraPitchNode)
         
-        scene.rootNode.addChildNode(cameraYawNode)
+        rootScene.rootNode.addChildNode(cameraYawNode)
         
         self.sceneView!.pointOfView = camerasNode
         
@@ -75,7 +76,7 @@ class GameViewController: UIViewController {
         
         
         // Sky box
-        scene.background.contents = [UIImage(named: "skybox1")!,UIImage(named: "skybox2")!,UIImage(named: "skybox3")!,UIImage(named: "skybox4")!,UIImage(named: "skybox5")!,UIImage(named: "skybox6")!] as NSArray
+        rootScene.background.contents = [UIImage(named: "skybox1")!,UIImage(named: "skybox2")!,UIImage(named: "skybox3")!,UIImage(named: "skybox4")!,UIImage(named: "skybox5")!,UIImage(named: "skybox6")!] as NSArray
         
         // Floor ground
         let floor = SCNFloor()
@@ -84,8 +85,30 @@ class GameViewController: UIViewController {
         let floorNode = SCNNode()
         floorNode.geometry = floor
         floorNode.position = SCNVector3(0, -20, 0)
-        scene.rootNode.addChildNode(floorNode)
+        rootScene.rootNode.addChildNode(floorNode)
         
+        
+        // add node
+        let figurineBoy = addNode("Cuijian_logo/bass.dae")
+        figurineBoy.position = SCNVector3(0, -5, -5)
+        figurineBoy.eulerAngles = SCNVector3(0, GLKMathDegreesToRadians(90), 0)
+        
+        let figurineGirl = addNode("UFO/UFO.dae")
+        figurineGirl.position = SCNVector3(0, -2, 10)
+        figurineGirl.eulerAngles = SCNVector3(0, GLKMathDegreesToRadians(0), 0)
+        
+        rootScene.rootNode.addChildNode(figurineBoy)
+        rootScene.rootNode.addChildNode(figurineGirl)
+    }
+    
+    func addNode(fileName: String) -> SCNNode {
+        var node = SCNNode()
+        if let subScene = SCNScene(named: "art.scnassets/\(fileName)") {
+            if let subNode = subScene.rootNode.childNodes.first {
+                node = subNode
+            }
+        }
+        return node
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -93,11 +116,7 @@ class GameViewController: UIViewController {
         
         self.navigationController?.navigationBarHidden = true
     }
-    
-    // 角度转弧度
-    func degreesToRadians(degrees: Float) -> Float {
-        return (degrees * Float(M_PI)) / 180.0
-    }
+
     
     
     
@@ -122,12 +141,17 @@ class GameViewController: UIViewController {
         // Release any cached data, images, etc that aren't in use.
     }
     
-    
-    // Mark: Navigation
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+    func renderer(aRenderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval)
+    {
+        if let mm = motionManager, let motion = mm.deviceMotion {
+            let currentAttitude = motion.attitude
+            
+            cameraRollNode!.eulerAngles.x = Float(currentAttitude.roll)
+            cameraPitchNode!.eulerAngles.z = Float(currentAttitude.pitch)
+            cameraYawNode!.eulerAngles.y = Float(currentAttitude.yaw)
+        }
     }
+    
     
     
     
@@ -135,7 +159,7 @@ class GameViewController: UIViewController {
 }
 
 
-// Mark: -contentViewController
+// MARK: - ContentViewController
 // description: by doing this can use navigationController
 extension UIViewController {
     var contentViewController: UIViewController {

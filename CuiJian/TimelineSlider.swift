@@ -38,6 +38,8 @@ class TimelineSlider: UIView {
         // Draw line
         
         drawLine()
+        
+        centerFrame()
     }
     
     func drawLine() {
@@ -127,7 +129,7 @@ class TimelineSlider: UIView {
     }
     
     func centerFrame() {
-        frame.origin.x = superWidth / 2 - (lineWidth*5 + pathSpacing*5) * CGFloat(curDecadeIndex)
+        self.frame.origin.x = self.superWidth / 2 - (self.lineWidth*5 + self.pathSpacing*5) * CGFloat(self.curDecadeIndex)
     }
     
     func getCurDecade(frameX: CGFloat) -> Int {
@@ -135,6 +137,8 @@ class TimelineSlider: UIView {
         print(curDecade)
         return Int(curDecade)
     }
+    
+    
 
 
 }
