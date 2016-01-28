@@ -33,8 +33,7 @@ class NavViewController: UIViewController {
     @IBAction func MVClicked(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "MVStoryboard", bundle: nil)
         let controller = storyboard.instantiateViewControllerWithIdentifier("MvController") as UIViewController
-        
-        self.presentViewController(controller, animated: true, completion: nil)
+        self.navigationController!.pushViewController(controller, animated: true)
     }
     
     @IBAction func newsClicked(sender: AnyObject) {

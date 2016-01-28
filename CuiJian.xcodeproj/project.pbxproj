@@ -25,7 +25,10 @@
 		1DDEC2F01C57380200C59F0D /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1DDEC2EE1C57380200C59F0D /* Data.xcdatamodeld */; };
 		1DDEC2F31C573FA700C59F0D /* Timeline+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDEC2F11C573FA700C59F0D /* Timeline+CoreDataProperties.swift */; };
 		1DDEC2F41C573FA700C59F0D /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDEC2F21C573FA700C59F0D /* Timeline.swift */; };
+		4212F7E91C5A13AD00C6BA6F /* sample_iPod.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 4212F7E81C5A121F00C6BA6F /* sample_iPod.m4v */; };
+		4212F7EB1C5A3B7800C6BA6F /* MVPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212F7EA1C5A3B7800C6BA6F /* MVPlayerViewController.swift */; };
 		421AF2A41C587BAA00E9D63B /* MVStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421AF2A31C587BAA00E9D63B /* MVStoryboard.storyboard */; };
+		421AF2A61C58891C00E9D63B /* MVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421AF2A51C58891C00E9D63B /* MVViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +52,11 @@
 		1DDEC2EF1C57380200C59F0D /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
 		1DDEC2F11C573FA700C59F0D /* Timeline+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Timeline+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1DDEC2F21C573FA700C59F0D /* Timeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
+		4212F7E81C5A121F00C6BA6F /* sample_iPod.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample_iPod.m4v; sourceTree = "<group>"; };
+		4212F7EA1C5A3B7800C6BA6F /* MVPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVPlayerViewController.swift; sourceTree = "<group>"; };
 		421AF2A31C587BAA00E9D63B /* MVStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MVStoryboard.storyboard; sourceTree = "<group>"; };
+		421AF2A51C58891C00E9D63B /* MVViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVViewController.swift; sourceTree = "<group>"; };
+		6F96F82292D284480C76E61B /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +78,8 @@
 				1D3285BD1C46611800ADAFDC /* TransparentNavBar.swift */,
 				1D3285BF1C4667D900ADAFDC /* NavViewController.swift */,
 				1D267C2D1C47894800FEAFB6 /* TimeLineViewController.swift */,
+				421AF2A51C58891C00E9D63B /* MVViewController.swift */,
+				4212F7EA1C5A3B7800C6BA6F /* MVPlayerViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -80,6 +89,7 @@
 			children = (
 				1D57B04A1C43BC0C001C18F7 /* CuiJian */,
 				1D57B0491C43BC0C001C18F7 /* Products */,
+				B707B4E3C282D2476CA8ACD3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +104,7 @@
 		1D57B04A1C43BC0C001C18F7 /* CuiJian */ = {
 			isa = PBXGroup;
 			children = (
+				4212F7E71C5A121400C6BA6F /* mvs */,
 				1D3285C11C4667ED00ADAFDC /* Controller */,
 				1DEE7A2E1C50C80F0081D6BD /* TimelineItem */,
 				1DDEC2EB1C5729CA00C59F0D /* Model */,
@@ -128,6 +139,22 @@
 				1DAA83F91C563D2200355E47 /* SlideMaskView.swift */,
 			);
 			name = TimelineItem;
+			sourceTree = "<group>";
+		};
+		4212F7E71C5A121400C6BA6F /* mvs */ = {
+			isa = PBXGroup;
+			children = (
+				4212F7E81C5A121F00C6BA6F /* sample_iPod.m4v */,
+			);
+			name = mvs;
+			sourceTree = "<group>";
+		};
+		B707B4E3C282D2476CA8ACD3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F96F82292D284480C76E61B /* Pods.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +216,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4212F7E91C5A13AD00C6BA6F /* sample_iPod.m4v in Resources */,
 				1D57B0581C43BC0C001C18F7 /* LaunchScreen.storyboard in Resources */,
 				1D315CA81C589CEB00935D41 /* art.scnassets in Resources */,
 				1D57B0551C43BC0C001C18F7 /* Assets.xcassets in Resources */,
@@ -206,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DD024F11C461AC40000D316 /* SongViewController.swift in Sources */,
+				421AF2A61C58891C00E9D63B /* MVViewController.swift in Sources */,
 				1DDEC2ED1C572A1E00C59F0D /* Data.swift in Sources */,
 				1D9D2B971C53C4F500B5332D /* TimelineSlider.swift in Sources */,
 				1D3285C01C4667D900ADAFDC /* NavViewController.swift in Sources */,
@@ -214,6 +243,7 @@
 				1DDEC2F01C57380200C59F0D /* Data.xcdatamodeld in Sources */,
 				1D3285BE1C46611800ADAFDC /* TransparentNavBar.swift in Sources */,
 				1D57B04C1C43BC0C001C18F7 /* AppDelegate.swift in Sources */,
+				4212F7EB1C5A3B7800C6BA6F /* MVPlayerViewController.swift in Sources */,
 				1D267C2E1C47894800FEAFB6 /* TimeLineViewController.swift in Sources */,
 				1DDEC2F41C573FA700C59F0D /* Timeline.swift in Sources */,
 				1DDEC2F31C573FA700C59F0D /* Timeline+CoreDataProperties.swift in Sources */,
@@ -338,6 +368,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.logicdesign.CuiJian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -353,6 +384,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.logicdesign.CuiJian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
