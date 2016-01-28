@@ -34,8 +34,8 @@ class TimeLineViewController: UIViewController {
     
     // the postion and size for Tileline items
     private struct TLItemState {
-        static let preItem: CGRect = CGRectMake(57, 600 , 300, 300)
-        static let currentItem: CGRect = CGRectMake(57, 200, 300, 300)
+        static let preItem: CGRect = CGRectMake(57, 1200 , 300, 300)
+        static let currentItem: CGRect = CGRectMake(57, 190, 300, 300)
         static let itemInshow1: CGRect = CGRectMake(77, 140, 260, 260)
         static let itemInshow2: CGRect = CGRectMake(97, 100, 220, 220)
         static let itemInshow3: CGRect = CGRectMake(117, 90, 180, 180)
@@ -139,6 +139,8 @@ class TimeLineViewController: UIViewController {
         switch pan.state {
         case UIGestureRecognizerState.Changed:
             
+            let slideUpFactor: CGFloat = 1.7
+            
             if !isAnimating {
                 if translationInView >= 0 {
                     // slide down
@@ -152,11 +154,11 @@ class TimeLineViewController: UIViewController {
                 } else {
                     // slide up
                     
-                    updateItem(preItem!, nextState: TLItemState.currentItem, velocity: itemVelocity)
-                    updateItem(currentItem!, nextState: TLItemState.itemInshow1, velocity: itemVelocity)
-                    updateItem(itemInshow1!, nextState: TLItemState.itemInshow2, velocity: itemVelocity)
-                    updateItem(itemInshow2!, nextState: TLItemState.itemInshow3, velocity: itemVelocity)
-                    updateItem(itemInshow3!, nextState: TLItemState.nextItem, velocity: itemVelocity)
+                    updateItem(preItem!, nextState: TLItemState.currentItem, velocity: itemVelocity * slideUpFactor)
+                    updateItem(currentItem!, nextState: TLItemState.itemInshow1, velocity: itemVelocity * slideUpFactor)
+                    updateItem(itemInshow1!, nextState: TLItemState.itemInshow2, velocity: itemVelocity * slideUpFactor)
+                    updateItem(itemInshow2!, nextState: TLItemState.itemInshow3, velocity: itemVelocity * slideUpFactor)
+                    updateItem(itemInshow3!, nextState: TLItemState.nextItem, velocity: itemVelocity * slideUpFactor)
                     
                 }
                 
@@ -326,7 +328,6 @@ class TimeLineViewController: UIViewController {
     // MARK: - Timeline View
     // Slider PanGesture
     func slideGestureHandle(pan: UIPanGestureRecognizer) {
-        let translationInView = pan.translationInView(self.itemsView).x
         let itemVelocity = pan.velocityInView(self.itemsView).x * slideFactor
         
         switch pan.state {

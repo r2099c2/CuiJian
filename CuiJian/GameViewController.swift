@@ -89,16 +89,51 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         
         
         // add node
-        let figurineBoy = addNode("Cuijian_logo/bass.dae")
-        figurineBoy.position = SCNVector3(0, -5, -5)
-        figurineBoy.eulerAngles = SCNVector3(0, GLKMathDegreesToRadians(90), 0)
+        let iceTree = addNode("iceTree/ice_tree.dae")
+        iceTree.position = SCNVector3(0, 0, -10)
+        rootScene.rootNode.addChildNode(iceTree)
         
-        let figurineGirl = addNode("UFO/UFO.dae")
-        figurineGirl.position = SCNVector3(0, -2, 10)
-        figurineGirl.eulerAngles = SCNVector3(0, GLKMathDegreesToRadians(0), 0)
+        let dollBoy = addNode("dolls/MudDoll_boy.dae")
+        dollBoy.position = SCNVector3(0, -5, -5)
+        dollBoy.eulerAngles = SCNVector3(0, GLKMathDegreesToRadians(90), 0)
+        rootScene.rootNode.addChildNode(dollBoy)
         
-        rootScene.rootNode.addChildNode(figurineBoy)
-        rootScene.rootNode.addChildNode(figurineGirl)
+        let aboutCuijian = addNode("aboutCuijian/LavaBall.dae")
+        aboutCuijian.position = SCNVector3(-10, 0, 0)
+        rootScene.rootNode.addChildNode(aboutCuijian)
+        
+        let teamCuijian = addNode("cuijianTeam/cuijian_logo.dae")
+        teamCuijian.position = SCNVector3(0, 0, 10)
+        rootScene.rootNode.addChildNode(teamCuijian)
+        
+        let teamBass = addNode("cuijianTeam/bass.dae")
+        teamBass.position = SCNVector3(-2, 0, 10)
+        rootScene.rootNode.addChildNode(teamBass)
+        
+        let teamDrums = addNode("cuijianTeam/Drums.dae")
+        teamDrums.position = SCNVector3(2, 0, 10)
+        rootScene.rootNode.addChildNode(teamDrums)
+        
+        let teamGuitar = addNode("cuijianTeam/guitar.dae")
+        teamGuitar.position = SCNVector3(0, 0, 10)
+        rootScene.rootNode.addChildNode(teamGuitar)
+        
+        let teamKeyboard = addNode("cuijianTeam/Keyboard.dae")
+        teamKeyboard.position = SCNVector3(-1, 0, 12)
+        rootScene.rootNode.addChildNode(teamKeyboard)
+        
+        let teamSuona_xiao = addNode("cuijianTeam/suona_xiao.dae")
+        teamSuona_xiao.position = SCNVector3(1, 0, 12)
+        rootScene.rootNode.addChildNode(teamSuona_xiao)
+        
+        let dollGirl = addNode("dolls/MudDoll_girl.dae")
+        dollGirl.position = SCNVector3(5, 0, 5)
+        dollGirl.eulerAngles = SCNVector3(0, GLKMathDegreesToRadians(0), 0)
+        rootScene.rootNode.addChildNode(dollGirl)
+        
+        let ufo = addNode("UFO/UFO.dae")
+        ufo.position = SCNVector3(10, 0, 0)
+        rootScene.rootNode.addChildNode(ufo)
     }
     
     func addNode(fileName: String) -> SCNNode {

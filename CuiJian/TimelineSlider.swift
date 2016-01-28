@@ -39,7 +39,7 @@ class TimelineSlider: UIView {
         
         drawLine()
         
-        centerFrame()
+        centerFrameWidthAnimation()
     }
     
     func drawLine() {
@@ -130,6 +130,12 @@ class TimelineSlider: UIView {
     
     func centerFrame() {
         self.frame.origin.x = self.superWidth / 2 - (self.lineWidth*5 + self.pathSpacing*5) * CGFloat(self.curDecadeIndex)
+    }
+    
+    func centerFrameWidthAnimation() {
+        UIView.animateWithDuration(0.5) { () -> Void in
+            self.frame.origin.x = self.superWidth / 2 - (self.lineWidth*5 + self.pathSpacing*5) * CGFloat(self.curDecadeIndex)
+        }
     }
     
     func getCurDecade(frameX: CGFloat) -> Int {
