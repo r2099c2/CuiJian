@@ -27,6 +27,8 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let groudPos: CGFloat = -20
+        
         // MARK: - 3D Scene
         // Create Scene
         let rootScene = SCNScene()
@@ -84,46 +86,45 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         floor.firstMaterial!.diffuse.contents = UIImage(named: "ground")
         let floorNode = SCNNode()
         floorNode.geometry = floor
-        floorNode.position = SCNVector3(0, -20, 0)
+        floorNode.position = SCNVector3(0, groudPos, 0)
         rootScene.rootNode.addChildNode(floorNode)
         
         
         // add node
         let iceTree = addNode("iceTree/ice_tree.dae")
-        iceTree.position = SCNVector3(0, 0, -10)
+        iceTree.position = SCNVector3(0, groudPos, -100)
         rootScene.rootNode.addChildNode(iceTree)
         
         let dollBoy = addNode("dolls/MudDoll_boy.dae")
-        dollBoy.position = SCNVector3(0, -5, -5)
-        dollBoy.eulerAngles = SCNVector3(0, GLKMathDegreesToRadians(90), 0)
+        dollBoy.position = SCNVector3(-40, groudPos, -40)
         rootScene.rootNode.addChildNode(dollBoy)
         
         let aboutCuijian = addNode("aboutCuijian/LavaBall.dae")
-        aboutCuijian.position = SCNVector3(-10, 0, 0)
+        aboutCuijian.position = SCNVector3(-60, groudPos, 0)
         rootScene.rootNode.addChildNode(aboutCuijian)
         
         let teamCuijian = addNode("cuijianTeam/cuijian_logo.dae")
-        teamCuijian.position = SCNVector3(0, 0, 10)
+        teamCuijian.position = SCNVector3(0, groudPos, 60)
         rootScene.rootNode.addChildNode(teamCuijian)
         
         let teamBass = addNode("cuijianTeam/bass.dae")
-        teamBass.position = SCNVector3(-2, 0, 10)
+        teamBass.position = SCNVector3(-5, groudPos, 70)
         rootScene.rootNode.addChildNode(teamBass)
         
         let teamDrums = addNode("cuijianTeam/Drums.dae")
-        teamDrums.position = SCNVector3(2, 0, 10)
+        teamDrums.position = SCNVector3(-20, groudPos, 90)
         rootScene.rootNode.addChildNode(teamDrums)
         
         let teamGuitar = addNode("cuijianTeam/guitar.dae")
-        teamGuitar.position = SCNVector3(0, 0, 10)
+        teamGuitar.position = SCNVector3(-20, groudPos, 70)
         rootScene.rootNode.addChildNode(teamGuitar)
         
         let teamKeyboard = addNode("cuijianTeam/Keyboard.dae")
-        teamKeyboard.position = SCNVector3(-1, 0, 12)
+        teamKeyboard.position = SCNVector3(15, groudPos, 80)
         rootScene.rootNode.addChildNode(teamKeyboard)
         
         let teamSuona_xiao = addNode("cuijianTeam/suona_xiao.dae")
-        teamSuona_xiao.position = SCNVector3(1, 0, 12)
+        teamSuona_xiao.position = SCNVector3(10, groudPos, 70)
         rootScene.rootNode.addChildNode(teamSuona_xiao)
         
         let dollGirl = addNode("dolls/MudDoll_girl.dae")
@@ -132,7 +133,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         rootScene.rootNode.addChildNode(dollGirl)
         
         let ufo = addNode("UFO/UFO.dae")
-        ufo.position = SCNVector3(10, 0, 0)
+        ufo.position = SCNVector3(80, groudPos, 0)
         rootScene.rootNode.addChildNode(ufo)
     }
     

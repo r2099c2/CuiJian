@@ -4,8 +4,8 @@
   <contributor>
    <authoring_tool>SceneKit Collada Exporter v1.0</authoring_tool>
   </contributor>
-  <created>2016-01-27T11:37:17Z</created>
-  <modified>2016-01-27T11:37:17Z</modified>
+  <created>2016-01-29T08:25:26Z</created>
+  <modified>2016-01-29T08:25:26Z</modified>
   <unit meter="0.010000"/>
   <up_axis>Y_UP</up_axis>
  </asset>
@@ -317,6 +317,7 @@
  <library_visual_scenes>
   <visual_scene id="scene26">
    <node id="UFO" name="UFO">
+    <matrix>10 0 0 0 0 10 0 0 0 0 10 0 0 0 0 1 </matrix>
     <node id="Flame1" name="Flame1">
      <matrix>1 0 0 -7.12059 0 1 0 0 0 0 1 0 0 0 0 1 </matrix>
      <instance_geometry url="#ID21">

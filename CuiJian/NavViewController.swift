@@ -10,6 +10,7 @@ import UIKit
 
 class NavViewController: UIViewController {
     
+    @IBOutlet weak var bgParaImg: UIImageView!
     
     
     @IBOutlet weak var song: UIButton!
@@ -19,6 +20,7 @@ class NavViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        bgParrallax(bgParaImg)
         
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
             self.song.frame.origin.y = CGFloat(0)

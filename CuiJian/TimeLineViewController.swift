@@ -46,7 +46,7 @@ class TimeLineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        bgParrallax()
+        bgParrallax(bgImageView)
         
         // init timeline item
         initTimeLineItem()
@@ -302,27 +302,6 @@ class TimeLineViewController: UIViewController {
    
     func calcDistance(fromView: UIView, toRect: CGRect) -> CGFloat {
         return abs(CGFloat(fromView.frame.origin.y - toRect.origin.y))
-    }
-    
-    // BackGroundImageView Parallax
-    func bgParrallax() {
-        // Set vertical effect
-        let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: UIInterpolatingMotionEffectType.TiltAlongVerticalAxis)
-        verticalMotionEffect.minimumRelativeValue = -20
-        verticalMotionEffect.maximumRelativeValue = 20
-        
-        // Set horizontal effect
-        let horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x",
-            type: .TiltAlongHorizontalAxis)
-        horizontalMotionEffect.minimumRelativeValue = -20
-        horizontalMotionEffect.maximumRelativeValue = 20
-        
-        // Create group to combine both
-        let group = UIMotionEffectGroup()
-        group.motionEffects = [horizontalMotionEffect, verticalMotionEffect]
-        
-        // Add both effects to your view
-        bgImageView.addMotionEffect(group)
     }
     
     // MARK: - Timeline View
