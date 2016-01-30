@@ -46,8 +46,8 @@ class TimeLineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        bgParrallax(bgImageView)
-        
+        HelperFuc.bgParrallax(bgImageView)
+
         // init timeline item
         initTimeLineItem()
         

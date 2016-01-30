@@ -10,17 +10,17 @@ import UIKit
 
 class NavViewController: UIViewController {
     
+    
     @IBOutlet weak var bgParaImg: UIImageView!
     
     
     @IBOutlet weak var song: UIButton!
     @IBOutlet weak var timeline: UIButton!
-    @IBOutlet weak var mv: UIButton!
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bgParrallax(bgParaImg)
+        HelperFuc.bgParrallax(bgParaImg)
         
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
             self.song.frame.origin.y = CGFloat(0)
@@ -31,7 +31,7 @@ class NavViewController: UIViewController {
             }, completion: nil)
         // Do any additional setup after loading the view.
     }
-    
+        
     @IBAction func MVClicked(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "MVStoryboard", bundle: nil)
         let controller = storyboard.instantiateViewControllerWithIdentifier("MvController") as UIViewController

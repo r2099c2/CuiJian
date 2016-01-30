@@ -43,7 +43,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bgParrallax(bgImageView)
+        HelperFuc.bgParrallax(bgImageView)
 
         for item in songData {
             pageImages.append(UIImage(named: item["imgUrl"]!)!)

@@ -91,6 +91,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         
         
         // add node
+        // front
         let iceTree = addNode("iceTree/ice_tree.dae")
         iceTree.position = SCNVector3(0, groudPos, -100)
         rootScene.rootNode.addChildNode(iceTree)
@@ -99,10 +100,22 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         dollBoy.position = SCNVector3(-40, groudPos, -40)
         rootScene.rootNode.addChildNode(dollBoy)
         
+        let smlUfo = addNode("UFO/UFO.dae")
+        smlUfo.position = SCNVector3(-20, 10, -20)
+        smlUfo.eulerAngles = SCNVector3(0, GLKMathDegreesToRadians(120), 0)
+        smlUfo.scale = SCNVector3(0.8, 0.8, 0.8)
+        rootScene.rootNode.addChildNode(smlUfo)
+        
+        // left
         let aboutCuijian = addNode("aboutCuijian/LavaBall.dae")
         aboutCuijian.position = SCNVector3(-60, groudPos, 0)
         rootScene.rootNode.addChildNode(aboutCuijian)
         
+        let star1 = addNode("star/Star.dae")
+        star1.position = SCNVector3(-60, 20, 40)
+        rootScene.rootNode.addChildNode(star1)
+        
+        // back
         let teamCuijian = addNode("cuijianTeam/cuijian_logo.dae")
         teamCuijian.position = SCNVector3(0, groudPos, 60)
         rootScene.rootNode.addChildNode(teamCuijian)
@@ -127,14 +140,26 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         teamSuona_xiao.position = SCNVector3(10, groudPos, 70)
         rootScene.rootNode.addChildNode(teamSuona_xiao)
         
+        let star2 = addNode("star/Star_2.dae")
+        star2.position = SCNVector3(3, 10, 15)
+        rootScene.rootNode.addChildNode(star2)
+        
         let dollGirl = addNode("dolls/MudDoll_girl.dae")
-        dollGirl.position = SCNVector3(5, 0, 5)
-        dollGirl.eulerAngles = SCNVector3(0, GLKMathDegreesToRadians(0), 0)
+        dollGirl.position = SCNVector3(20, groudPos, 20)
         rootScene.rootNode.addChildNode(dollGirl)
         
+        let star3 = addNode("star/Star_3.dae")
+        star3.position = SCNVector3(10, 10, 10)
+        rootScene.rootNode.addChildNode(star3)
+        
+        // right
         let ufo = addNode("UFO/UFO.dae")
         ufo.position = SCNVector3(80, groudPos, 0)
         rootScene.rootNode.addChildNode(ufo)
+        
+        let guitar = addNode("guitar/guitar.dae")
+        guitar.position = SCNVector3(40, -21, -30)
+        rootScene.rootNode.addChildNode(guitar)
     }
     
     func addNode(fileName: String) -> SCNNode {
