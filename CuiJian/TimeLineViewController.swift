@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TimeLineViewController: UIViewController {
+class TimeLineViewController: UIViewController, TLSliderDataSource {
 
     @IBOutlet weak var bgImageView: UIImageView!
     
@@ -31,6 +31,8 @@ class TimeLineViewController: UIViewController {
     
     var slideFactor: CGFloat! = 0.015
     
+    var dataArray: [TimeLineModel?] = []
+    
     
     // the postion and size for Tileline items
     private struct TLItemState {
@@ -47,10 +49,8 @@ class TimeLineViewController: UIViewController {
         super.viewDidLoad()
 
         HelperFuc.bgParrallax(bgImageView)
-
-        // init timeline item
-        initTimeLineItem()
         
+        getData()
         
         // add gesture to timeline item super view
         let panGusture = UIPanGestureRecognizer()
@@ -74,6 +74,38 @@ class TimeLineViewController: UIViewController {
         
         TimelineSlideView.centerFrame()
     }
+    
+    
+    func getData() {
+        let session: NSURLSession = NSURLSession.sharedSession()
+        let url = NSURL(string: "http://cuijian.logicdesign.cn/api.php?term_id=3")
+        let request = NSMutableURLRequest(URL: url!)
+        
+        let task = session.dataTaskWithRequest(request) { (data:NSData?, response:NSURLResponse?, error:NSError?) -> Void in
+            do {
+                let dic:[NSDictionary] = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! [NSDictionary]
+                for value in dic {
+                    let item = TimeLineModel()
+                    item.setValuesForKeysWithDictionary(value as! [String : AnyObject])
+                    self.dataArray.append(item)
+                }
+                
+                print(self.dataArray)
+                // init timeline item
+                self.initTimeLineItem()
+            }
+            catch{
+                print("Error: \(error)")
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func getData(sender: TimelineSlider) -> [TimeLineModel?] {
+        return self.dataArray
+    }
+
     
     
     // MARK: - Page item slide

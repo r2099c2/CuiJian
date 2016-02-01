@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol TLSliderDataSource: class {
+    func getData(sender: TimelineSlider) -> [TimeLineModel?]
+}
+
+@IBDesignable
 class TimelineSlider: UIView {
 
     let shortLineHeight: CGFloat = 10
@@ -22,6 +27,8 @@ class TimelineSlider: UIView {
     let dateDecade = ["1960s","1970s","1980s","1990s","2000s","2010s"]
     var curDecadeIndex = 2
     
+    weak var datasource: TLSliderDataSource?
+    
     struct lineState {
         static let curLine: CGFloat = 50
         static let secLine: CGFloat = 40
@@ -35,6 +42,8 @@ class TimelineSlider: UIView {
         
         superWidth = (superview?.bounds.width)!
         
+        let data = datasource?.getData(self)
+                
         // Draw line
         
         drawLine()
