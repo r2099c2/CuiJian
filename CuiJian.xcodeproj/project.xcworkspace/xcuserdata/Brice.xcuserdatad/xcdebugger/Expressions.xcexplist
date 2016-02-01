@@ -10,5 +10,16 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "__30-[NewsViewController makeData]_block_invoke_2:NewsViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[NewsViewController collectionView:numberOfItemsInSection:]:NewsViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.dataArray.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

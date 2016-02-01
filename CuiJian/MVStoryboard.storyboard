@@ -10,7 +10,7 @@
         <!--MV-->
         <scene sceneID="QMj-wg-4tK">
             <objects>
-                <viewController storyboardIdentifier="MvController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jjP-mx-YJz" customClass="MVViewController" customModule="CuiJian" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MvController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jjP-mx-YJz" customClass="MVViewController" customModule="CuiJian" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Nog-7s-TeH"/>
                         <viewControllerLayoutGuide type="bottom" id="91n-GG-kfc"/>
@@ -34,104 +34,37 @@
                                     <constraint firstAttribute="width" secondItem="QmG-cF-wjG" secondAttribute="height" multiplier="414:103" id="fKU-wl-m9U"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ak8-t2-CAA" userLabel="MVs">
-                                <rect key="frame" x="30" y="92" width="540" height="615"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GRs-by-u1C" userLabel="MV1">
-                                        <rect key="frame" x="0.0" y="0.0" width="540" height="323"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mv1" translatesAutoresizingMaskIntoConstraints="NO" id="Nvt-Gr-1VQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="540" height="323"/>
-                                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
-                                                    <rect key="frame" x="0.0" y="0.0" width="720" height="431"/>
-                                                </variation>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LjQ-6q-OMq" userLabel="mv1play">
-                                                <rect key="frame" x="419" y="217" width="83" height="83"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="83" id="Hhu-mY-Ydw"/>
-                                                    <constraint firstAttribute="height" constant="83" id="Vub-aW-orP"/>
-                                                </constraints>
-                                                <state key="normal" image="mvplay"/>
-                                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
-                                                    <rect key="frame" x="586" y="317" width="83" height="83"/>
-                                                </variation>
-                                                <connections>
-                                                    <action selector="playmv1:" destination="jjP-mx-YJz" eventType="touchUpInside" id="so2-xi-r6M"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="GRs-by-u1C" secondAttribute="height" multiplier="395:236" id="6jx-a3-U6j"/>
-                                            <constraint firstItem="Nvt-Gr-1VQ" firstAttribute="centerY" secondItem="GRs-by-u1C" secondAttribute="centerY" id="AzF-Zd-TYM"/>
-                                            <constraint firstItem="Nvt-Gr-1VQ" firstAttribute="centerX" secondItem="GRs-by-u1C" secondAttribute="centerX" id="BrT-bK-Fw3"/>
-                                            <constraint firstItem="Nvt-Gr-1VQ" firstAttribute="width" secondItem="GRs-by-u1C" secondAttribute="width" id="aa8-Om-QjY"/>
-                                            <constraint firstItem="LjQ-6q-OMq" firstAttribute="bottom" secondItem="GRs-by-u1C" secondAttribute="bottom" multiplier="0.93" id="akd-7f-Fgo"/>
-                                            <constraint firstItem="LjQ-6q-OMq" firstAttribute="trailing" secondItem="GRs-by-u1C" secondAttribute="trailing" multiplier="0.93" id="i4b-9r-3ji"/>
-                                            <constraint firstItem="Nvt-Gr-1VQ" firstAttribute="height" secondItem="GRs-by-u1C" secondAttribute="height" id="t8d-eZ-JYk"/>
-                                        </constraints>
-                                        <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
-                                            <rect key="frame" x="0.0" y="0.0" width="720" height="431"/>
-                                        </variation>
-                                    </view>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MWI-M8-xIp" userLabel="MV2">
-                                        <rect key="frame" x="0.0" y="291" width="540" height="324"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mv2" translatesAutoresizingMaskIntoConstraints="NO" id="COL-PR-vc8">
-                                                <rect key="frame" x="0.0" y="0.0" width="540" height="324"/>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYi-EC-Vxz" userLabel="mv2play">
-                                                <rect key="frame" x="419" y="218" width="83" height="83"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="83" id="pJl-yx-4Is"/>
-                                                    <constraint firstAttribute="width" constant="83" id="sB5-IL-fOq"/>
-                                                </constraints>
-                                                <state key="normal" image="mvplay"/>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="GYi-EC-Vxz" firstAttribute="trailing" secondItem="MWI-M8-xIp" secondAttribute="trailing" multiplier="0.93" id="5bL-6c-gh0"/>
-                                            <constraint firstAttribute="width" secondItem="MWI-M8-xIp" secondAttribute="height" multiplier="395:237" id="Ewv-oL-m99"/>
-                                            <constraint firstItem="COL-PR-vc8" firstAttribute="width" secondItem="MWI-M8-xIp" secondAttribute="width" id="bgE-hV-Gha"/>
-                                            <constraint firstItem="COL-PR-vc8" firstAttribute="centerY" secondItem="MWI-M8-xIp" secondAttribute="centerY" id="dKG-GI-xxv"/>
-                                            <constraint firstItem="COL-PR-vc8" firstAttribute="height" secondItem="MWI-M8-xIp" secondAttribute="height" id="omV-aq-T0W"/>
-                                            <constraint firstItem="COL-PR-vc8" firstAttribute="centerX" secondItem="MWI-M8-xIp" secondAttribute="centerX" id="sM6-hI-q3J"/>
-                                            <constraint firstItem="GYi-EC-Vxz" firstAttribute="bottom" secondItem="MWI-M8-xIp" secondAttribute="bottom" multiplier="0.93" id="zGd-1v-uT4"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y4X-4Q-fat" userLabel="MVViews">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="GRs-by-u1C" firstAttribute="centerX" secondItem="Ak8-t2-CAA" secondAttribute="centerX" constant="120" id="1k5-Ph-60e">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="120"/>
-                                    </constraint>
-                                    <constraint firstItem="MWI-M8-xIp" firstAttribute="centerX" secondItem="GRs-by-u1C" secondAttribute="centerX" constant="120" id="Ksr-0p-k0V">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="120"/>
-                                    </constraint>
-                                    <constraint firstItem="GRs-by-u1C" firstAttribute="top" secondItem="Ak8-t2-CAA" secondAttribute="top" id="aeu-cE-z6z"/>
-                                    <constraint firstItem="GRs-by-u1C" firstAttribute="width" secondItem="Ak8-t2-CAA" secondAttribute="width" id="gxo-9N-LS1"/>
-                                    <constraint firstItem="MWI-M8-xIp" firstAttribute="width" secondItem="Ak8-t2-CAA" secondAttribute="width" id="hO3-mq-lcE"/>
-                                    <constraint firstAttribute="width" secondItem="Ak8-t2-CAA" secondAttribute="height" multiplier="395:450" id="kYR-oS-YDT"/>
-                                    <constraint firstItem="MWI-M8-xIp" firstAttribute="top" secondItem="GRs-by-u1C" secondAttribute="bottom" multiplier="0.9" id="sjd-gS-v4Q"/>
-                                </constraints>
-                            </view>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LLt-BQ-KFg" customClass="VVSpringCollectionViewFlowLayout">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="jjP-mx-YJz" id="3yd-gy-mtU"/>
+                                    <outlet property="delegate" destination="jjP-mx-YJz" id="WGh-jB-kqK"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ak8-t2-CAA" firstAttribute="width" secondItem="bJV-yN-Nuz" secondAttribute="width" multiplier="0.9" id="0TU-7f-Q29"/>
+                            <constraint firstItem="91n-GG-kfc" firstAttribute="top" secondItem="y4X-4Q-fat" secondAttribute="bottom" constant="-240" id="1fG-WB-8Ay"/>
                             <constraint firstItem="QmG-cF-wjG" firstAttribute="centerX" secondItem="bJV-yN-Nuz" secondAttribute="centerX" id="3Sw-m4-Uft"/>
-                            <constraint firstItem="Ak8-t2-CAA" firstAttribute="centerX" secondItem="bJV-yN-Nuz" secondAttribute="centerX" id="4C7-jA-gvL"/>
                             <constraint firstItem="4Ix-xo-2mS" firstAttribute="centerX" secondItem="bJV-yN-Nuz" secondAttribute="centerX" constant="80" id="59N-60-X8Q">
-                                <variation key="heightClass=regular-widthClass=compact" constant="100"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
-                            <constraint firstItem="Ak8-t2-CAA" firstAttribute="centerY" secondItem="bJV-yN-Nuz" secondAttribute="centerY" multiplier="1.33" id="IYB-K4-qna"/>
+                            <constraint firstItem="y4X-4Q-fat" firstAttribute="width" secondItem="bJV-yN-Nuz" secondAttribute="width" multiplier="0.9" id="IXr-tT-HDG"/>
                             <constraint firstItem="QmG-cF-wjG" firstAttribute="top" secondItem="LfL-rg-tLs" secondAttribute="top" id="LBG-v4-c5y"/>
                             <constraint firstItem="LfL-rg-tLs" firstAttribute="centerX" secondItem="bJV-yN-Nuz" secondAttribute="centerX" id="OWZ-NE-0E7"/>
                             <constraint firstItem="LfL-rg-tLs" firstAttribute="width" secondItem="bJV-yN-Nuz" secondAttribute="width" id="QyA-es-y1I"/>
-                            <constraint firstItem="4Ix-xo-2mS" firstAttribute="top" secondItem="LfL-rg-tLs" secondAttribute="bottom" multiplier="0.18" id="c1d-Ve-evh"/>
+                            <constraint firstItem="4Ix-xo-2mS" firstAttribute="top" secondItem="LfL-rg-tLs" secondAttribute="bottom" multiplier="0.18" constant="120" id="c1d-Ve-evh"/>
                             <constraint firstItem="LfL-rg-tLs" firstAttribute="height" secondItem="bJV-yN-Nuz" secondAttribute="height" id="gX3-Ln-PIK"/>
+                            <constraint firstItem="y4X-4Q-fat" firstAttribute="centerX" secondItem="bJV-yN-Nuz" secondAttribute="centerX" id="jhl-SP-hwH"/>
+                            <constraint firstItem="y4X-4Q-fat" firstAttribute="height" secondItem="bJV-yN-Nuz" secondAttribute="height" id="lvC-oo-Oj4"/>
                             <constraint firstItem="QmG-cF-wjG" firstAttribute="width" secondItem="bJV-yN-Nuz" secondAttribute="width" id="oRS-Wy-8jX"/>
                             <constraint firstItem="LfL-rg-tLs" firstAttribute="centerY" secondItem="bJV-yN-Nuz" secondAttribute="centerY" id="uFL-Ce-lCm"/>
                             <constraint firstItem="4Ix-xo-2mS" firstAttribute="width" secondItem="bJV-yN-Nuz" secondAttribute="width" multiplier="56:414" id="xdW-5z-g9q"/>
@@ -146,15 +79,11 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="bgView" destination="LfL-rg-tLs" id="tqa-aB-t2G"/>
+                        <outlet property="collectionView" destination="y4X-4Q-fat" id="Q65-qi-q26"/>
+                        <outlet property="collectionViewConstraint" destination="1fG-WB-8Ay" id="jQW-li-mGf"/>
                         <outlet property="forzenLight" destination="4Ix-xo-2mS" id="Iwg-vt-JYt"/>
-                        <outlet property="frozenLightConstraints" destination="59N-60-X8Q" id="sXh-6A-PXm"/>
-                        <outlet property="mv1" destination="Nvt-Gr-1VQ" id="xtZ-Yn-hhX"/>
-                        <outlet property="mv1Constraints" destination="1k5-Ph-60e" id="ury-33-A9g"/>
-                        <outlet property="mv1play" destination="LjQ-6q-OMq" id="z3F-Wj-vce"/>
-                        <outlet property="mv2" destination="COL-PR-vc8" id="lD4-yo-eSI"/>
-                        <outlet property="mv2Constraints" destination="Ksr-0p-k0V" id="VD3-cI-1HE"/>
-                        <outlet property="mv2play" destination="GYi-EC-Vxz" id="ATa-kZ-IfX"/>
-                        <outlet property="navItem" destination="eex-lY-RiD" id="z1E-eC-Gli"/>
+                        <outlet property="frozenLightConstraints" destination="c1d-Ve-evh" id="7PT-N1-PQv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Fz-fF-9x8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -165,10 +94,7 @@
     <resources>
         <image name="backArrow" width="13" height="21"/>
         <image name="jianbian" width="414" height="103"/>
-        <image name="mv1" width="395" height="236"/>
-        <image name="mv2" width="395" height="237"/>
         <image name="mvBackground" width="414" height="736"/>
         <image name="mvForzenlight" width="56" height="126"/>
-        <image name="mvplay" width="83" height="83"/>
     </resources>
 </document>

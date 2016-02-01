@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="HCF-Xw-WXa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="HCF-Xw-WXa">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </sceneKitView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdT-Yj-hoF">
-                                <rect key="frame" x="271" y="40" width="33" height="22"/>
+                                <rect key="frame" x="271" y="20" width="33" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="33" id="wTp-m8-eAu"/>
                                 </constraints>
@@ -44,6 +44,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cX7-ak-Ykh"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="rootView" destination="bbd-pQ-Xlw" id="LB8-ck-UlW"/>
@@ -67,13 +68,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="songBgImage" translatesAutoresizingMaskIntoConstraints="NO" id="JXn-bO-iee">
-                                <rect key="frame" x="-4" y="-20" width="328" height="588"/>
+                                <rect key="frame" x="0.0" y="-20" width="320" height="588"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="songBgParaImage" translatesAutoresizingMaskIntoConstraints="NO" id="ZxL-9I-hTY">
-                                <rect key="frame" x="-36" y="-18" width="392" height="584"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <gestureRecognizers/>
                             </imageView>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oGp-56-vya">
+                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="oGp-56-vya">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLt-Vj-yLk">
@@ -87,40 +88,40 @@
                                             <action selector="dismissVC:" destination="GFv-yb-n9U" eventType="touchUpInside" id="AvT-ac-XOd"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsF-Te-Ne7">
-                                        <rect key="frame" x="0.0" y="38" width="320" height="105.5"/>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsF-Te-Ne7">
+                                        <rect key="frame" x="0.0" y="38" width="320" height="106"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <state key="normal" image="navSongTitle" backgroundImage="navAbout"/>
                                         <connections>
                                             <segue destination="vQp-Ch-gUU" kind="push" id="pvX-hZ-OOg"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYY-Ki-yVF">
-                                        <rect key="frame" x="0.0" y="143.5" width="320" height="106"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYY-Ki-yVF">
+                                        <rect key="frame" x="0.0" y="144" width="320" height="106"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <state key="normal" title="Timeline"/>
                                         <connections>
                                             <segue destination="cuh-sm-gdg" kind="push" id="Kvs-iK-32X"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoC-He-adO">
-                                        <rect key="frame" x="0.0" y="250.5" width="320" height="105.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoC-He-adO">
+                                        <rect key="frame" x="0.0" y="250" width="320" height="106.5"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <state key="normal" title="MV"/>
                                         <connections>
                                             <action selector="MVClicked:" destination="GFv-yb-n9U" eventType="touchUpInside" id="N9H-Vj-My5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QvM-PW-KTw">
-                                        <rect key="frame" x="0.0" y="356" width="320" height="106"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QvM-PW-KTw">
+                                        <rect key="frame" x="0.0" y="356.5" width="320" height="106"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <state key="normal" title="News"/>
                                         <connections>
                                             <action selector="newsClicked:" destination="GFv-yb-n9U" eventType="touchUpInside" id="b2a-p9-MZE"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKM-eH-1A2">
-                                        <rect key="frame" x="0.0" y="461.5" width="320" height="106.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKM-eH-1A2">
+                                        <rect key="frame" x="0.0" y="462" width="320" height="106"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <state key="normal" title="about"/>
                                     </button>
@@ -154,18 +155,18 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ZxL-9I-hTY" firstAttribute="leading" secondItem="3WC-md-Y2t" secondAttribute="leadingMargin" constant="-52" id="ElH-1T-bjq"/>
+                            <constraint firstItem="ZxL-9I-hTY" firstAttribute="leading" secondItem="3WC-md-Y2t" secondAttribute="leading" id="ElH-1T-bjq"/>
                             <constraint firstItem="oGp-56-vya" firstAttribute="leading" secondItem="3WC-md-Y2t" secondAttribute="leading" id="GPv-ow-9Uz"/>
-                            <constraint firstItem="ZxL-9I-hTY" firstAttribute="top" secondItem="3WC-md-Y2t" secondAttribute="topMargin" constant="-18" id="MtE-6t-deb"/>
+                            <constraint firstItem="ZxL-9I-hTY" firstAttribute="top" secondItem="3WC-md-Y2t" secondAttribute="top" id="MtE-6t-deb"/>
                             <constraint firstItem="oGp-56-vya" firstAttribute="bottom" secondItem="tkS-Zb-ce8" secondAttribute="top" id="O2x-hV-BxM"/>
                             <constraint firstAttribute="trailing" secondItem="oGp-56-vya" secondAttribute="trailing" id="Wsy-rD-A35"/>
                             <constraint firstItem="ZxL-9I-hTY" firstAttribute="centerY" secondItem="JXn-bO-iee" secondAttribute="centerY" id="d3l-rL-AtV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="JXn-bO-iee" secondAttribute="trailing" constant="-20" id="icm-nj-qYg"/>
+                            <constraint firstAttribute="trailing" secondItem="JXn-bO-iee" secondAttribute="trailing" id="icm-nj-qYg"/>
                             <constraint firstItem="JXn-bO-iee" firstAttribute="top" secondItem="x36-t8-eC5" secondAttribute="bottom" constant="-20" id="jJ4-tV-UwH"/>
-                            <constraint firstItem="JXn-bO-iee" firstAttribute="leading" secondItem="3WC-md-Y2t" secondAttribute="leadingMargin" constant="-20" id="teN-vk-Kgm"/>
+                            <constraint firstItem="JXn-bO-iee" firstAttribute="leading" secondItem="3WC-md-Y2t" secondAttribute="leading" id="teN-vk-Kgm"/>
                             <constraint firstItem="ZxL-9I-hTY" firstAttribute="centerX" secondItem="oGp-56-vya" secondAttribute="centerX" id="uGO-yv-KJk"/>
                             <constraint firstItem="JXn-bO-iee" firstAttribute="bottom" secondItem="tkS-Zb-ce8" secondAttribute="top" id="vFi-Ts-I4b"/>
-                            <constraint firstItem="oGp-56-vya" firstAttribute="top" secondItem="x36-t8-eC5" secondAttribute="bottom" constant="-20" id="vj2-WF-FAo"/>
+                            <constraint firstItem="oGp-56-vya" firstAttribute="top" secondItem="x36-t8-eC5" secondAttribute="bottom" id="vj2-WF-FAo"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
@@ -195,26 +196,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="songBgImage" translatesAutoresizingMaskIntoConstraints="NO" id="IWJ-7e-dKr">
-                                <rect key="frame" x="-4" y="0.0" width="328" height="568"/>
+                                <rect key="frame" x="-4" y="-20" width="328" height="588"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="songBgParaImage" translatesAutoresizingMaskIntoConstraints="NO" id="NRl-Ob-NRd">
                                 <rect key="frame" x="-20" y="-20" width="360" height="568"/>
                             </imageView>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zH5-TD-gdc">
-                                <rect key="frame" x="36" y="72" width="248" height="248"/>
+                                <rect key="frame" x="36" y="52" width="248" height="248"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="zH5-TD-gdc" secondAttribute="height" multiplier="1:1" id="QQ3-cO-a7H"/>
                                 </constraints>
                             </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tla-T1-7j7">
-                                <rect key="frame" x="116" y="335" width="89" height="83"/>
+                                <rect key="frame" x="116" y="315" width="89" height="83"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="83" id="5mj-gn-2M8"/>
                                     <constraint firstAttribute="width" constant="89" id="kJO-6A-hEW"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Slb-jU-LcK">
-                                <rect key="frame" x="61" y="440" width="197" height="128"/>
+                                <rect key="frame" x="61" y="420" width="197" height="148"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.43137254901960786" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -314,11 +315,11 @@
                                 <rect key="frame" x="-4" y="0.0" width="328" height="568"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="songBgParaImage" translatesAutoresizingMaskIntoConstraints="NO" id="8uD-LC-d7m">
-                                <rect key="frame" x="-32" y="-16" width="392" height="604"/>
+                                <rect key="frame" x="-32" y="-36" width="392" height="624"/>
                                 <gestureRecognizers/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idK-VD-9y9">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="-20" width="320" height="500"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HNb-hx-hif" customClass="TimelineSlider" customModule="CuiJian" customModuleProvider="target">

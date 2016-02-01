@@ -31,6 +31,14 @@ class NavViewController: UIViewController {
             }, completion: nil)
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController!.navigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = false
+    }
         
     @IBAction func MVClicked(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "MVStoryboard", bundle: nil)
@@ -39,7 +47,8 @@ class NavViewController: UIViewController {
     }
     
     @IBAction func newsClicked(sender: AnyObject) {
-        
+        let newsController:NewsViewController = NewsViewController();
+        self.navigationController!.pushViewController(newsController, animated: true)
     }
 
     override func didReceiveMemoryWarning() {

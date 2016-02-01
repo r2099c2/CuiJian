@@ -22,6 +22,4 @@ class TransparentNavBar: UINavigationBar {
         
         self.tintColor = UIColor(red: 136/255, green: 131/255, blue: 109/255, alpha: 1)
     }
-    
-
 }
