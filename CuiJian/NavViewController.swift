@@ -15,10 +15,11 @@ class NavViewController: UIViewController {
     @IBOutlet weak var aboutCuijianView: UIImageView!
     @IBOutlet weak var newsView: UIImageView!
     @IBOutlet weak var aboutAppView: UIImageView!
+    @IBOutlet weak var scrollview: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.scrollview.alwaysBounceVertical = true
         HelperFuc.bgParrallax(zhuanjiView)
         HelperFuc.bgParrallax(mvView)
         HelperFuc.bgParrallax(aboutCuijianView)

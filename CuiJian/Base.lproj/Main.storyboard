@@ -319,6 +319,7 @@
                         <outlet property="aboutCuijianView" destination="GGo-ma-v7m" id="z3Y-iX-MBY"/>
                         <outlet property="mvView" destination="j6m-Bu-Wpk" id="HPa-bZ-o7q"/>
                         <outlet property="newsView" destination="s19-kO-bUF" id="pkB-7R-vRd"/>
+                        <outlet property="scrollview" destination="E4X-VL-Uay" id="5qH-ar-dLw"/>
                         <outlet property="zhuanjiView" destination="bZw-z6-D3a" id="cCf-B6-Jj1"/>
                     </connections>
                 </viewController>
