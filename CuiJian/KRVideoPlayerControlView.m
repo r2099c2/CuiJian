@@ -192,8 +192,8 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeInterval = 5.0;
     if (!_progressSlider) {
         _progressSlider = [[UISlider alloc] init];
         [_progressSlider setThumbImage:[UIImage imageNamed:@"kr-video-player-point"] forState:UIControlStateNormal];
-        [_progressSlider setMinimumTrackTintColor:[UIColor whiteColor]];
-        [_progressSlider setMaximumTrackTintColor:[UIColor lightGrayColor]];
+        [_progressSlider setMinimumTrackTintColor:[UIColor colorWithRed:187/255.0 green:177/255.0 blue:141/255.0 alpha:1]];
+        [_progressSlider setMaximumTrackTintColor:[UIColor colorWithRed:136/255.0 green:131/255.0 blue:110/255.0 alpha:1]];
         _progressSlider.value = 0.f;
         _progressSlider.continuous = YES;
     }
@@ -204,7 +204,7 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeInterval = 5.0;
 {
     if (!_closeButton) {
         _closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_closeButton setImage:[UIImage imageNamed:@"kr-video-player-close"] forState:UIControlStateNormal];
+        [_closeButton setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
         _closeButton.bounds = CGRectMake(0, 0, kVideoControlBarHeight, kVideoControlBarHeight);
     }
     return _closeButton;

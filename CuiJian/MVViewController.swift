@@ -25,7 +25,7 @@ class MVViewController: UIViewController, UICollectionViewDataSource, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.initParrallax()
+        HelperFuc.bgParrallax(self.bgView)
         
         self.collectionViewLayout = VVSpringCollectionViewFlowLayout()
         self.collectionView.collectionViewLayout = self.collectionViewLayout
@@ -39,11 +39,6 @@ class MVViewController: UIViewController, UICollectionViewDataSource, UICollecti
         self.videoController = KRVideoPlayerController(frame: self.view.frame)
     }
     
-    func initParrallax() {
-        HelperFuc.bgParrallax(self.collectionView)
-        HelperFuc.bgParrallax(self.forzenLight)
-    }
-        
     override func viewDidAppear(animated: Bool) {
         
         super.viewDidAppear(animated)

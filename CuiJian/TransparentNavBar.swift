@@ -16,10 +16,10 @@ class TransparentNavBar: UINavigationBar {
     override func drawRect(rect: CGRect) {
         // Drawing code
         
-        self.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        self.setBackgroundImage(UIImage(named: "jianbian"), forBarMetrics: UIBarMetrics.Default)
         self.shadowImage = UIImage()
-        self.translucent = true
+        //self.translucent = true
         
-        self.tintColor = UIColor(red: 136/255, green: 131/255, blue: 109/255, alpha: 1)
+        self.tintColor = UIColor(red: 136/255.0, green: 131/255.0, blue: 109/255.0, alpha: 1)
     }
 }

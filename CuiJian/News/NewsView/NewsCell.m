@@ -41,7 +41,7 @@
 -(void)setupViews
 {
     self.cellBackground = [[UIImageView alloc]init];
-    self.cellBackground.backgroundColor = [UIColor colorWithRed:128/255.0 green:128/255.0 blue:128/255.0 alpha:0.1];
+    self.cellBackground.image = [UIImage imageNamed:@"newsBg"];
     [self.contentView addSubview:self.cellBackground];
     
     self.newsImg = [[UIImageView alloc]init];

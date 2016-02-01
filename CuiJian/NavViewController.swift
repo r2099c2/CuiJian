@@ -29,6 +29,10 @@ class NavViewController: UIViewController {
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
             }, completion: nil)
         
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(named: "jianbian"), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController!.navigationBar.shadowImage = nil
+
+        
         // Do any additional setup after loading the view.
     }
     

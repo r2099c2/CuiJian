@@ -526,9 +526,10 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" id="Ohr-QL-pgw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="x3s-Jc-YAO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TIT-Iz-M0c" customClass="TransparentNavBar" customModule="CuiJian" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TIT-Iz-M0c">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.53333333333333333" green="0.51372549019607838" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.53333333333333333" green="0.51372549019607838" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>

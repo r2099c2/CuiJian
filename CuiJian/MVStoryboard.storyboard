@@ -28,12 +28,6 @@
                                     <constraint firstAttribute="width" secondItem="4Ix-xo-2mS" secondAttribute="height" multiplier="4:9" id="fG9-Gi-Mnn"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="jianbian" translatesAutoresizingMaskIntoConstraints="NO" id="QmG-cF-wjG" userLabel="topcolor">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="QmG-cF-wjG" secondAttribute="height" multiplier="414:103" id="fKU-wl-m9U"/>
-                                </constraints>
-                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y4X-4Q-fat" userLabel="MVViews">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -53,19 +47,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="91n-GG-kfc" firstAttribute="top" secondItem="y4X-4Q-fat" secondAttribute="bottom" constant="-240" id="1fG-WB-8Ay"/>
-                            <constraint firstItem="QmG-cF-wjG" firstAttribute="centerX" secondItem="bJV-yN-Nuz" secondAttribute="centerX" id="3Sw-m4-Uft"/>
                             <constraint firstItem="4Ix-xo-2mS" firstAttribute="centerX" secondItem="bJV-yN-Nuz" secondAttribute="centerX" constant="80" id="59N-60-X8Q">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="y4X-4Q-fat" firstAttribute="width" secondItem="bJV-yN-Nuz" secondAttribute="width" multiplier="0.9" id="IXr-tT-HDG"/>
-                            <constraint firstItem="QmG-cF-wjG" firstAttribute="top" secondItem="LfL-rg-tLs" secondAttribute="top" id="LBG-v4-c5y"/>
                             <constraint firstItem="LfL-rg-tLs" firstAttribute="centerX" secondItem="bJV-yN-Nuz" secondAttribute="centerX" id="OWZ-NE-0E7"/>
-                            <constraint firstItem="LfL-rg-tLs" firstAttribute="width" secondItem="bJV-yN-Nuz" secondAttribute="width" id="QyA-es-y1I"/>
+                            <constraint firstItem="LfL-rg-tLs" firstAttribute="width" secondItem="bJV-yN-Nuz" secondAttribute="width" multiplier="1.1" id="QyA-es-y1I"/>
                             <constraint firstItem="4Ix-xo-2mS" firstAttribute="top" secondItem="LfL-rg-tLs" secondAttribute="bottom" multiplier="0.18" constant="120" id="c1d-Ve-evh"/>
-                            <constraint firstItem="LfL-rg-tLs" firstAttribute="height" secondItem="bJV-yN-Nuz" secondAttribute="height" id="gX3-Ln-PIK"/>
+                            <constraint firstItem="LfL-rg-tLs" firstAttribute="height" secondItem="bJV-yN-Nuz" secondAttribute="height" multiplier="1.1" id="gX3-Ln-PIK"/>
                             <constraint firstItem="y4X-4Q-fat" firstAttribute="centerX" secondItem="bJV-yN-Nuz" secondAttribute="centerX" id="jhl-SP-hwH"/>
                             <constraint firstItem="y4X-4Q-fat" firstAttribute="height" secondItem="bJV-yN-Nuz" secondAttribute="height" id="lvC-oo-Oj4"/>
-                            <constraint firstItem="QmG-cF-wjG" firstAttribute="width" secondItem="bJV-yN-Nuz" secondAttribute="width" id="oRS-Wy-8jX"/>
                             <constraint firstItem="LfL-rg-tLs" firstAttribute="centerY" secondItem="bJV-yN-Nuz" secondAttribute="centerY" id="uFL-Ce-lCm"/>
                             <constraint firstItem="4Ix-xo-2mS" firstAttribute="width" secondItem="bJV-yN-Nuz" secondAttribute="width" multiplier="56:414" id="xdW-5z-g9q"/>
                         </constraints>
@@ -93,7 +84,6 @@
     </scenes>
     <resources>
         <image name="backArrow" width="13" height="21"/>
-        <image name="jianbian" width="414" height="103"/>
         <image name="mvBackground" width="414" height="736"/>
         <image name="mvForzenlight" width="56" height="126"/>
     </resources>
