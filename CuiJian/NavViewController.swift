@@ -10,20 +10,20 @@ import UIKit
 
 class NavViewController: UIViewController {
     
-    @IBOutlet weak var zhuanjiViewBt: UIButton!
-    @IBOutlet weak var mvViewBt: UIButton!
-    @IBOutlet weak var aboutCuijianViewBt: UIButton!
-    @IBOutlet weak var newsViewBt: UIButton!
-    @IBOutlet weak var aboutAppViewBt: UIButton!
+    @IBOutlet weak var zhuanjiView: UIImageView!
+    @IBOutlet weak var mvView: UIImageView!
+    @IBOutlet weak var aboutCuijianView: UIImageView!
+    @IBOutlet weak var newsView: UIImageView!
+    @IBOutlet weak var aboutAppView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        HelperFuc.bgParrallax(zhuanjiViewBt)
-        HelperFuc.bgParrallax(mvViewBt)
-        HelperFuc.bgParrallax(aboutCuijianViewBt)
-        HelperFuc.bgParrallax(newsViewBt)
-        HelperFuc.bgParrallax(aboutAppViewBt)
+        HelperFuc.bgParrallax(zhuanjiView)
+        HelperFuc.bgParrallax(mvView)
+        HelperFuc.bgParrallax(aboutCuijianView)
+        HelperFuc.bgParrallax(newsView)
+        HelperFuc.bgParrallax(aboutAppView)
         
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
             }, completion: nil)
