@@ -10,38 +10,37 @@ import UIKit
 
 class NavViewController: UIViewController {
     
+    @IBOutlet weak var zhuanjiViewBt: UIButton!
+    @IBOutlet weak var mvViewBt: UIButton!
+    @IBOutlet weak var aboutCuijianViewBt: UIButton!
+    @IBOutlet weak var newsViewBt: UIButton!
+    @IBOutlet weak var aboutAppViewBt: UIButton!
     
-    @IBOutlet weak var bgParaImg: UIImageView!
-    
-    
-    @IBOutlet weak var song: UIButton!
-    @IBOutlet weak var timeline: UIButton!
-        
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        HelperFuc.bgParrallax(bgParaImg)
+        HelperFuc.bgParrallax(zhuanjiViewBt)
+        HelperFuc.bgParrallax(mvViewBt)
+        HelperFuc.bgParrallax(aboutCuijianViewBt)
+        HelperFuc.bgParrallax(newsViewBt)
+        HelperFuc.bgParrallax(aboutAppViewBt)
         
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
-            self.song.frame.origin.y = CGFloat(0)
             }, completion: nil)
         
-        UIView.animateWithDuration(0.5, delay: 0.2, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
-            self.timeline.frame.origin.y = CGFloat(100)
-            }, completion: nil)
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController!.navigationBarHidden = true
-        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Slide)
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.None)
     }
     
     override func viewWillDisappear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
-        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.None)
     }
-        
+
+    
     @IBAction func MVClicked(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "MVStoryboard", bundle: nil)
         let controller = storyboard.instantiateViewControllerWithIdentifier("MvController") as UIViewController
