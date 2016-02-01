@@ -34,10 +34,12 @@ class NavViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController!.navigationBarHidden = true
+        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Slide)
     }
     
     override func viewWillDisappear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.None)
     }
         
     @IBAction func MVClicked(sender: AnyObject) {
@@ -56,6 +58,9 @@ class NavViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
     
     @IBAction func dismissVC(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)

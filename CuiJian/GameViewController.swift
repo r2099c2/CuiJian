@@ -174,7 +174,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        
+        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
         self.navigationController?.navigationBarHidden = true
     }
 

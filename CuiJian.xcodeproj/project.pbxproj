@@ -52,6 +52,8 @@
 		4212F8721C5E05CB00C6BA6F /* MVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212F8711C5E05CB00C6BA6F /* MVCell.swift */; };
 		421AF2A41C587BAA00E9D63B /* MVStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421AF2A31C587BAA00E9D63B /* MVStoryboard.storyboard */; };
 		421AF2A61C58891C00E9D63B /* MVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421AF2A51C58891C00E9D63B /* MVViewController.swift */; };
+		42765A551C5F39C700047A55 /* mv1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 42538DEA1C5F1A0B0064935E /* mv1.mp4 */; };
+		42765A561C5F39C700047A55 /* mv2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 42538DEB1C5F1A1A0064935E /* mv2.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -434,6 +436,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42765A551C5F39C700047A55 /* mv1.mp4 in Resources */,
+				42765A561C5F39C700047A55 /* mv2.mp4 in Resources */,
 				1D57B0581C43BC0C001C18F7 /* LaunchScreen.storyboard in Resources */,
 				1D315CA81C589CEB00935D41 /* art.scnassets in Resources */,
 				1D57B0551C43BC0C001C18F7 /* Assets.xcassets in Resources */,
