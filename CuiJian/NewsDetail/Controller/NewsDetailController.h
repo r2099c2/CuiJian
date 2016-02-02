@@ -12,4 +12,5 @@
 @property (nonatomic, strong)NewsModel * Nmodel;
 @property (nonatomic, strong)UIWebView * webView;
 @property (nonatomic, strong)UIImageView * backImg;
+@property (nonatomic, strong)UIImageView *bottomImage;
 @end

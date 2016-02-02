@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "-[NewsViewController collectionView:numberOfItemsInSection:]:NewsViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.dataArray.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "AppDelegate.application(UIApplication, supportedInterfaceOrientationsForWindow : UIWindow?) -&gt; UIInterfaceOrientationMask:AppDelegate.swift">
          <PersistentStrings>
             <PersistentString
@@ -11,15 +19,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "__30-[NewsViewController makeData]_block_invoke_2:NewsViewController.m">
-      </ContextState>
-      <ContextState
-         contextName = "-[NewsViewController collectionView:numberOfItemsInSection:]:NewsViewController.m">
+         contextName = "-[NewsDetailController tableView:heightForRowAtIndexPath:]:NewsDetailController.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.dataArray.count">
+               value = "_webView.frame.size.height">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__30-[NewsViewController makeData]_block_invoke_2:NewsViewController.m">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

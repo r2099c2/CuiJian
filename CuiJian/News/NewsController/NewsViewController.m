@@ -57,7 +57,7 @@
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:self.layout];
     NSLog(@"%@",NSStringFromCGRect(self.view.frame));
     //向下偏移64使navigationbar显出来
-    self.collectionView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.collectionView.contentInset = UIEdgeInsetsMake(74, 0, 10, 0);
     //注册cell
     [self.collectionView registerClass:[NewsCell class] forCellWithReuseIdentifier:@"Cell"];
 
@@ -66,6 +66,11 @@
     self.collectionView.delegate = self;
     [self.view addSubview:self.collectionView];
     
+    //self.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+    //self.navigationController!.navigationBar.shadowImage = UIImage()
+    [self.navigationController.navigationBar setBackgroundImage:NULL forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor blackColor]];
+    [self.navigationController.navigationBar setTranslucent:true];
     
 }
 
@@ -140,18 +145,13 @@
         NewsModel *data = self.dataArray[indexPath.row];
         if (data) {
             //title
-            cell.newsTitle.textColor = [UIColor colorWithRed:136/255.0 green:131/255.0 blue:110/255.0 alpha:1];
             cell.newsTitle.numberOfLines = 0;
-            cell.newsTitle.font = [UIFont fontWithName:@"Helvetica-Bold" size:19];
             cell.newsTitle.text = data.post_title;
             //detail
             cell.newsDetail.numberOfLines = 0;
-            cell.newsDetail.font = [UIFont systemFontOfSize:15.0];
             cell.newsDetail.textAlignment=NSTextAlignmentLeft;
-            cell.newsDetail.textColor = [UIColor whiteColor];
             cell.newsDetail.text = data.post_excerpt;
             //time
-            cell.newsTime.textColor = [UIColor whiteColor];
             cell.newsTime.text = data.post_date;
             //新闻头像
             [cell.newsImg sd_setImageWithURL:[NSURL URLWithString:data.feature_image]];

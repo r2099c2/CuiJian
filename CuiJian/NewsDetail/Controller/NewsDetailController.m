@@ -19,10 +19,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     //设置WebView
     _webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, KscreenWidth, 0)];
     _webView.delegate = self;
     _webView.scrollView.scrollEnabled = NO;
+    
     //_webView.scalesPageToFit=YES;
     //webView背景透明
     _webView.backgroundColor = [UIColor clearColor];
@@ -30,10 +32,18 @@
     //预先加载url
     [self.webView loadHTMLString:self.Nmodel.post_content baseURL:nil];
     
+    self.bottomImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, KscreenHeight - 100, KscreenWidth, 100)];
+    [self.bottomImage setImage:[UIImage imageNamed:@"titleBg"]];
+    [self.bottomImage setContentMode:UIViewContentModeScaleToFill];
+    self.bottomImage.layer.zPosition = 999;
+    
+    [self.view addSubview:self.bottomImage];
+    
+    [self.tableView setAllowsSelection:NO];
 
     //消除tableView头部的距离
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.bounds.size.width, 0.01f)];
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.bounds.size.width, 54.0f)];
     
     //背景灰色图
     self.backImg = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, KscreenWidth, KscreenHeight)];
@@ -47,6 +57,8 @@
     //把导航栏设置为透明（用透明图片代替导航栏）
     
     self.navigationItem.title = @"新闻";
+    
+    [self.tableView setShowsVerticalScrollIndicator:NO];
     
     //去掉cell之间的线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -87,25 +99,12 @@
         [cell.titleImg sd_setImageWithURL:[NSURL URLWithString:self.Nmodel.feature_image]];
         
         //title
-        cell.titleLabel.textColor = [UIColor colorWithRed:136/255.0 green:131/255.0 blue:110/255.0 alpha:1];
         cell.titleLabel.numberOfLines = 0;
-        cell.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:21];
         cell.titleLabel.text = self.Nmodel.post_title;
+        [cell.titleLabel sizeToFit];
         
         //timeLabel
-        cell.timeLabel.textColor = [UIColor colorWithRed:136/255.0 green:131/255.0 blue:110/255.0 alpha:1];
         cell.timeLabel.text = self.Nmodel.post_modified;
-        
-//        //titlecontent
-//        cell.titleContent.textColor = [UIColor whiteColor];
-//        //cell.titleContent.numberOfLines = 0;
-//        cell.titleContent.lineBreakMode = NSLineBreakByWordWrapping;
-//        cell.titleContent.font = [UIFont fontWithName:@"Helvetica-Bold" size:19];
-        //[cell.titleContent sizeToFit];
-        //cell.titleContent.text = self.Nmodel.post_excerpt;
-        
-        
-        
         return cell;
     }else{
         static NSString *identifier = @"cell";
@@ -114,17 +113,18 @@
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
             cell.backgroundColor = [UIColor clearColor];
             [cell.contentView addSubview:_webView];
-            
-            /* 忽略点击效果 */
-            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         }
         return cell;
         
     }
-
-    
-  
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    _bottomImage.transform = CGAffineTransformMakeTranslation(0, scrollView.contentOffset.y);
+}
+
+
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -134,81 +134,22 @@
         /* 通过webview代理获取到内容高度后,将内容高度设置为cell的高 */
         return _webView.frame.size.height+1;
     }else{
-        //return KscreenHeight/1.5;
-//        return [NewsDetailCell cellHeight:[self heightWithString:self.Nmodel.post_excerpt]];
         return KscreenHeight/2.45+KscreenHeight/10+KscreenHeight/36.85;
     }
 }
-
-#warning 暂时不用 取消
-//DetailCell<1>自适应高度
--(CGFloat)heightWithString:(NSString *)aString
-{
-    CGRect r =[aString boundingRectWithSize:CGSizeMake(CGRectGetWidth(self.tableView.frame)-10, 2000) options:(NSStringDrawingUsesLineFragmentOrigin) attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17.0f]} context:nil];
-    return  r.size.height+10+KscreenHeight/2.45+KscreenHeight/10+KscreenHeight/36.85+30;
-    
-   
-//    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
-//    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
-//    NSDictionary *attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:14], NSParagraphStyleAttributeName:paragraphStyle};
-//    CGSize labelSize = [self.Nmodel.post_excerpt boundingRectWithSize:CGSizeMake(207, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
-//    
-//    return labelSize.height+10+KscreenHeight/2.45+KscreenHeight/12.28+KscreenHeight/36.85+65;
-    
-}
-
 
 #pragma mark - UIWebView Delegate Methods
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
     //获取到webview的高度
-    CGFloat height = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue];
-    self.webView.frame = CGRectMake(self.webView.frame.origin.x,self.webView.frame.origin.y, KscreenWidth-10, height+700);
+    CGRect frame = webView.frame;
+    frame.size.height = 1;
+    webView.frame = frame;
+    CGSize fittingSize = [webView sizeThatFits:CGSizeZero];
+    frame.size = fittingSize;
+    webView.frame = frame;
+    
     [self.tableView reloadData];
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -13,7 +13,7 @@
 @property (nonatomic, strong)UILabel * titleLabel;
 @property (nonatomic, strong)UILabel * timeLabel;
 @property (nonatomic, strong)UILabel * lineLabel;
-@property (nonatomic, strong)UILabel * titleContent;
+@property (nonatomic, strong)UIImageView * titleBg;
 
 //cell自适应高度
 +(CGFloat)cellHeight:(CGFloat)height;

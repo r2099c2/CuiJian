@@ -45,23 +45,21 @@
     [self.contentView addSubview:self.cellBackground];
     
     self.newsImg = [[UIImageView alloc]init];
-    //self.newsImg.backgroundColor = [UIColor redColor];
     [self.contentView addSubview:self.newsImg];
     
     self.newsTitle = [[UILabel alloc]init];
-    //self.newsTitle.backgroundColor = [UIColor orangeColor];
+    [self.newsTitle setFont:[UIFont systemFontOfSize:18]];
+    self.newsTitle.textColor = [UIColor colorWithRed:187/255.0 green:177/255.0 blue:141/255.0 alpha:1];
     [self.contentView addSubview:self.newsTitle];
     
     self.newsDetail = [[UILabel alloc]init];
-    //self.newsDetail.backgroundColor = [UIColor yellowColor];
+    [self.newsDetail setFont:[UIFont systemFontOfSize:14]];
+    self.newsDetail.textColor = [UIColor colorWithRed:208/255.0 green:208/255.0 blue:208/255.0 alpha:1];
     [self.contentView addSubview:self.newsDetail];
     
-    self.newsTitle = [[UILabel alloc]init];
-    //self.newsTitle.backgroundColor = [UIColor greenColor];
-    [self.contentView addSubview:self.newsTitle];
-    
     self.newsTime = [[UILabel alloc]init];
-    // self.newsTime.backgroundColor = [UIColor cyanColor];
+    [self.newsTime setFont:[UIFont systemFontOfSize:12]];
+    self.newsTime.textColor = [UIColor colorWithRed:208/255.0 green:208/255.0 blue:208/255.0 alpha:1];
     [self.contentView addSubview:self.newsTime];
     
     
@@ -74,12 +72,12 @@
     [super layoutSubviews];
     self.cellBackground.frame = CGRectMake(10, 0, CGRectGetWidth(self.bounds)-20, CGRectGetHeight(self.bounds));
     
-    self.newsImg.frame = CGRectMake(10, 8, KscreenWidth/2.8, KscreenWidth/2.8);
+    self.newsImg.frame = CGRectMake(18, 8, KscreenWidth/2.8, KscreenWidth/2.8);
     
-    self.newsTitle.frame = CGRectMake(CGRectGetMaxX(self.newsImg.frame)+10, CGRectGetMinY(self.newsImg.frame), KscreenWidth/1.9, KscreenWidth/9);
+    self.newsTitle.frame = CGRectMake(CGRectGetMaxX(self.newsImg.frame)+10, CGRectGetMinY(self.newsImg.frame), KscreenWidth/1.9, KscreenWidth/12);
     
-    self.newsDetail.frame = CGRectMake(CGRectGetMaxX(self.newsImg.frame)+10, CGRectGetMaxY(self.newsTitle.frame), KscreenWidth/1.9, KscreenWidth/6);
+    self.newsDetail.frame = CGRectMake(CGRectGetMaxX(self.newsImg.frame)+10, CGRectGetMaxY(self.newsTitle.frame), KscreenWidth/1.9, KscreenWidth/4.8);
     
-    self.newsTime.frame = CGRectMake(CGRectGetMinX(self.newsDetail.frame), CGRectGetMaxY(self.newsDetail.frame), KscreenWidth/1.9, KscreenWidth/12);
+    self.newsTime.frame = CGRectMake(CGRectGetMinX(self.newsDetail.frame), CGRectGetMaxY(self.newsDetail.frame), KscreenWidth/1.9, KscreenWidth/16);
 }
 @end

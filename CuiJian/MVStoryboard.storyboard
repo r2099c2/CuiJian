@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mvBackground" translatesAutoresizingMaskIntoConstraints="NO" id="LfL-rg-tLs">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="mvBackground" translatesAutoresizingMaskIntoConstraints="NO" id="LfL-rg-tLs">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="mvForzenlight" translatesAutoresizingMaskIntoConstraints="NO" id="4Ix-xo-2mS">
@@ -54,7 +54,7 @@
                             <constraint firstItem="LfL-rg-tLs" firstAttribute="centerX" secondItem="bJV-yN-Nuz" secondAttribute="centerX" id="OWZ-NE-0E7"/>
                             <constraint firstItem="LfL-rg-tLs" firstAttribute="width" secondItem="bJV-yN-Nuz" secondAttribute="width" multiplier="1.1" id="QyA-es-y1I"/>
                             <constraint firstItem="4Ix-xo-2mS" firstAttribute="top" secondItem="LfL-rg-tLs" secondAttribute="bottom" multiplier="0.18" constant="120" id="c1d-Ve-evh"/>
-                            <constraint firstItem="LfL-rg-tLs" firstAttribute="height" secondItem="bJV-yN-Nuz" secondAttribute="height" multiplier="1.1" id="gX3-Ln-PIK"/>
+                            <constraint firstItem="LfL-rg-tLs" firstAttribute="height" secondItem="bJV-yN-Nuz" secondAttribute="height" multiplier="1.02" id="gX3-Ln-PIK"/>
                             <constraint firstItem="y4X-4Q-fat" firstAttribute="centerX" secondItem="bJV-yN-Nuz" secondAttribute="centerX" id="jhl-SP-hwH"/>
                             <constraint firstItem="y4X-4Q-fat" firstAttribute="height" secondItem="bJV-yN-Nuz" secondAttribute="height" id="lvC-oo-Oj4"/>
                             <constraint firstItem="LfL-rg-tLs" firstAttribute="centerY" secondItem="bJV-yN-Nuz" secondAttribute="centerY" id="uFL-Ce-lCm"/>

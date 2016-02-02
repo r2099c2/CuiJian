@@ -192,8 +192,8 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeInterval = 5.0;
     if (!_progressSlider) {
         _progressSlider = [[UISlider alloc] init];
         [_progressSlider setThumbImage:[UIImage imageNamed:@"kr-video-player-point"] forState:UIControlStateNormal];
-        [_progressSlider setMinimumTrackTintColor:[UIColor colorWithRed:187/255.0 green:177/255.0 blue:141/255.0 alpha:1]];
-        [_progressSlider setMaximumTrackTintColor:[UIColor colorWithRed:136/255.0 green:131/255.0 blue:110/255.0 alpha:1]];
+        [_progressSlider setMinimumTrackTintColor:[UIColor colorWithRed:107/255.0 green:103/255.0 blue:84/255.0 alpha:1]];
+        [_progressSlider setMaximumTrackTintColor:[UIColor colorWithRed:136/255.0 green:131/255.0 blue:109/255.0 alpha:1]];
         _progressSlider.value = 0.f;
         _progressSlider.continuous = YES;
     }
