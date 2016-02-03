@@ -66,8 +66,6 @@
     self.collectionView.delegate = self;
     [self.view addSubview:self.collectionView];
     
-    //self.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-    //self.navigationController!.navigationBar.shadowImage = UIImage()
     [self.navigationController.navigationBar setBackgroundImage:NULL forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setBarTintColor:[UIColor blackColor]];
     [self.navigationController.navigationBar setTranslucent:true];

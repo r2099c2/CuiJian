@@ -39,11 +39,15 @@ class SongViewController: UIViewController, UIScrollViewDelegate {
     
     var pageImages: [UIImage] = []
     var pageViews: [UIImageView?] = []
+    var pageScrollViewSize:CGSize!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         HelperFuc.bgParrallax(bgImageView)
+        
+        // 防止溢出，解决返回超出的bug
+        self.view.layer.masksToBounds = true
 
         for item in songData {
             pageImages.append(UIImage(named: item["imgUrl"]!)!)
@@ -54,20 +58,19 @@ class SongViewController: UIViewController, UIScrollViewDelegate {
         for _ in 0..<pageCount {
             pageViews.append(nil)
         }
-                
-        loadVisiblePages()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
         
-        let pageScrollViewSize = scrollView.frame.size
-        scrollView.contentSize = CGSize(width: pageScrollViewSize.width * CGFloat(pageImages.count), height: pageScrollViewSize.height)
+        // 使用UIScreen的size来初始化，避免viewdidappear的时候出现一个大小的跳动。
+        self.pageScrollViewSize = CGSize(width: UIScreen.mainScreen().bounds.size.width - 72, height: UIScreen.mainScreen().bounds.size.width - 72)
+        
+        scrollView.contentSize = CGSize(width: self.pageScrollViewSize.width * CGFloat(pageImages.count), height: self.pageScrollViewSize.height)
+
+        
+        loadVisiblePages()
         
         if isFirstLoad {
             for index in 0..<pageViews.count {
                 if pageViews[index] != nil {
-                    var frame = scrollView.bounds
+                    var frame = CGRect(origin: CGPoint(x: 0, y: 0), size: self.pageScrollViewSize)
                     frame.origin.x = frame.size.width * CGFloat(index)
                     frame.origin.y = 0.0
                     frame = CGRectInset(frame, 10.0, 0.0)
@@ -76,7 +79,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate {
             }
             isFirstLoad = false
         }
-        
+
     }
     
     
@@ -86,7 +89,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate {
         }
         
         if pageViews[page] == nil {
-            var frame = scrollView.bounds
+            var frame = CGRect(origin: CGPoint(x: 0, y: 0), size: self.pageScrollViewSize)
             frame.origin.x = frame.size.width * CGFloat(page)
             frame.origin.y = 0.0
             frame = CGRectInset(frame, 10.0, 0.0)
@@ -129,7 +132,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate {
     
     func loadVisiblePages() {
         // First, determine which page is currently visible
-        let pageWidth = scrollView.frame.size.width
+        let pageWidth = self.pageScrollViewSize.width
         let page = Int(floor((scrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0)))
         
         // Work out which pages you want to load
