@@ -12,6 +12,7 @@
 #import "NewsCell.h"
 #import "UIImageView+WebCache.h"
 #import "NewsDetailController.h"
+#import "HelperFuc.h"
 #define KscreenHeight [[UIScreen mainScreen] bounds].size.height
 #define KscreenWidth [[UIScreen mainScreen] bounds].size.width
 @interface NewsViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
@@ -47,7 +48,9 @@
     self.navigationItem.title = @"新闻";
     
     //添加背景的星空图
-    self.starBackground = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, KscreenWidth, KscreenHeight)];
+    self.starBackground = [[UIImageView alloc]initWithFrame:CGRectMake(-15, -15, KscreenWidth + 30, KscreenHeight + 30)];
+    
+    [HelperFuc bgParrallax:self.starBackground];
     self.starBackground.image = [UIImage imageNamed:@"star"];
     [self.view addSubview:self.starBackground];
     
@@ -55,7 +58,6 @@
     self.layout = [[VVSpringCollectionViewFlowLayout alloc] init];
     
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:self.layout];
-    NSLog(@"%@",NSStringFromCGRect(self.view.frame));
     //向下偏移64使navigationbar显出来
     self.collectionView.contentInset = UIEdgeInsetsMake(74, 0, 10, 0);
     //注册cell
@@ -88,15 +90,10 @@
             NewsModel * m = [[NewsModel alloc]init];
             [m setValuesForKeysWithDictionary:dict];
             [self.dataArray addObject:m];
-
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             // NSLog(@"CCC");
             [self.collectionView reloadData];
-            //[(VVSpringCollectionViewFlowLayout *)self.collectionView.collectionViewLayout resetLayout];
-            //[self.collectionView layoutIfNeeded];
-            //[self.collectionView reloadData];
-
         });
 
     }];
@@ -121,16 +118,12 @@
     //#warning Incomplete implementation, return the number of sections
     //NSLog(@"Get sections");
     return 1;
-
-   
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     //NSLog(@"Get items per section");
     return self.dataArray.count;
-
-    
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
