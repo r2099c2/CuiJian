@@ -95,11 +95,7 @@
                                                         <rect key="frame" x="-8" y="-10" width="336" height="122"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Znn-FJ-bHu">
-<<<<<<< HEAD
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
-=======
-                                                        <rect key="frame" x="0.0" y="-0.5" width="320" height="102"/>
->>>>>>> origin/master
                                                         <state key="normal" image="AlbumsBt"/>
                                                         <connections>
                                                             <segue destination="vQp-Ch-gUU" kind="push" id="ddx-hh-xBU"/>
@@ -136,11 +132,7 @@
                                                         <rect key="frame" x="-8" y="-10" width="336" height="121"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9W-25-u1F">
-<<<<<<< HEAD
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
-=======
-                                                        <rect key="frame" x="0.0" y="-0.5" width="320" height="101"/>
->>>>>>> origin/master
                                                         <state key="normal" image="MVBt"/>
                                                         <connections>
                                                             <action selector="MVClicked:" destination="GFv-yb-n9U" eventType="touchUpInside" id="mmb-k5-sce"/>
@@ -214,11 +206,7 @@
                                                         <rect key="frame" x="-8" y="-10" width="336" height="121"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Isa-gE-0yG">
-<<<<<<< HEAD
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
-=======
-                                                        <rect key="frame" x="0.0" y="-0.5" width="320" height="101"/>
->>>>>>> origin/master
                                                         <state key="normal" image="newsBt"/>
                                                         <connections>
                                                             <action selector="newsClicked:" destination="GFv-yb-n9U" eventType="touchUpInside" id="W3Z-Ie-uCi"/>
