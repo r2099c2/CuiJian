@@ -52,6 +52,7 @@
 		421AF2A61C58891C00E9D63B /* MVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421AF2A51C58891C00E9D63B /* MVViewController.swift */; };
 		42765A551C5F39C700047A55 /* mv1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 42538DEA1C5F1A0B0064935E /* mv1.mp4 */; };
 		42765A561C5F39C700047A55 /* mv2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 42538DEB1C5F1A1A0064935E /* mv2.mp4 */; };
+		42E68CB21C61ECCC00194E45 /* HelperFuc.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E68CB11C61ECCC00194E45 /* HelperFuc.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,7 +73,6 @@
 		1D9D2B961C53C4F500B5332D /* TimelineSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineSlider.swift; sourceTree = "<group>"; };
 		1DAA83F91C563D2200355E47 /* SlideMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMaskView.swift; sourceTree = "<group>"; };
 		1DB0523B1C5B784B00EEB58E /* SongListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongListViewController.swift; sourceTree = "<group>"; };
-		1DB0523D1C5B897100EEB58E /* HelperFuc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFuc.swift; sourceTree = "<group>"; };
 		1DD024F01C461AC40000D316 /* SongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 		1DE982AB1C622BE000014268 /* testSong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = testSong.mp3; sourceTree = "<group>"; };
 		4212F7EE1C5B4D0500C6BA6F /* CuiJian-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CuiJian-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -126,6 +126,8 @@
 		421AF2A51C58891C00E9D63B /* MVViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVViewController.swift; sourceTree = "<group>"; };
 		42538DEA1C5F1A0B0064935E /* mv1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mv1.mp4; sourceTree = "<group>"; };
 		42538DEB1C5F1A1A0064935E /* mv2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mv2.mp4; sourceTree = "<group>"; };
+		42E68CB11C61ECCC00194E45 /* HelperFuc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperFuc.m; sourceTree = "<group>"; };
+		42E68CB31C61ED8C00194E45 /* HelperFuc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelperFuc.h; sourceTree = "<group>"; };
 		6F96F82292D284480C76E61B /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -174,11 +176,12 @@
 		1D57B04A1C43BC0C001C18F7 /* CuiJian */ = {
 			isa = PBXGroup;
 			children = (
+				42E68CB31C61ED8C00194E45 /* HelperFuc.h */,
+				42E68CB11C61ECCC00194E45 /* HelperFuc.m */,
 				4212F8291C5B702000C6BA6F /* News */,
 				4212F8351C5B702000C6BA6F /* NewsDetail */,
 				1D3285C11C4667ED00ADAFDC /* Controller */,
 				1DEE7A2E1C50C80F0081D6BD /* TimelineItem */,
-				1DB0523D1C5B897100EEB58E /* HelperFuc.swift */,
 				4212F8701C5E058700C6BA6F /* MVItems */,
 				1D57B04B1C43BC0C001C18F7 /* AppDelegate.swift */,
 				1D57B0511C43BC0C001C18F7 /* Main.storyboard */,
@@ -459,6 +462,7 @@
 				4212F8601C5B702000C6BA6F /* NewsDetailController.m in Sources */,
 				1D9D2B971C53C4F500B5332D /* TimelineSlider.swift in Sources */,
 				4212F8641C5B702000C6BA6F /* SDWebImageCompat.m in Sources */,
+				42E68CB21C61ECCC00194E45 /* HelperFuc.m in Sources */,
 				1D0276DD1C5F809C0087797D /* TimeLineModel.swift in Sources */,
 				4212F8631C5B702000C6BA6F /* SDImageCache.m in Sources */,
 				4212F86C1C5B702000C6BA6F /* UIImage+MultiFormat.m in Sources */,
@@ -484,7 +488,6 @@
 				4212F86E1C5B702000C6BA6F /* UIImageView+WebCache.m in Sources */,
 				4212F85F1C5B702000C6BA6F /* NewsCell.m in Sources */,
 				1DAA83FA1C563D2200355E47 /* SlideMaskView.swift in Sources */,
-				1DB0523E1C5B897100EEB58E /* HelperFuc.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

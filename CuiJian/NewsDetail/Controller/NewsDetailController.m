@@ -29,6 +29,7 @@
     //webView背景透明
     _webView.backgroundColor = [UIColor clearColor];
     [self.webView setOpaque:NO];
+    
     //预先加载url
     [self.webView loadHTMLString:self.Nmodel.post_content baseURL:nil];
     
@@ -123,9 +124,6 @@
 {
     _bottomImage.transform = CGAffineTransformMakeTranslation(0, scrollView.contentOffset.y);
 }
-
-
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {

@@ -26,6 +26,7 @@ class MVViewController: UIViewController, UICollectionViewDataSource, UICollecti
         super.viewDidLoad()
         
         HelperFuc.bgParrallax(self.bgView)
+        HelperFuc.bgParrallax(self.forzenLight, maximumRelativeValue: 30)
         
         self.collectionViewLayout = VVSpringCollectionViewFlowLayout()
         self.collectionView.collectionViewLayout = self.collectionViewLayout
