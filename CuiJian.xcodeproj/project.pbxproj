@@ -24,6 +24,7 @@
 		1DB0523C1C5B784B00EEB58E /* SongListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0523B1C5B784B00EEB58E /* SongListViewController.swift */; };
 		1DB0523E1C5B897100EEB58E /* HelperFuc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0523D1C5B897100EEB58E /* HelperFuc.swift */; };
 		1DD024F11C461AC40000D316 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD024F01C461AC40000D316 /* SongViewController.swift */; };
+		1DE982AC1C622BE000014268 /* testSong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DE982AB1C622BE000014268 /* testSong.mp3 */; };
 		4212F8071C5B5B5300C6BA6F /* KRVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212F8041C5B5B5300C6BA6F /* KRVideoPlayerController.m */; };
 		4212F8081C5B5B5300C6BA6F /* KRVideoPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212F8061C5B5B5300C6BA6F /* KRVideoPlayerControlView.m */; };
 		4212F85C1C5B702000C6BA6F /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212F82C1C5B702000C6BA6F /* NewsViewController.m */; };
@@ -73,6 +74,7 @@
 		1DB0523B1C5B784B00EEB58E /* SongListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongListViewController.swift; sourceTree = "<group>"; };
 		1DB0523D1C5B897100EEB58E /* HelperFuc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFuc.swift; sourceTree = "<group>"; };
 		1DD024F01C461AC40000D316 /* SongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
+		1DE982AB1C622BE000014268 /* testSong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = testSong.mp3; sourceTree = "<group>"; };
 		4212F7EE1C5B4D0500C6BA6F /* CuiJian-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CuiJian-Bridging-Header.h"; sourceTree = "<group>"; };
 		4212F8031C5B5B5300C6BA6F /* KRVideoPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRVideoPlayerController.h; sourceTree = "<group>"; };
 		4212F8041C5B5B5300C6BA6F /* KRVideoPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRVideoPlayerController.m; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				1D57B0511C43BC0C001C18F7 /* Main.storyboard */,
 				421AF2A31C587BAA00E9D63B /* MVStoryboard.storyboard */,
 				4212F7F11C5B4D1200C6BA6F /* vendor */,
+				1DE982A61C61FBAC00014268 /* Songs */,
 				4212F7E71C5A121400C6BA6F /* mvs */,
 				1D57B0541C43BC0C001C18F7 /* Assets.xcassets */,
 				1D315CA71C589CEB00935D41 /* art.scnassets */,
@@ -190,6 +193,14 @@
 				4212F7EE1C5B4D0500C6BA6F /* CuiJian-Bridging-Header.h */,
 			);
 			path = CuiJian;
+			sourceTree = "<group>";
+		};
+		1DE982A61C61FBAC00014268 /* Songs */ = {
+			isa = PBXGroup;
+			children = (
+				1DE982AB1C622BE000014268 /* testSong.mp3 */,
+			);
+			name = Songs;
 			sourceTree = "<group>";
 		};
 		1DEE7A2E1C50C80F0081D6BD /* TimelineItem */ = {
@@ -422,6 +433,7 @@
 				42765A551C5F39C700047A55 /* mv1.mp4 in Resources */,
 				42765A561C5F39C700047A55 /* mv2.mp4 in Resources */,
 				1D57B0581C43BC0C001C18F7 /* LaunchScreen.storyboard in Resources */,
+				1DE982AC1C622BE000014268 /* testSong.mp3 in Resources */,
 				1D315CA81C589CEB00935D41 /* art.scnassets in Resources */,
 				1D57B0551C43BC0C001C18F7 /* Assets.xcassets in Resources */,
 				1D1ED46F1C4CB7670012EDD1 /* TimelineItem.xib in Resources */,
