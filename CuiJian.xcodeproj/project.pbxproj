@@ -22,7 +22,6 @@
 		1D9D2B971C53C4F500B5332D /* TimelineSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9D2B961C53C4F500B5332D /* TimelineSlider.swift */; };
 		1DAA83FA1C563D2200355E47 /* SlideMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAA83F91C563D2200355E47 /* SlideMaskView.swift */; };
 		1DB0523C1C5B784B00EEB58E /* SongListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0523B1C5B784B00EEB58E /* SongListViewController.swift */; };
-		1DB0523E1C5B897100EEB58E /* HelperFuc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0523D1C5B897100EEB58E /* HelperFuc.swift */; };
 		1DD024F11C461AC40000D316 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD024F01C461AC40000D316 /* SongViewController.swift */; };
 		1DE982AC1C622BE000014268 /* testSong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DE982AB1C622BE000014268 /* testSong.mp3 */; };
 		4212F8071C5B5B5300C6BA6F /* KRVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212F8041C5B5B5300C6BA6F /* KRVideoPlayerController.m */; };
