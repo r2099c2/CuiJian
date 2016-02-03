@@ -94,8 +94,8 @@
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Albums" translatesAutoresizingMaskIntoConstraints="NO" id="bZw-z6-D3a">
                                                         <rect key="frame" x="-8" y="-10" width="336" height="122"/>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Znn-FJ-bHu">
-                                                        <rect key="frame" x="0.0" y="-0.5" width="320" height="102"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Znn-FJ-bHu">
+                                                        <rect key="frame" x="0.0" y="-1" width="320" height="103"/>
                                                         <state key="normal" image="AlbumsBt"/>
                                                         <connections>
                                                             <segue destination="vQp-Ch-gUU" kind="push" id="ddx-hh-xBU"/>
@@ -131,8 +131,8 @@
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MV" translatesAutoresizingMaskIntoConstraints="NO" id="j6m-Bu-Wpk">
                                                         <rect key="frame" x="-8" y="-10" width="336" height="121"/>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9W-25-u1F">
-                                                        <rect key="frame" x="0.0" y="-0.5" width="320" height="101"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9W-25-u1F">
+                                                        <rect key="frame" x="0.0" y="-1" width="320" height="102"/>
                                                         <state key="normal" image="MVBt"/>
                                                         <connections>
                                                             <action selector="MVClicked:" destination="GFv-yb-n9U" eventType="touchUpInside" id="mmb-k5-sce"/>
@@ -205,8 +205,8 @@
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news" translatesAutoresizingMaskIntoConstraints="NO" id="s19-kO-bUF">
                                                         <rect key="frame" x="-8" y="-10" width="336" height="121"/>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Isa-gE-0yG">
-                                                        <rect key="frame" x="0.0" y="-0.5" width="320" height="101"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Isa-gE-0yG">
+                                                        <rect key="frame" x="0.0" y="-1" width="320" height="102"/>
                                                         <state key="normal" image="newsBt"/>
                                                         <connections>
                                                             <action selector="newsClicked:" destination="GFv-yb-n9U" eventType="touchUpInside" id="W3Z-Ie-uCi"/>
@@ -342,6 +342,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="songBgImage" translatesAutoresizingMaskIntoConstraints="NO" id="IWJ-7e-dKr">
                                 <rect key="frame" x="-4" y="0.0" width="328" height="568"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="songBgParaImage" translatesAutoresizingMaskIntoConstraints="NO" id="NRl-Ob-NRd">
+                                <rect key="frame" x="-20" y="-20" width="360" height="568"/>
+                            </imageView>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zH5-TD-gdc">
                                 <rect key="frame" x="36" y="72" width="248" height="248"/>
                                 <constraints>
@@ -372,9 +375,6 @@
                                     <segue destination="9co-bn-0qF" kind="push" id="cjh-hn-E6K"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="songBgParaImage" translatesAutoresizingMaskIntoConstraints="NO" id="NRl-Ob-NRd">
-                                <rect key="frame" x="-20" y="-20" width="360" height="568"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
