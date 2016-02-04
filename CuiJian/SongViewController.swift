@@ -8,10 +8,11 @@
 
 import UIKit
 import AVFoundation
+import QuartzCore
 
 class SongViewController: UIViewController, UIScrollViewDelegate, AVAudioPlayerDelegate {
-
-    @IBOutlet weak var bgImageView: UIImageView! 
+    
+    @IBOutlet weak var bgImageView: UIImageView!
     
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
@@ -44,6 +45,8 @@ class SongViewController: UIViewController, UIScrollViewDelegate, AVAudioPlayerD
     var player: AVAudioPlayer?
     var isPlay = false
     
+    var playTriangleLayer: CALayer!
+    
     var pageScrollViewSize:CGSize!
     
     override func viewDidLoad() {
@@ -53,7 +56,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, AVAudioPlayerD
         
         // 防止溢出，解决返回超出的bug
         self.view.layer.masksToBounds = true
-
+        
         // get img url data and send to pageImages
         for item in songData {
             pageImages.append(UIImage(named: item["imgUrl"]!)!)
@@ -101,7 +104,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, AVAudioPlayerD
             let newTextView = UILabel()
             newTextView.text = "30’试听"
             newTextView.font = UIFont.systemFontOfSize(13)
-            newTextView.textColor = UIColor(red: 110/255, green: 110/255, blue: 110/255, alpha: 1)
+            newTextView.textColor = UIColor(red: 110/255.0, green: 110/255.0, blue: 110/255.0, alpha: 1)
             newPageView.addSubview(newTextView)
             newTextView.bounds.size = CGSize(width: 50, height: 0.16 * newPageView.bounds.width)
             newTextView.frame.origin.x = newPageView.bounds.width - newTextView.bounds.width
@@ -109,11 +112,12 @@ class SongViewController: UIViewController, UIScrollViewDelegate, AVAudioPlayerD
             
             let playerBtnView = UIButton()
             newPageView.addSubview(playerBtnView)
-            playerBtnView.backgroundColor = UIColor.greenColor()
             playerBtnView.bounds.size = CGSize(width: 0.16 * newPageView.bounds.width, height: 0.16 * newPageView.bounds.width)
             playerBtnView.frame.origin.x = newTextView.frame.origin.x - 8 - playerBtnView.bounds.width
             playerBtnView.frame.origin.y = newPageView.bounds.height - playerBtnView.bounds.height
             playerBtnView.addTarget(self, action: "playAudio:", forControlEvents: .TouchUpInside)
+            
+            setupBtnLayer(playerBtnView)
             
             scrollView.addSubview(newPageView)
             
@@ -188,6 +192,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, AVAudioPlayerD
     }
     
     func hideSongContent() {
+        songText.setContentOffset(CGPoint.zero, animated: false)
         UIView.animateWithDuration(0.2, animations: { () -> Void in
             self.songTitle.transform = CGAffineTransformMakeScale(0.001, 0.001)
             self.songText.transform = CGAffineTransformMakeScale(0.001, 0.001)
@@ -262,6 +267,57 @@ class SongViewController: UIViewController, UIScrollViewDelegate, AVAudioPlayerD
         }
     }
     
+    func setupBtnLayer(spView: UIView) {
+        let bgLayer = CAShapeLayer()
+        bgLayer.path = UIBezierPath(ovalInRect: CGRect(origin: CGPoint.zero, size: spView.bounds.size)).CGPath
+        bgLayer.fillColor = UIColor(red: 216/255.0, green: 216/255.0, blue: 216/255.0, alpha: 1).CGColor
+        bgLayer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).CGColor
+        bgLayer.shadowOffset = CGSize(width: 0, height: 9)
+        
+        spView.layer.addSublayer(bgLayer)
+        
+        playTriangleLayer = CALayer()
+        playTriangleLayer.bounds.size = CGSize(width: spView.bounds.width * 0.35, height: spView.bounds.height * 0.43)
+        playTriangleLayer.frame.origin = CGPoint(x: (spView.bounds.width - playTriangleLayer.bounds.width)/1.8, y: (spView.bounds.height - playTriangleLayer.bounds.height)/2)
+        playTriangleLayer.contents = UIImage(named: "playTriangle")?.CGImage
+        spView.layer.addSublayer(playTriangleLayer)
+        
+        setupCircleLayer(spView)
+    }
+    
+    func setupCircleLayer(spView: UIView) {
+        let playerCircle = CAShapeLayer()
+        let lineWidth: CGFloat = 3
+        
+        let arcCenter = CGPoint(x: CGRectGetMidX(spView.bounds), y: CGRectGetMidY(spView.bounds))
+        let radius = fmin(CGRectGetMidX(spView.bounds), CGRectGetMidY(spView.bounds)) - lineWidth/2
+        let circlePath = UIBezierPath(arcCenter: arcCenter, radius: radius, startAngle: degreeToRadian(-90), endAngle: degreeToRadian(-90 + 180), clockwise: true)
+        
+        spView.layer.addSublayer(playerCircle)
+        playerCircle.path = circlePath.CGPath
+        playerCircle.fillColor = UIColor.clearColor().CGColor
+        playerCircle.lineWidth = lineWidth
+        playerCircle.strokeColor = UIColor(red: 187/255.0, green: 177/255.0, blue: 141/255.0, alpha: 1).CGColor
+        
+        playerCircle.strokeStart = 0.0
+        playerCircle.strokeEnd = 1.0
+    }
+    
+    func degreeToRadian(degree: CGFloat) -> CGFloat {
+        return CGFloat(M_PI / 180) * degree
+    }
+    
+    func playerAnimation() {
+        let playerAnimation = CABasicAnimation(keyPath: "stokeEnd")
+        playerAnimation.duration = 30
+        playerAnimation.fromValue = 0
+        playerAnimation.toValue = 0.5
+        playerAnimation.autoreverses = false
+        playerAnimation.repeatCount = 0
+        
+        //playerCircle.addAnimation(playerAnimation, forKey: "playerAnimation")
+    }
+    
     func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
         isPlay = false
     }
@@ -282,7 +338,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, AVAudioPlayerD
     
     
     // MARK: - Navigation
-
+    
     @IBAction func backBtn(sender: UIBarButtonItem) {
         self.navigationController?.popViewControllerAnimated(true)
     }
@@ -290,5 +346,5 @@ class SongViewController: UIViewController, UIScrollViewDelegate, AVAudioPlayerD
     
     
     
-
+    
 }
