@@ -301,21 +301,23 @@ class SongViewController: UIViewController, UIScrollViewDelegate, AVAudioPlayerD
         
         playerCircle.strokeStart = 0.0
         playerCircle.strokeEnd = 1.0
+        
+        playerAnimation(playerCircle)
     }
     
     func degreeToRadian(degree: CGFloat) -> CGFloat {
         return CGFloat(M_PI / 180) * degree
     }
     
-    func playerAnimation() {
-        let playerAnimation = CABasicAnimation(keyPath: "stokeEnd")
+    func playerAnimation(layer: CALayer) {
+        let playerAnimation = CABasicAnimation(keyPath: "strokeEnd")
         playerAnimation.duration = 30
         playerAnimation.fromValue = 0
         playerAnimation.toValue = 0.5
         playerAnimation.autoreverses = false
         playerAnimation.repeatCount = 0
         
-        //playerCircle.addAnimation(playerAnimation, forKey: "playerAnimation")
+        layer.addAnimation(playerAnimation, forKey: "playerAnimation")
     }
     
     func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {

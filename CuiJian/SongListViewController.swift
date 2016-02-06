@@ -12,11 +12,7 @@ class SongListViewController: UIViewController {
     
     
     @IBAction func dismiss(sender: UIBarButtonItem) {
-        self.navigationController?.popViewControllerAnimated(true)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    override func viewDidLoad() {
-        self.navigationItem.hidesBackButton = true
-    }
-   
 }

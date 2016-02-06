@@ -12,6 +12,7 @@
 		1D1ED4711C4CB7A70012EDD1 /* TimelineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1ED4701C4CB7A70012EDD1 /* TimelineItem.swift */; };
 		1D267C2E1C47894800FEAFB6 /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D267C2D1C47894800FEAFB6 /* TimeLineViewController.swift */; };
 		1D315CA81C589CEB00935D41 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D315CA71C589CEB00935D41 /* art.scnassets */; };
+		1D31F2741C65FE0600A7F221 /* aboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D31F2731C65FE0600A7F221 /* aboutViewController.swift */; };
 		1D3285BE1C46611800ADAFDC /* TransparentNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3285BD1C46611800ADAFDC /* TransparentNavBar.swift */; };
 		1D3285C01C4667D900ADAFDC /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3285BF1C4667D900ADAFDC /* NavViewController.swift */; };
 		1D57B04C1C43BC0C001C18F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D57B04B1C43BC0C001C18F7 /* AppDelegate.swift */; };
@@ -60,6 +61,7 @@
 		1D1ED4701C4CB7A70012EDD1 /* TimelineItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineItem.swift; sourceTree = "<group>"; };
 		1D267C2D1C47894800FEAFB6 /* TimeLineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
 		1D315CA71C589CEB00935D41 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; name = art.scnassets; path = ../art.scnassets; sourceTree = "<group>"; };
+		1D31F2731C65FE0600A7F221 /* aboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = aboutViewController.swift; sourceTree = "<group>"; };
 		1D3285BD1C46611800ADAFDC /* TransparentNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransparentNavBar.swift; sourceTree = "<group>"; };
 		1D3285BF1C4667D900ADAFDC /* NavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		1D57B0481C43BC0C001C18F7 /* CuiJian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CuiJian.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +153,7 @@
 				1D267C2D1C47894800FEAFB6 /* TimeLineViewController.swift */,
 				421AF2A51C58891C00E9D63B /* MVViewController.swift */,
 				1DB0523B1C5B784B00EEB58E /* SongListViewController.swift */,
+				1D31F2731C65FE0600A7F221 /* aboutViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				4212F8641C5B702000C6BA6F /* SDWebImageCompat.m in Sources */,
 				42E68CB21C61ECCC00194E45 /* HelperFuc.m in Sources */,
 				1D0276DD1C5F809C0087797D /* TimeLineModel.swift in Sources */,
+				1D31F2741C65FE0600A7F221 /* aboutViewController.swift in Sources */,
 				4212F8631C5B702000C6BA6F /* SDImageCache.m in Sources */,
 				4212F86C1C5B702000C6BA6F /* UIImage+MultiFormat.m in Sources */,
 				4212F86B1C5B702000C6BA6F /* UIImage+GIF.m in Sources */,
