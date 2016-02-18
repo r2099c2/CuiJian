@@ -494,7 +494,7 @@
                                     <constraint firstAttribute="width" constant="89" id="kJO-6A-hEW"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Slb-jU-LcK">
+                            <textView clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Slb-jU-LcK">
                                 <rect key="frame" x="61" y="440" width="197" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.43137254901960786" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
@@ -546,7 +546,7 @@
                     <connections>
                         <outlet property="bgImageView" destination="NRl-Ob-NRd" id="olk-VO-Xq7"/>
                         <outlet property="scrollView" destination="zH5-TD-gdc" id="Ugh-ca-IjG"/>
-                        <outlet property="songText" destination="Slb-jU-LcK" id="qPj-Y0-BDo"/>
+                        <outlet property="songLyric" destination="Slb-jU-LcK" id="tHA-uO-WLc"/>
                         <outlet property="songTitle" destination="tla-T1-7j7" id="Imh-Qh-mzF"/>
                     </connections>
                 </viewController>
@@ -614,6 +614,7 @@
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aoD-GQ-ITn">
                                             <rect key="frame" x="0.0" y="66" width="328" height="392"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="separatorColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                             <prototypes>
                                                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="songListCellIdentifier" id="99v-70-frk" customClass="SongListCell" customModule="CuiJian" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="28" width="328" height="44"/>

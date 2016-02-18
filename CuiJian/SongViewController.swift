@@ -22,7 +22,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, AVAudioPlayerD
     
     @IBOutlet weak var songTitle: UIImageView!
     
-    @IBOutlet weak var songText: UITextView!
+    @IBOutlet weak var songLyric: UITextView!
     
     
     let songData: [[String: String]] = [
@@ -77,6 +77,8 @@ class SongViewController: UIViewController, UIScrollViewDelegate, AVAudioPlayerD
         
         // load first 3 pages need be show
         loadVisiblePages()
+        
+        addGestureToSongLyric()
     }
     
     
@@ -192,39 +194,39 @@ class SongViewController: UIViewController, UIScrollViewDelegate, AVAudioPlayerD
     }
     
     func hideSongContent() {
-        songText.setContentOffset(CGPoint.zero, animated: false)
+        songLyric.setContentOffset(CGPoint.zero, animated: false)
         UIView.animateWithDuration(0.2, animations: { () -> Void in
             self.songTitle.transform = CGAffineTransformMakeScale(0.001, 0.001)
-            self.songText.transform = CGAffineTransformMakeScale(0.001, 0.001)
+            self.songLyric.transform = CGAffineTransformMakeScale(0.001, 0.001)
             }) { (finished) -> Void in
                 self.songTitle.hidden = true
-                self.songText.hidden = true
+                self.songLyric.hidden = true
         }
     }
     
     func showSongContent() {
         self.songTitle.transform = CGAffineTransformMakeScale(0.5, 0.5)
-        self.songText.transform = CGAffineTransformMakeScale(0.7, 0.7)
+        self.songLyric.transform = CGAffineTransformMakeScale(0.7, 0.7)
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.6, options: .CurveEaseIn, animations: { () -> Void in
             self.songTitle.hidden = false
             self.songTitle.transform = CGAffineTransformMakeScale(1, 1)
             }, completion: nil)
         UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: .CurveEaseIn, animations: { () -> Void in
-            self.songText.hidden = false
-            self.songText.transform = CGAffineTransformMakeScale(1, 1)
+            self.songLyric.hidden = false
+            self.songLyric.transform = CGAffineTransformMakeScale(1, 1)
             }, completion: nil)
     }
     
     func setContentForCurrentPage(index: Int) {
         songTitle.image = UIImage(named: songData[index]["title"]!)
-        songText.text = songData[index]["content"]!
+        songLyric.text = songData[index]["content"]!
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 26
         style.alignment = .Center
         let attributes = [NSParagraphStyleAttributeName : style,
             NSForegroundColorAttributeName: UIColor.whiteColor(),
             NSFontAttributeName: UIFont.systemFontOfSize(15)]
-        songText.attributedText = NSAttributedString(string: songText.text, attributes:attributes)
+        songLyric.attributedText = NSAttributedString(string: songLyric.text, attributes:attributes)
     }
     
     //MARK: - Audio Player
@@ -337,6 +339,23 @@ class SongViewController: UIViewController, UIScrollViewDelegate, AVAudioPlayerD
         player.play()
         isPlay = player.playing
     }
+    
+    // MARK: - Scroll
+    
+    // add gesture to song lyric
+    // if lyric is compressed -> scroll up -> release lyric(lyric add height & title image and img scroll view subtract offset y)
+    // if lyric is releaseed -> scroll down -> if lyric scroll bar is on the top -> compress lyric
+    func addGestureToSongLyric() {
+        let panGesture = UIPanGestureRecognizer(target: self, action: "songTextGestureAction")
+        songLyric.addGestureRecognizer(panGesture)
+    }
+    
+    func songTextGestureAction(pan: UIPanGestureRecognizer) {
+        if songLyric.contentOffset == CGPoint.zero {
+            
+        }
+    }
+    
     
     
     // MARK: - Navigation

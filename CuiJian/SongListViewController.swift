@@ -16,6 +16,7 @@ class SongListViewController: UIViewController, UITableViewDataSource, UITableVi
         didSet {
             songListTable.delegate = self
             songListTable.dataSource = self
+            songListTable.tableFooterView = UIView(frame: CGRectZero)
         }
     }
     
@@ -37,4 +38,5 @@ class SongListViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return songList.count
     }
+
 }
