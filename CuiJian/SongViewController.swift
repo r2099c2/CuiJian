@@ -10,13 +10,13 @@ import UIKit
 import AVFoundation
 import QuartzCore
 
-class SongViewController: UIViewController, UIScrollViewDelegate, AVAudioPlayerDelegate {
+class SongViewController: UIViewController, UIScrollViewDelegate, AVAudioPlayerDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var bgImageView: UIImageView!
     
-    @IBOutlet weak var scrollView: UIScrollView! {
+    @IBOutlet weak var songScrollView: UIScrollView! {
         didSet {
-            scrollView.delegate = self
+            songScrollView.delegate = self
         }
     }
     
@@ -49,6 +49,12 @@ class SongViewController: UIViewController, UIScrollViewDelegate, AVAudioPlayerD
     
     var pageScrollViewSize:CGSize!
     
+    var lyricHeight: CGFloat?
+    var lyricTop: CGFloat?
+    var songScrollViewTop: CGFloat?
+    var songTitleTop: CGFloat?
+    var isCompressed: Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,12 +79,25 @@ class SongViewController: UIViewController, UIScrollViewDelegate, AVAudioPlayerD
         self.pageScrollViewSize = CGSize(width: UIScreen.mainScreen().bounds.size.width - 72, height: UIScreen.mainScreen().bounds.size.width - 72)
         
         // set scroll view contentSize
-        scrollView.contentSize = CGSize(width: self.pageScrollViewSize.width * CGFloat(pageImages.count), height: self.pageScrollViewSize.height)
+        songScrollView.contentSize = CGSize(width: self.pageScrollViewSize.width * CGFloat(pageImages.count), height: self.pageScrollViewSize.height)
         
         // load first 3 pages need be show
         loadVisiblePages()
         
         addGestureToSongLyric()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        updateSizeData()
+    }
+    
+    func updateSizeData() {
+        lyricHeight = self.songLyric.bounds.height
+        lyricTop = self.songLyric.frame.origin.y
+        songScrollViewTop = self.songScrollView.frame.origin.y
+        songTitleTop = self.songTitle.frame.origin.y
     }
     
     
@@ -121,7 +140,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, AVAudioPlayerD
             
             setupBtnLayer(playerBtnView)
             
-            scrollView.addSubview(newPageView)
+            songScrollView.addSubview(newPageView)
             
             pageViews[page] = newPageView
         }
@@ -143,7 +162,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, AVAudioPlayerD
     func loadVisiblePages() {
         // First, determine which page is currently visible
         let pageWidth = self.pageScrollViewSize.width
-        curPageIndex = Int(floor((scrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0)))
+        curPageIndex = Int(floor((songScrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0)))
         
         // Work out which pages you want to load
         let firstPage = curPageIndex - 1
@@ -346,14 +365,85 @@ class SongViewController: UIViewController, UIScrollViewDelegate, AVAudioPlayerD
     // if lyric is compressed -> scroll up -> release lyric(lyric add height & title image and img scroll view subtract offset y)
     // if lyric is releaseed -> scroll down -> if lyric scroll bar is on the top -> compress lyric
     func addGestureToSongLyric() {
-        let panGesture = UIPanGestureRecognizer(target: self, action: "songTextGestureAction")
+        let panGesture = UIPanGestureRecognizer(target: self, action: "songTextGestureAction:")
         songLyric.addGestureRecognizer(panGesture)
+        panGesture.delegate = self
     }
     
     func songTextGestureAction(pan: UIPanGestureRecognizer) {
-        if songLyric.contentOffset == CGPoint.zero {
+        // scrollbar on the top
+        // FIXME: songLyric content offset
+        if songLyric.contentOffset.y <= CGPointZero.y {
+            let translationInView = pan.translationInView(self.view).y
+            let tanslationABS = abs(translationInView)
+            if isCompressed && translationInView < 0 {
+                
+                switch pan.state {
+                case .Changed:
+                    self.songLyric.bounds.size.height = tanslationABS + lyricHeight!
+                    self.songLyric.frame.origin.y = lyricTop! - tanslationABS
+                    if self.songScrollView.alpha > 0.0 {
+                        self.songScrollView.alpha = (300 - tanslationABS) / 300
+                    }
+                    self.songTitle.frame.origin.y = songTitleTop! - tanslationABS
+                    break
+                case .Ended:
+                    fallthrough
+                case .Cancelled:
+                    fallthrough
+                case .Failed:
+                    UIView.animateWithDuration(0.2, animations: { () -> Void in
+                        self.songScrollView.alpha = 0.0
+                        self.songTitle.frame.origin.y = 100.0
+                        self.songLyric.bounds.size.height = self.view.bounds.height - self.songTitle.bounds.height - 100.0 - 15.0
+                        self.songLyric.frame.origin.y = self.songTitle.bounds.height + 100.0 + 15.0
+                        }, completion: { (finish) -> Void in
+                            self.songScrollView.hidden = true
+                            self.songLyric.scrollEnabled = true
+                            self.isCompressed = false
+                            self.updateSizeData()
+                    })
+                    break
+                default: break
+                }
+            } else if !isCompressed && translationInView > 0 {
+                self.songScrollView.hidden = false
+                switch pan.state {
+                case .Changed:
+                    self.songLyric.bounds.size.height = lyricHeight! - tanslationABS
+                    self.songLyric.frame.origin.y = lyricTop! + tanslationABS
+                    if self.songScrollView.alpha < 1.0 {
+                        self.songScrollView.alpha = tanslationABS / 300
+                    }
+                    self.songTitle.frame.origin.y = songTitleTop! + tanslationABS
+                    break
+                case .Ended:
+                    fallthrough
+                case .Cancelled:
+                    fallthrough
+                case .Failed:
+                    
+                    UIView.animateWithDuration(0.2, animations: { () -> Void in
+                        self.songScrollView.alpha = 1.0
+                        self.songTitle.frame.origin.y = self.songScrollView.bounds.height + self.songScrollView.frame.origin.y + 15.0
+                        self.songLyric.bounds.size.height = self.view.bounds.height - self.songScrollView.bounds.height - self.songScrollView.frame.origin.y - self.songTitle.bounds.height - 15.0
+                        self.songLyric.frame.origin.y = self.songScrollView.bounds.height + self.songScrollView.frame.origin.y + self.songTitle.bounds.height + 15.0
+                        }, completion: { (finish) -> Void in
+                            self.isCompressed = true
+                            self.updateSizeData()
+                            self.songLyric.scrollEnabled = false
+                            self.songLyric.contentOffset = CGPointZero
+                    })
+                    break
+                default: break
+                }
+            }
             
         }
+    }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
     
     
