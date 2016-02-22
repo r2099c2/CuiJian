@@ -23,6 +23,7 @@
 		1D9D2B971C53C4F500B5332D /* TimelineSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9D2B961C53C4F500B5332D /* TimelineSlider.swift */; };
 		1DAA83FA1C563D2200355E47 /* SlideMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAA83F91C563D2200355E47 /* SlideMaskView.swift */; };
 		1DB0523C1C5B784B00EEB58E /* SongListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0523B1C5B784B00EEB58E /* SongListViewController.swift */; };
+		1DBF528F1C7B2493002734FF /* SongPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBF528E1C7B2493002734FF /* SongPlayer.swift */; };
 		1DD024F11C461AC40000D316 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD024F01C461AC40000D316 /* SongViewController.swift */; };
 		1DE982AC1C622BE000014268 /* testSong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DE982AB1C622BE000014268 /* testSong.mp3 */; };
 		1DFD73891C75AB3F00B069EB /* SongListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFD73881C75AB3F00B069EB /* SongListCell.swift */; };
@@ -75,6 +76,7 @@
 		1D9D2B961C53C4F500B5332D /* TimelineSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineSlider.swift; sourceTree = "<group>"; };
 		1DAA83F91C563D2200355E47 /* SlideMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMaskView.swift; sourceTree = "<group>"; };
 		1DB0523B1C5B784B00EEB58E /* SongListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongListViewController.swift; sourceTree = "<group>"; };
+		1DBF528E1C7B2493002734FF /* SongPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongPlayer.swift; sourceTree = "<group>"; };
 		1DD024F01C461AC40000D316 /* SongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 		1DE982AB1C622BE000014268 /* testSong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = testSong.mp3; sourceTree = "<group>"; };
 		1DFD73881C75AB3F00B069EB /* SongListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongListCell.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				1DB0523B1C5B784B00EEB58E /* SongListViewController.swift */,
 				1D31F2731C65FE0600A7F221 /* aboutViewController.swift */,
 				1DFD73881C75AB3F00B069EB /* SongListCell.swift */,
+				1DBF528E1C7B2493002734FF /* SongPlayer.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				4212F8641C5B702000C6BA6F /* SDWebImageCompat.m in Sources */,
 				42E68CB21C61ECCC00194E45 /* HelperFuc.m in Sources */,
 				1D0276DD1C5F809C0087797D /* TimeLineModel.swift in Sources */,
+				1DBF528F1C7B2493002734FF /* SongPlayer.swift in Sources */,
 				1D31F2741C65FE0600A7F221 /* aboutViewController.swift in Sources */,
 				4212F8631C5B702000C6BA6F /* SDImageCache.m in Sources */,
 				4212F86C1C5B702000C6BA6F /* UIImage+MultiFormat.m in Sources */,
