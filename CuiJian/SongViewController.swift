@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import QuartzCore
 
-class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate {
+class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate, SongListDelegate {
     
     @IBOutlet weak var bgImageView: UIImageView!
     
@@ -25,20 +25,20 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
     @IBOutlet weak var songLyric: UITextView!
     
     let songData: [[String: String]] = [
-        ["title": "song1Title", "content":"我站在浪尖风口\n南墙碰了我的头\n我挺着身体背着手\n风你可以斩我的首\n废话穿透耳朵\n恐惧压歌喉\n土地松软沉默\n骨头变成了肉", "song": "testSong.mp3"],
-        ["title": "song2Title", "content":"外面的妞\n我家房顶有个口\n时间一长久\n就象是一个星球\n外面的妞\n你的身旁是北斗\n我躺在床上起\n我要射中你的星球", "song": "testSong.mp3"],
-        ["title": "song3Title", "content":"你的眼神\n有一点湿润\n象是雨后清晨的天\n朝阳一仑\n你的表情\n有一点儿混\n象是乌云给夜晚\n守着大门", "song": "testSong.mp3"],
-        ["title": "song4Title", "content":"放开你的手\n露出你胸上的肉\n感觉我的嘴\n和舌头\n摸住我的头\n让我听到你的心跳\n让我闻到你的\n味道", "song": "testSong.mp3"],
-        ["title": "song5Title", "content":"那天夜里\n我和太阳和月亮\n冻在一条线上\n光太沉重\n身体太软\n我的呼吸短浅\n\n闭上了眼\n月光穿过了冰\n扭曲在我的身上\n光的外面\n是僵硬的壳\n它让空气像是监狱", "song": "testSong.mp3"],
-        ["title": "song6Title", "content":"如果你在悠闲散步\n围绕着一片浑水的湖\n幸福不再是个目的\n而是水中的一条鱼\n\n同行的人还有谁\n看见我的心落水\n这时音乐突然停止\n幸福跳起变成落日 \n\n(副歌)\n水面就是一个边界\n与我只有零的距离\n我已经听到了水里发生的一切\n才知道浑水摸鱼的感觉\n然后我越过了边界\n听见了浑浊的音乐\n这时我知道我已离开了土地\n我只能在水下飞", "song": "testSong.mp3"],
-        ["title": "song7Title", "content":"这几年我活得规律\n 疯狂藏在心里\n发财的树\n象个通天的柱\n顶天立地\n——天塌下来我有树", "song": "testSong.mp3"],
-        ["title": "song8Title", "content":"天空太小\n让我碰到了你\n我是空中的鸟\n你是水里的鱼\n\n我没有把你吃掉\n只是含在嘴里\n我要带着你飞\n而不要你恐惧", "song": "testSong.mp3"],
-        ["title": "song9Title", "content":"阴天的早晨  这床像个船\n我坐在船头  向最远的地方看\n我的身体  缓缓的开始荡漾\n嘿  我坚硬如石  我柔软如棉\n\n雨后的大地  走路更难\n因为这泥土  比这皮肤更软\n我不知道前面是否还有风险\n嘿  我慢慢地走着  像个滚动的蛋", "song": "testSong.mp3"]
+        ["title": "song1Title", "content":"那天夜里\n我和太阳和月亮\n冻在一条线上\n光太沉重\n身体太软\n我的呼吸短浅\n\n闭上了眼\n月光穿过了冰\n扭曲在我的身上\n光的外面\n是僵硬的壳\n它让空气像是监狱", "song": "01guangdong.mp3"],
+        ["title": "song2Title", "content":"我站在浪尖风口\n南墙碰了我的头\n我挺着身体背着手\n风你可以斩我的首\n废话穿透耳朵\n恐惧压歌喉\n土地松软沉默\n骨头变成了肉", "song": "02sibuhuitou.mp3"],
+        ["title": "song3Title", "content":"天空太小\n让我碰到了你\n我是空中的鸟\n你是水里的鱼\n\n我没有把你吃掉\n只是含在嘴里\n我要带着你飞\n而不要你恐惧", "song": "03yuniaozhilian.mp3"],
+        ["title": "song4Title", "content":"外面的妞\n我家房顶有个口\n时间一长久\n就象是一个星球\n外面的妞\n你的身旁是北斗\n我躺在床上起\n我要射中你的星球", "song": "04waimiandeniu.mp3"],
+        ["title": "song5Title", "content":"这几年我活得规律\n 疯狂藏在心里\n发财的树\n象个通天的柱\n顶天立地\n——天塌下来我有树", "song": "05kuguashu.mp3"],
+        ["title": "song6Title", "content":"你的眼神\n有一点湿润\n象是雨后清晨的天\n朝阳一仑\n你的表情\n有一点儿混\n象是乌云给夜晚\n守着大门", "song": "06jinsezaochen.mp3"],
+        ["title": "song7Title", "content":"阴天的早晨  这床像个船\n我坐在船头  向最远的地方看\n我的身体  缓缓的开始荡漾\n嘿  我坚硬如石  我柔软如棉\n\n雨后的大地  走路更难\n因为这泥土  比这皮肤更软\n我不知道前面是否还有风险\n嘿  我慢慢地走着  像个滚动的蛋", "song": "07gundongdedan.mp3"],
+        ["title": "song8Title", "content":"如果你在悠闲散步\n围绕着一片浑水的湖\n幸福不再是个目的\n而是水中的一条鱼\n\n同行的人还有谁\n看见我的心落水\n这时音乐突然停止\n幸福跳起变成落日 \n\n(副歌)\n水面就是一个边界\n与我只有零的距离\n我已经听到了水里发生的一切\n才知道浑水摸鱼的感觉\n然后我越过了边界\n听见了浑浊的音乐\n这时我知道我已离开了土地\n我只能在水下飞", "song": "08hunshuihumanbu.mp3"],
+        ["title": "song9Title", "content":"放开你的手\n露出你胸上的肉\n感觉我的嘴\n和舌头\n摸住我的头\n让我听到你的心跳\n让我闻到你的\n味道", "song": "09yangguangxiademeng.mp3"]
     ]
     
     // string 的顺序关系到图层显示
     let songPosterData: [[String]] = [
-        ["song1-1","song1-2"], ["song2-1","song2-2","song2-3"], ["song3-1","song3-2","song3-3"], ["song4-1","song4-2","song4-3","song4-4"], ["song5-1","song5-2"], ["song6-1","song6-2"], ["song7-1","song7-2","song7-3"], ["song8-1","song8-2","song8-3"], ["song9-1","song9-2"]
+        ["song1-1","song1-2"], ["song2-1","song2-2"], ["song3-1","song3-2","song3-3"], ["song4-1","song4-2","song4-3"], ["song5-1","song5-2","song5-3"], ["song6-1","song6-2","song6-3"], ["song7-1","song7-2"], ["song8-1","song8-2"], ["song9-1","song9-2","song9-3","song9-4"]
     ]
     
     let parallaxParameter:[CGFloat] = [0, 15, -10, 10]
@@ -56,7 +56,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
     var lyricTop: CGFloat?
     var songTitleTop: CGFloat?
     var isCompressed: Bool = true
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -102,6 +102,10 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
         updateSizeData()
     }
     
+    func changeSongIndex(index: Int) {
+        songScrollView.setContentOffset(CGPoint(x: pageScrollViewSize.width * CGFloat(index), y: 0), animated: true)
+    }
+    
     func updateSizeData() {
         lyricHeight = self.songLyric.bounds.height
         lyricTop = self.songLyric.frame.origin.y
@@ -135,7 +139,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
             }
             
             let newTextView = UILabel()
-            newTextView.text = "30’试听"
+            newTextView.text = "\(players[page].player!.duration)’试听"
             newTextView.font = UIFont.systemFontOfSize(13)
             newTextView.textColor = UIColor(red: 110/255.0, green: 110/255.0, blue: 110/255.0, alpha: 1)
             newPageView.addSubview(newTextView)
@@ -212,6 +216,11 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         hideSongContent()
+    }
+    
+    func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
+        setContentForCurrentPage(curPageIndex)
+        showSongContent()
     }
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
@@ -384,7 +393,13 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "songlistidentifier" {
+            if let songlistVC = segue.destinationViewController as? SongListViewController {
+                songlistVC.songListDelegte = self
+            }
+        }
+    }
     
     
     

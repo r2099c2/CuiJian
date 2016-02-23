@@ -92,9 +92,9 @@ class SongPlayer {
     
     func playerAnimation(layer: CALayer) {
         let playerAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        playerAnimation.duration = 30
+        playerAnimation.duration = player!.duration
         playerAnimation.fromValue = 0
-        playerAnimation.toValue = 0.5
+        playerAnimation.toValue = 1
         playerAnimation.autoreverses = false
         playerAnimation.repeatCount = 0
         
@@ -110,12 +110,13 @@ class SongPlayer {
     
     func playerAnimationResume(layer: CALayer) {
         let pausedTime = layer.timeOffset
-        layer.speed = 1.0;
-        layer.timeOffset = 0.0;
-        layer.beginTime = 0.0;
+        layer.speed = 1
+        layer.timeOffset = 0.0
+        layer.beginTime = 0.0
         let timeSincePause = layer.convertTime(CACurrentMediaTime(), fromLayer: nil) - pausedTime
         layer.beginTime = timeSincePause;
         playTriangleLayer.contents = UIImage(named: "pauseBtn")?.CGImage
     }
+    
 }
 

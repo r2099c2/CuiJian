@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol SongListDelegate: class {
+    func changeSongIndex(newIndex: Int)
+}
+
 class SongListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let songList = ["光冻","死不回头","鱼鸟之恋","外面的妞","酷瓜树","金色早晨","滚动的蛋","浑水湖漫步","阳光下的梦"]
+    
+    var songListDelegte: SongListDelegate?
    
     @IBOutlet weak var songListTable: UITableView! {
         didSet {
@@ -22,6 +28,10 @@ class SongListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBAction func dismiss(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func listenAllSong(sender: UIButton) {
+        UIApplication.sharedApplication().openURL(NSURL(string: "http://y.qq.com/index.html#type=album&mid=0010bTB83JjfMG")!)
     }
     
     //MARK: - TableView
@@ -38,5 +48,11 @@ class SongListViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return songList.count
     }
-
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        songListDelegte?.changeSongIndex(indexPath.row)
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
 }

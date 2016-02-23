@@ -508,7 +508,7 @@
                                 <rect key="frame" x="274" y="526" width="26" height="22"/>
                                 <state key="normal" image="songListBtn"/>
                                 <connections>
-                                    <segue destination="9co-bn-0qF" kind="modal" modalTransitionStyle="coverVertical" id="cjh-hn-E6K"/>
+                                    <segue destination="9co-bn-0qF" kind="modal" identifier="songlistidentifier" modalTransitionStyle="coverVertical" id="cjh-hn-E6K"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -592,6 +592,9 @@
                                             <state key="normal" title="听完整专辑">
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="listenAllSong:" destination="9co-bn-0qF" eventType="touchUpInside" id="hkT-vj-S6E"/>
+                                            </connections>
                                         </button>
                                         <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uls-W9-Y8W" customClass="TransparentNavBar" customModule="CuiJian" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="22" width="328" height="44"/>
