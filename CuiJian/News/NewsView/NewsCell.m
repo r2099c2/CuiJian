@@ -109,11 +109,15 @@
     self.newsTime.textColor = [UIColor whiteColor];
     self.newsTime.text = model.post_date;
     //新闻头像
-    self.newsImg.image = NULL;
-    [self.newsImg sd_setImageWithURL:[NSURL URLWithString:model.feature_image]];
     
-        NSLog(@"path:   %@",model.feature_image);
-    
+    UIImageView* imageView = [[UIImageView alloc] initWithFrame:self.newsImg.frame];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.layer.masksToBounds = YES;
+    [imageView sd_setImageWithURL:[NSURL URLWithString:model.feature_image] placeholderImage:[UIImage imageNamed:@"newsBg"]];
+    [self.newsImg removeFromSuperview];
+    self.newsImg = nil;
+    self.newsImg = imageView;
+    [self addSubview:self.newsImg];
 }
 
 

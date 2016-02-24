@@ -69,7 +69,6 @@
     self.layout = [[VVSpringCollectionViewFlowLayout alloc] init];
     
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:self.layout];
-    NSLog(@"%@",NSStringFromCGRect(self.view.frame));
     //向下偏移64使navigationbar显出来
     self.collectionView.contentInset = UIEdgeInsetsMake(74, 0, 10, 0);
     //注册cell

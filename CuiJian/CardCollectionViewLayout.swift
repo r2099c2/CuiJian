@@ -48,7 +48,8 @@ class CardCollectionViewLayout: UICollectionViewFlowLayout {
         let outPoint = CGPoint(x: self.superView.center.x, y: self.superView.frame.height - 70 - space - self.itemSize.width / 2)
         
         for (index, layoutAttributes) in array!.enumerate(){
-            let centerInCollectionView = layoutAttributes.center as CGPoint
+            let attr:UICollectionViewLayoutAttributes = layoutAttributes.copy() as! UICollectionViewLayoutAttributes
+            let centerInCollectionView = attr.center as CGPoint
             let centerInMainView = self.superView.convertPoint(centerInCollectionView, fromView: self.collectionView)
             
             let deltaCenter = outPoint.y - centerInMainView.y
@@ -67,11 +68,11 @@ class CardCollectionViewLayout: UICollectionViewFlowLayout {
                 transform = CATransform3DScale(transform, scale, scale, 1)
             }
             
-            layoutAttributes.alpha = alpha
-            layoutAttributes.transform3D = transform
-            layoutAttributes.zIndex = index
+            attr.alpha = alpha
+            attr.transform3D = transform
+            attr.zIndex = index
             
-            modifiedLayoutAttributesArray.append(layoutAttributes)
+            modifiedLayoutAttributesArray.append(attr)
 
         }
         
