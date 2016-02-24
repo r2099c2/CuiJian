@@ -17,8 +17,18 @@
 		1D57B0551C43BC0C001C18F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D57B0541C43BC0C001C18F7 /* Assets.xcassets */; };
 		1D57B0581C43BC0C001C18F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D57B0561C43BC0C001C18F7 /* LaunchScreen.storyboard */; };
 		1DB0523C1C5B784B00EEB58E /* SongListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0523B1C5B784B00EEB58E /* SongListViewController.swift */; };
+		1DBF528F1C7B2493002734FF /* SongPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBF528E1C7B2493002734FF /* SongPlayer.swift */; };
 		1DD024F11C461AC40000D316 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD024F01C461AC40000D316 /* SongViewController.swift */; };
 		1DE982AC1C622BE000014268 /* testSong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DE982AB1C622BE000014268 /* testSong.mp3 */; };
+		1DEC52161C7C340200BCDD50 /* 01guangdong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC520D1C7C340200BCDD50 /* 01guangdong.mp3 */; };
+		1DEC52171C7C340200BCDD50 /* 02sibuhuitou.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC520E1C7C340200BCDD50 /* 02sibuhuitou.mp3 */; };
+		1DEC52181C7C340200BCDD50 /* 03yuniaozhilian.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC520F1C7C340200BCDD50 /* 03yuniaozhilian.mp3 */; };
+		1DEC52191C7C340200BCDD50 /* 04waimiandeniu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC52101C7C340200BCDD50 /* 04waimiandeniu.mp3 */; };
+		1DEC521A1C7C340200BCDD50 /* 05kuguashu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC52111C7C340200BCDD50 /* 05kuguashu.mp3 */; };
+		1DEC521B1C7C340200BCDD50 /* 06jinsezaochen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC52121C7C340200BCDD50 /* 06jinsezaochen.mp3 */; };
+		1DEC521C1C7C340200BCDD50 /* 07gundongdedan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC52131C7C340200BCDD50 /* 07gundongdedan.mp3 */; };
+		1DEC521D1C7C340200BCDD50 /* 08hunshuihumanbu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC52141C7C340200BCDD50 /* 08hunshuihumanbu.mp3 */; };
+		1DEC521E1C7C340200BCDD50 /* 09yangguangxiademeng.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC52151C7C340200BCDD50 /* 09yangguangxiademeng.mp3 */; };
 		1DFD73891C75AB3F00B069EB /* SongListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFD73881C75AB3F00B069EB /* SongListCell.swift */; };
 		4212F8071C5B5B5300C6BA6F /* KRVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212F8041C5B5B5300C6BA6F /* KRVideoPlayerController.m */; };
 		4212F8081C5B5B5300C6BA6F /* KRVideoPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212F8061C5B5B5300C6BA6F /* KRVideoPlayerControlView.m */; };
@@ -70,8 +80,18 @@
 		1D57B0571C43BC0C001C18F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D57B0591C43BC0C001C18F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DB0523B1C5B784B00EEB58E /* SongListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongListViewController.swift; sourceTree = "<group>"; };
+		1DBF528E1C7B2493002734FF /* SongPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongPlayer.swift; sourceTree = "<group>"; };
 		1DD024F01C461AC40000D316 /* SongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 		1DE982AB1C622BE000014268 /* testSong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = testSong.mp3; sourceTree = "<group>"; };
+		1DEC520D1C7C340200BCDD50 /* 01guangdong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 01guangdong.mp3; sourceTree = "<group>"; };
+		1DEC520E1C7C340200BCDD50 /* 02sibuhuitou.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 02sibuhuitou.mp3; sourceTree = "<group>"; };
+		1DEC520F1C7C340200BCDD50 /* 03yuniaozhilian.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 03yuniaozhilian.mp3; sourceTree = "<group>"; };
+		1DEC52101C7C340200BCDD50 /* 04waimiandeniu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 04waimiandeniu.mp3; sourceTree = "<group>"; };
+		1DEC52111C7C340200BCDD50 /* 05kuguashu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 05kuguashu.mp3; sourceTree = "<group>"; };
+		1DEC52121C7C340200BCDD50 /* 06jinsezaochen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 06jinsezaochen.mp3; sourceTree = "<group>"; };
+		1DEC52131C7C340200BCDD50 /* 07gundongdedan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 07gundongdedan.mp3; sourceTree = "<group>"; };
+		1DEC52141C7C340200BCDD50 /* 08hunshuihumanbu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 08hunshuihumanbu.mp3; sourceTree = "<group>"; };
+		1DEC52151C7C340200BCDD50 /* 09yangguangxiademeng.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 09yangguangxiademeng.mp3; sourceTree = "<group>"; };
 		1DFD73881C75AB3F00B069EB /* SongListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongListCell.swift; sourceTree = "<group>"; };
 		4212F7EE1C5B4D0500C6BA6F /* CuiJian-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CuiJian-Bridging-Header.h"; sourceTree = "<group>"; };
 		4212F8031C5B5B5300C6BA6F /* KRVideoPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRVideoPlayerController.h; sourceTree = "<group>"; };
@@ -160,7 +180,11 @@
 				1DB0523B1C5B784B00EEB58E /* SongListViewController.swift */,
 				1D31F2731C65FE0600A7F221 /* aboutViewController.swift */,
 				1DFD73881C75AB3F00B069EB /* SongListCell.swift */,
+<<<<<<< HEAD
 				4271F81D1C7AF7AE002A1F56 /* TimeLineViewController.swift */,
+=======
+				1DBF528E1C7B2493002734FF /* SongPlayer.swift */,
+>>>>>>> origin/master
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -215,6 +239,15 @@
 		1DE982A61C61FBAC00014268 /* Songs */ = {
 			isa = PBXGroup;
 			children = (
+				1DEC520D1C7C340200BCDD50 /* 01guangdong.mp3 */,
+				1DEC520E1C7C340200BCDD50 /* 02sibuhuitou.mp3 */,
+				1DEC520F1C7C340200BCDD50 /* 03yuniaozhilian.mp3 */,
+				1DEC52101C7C340200BCDD50 /* 04waimiandeniu.mp3 */,
+				1DEC52111C7C340200BCDD50 /* 05kuguashu.mp3 */,
+				1DEC52121C7C340200BCDD50 /* 06jinsezaochen.mp3 */,
+				1DEC52131C7C340200BCDD50 /* 07gundongdedan.mp3 */,
+				1DEC52141C7C340200BCDD50 /* 08hunshuihumanbu.mp3 */,
+				1DEC52151C7C340200BCDD50 /* 09yangguangxiademeng.mp3 */,
 				1DE982AB1C622BE000014268 /* testSong.mp3 */,
 			);
 			name = Songs;
@@ -445,14 +478,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DEC52181C7C340200BCDD50 /* 03yuniaozhilian.mp3 in Resources */,
 				42765A551C5F39C700047A55 /* mv1.mp4 in Resources */,
 				42765A561C5F39C700047A55 /* mv2.mp4 in Resources */,
 				1D57B0581C43BC0C001C18F7 /* LaunchScreen.storyboard in Resources */,
 				1DE982AC1C622BE000014268 /* testSong.mp3 in Resources */,
+				1DEC521C1C7C340200BCDD50 /* 07gundongdedan.mp3 in Resources */,
+				1DEC52161C7C340200BCDD50 /* 01guangdong.mp3 in Resources */,
 				1D315CA81C589CEB00935D41 /* art.scnassets in Resources */,
 				1D57B0551C43BC0C001C18F7 /* Assets.xcassets in Resources */,
+<<<<<<< HEAD
+=======
+				1DEC521D1C7C340200BCDD50 /* 08hunshuihumanbu.mp3 in Resources */,
+				1DEC521A1C7C340200BCDD50 /* 05kuguashu.mp3 in Resources */,
+				1D1ED46F1C4CB7670012EDD1 /* TimelineItem.xib in Resources */,
+>>>>>>> origin/master
 				421AF2A41C587BAA00E9D63B /* MVStoryboard.storyboard in Resources */,
 				1D57B0531C43BC0C001C18F7 /* Main.storyboard in Resources */,
+				1DEC521B1C7C340200BCDD50 /* 06jinsezaochen.mp3 in Resources */,
+				1DEC52191C7C340200BCDD50 /* 04waimiandeniu.mp3 in Resources */,
+				1DEC521E1C7C340200BCDD50 /* 09yangguangxiademeng.mp3 in Resources */,
+				1DEC52171C7C340200BCDD50 /* 02sibuhuitou.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +522,11 @@
 				1DFD73891C75AB3F00B069EB /* SongListCell.swift in Sources */,
 				4212F8641C5B702000C6BA6F /* SDWebImageCompat.m in Sources */,
 				42E68CB21C61ECCC00194E45 /* HelperFuc.m in Sources */,
+<<<<<<< HEAD
+=======
+				1D0276DD1C5F809C0087797D /* TimeLineModel.swift in Sources */,
+				1DBF528F1C7B2493002734FF /* SongPlayer.swift in Sources */,
+>>>>>>> origin/master
 				1D31F2741C65FE0600A7F221 /* aboutViewController.swift in Sources */,
 				4212F8631C5B702000C6BA6F /* SDImageCache.m in Sources */,
 				4212F86C1C5B702000C6BA6F /* UIImage+MultiFormat.m in Sources */,

@@ -11,6 +11,8 @@ import QuartzCore
 import SceneKit
 import CoreMotion
 
+//TODO: 首页裂屏
+//TODO: 首次打开时的导航
 class GameViewController: UIViewController, SCNSceneRendererDelegate {
 
     @IBOutlet var rootView: UIView!
