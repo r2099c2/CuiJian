@@ -3,18 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[NewsViewController collectionView:numberOfItemsInSection:]:NewsViewController.m">
+         contextName = "TimeLineViewController.makeCollectionCenter() -&gt; ():TimeLineViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.dataArray.count">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "AppDelegate.application(UIApplication, supportedInterfaceOrientationsForWindow : UIWindow?) -&gt; UIInterfaceOrientationMask:AppDelegate.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "UIApplication.sharedApplication().keyWindow!">
+               value = "self.collectionView.contentInset.top">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -27,7 +19,67 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[NewsViewController collectionView:numberOfItemsInSection:]:NewsViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.dataArray.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "__30-[NewsViewController makeData]_block_invoke_2:NewsViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewController.initRule() -&gt; ():TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.rulerView.frame.height">
+            </PersistentString>
+            <PersistentString
+               value = "3.5 * width + DTRulerScaleGap / 2 + 1 - 0.5 * UIScreen.mainScreen().bounds.size.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.application(UIApplication, supportedInterfaceOrientationsForWindow : UIWindow?) -&gt; UIInterfaceOrientationMask:AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIApplication.sharedApplication().keyWindow!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewController.scrollViewDidScroll(UIScrollView) -&gt; ():TimeLineViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewController.makeCenter() -&gt; ():TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.rulerView.contentInset">
+            </PersistentString>
+            <PersistentString
+               value = "-CGFloat(3.5) * width - DTRulerScaleGap / 2 - 1 + 0.5 * UIScreen.mainScreen().bounds.size.width">
+            </PersistentString>
+            <PersistentString
+               value = "self.rulerView.contentOffset.x">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CardCollectionViewLayout.layoutAttributesForElementsInRect(CGRect) -&gt; [UICollectionViewLayoutAttributes]?:CardCollectionViewLayout.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "array!.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CardCollectionViewCell.setCellData(News) -&gt; ():CardCollectionViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "news.feature_image">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>

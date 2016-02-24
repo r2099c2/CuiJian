@@ -50,6 +50,12 @@ class NavViewController: UIViewController {
         self.navigationController!.pushViewController(controller, animated: true)
     }
     
+    @IBAction func AboutClicked(sender: AnyObject) {
+        let storyboard = UIStoryboard(name: "MVStoryboard", bundle: nil)
+        let controller = storyboard.instantiateViewControllerWithIdentifier("aboutController") as UIViewController
+        self.navigationController!.pushViewController(controller, animated: true)
+    }
+    
     @IBAction func newsClicked(sender: AnyObject) {
         let newsController:NewsViewController = NewsViewController();
         self.navigationController!.pushViewController(newsController, animated: true)

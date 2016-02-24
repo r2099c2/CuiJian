@@ -24,6 +24,8 @@
 -(void)setupViews
 {
     self.titleImg = [[UIImageView alloc]init];
+    self.titleImg.contentMode = UIViewContentModeScaleAspectFill;
+    self.titleImg.layer.masksToBounds = YES;
     //self.titleImg.backgroundColor = [UIColor redColor];
     [self.contentView addSubview:self.titleImg];
     

@@ -7,3 +7,6 @@
 #import "NewsViewController.h"
 #import "VVSpringCollectionViewFlowLayout.h"
 #import "HelperFuc.h"
+#import <CoreData/CoreData.h>
+#import "News.h"
+#import "UIImageView+WebCache.h"

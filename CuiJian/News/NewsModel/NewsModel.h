@@ -10,7 +10,7 @@
 
 @interface NewsModel : NSObject
 @property (nonatomic, copy)NSString * feature_image;
-@property (nonatomic, copy)NSString * ID;
+@property (nonatomic, copy)NSString * post_id;
 @property (nonatomic, copy)NSString * post_content;
 @property (nonatomic, copy)NSString * post_date;
 @property (nonatomic, copy)NSString * post_modified;

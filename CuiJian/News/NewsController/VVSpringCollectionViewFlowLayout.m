@@ -87,7 +87,7 @@
         UIAttachmentBehavior *springBehaviour = [[UIAttachmentBehavior alloc] initWithItem:item attachedToAnchor:center];
         
         springBehaviour.length = 0.0f;
-        springBehaviour.damping = 0.8f;
+        springBehaviour.damping = 0.95f;
         springBehaviour.frequency = 1.0f;
         
         // If our touchLocation is not (0,0), we'll need to adjust our item's center "in flight"
@@ -149,6 +149,7 @@
     
     self.latestDelta = delta;
     
+    
     CGPoint touchLocation = [self.collectionView.panGestureRecognizer locationInView:self.collectionView];
     
     [self.dynamicAnimator.behaviors enumerateObjectsUsingBlock:^(UIAttachmentBehavior *springBehaviour, NSUInteger idx, BOOL *stop) {
@@ -205,7 +206,7 @@
             UIAttachmentBehavior *springBehaviour = [[UIAttachmentBehavior alloc] initWithItem:attributes attachedToAnchor:attributes.center];
             
             springBehaviour.length = 0.0f;
-            springBehaviour.damping = 0.8f;
+            springBehaviour.damping = 0.95f;
             springBehaviour.frequency = 1.0f;
             [self.dynamicAnimator addBehavior:springBehaviour];
         }

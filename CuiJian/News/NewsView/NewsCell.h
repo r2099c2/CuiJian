@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewsModel.h"
 
 @interface NewsCell : UICollectionViewCell
 @property (nonatomic, strong)UIImageView * newsImg;
@@ -14,4 +15,10 @@
 @property (nonatomic, strong)UILabel * newsDetail;
 @property (nonatomic, strong)UILabel * newsTime;
 @property (nonatomic, strong)UIImageView * cellBackground;
+@property (nonatomic,strong)NSManagedObjectContext *managedObjectContext; 
+
+- (void)bindModel:(NewsModel *)model;
+
+
+
 @end

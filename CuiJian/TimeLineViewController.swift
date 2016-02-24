@@ -2,384 +2,169 @@
 //  TimeLineViewController.swift
 //  CuiJian
 //
-//  Created by Rick on 16/1/14.
-//  Copyright © 2016年 Rick. All rights reserved.
+//  Created by BriceZHOU on 2/22/16.
+//  Copyright © 2016 Rick. All rights reserved.
 //
 
 import UIKit
 
-class TimeLineViewController: UIViewController, TLSliderDataSource {
+class TimeLineViewController: UIViewController, UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
 
-    @IBOutlet weak var bgImageView: UIImageView!
+    @IBOutlet weak var rulerView: UIScrollView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var itemsView: UIView!
+    var leftCoverImage:UIImageView!
+    var rightCoverImage:UIImageView!
     
-    @IBOutlet weak var slideMaskView: SlideMaskView!
+    var data:[News]?
     
-    @IBOutlet weak var TimelineSlideView: TimelineSlider!
-    
-    var firstLoadTimeline = true
-    
-    var preItem: TimelineItem?
-    var currentItem: TimelineItem!
-    var itemInshow1: TimelineItem?
-    var itemInshow2: TimelineItem?
-    var itemInshow3: TimelineItem?
-    var nextItem: TimelineItem?
-    
-    var isAnimating: Bool = false
-    
-    var slideFactor: CGFloat! = 0.015
-    
-    var dataArray: [TimeLineModel?] = []
-    
-    
-    // the postion and size for Tileline items
-    private struct TLItemState {
-        static let preItem: CGRect = CGRectMake(57, 1200 , 300, 300)
-        static let currentItem: CGRect = CGRectMake(57, 190, 300, 300)
-        static let itemInshow1: CGRect = CGRectMake(77, 140, 260, 260)
-        static let itemInshow2: CGRect = CGRectMake(97, 100, 220, 220)
-        static let itemInshow3: CGRect = CGRectMake(117, 90, 180, 180)
-        static let nextItem: CGRect = CGRectMake(117, 100, 170, 170)
+    func getDataCount() -> Int{
+        if self.data != nil{
+            return self.data!.count
+        }
+        return 0;
     }
-
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        HelperFuc.bgParrallax(bgImageView)
+        self.leftCoverImage = UIImageView(frame: CGRect(x: -10, y: 0, width: 160, height: 70))
+        self.leftCoverImage.image = UIImage(named: "rulerCoverL")
+        self.rightCoverImage = UIImageView(frame: CGRect(x: UIScreen.mainScreen().bounds.size.width - 150, y: 0, width: 160, height: 70))
+        self.rightCoverImage.image = UIImage(named: "rullerCover")
+        self.rulerView.addSubview(self.leftCoverImage)
+        self.rulerView.addSubview(self.rightCoverImage)
+        self.rulerView.tag = 1
+        self.leftCoverImage.layer.zPosition = 999
+        self.rightCoverImage.layer.zPosition = 999
+        self.rulerView.delegate = self
+        self.initRule()
+        self.rulerView.showsHorizontalScrollIndicator = false
         
-        getData()
+        self.collectionView.registerClass(CardCollectionViewCell.self, forCellWithReuseIdentifier: "ItemIdentifier")
+        self.collectionView.indicatorStyle = .White
+        self.collectionView.showsHorizontalScrollIndicator = false
+        self.collectionView.showsVerticalScrollIndicator = false
         
-        // add gesture to timeline item super view
-        let panGusture = UIPanGestureRecognizer()
-        panGusture.addTarget(self, action: "handleOnViewPanGusture:")
-        self.itemsView.addGestureRecognizer(panGusture)
-        
-        let panGesture = UIPanGestureRecognizer()
-        panGesture.addTarget(self, action: "slideGestureHandle:")
-        slideMaskView.addGestureRecognizer(panGesture)
+        HelperFuc.getAbout(false) { (finished, results) -> Void in
+            self.data = results as? [News]
+            self.collectionView.reloadData()
+        }
         
     }
-    
     override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
-        
-        firstLoadTimeline = true
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        TimelineSlideView.centerFrame()
-    }
-    
-    
-    func getData() {
-        let session: NSURLSession = NSURLSession.sharedSession()
-        let url = NSURL(string: "http://cuijian.logicdesign.cn/api.php?term_id=3")
-        let request = NSMutableURLRequest(URL: url!)
-        
-        let task = session.dataTaskWithRequest(request) { (data:NSData?, response:NSURLResponse?, error:NSError?) -> Void in
-            do {
-                let dic:[NSDictionary] = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! [NSDictionary]
-                for value in dic {
-                    let item = TimeLineModel()
-                    item.setValuesForKeysWithDictionary(value as! [String : AnyObject])
-                    self.dataArray.append(item)
-                }
-                
-                print(self.dataArray)
-                // init timeline item
-                self.initTimeLineItem()
-            }
-            catch{
-                print("Error: \(error)")
-            }
+        UIView.animateWithDuration(0.5) { () -> Void in
+            self.rulerView.contentOffset.x = self.rulerView.contentSize.width - self.rulerView.bounds.size.width + self.rulerView.contentInset.right
         }
         
-        task.resume()
-    }
-    
-    func getData(sender: TimelineSlider) -> [TimeLineModel?] {
-        return self.dataArray
-    }
+        let itemWidth = (self.collectionView!.collectionViewLayout as! UICollectionViewFlowLayout).itemSize.width
 
+        self.collectionView.scrollRectToVisible(CGRect(x: 0, y: CGFloat(self.getDataCount()) * itemWidth, width: self.collectionView!.frame.width, height: self.collectionView!.frame.height), animated: true)
+
+    }
     
-    
-    // MARK: - Page item slide
-    func initTimeLineItem() {
-        for index in 1...6 {
-            if let item = NSBundle.mainBundle().loadNibNamed("TimelineItem", owner: nil, options: nil)[0] as? TimelineItem {
-                self.itemsView.addSubview(item)
-                
-                item.title.text = String(index)
-                item.backgroundColor = UIColor(red: CGFloat(index*40)/255, green: 123/255, blue: 123/255, alpha: 1)
-                
-                switch index {
-                case 6:
-                    item.bounds.size = TLItemState.preItem.size
-                    item.frame.origin = TLItemState.preItem.origin
-                    
-                    preItem = item
-                    break
-                case 5:
-                    item.bounds.size = TLItemState.currentItem.size
-                    item.frame.origin = TLItemState.currentItem.origin
-                    
-                    currentItem = item
-                    break
-                case 4:
-                    item.bounds.size = TLItemState.itemInshow1.size
-                    item.frame.origin = TLItemState.itemInshow1.origin
-                    
-                    itemInshow1 = item
-                    break
-                case 3:
-                    item.bounds.size = TLItemState.itemInshow2.size
-                    item.frame.origin = TLItemState.itemInshow2.origin
-                    
-                    itemInshow2 = item
-                    break
-                case 2:
-                    item.bounds.size = TLItemState.itemInshow3.size
-                    item.frame.origin = TLItemState.itemInshow3.origin
-                    
-                    itemInshow3 = item
-                    break
-                case 1:
-                    item.bounds.size = TLItemState.nextItem.size
-                    item.frame.origin = TLItemState.nextItem.origin
-                    
-                    nextItem = item
-                    break
-                default: break
-                }
-                
-                item.frame.origin.x = centerXItem(item.bounds.width)
-            }
-            
+    func initRule(){
+        var width:CGFloat! = 0
+        for(var i = 0; i < 12; i++){
+            let ruleCell = DTRulerViewScale(value: 1930 + i * 10, height: 70)
+            ruleCell.frame.origin.x = ruleCell.frame.width * CGFloat(i)
+            self.rulerView.addSubview(ruleCell)
+            width = ruleCell.frame.width
         }
+        self.rulerView.contentSize = CGSize(width: width * CGFloat(12), height: 70)
+        self.rulerView.contentInset = UIEdgeInsets(top: 0, left: -CGFloat(3.5) * width - DTRulerScaleGap / 2 - 1 + 0.5 * UIScreen.mainScreen().bounds.size.width, bottom: 0, right: -CGFloat(3.5) * width + DTRulerScaleGap / 2 + 1 + 0.5 * UIScreen.mainScreen().bounds.size.width)
     }
     
-    func handleOnViewPanGusture(pan: UIPanGestureRecognizer) {
-        
-        let translationInView = pan.translationInView(self.itemsView).y
-        let itemVelocity = pan.velocityInView(self.itemsView).y * slideFactor
-        
-        switch pan.state {
-        case UIGestureRecognizerState.Changed:
-            
-            let slideUpFactor: CGFloat = 1.7
-            
-            if !isAnimating {
-                if translationInView >= 0 {
-                    // slide down
-                    
-                    updateItem(currentItem, nextState: TLItemState.preItem, velocity: itemVelocity)
-                    updateItem(itemInshow1!, nextState: TLItemState.currentItem, velocity: itemVelocity)
-                    updateItem(itemInshow2!, nextState: TLItemState.itemInshow1, velocity: itemVelocity)
-                    updateItem(itemInshow3!, nextState: TLItemState.itemInshow2, velocity: itemVelocity)
-                    updateItem(nextItem!, nextState: TLItemState.itemInshow3, velocity: itemVelocity)
-                    
-                } else {
-                    // slide up
-                    
-                    updateItem(preItem!, nextState: TLItemState.currentItem, velocity: itemVelocity * slideUpFactor)
-                    updateItem(currentItem!, nextState: TLItemState.itemInshow1, velocity: itemVelocity * slideUpFactor)
-                    updateItem(itemInshow1!, nextState: TLItemState.itemInshow2, velocity: itemVelocity * slideUpFactor)
-                    updateItem(itemInshow2!, nextState: TLItemState.itemInshow3, velocity: itemVelocity * slideUpFactor)
-                    updateItem(itemInshow3!, nextState: TLItemState.nextItem, velocity: itemVelocity * slideUpFactor)
-                    
-                }
-                
-            }
-            break
-        case UIGestureRecognizerState.Ended:
-            fallthrough
-        case UIGestureRecognizerState.Cancelled:
-            fallthrough
-        case UIGestureRecognizerState.Failed:
-            if translationInView >= 60 {
-                UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    
-                    self.isAnimating = true
-                    
-                    self.itemInshow1?.bounds.size = TLItemState.currentItem.size
-                    self.itemInshow2?.bounds.size = TLItemState.itemInshow1.size
-                    self.itemInshow3?.bounds.size = TLItemState.itemInshow2.size
-                    self.nextItem?.bounds.size = TLItemState.itemInshow3.size
-                    
-                    self.currentItem.frame.origin.y = TLItemState.preItem.origin.y
-                    self.itemInshow1?.frame.origin.y = TLItemState.currentItem.origin.y
-                    self.itemInshow2?.frame.origin.y = TLItemState.itemInshow1.origin.y
-                    self.itemInshow3?.frame.origin.y = TLItemState.itemInshow2.origin.y
-                    self.nextItem?.frame.origin.y = TLItemState.itemInshow3.origin.y
-                    
-                    self.centerAllItems()
-                    
-                    
-                    }, completion: { (Bool finished) -> Void in
-                        
-                        self.preItem?.removeFromSuperview()
-                        self.preItem = self.currentItem
-                        self.currentItem = self.itemInshow1
-                        self.itemInshow1 = self.itemInshow2
-                        self.itemInshow2 = self.itemInshow3
-                        self.itemInshow3 = self.nextItem
-                        self.nextItem = self.createNewItem(TLItemState.nextItem)
-                        self.itemsView.addSubview(self.nextItem!)
-                        self.itemsView.sendSubviewToBack(self.nextItem!)
-                        
-                        self.isAnimating = false
-                })
-            } else if translationInView <= -60 {
-                UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    
-                    self.isAnimating = true
-                    
-                    self.preItem?.bounds.size = TLItemState.currentItem.size
-                    self.currentItem.bounds.size = TLItemState.itemInshow1.size
-                    self.itemInshow1?.bounds.size = TLItemState.itemInshow2.size
-                    self.itemInshow2?.bounds.size = TLItemState.itemInshow3.size
-                    self.itemInshow3?.bounds.size = TLItemState.nextItem.size
-                    self.nextItem?.bounds.size = TLItemState.nextItem.size
-                    
-                    self.preItem?.frame.origin.y = TLItemState.currentItem.origin.y
-                    self.currentItem.frame.origin.y = TLItemState.itemInshow1.origin.y
-                    self.itemInshow1?.frame.origin.y = TLItemState.itemInshow2.origin.y
-                    self.itemInshow2?.frame.origin.y = TLItemState.itemInshow3.origin.y
-                    self.itemInshow3?.frame.origin.y = TLItemState.nextItem.origin.y
-                    self.nextItem?.frame.origin.y = TLItemState.nextItem.origin.y
-                    
-                    self.centerAllItems()
-                    
-                    }, completion: { (Bool finished) -> Void in
-                        
-                        self.nextItem?.removeFromSuperview()
-                        self.nextItem = self.itemInshow3
-                        self.itemInshow3 = self.itemInshow2
-                        self.itemInshow2 = self.itemInshow1
-                        self.itemInshow1 = self.currentItem
-                        self.currentItem = self.preItem
-                        self.preItem = self.createNewItem(TLItemState.preItem)
-                        self.itemsView.addSubview(self.preItem!)
-                        
-                        self.isAnimating = false
-                })
-            } else {
-                UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    
-                    self.isAnimating = true
-                    
-                    self.preItem?.bounds.size = TLItemState.preItem.size
-                    self.currentItem.bounds.size = TLItemState.currentItem.size
-                    self.itemInshow1?.bounds.size = TLItemState.itemInshow1.size
-                    self.itemInshow2?.bounds.size = TLItemState.itemInshow2.size
-                    self.itemInshow3?.bounds.size = TLItemState.itemInshow3.size
-                    self.nextItem?.bounds.size = TLItemState.nextItem.size
-                    
-                    self.preItem?.frame.origin.y = TLItemState.preItem.origin.y
-                    self.currentItem.frame.origin.y = TLItemState.currentItem.origin.y
-                    self.itemInshow1?.frame.origin.y = TLItemState.itemInshow1.origin.y
-                    self.itemInshow2?.frame.origin.y = TLItemState.itemInshow2.origin.y
-                    self.itemInshow3?.frame.origin.y = TLItemState.itemInshow3.origin.y
-                    self.nextItem?.frame.origin.y = TLItemState.nextItem.origin.y
-                    
-                    self.centerAllItems()
-                    
-                    
-                    }, completion: { (Bool finished) -> Void in
-                        self.isAnimating = false
-                })
-            }
-            break
-        default: break
-        }
-    }
-    
-    func centerAllItems(){
-        self.preItem?.frame.origin.x = self.centerXItem(self.preItem!.bounds.width)
-        self.currentItem.frame.origin.x = self.centerXItem(self.currentItem.bounds.width)
-        self.itemInshow1!.frame.origin.x = self.centerXItem(self.itemInshow1!.bounds.width)
-        self.itemInshow2!.frame.origin.x = self.centerXItem(self.itemInshow2!.bounds.width)
-        self.itemInshow3!.frame.origin.x = self.centerXItem(self.itemInshow3!.bounds.width)
-        self.nextItem!.frame.origin.x = self.centerXItem(self.nextItem!.bounds.width)
-    }
-    
-    func createNewItem(itemRect: CGRect) -> TimelineItem {
-        let item = NSBundle.mainBundle().loadNibNamed("TimelineItem", owner: nil, options: nil)[0] as! TimelineItem
-        item.bounds.size = itemRect.size
-        item.frame.origin = itemRect.origin
-        item.frame.origin.x = centerXItem(item.bounds.width)
-        item.backgroundColor = UIColor(red: CGFloat((random() % 255)/255), green: CGFloat((random() % 255))/255, blue: CGFloat((random() % 255))/255, alpha: 1)
-        return item
-    }
-    
-    func updateItem(selfView: UIView, nextState: CGRect, velocity: CGFloat) {
-        let absV = abs(velocity)
-        let absDis = calcDistance(preItem!, toRect: TLItemState.currentItem)
-        let sizeDelt = absV * (nextState.size.width - selfView.bounds.size.width) / nextState.size.width
-        
-        selfView.bounds.size.width += sizeDelt
-        selfView.bounds.size.height += sizeDelt
-        selfView.frame.origin.y += absV * (nextState.origin.y - selfView.frame.origin.y) / absDis
-        selfView.frame.origin.x = centerXItem(selfView.bounds.width)
-    }
-    
-    func centerXItem(itemWidth: CGFloat) -> CGFloat {
-        return (self.itemsView.bounds.size.width - itemWidth) / 2
-    }
-   
-    func calcDistance(fromView: UIView, toRect: CGRect) -> CGFloat {
-        return abs(CGFloat(fromView.frame.origin.y - toRect.origin.y))
-    }
-    
-    // MARK: - Timeline View
-    // Slider PanGesture
-    func slideGestureHandle(pan: UIPanGestureRecognizer) {
-        let itemVelocity = pan.velocityInView(self.itemsView).x * slideFactor
-        
-        switch pan.state {
-        case .Began:
-            TimelineSlideView.isSlide = true
-            updateTimeline()
-            break
-        case .Changed:
-            // TODO: cant slide when out range
-            TimelineSlideView.isSlide = false
-            TimelineSlideView.frame.origin.x += itemVelocity
-            break
-        case .Ended:
-            // TODO: add animation
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
-                self.TimelineSlideView.curDecadeIndex = self.TimelineSlideView.getCurDecade(self.TimelineSlideView.frame.origin.x)
-                self.updateTimeline()
-            })
-            
-            break
-        default:
-            break
-        }
-    }
-    
-    func updateTimeline() {
-        TimelineSlideView.setNeedsDisplay()
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    @IBAction func dismissVC(sender: AnyObject) {
+    @IBAction func backBt(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
+
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if(scrollView.tag == 1){
+            self.leftCoverImage.transform = CGAffineTransformMakeTranslation(scrollView.contentOffset.x, 0);
+            self.rightCoverImage.transform = CGAffineTransformMakeTranslation(scrollView.contentOffset.x, 0);
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        if scrollView.tag == 1{
+            self.makeCenter()
+        }
+        else{
+            self.makeCollectionCenter()
+        }
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if(decelerate == false){
+            if scrollView.tag == 1{
+                self.makeCenter()
+            }
+            else{
+                self.makeCollectionCenter()
+            }
+        }
+    }
+    
+    func makeCenter(){
+        let distance = self.rulerView.contentOffset.x + self.rulerView.contentInset.left
+        let deltaDistance = distance - round(distance / 100) * 100
+        var finalDistance = round(distance / 100) * 100
+        if deltaDistance >= 50.0{
+            finalDistance += 100
+        }
+        UIView.animateWithDuration(0.3) { () -> Void in
+            self.rulerView.contentOffset.x = finalDistance - self.rulerView.contentInset.left
+        }
+        
+        let currentYears = 1960 + Int(finalDistance) / 10
+        let itemWidth = (self.collectionView!.collectionViewLayout as! UICollectionViewFlowLayout).itemSize.width
+
+        for(var index = 0; index < self.getDataCount(); index++){
+            if(self.getYear(self.data![index].post_date!) >= currentYears)
+            {
+                self.collectionView.scrollRectToVisible(CGRect(x: 0, y: CGFloat(index) * itemWidth, width: self.collectionView!.frame.width, height: self.collectionView!.frame.height), animated: true)
+                break;
+            }
+        }
+        
+    }
+    
+    func makeCollectionCenter(){
+        let distance = self.collectionView!.contentOffset.y
+        let itemWidth = (self.collectionView!.collectionViewLayout as! UICollectionViewFlowLayout).itemSize.width
+        let deltaDistance = distance - round(distance / itemWidth) * itemWidth
+        var finalDistance = round(distance / itemWidth) * itemWidth
+        if deltaDistance >= itemWidth / 2{
+            finalDistance += itemWidth
+        }
+        
+        self.collectionView.scrollRectToVisible(CGRect(x: 0, y: finalDistance, width: self.collectionView!.frame.width, height: self.collectionView!.frame.height), animated: true)
+        
+        let currentYears = floor(CGFloat(self.getYear(self.data![Int(round(distance / itemWidth))].post_date!)) / 10.0) * 10.0
+        let scroll = (currentYears - 1960) / 10 * 100 - self.rulerView.contentInset.left
+        UIView.animateWithDuration(0.3) { () -> Void in
+            self.rulerView.contentOffset.x = scroll
+        }
+
+        
+    }
+    
+    func getYear(date:NSString) -> Int{
+        let yearString = date.substringToIndex(4)
+        return Int(yearString)!
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.getDataCount()
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell:CardCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("ItemIdentifier", forIndexPath: indexPath) as! CardCollectionViewCell
+        cell.setCellData(self.data![indexPath.item])
+        return cell
+    }
+    
 }

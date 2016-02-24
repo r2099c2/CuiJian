@@ -12,11 +12,19 @@
 #import <Foundation/Foundation.h>
 #import <CoreMotion/CoreMotion.h>
 #import <UIKit/UIKit.h>
+#import "NewsModel.h"
+#import "News.h"
+
+typedef void(^Completion)(BOOL, id);
 
 @interface HelperFuc : NSObject
 
 + (void)bgParrallax: (UIView *)paraView maximumRelativeValue:(CGFloat)maximumRelativeValue;
 + (void)bgParrallax: (UIView *)paraView;
+
++ (void)getNews: (BOOL)needRefresh finished:(Completion)finished;
++ (void)getAbout: (BOOL)needRefresh finished:(Completion) finished;
++ (void) refreshData;
 
 @end
 

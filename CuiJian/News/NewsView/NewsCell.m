@@ -7,6 +7,12 @@
 //
 
 #import "NewsCell.h"
+#import "NewsModel.h"
+#import "UIImageView+WebCache.h"
+//引入头文件 对coredata进行操作
+#import "CuiJian-swift.h"
+#import "News.h"
+
 #define KscreenHeight [[UIScreen mainScreen] bounds].size.height
 #define KscreenWidth [[UIScreen mainScreen] bounds].size.width
 @implementation NewsCell
@@ -41,29 +47,32 @@
 -(void)setupViews
 {
     self.cellBackground = [[UIImageView alloc]init];
-    self.cellBackground.image = [UIImage imageNamed:@"newsBg"];
+    self.cellBackground.backgroundColor = [UIColor colorWithRed:128/255.0 green:128/255.0 blue:128/255.0 alpha:0.1];
     [self.contentView addSubview:self.cellBackground];
     
     self.newsImg = [[UIImageView alloc]init];
+    self.newsImg.contentMode = UIViewContentModeScaleAspectFill;
+    self.newsImg.layer.masksToBounds = YES;
+    //self.newsImg.backgroundColor = [UIColor redColor];
     [self.contentView addSubview:self.newsImg];
     
     self.newsTitle = [[UILabel alloc]init];
-    [self.newsTitle setFont:[UIFont systemFontOfSize:18]];
-    self.newsTitle.textColor = [UIColor colorWithRed:187/255.0 green:177/255.0 blue:141/255.0 alpha:1];
+    //self.newsTitle.backgroundColor = [UIColor orangeColor];
+
+
     [self.contentView addSubview:self.newsTitle];
     
     self.newsDetail = [[UILabel alloc]init];
-    [self.newsDetail setFont:[UIFont systemFontOfSize:14]];
-    self.newsDetail.textColor = [UIColor colorWithRed:208/255.0 green:208/255.0 blue:208/255.0 alpha:1];
+    //self.newsDetail.backgroundColor = [UIColor yellowColor];
     [self.contentView addSubview:self.newsDetail];
     
+    self.newsTitle = [[UILabel alloc]init];
+    //self.newsTitle.backgroundColor = [UIColor greenColor];
+    [self.contentView addSubview:self.newsTitle];
+    
     self.newsTime = [[UILabel alloc]init];
-    [self.newsTime setFont:[UIFont systemFontOfSize:12]];
-    self.newsTime.textColor = [UIColor colorWithRed:208/255.0 green:208/255.0 blue:208/255.0 alpha:1];
+    // self.newsTime.backgroundColor = [UIColor cyanColor];
     [self.contentView addSubview:self.newsTime];
-    
-    
-
 
 }
 
@@ -72,12 +81,42 @@
     [super layoutSubviews];
     self.cellBackground.frame = CGRectMake(10, 0, CGRectGetWidth(self.bounds)-20, CGRectGetHeight(self.bounds));
     
-    self.newsImg.frame = CGRectMake(18, 8, KscreenWidth/2.8, KscreenWidth/2.8);
+    self.newsImg.frame = CGRectMake(20, 8, KscreenWidth/2.8, KscreenWidth/2.8);
     
-    self.newsTitle.frame = CGRectMake(CGRectGetMaxX(self.newsImg.frame)+10, CGRectGetMinY(self.newsImg.frame), KscreenWidth/1.9, KscreenWidth/12);
+    self.newsTitle.frame = CGRectMake(CGRectGetMaxX(self.newsImg.frame)+10, CGRectGetMinY(self.newsImg.frame), KscreenWidth/1.95, KscreenWidth/9);
+    self.newsTitle.font = [UIFont fontWithName:@"Helvetica-Bold" size:19];
     
-    self.newsDetail.frame = CGRectMake(CGRectGetMaxX(self.newsImg.frame)+10, CGRectGetMaxY(self.newsTitle.frame), KscreenWidth/1.9, KscreenWidth/4.8);
+    self.newsDetail.frame = CGRectMake(CGRectGetMaxX(self.newsImg.frame)+10, CGRectGetMaxY(self.newsTitle.frame), KscreenWidth/1.95, KscreenWidth/6);
     
-    self.newsTime.frame = CGRectMake(CGRectGetMinX(self.newsDetail.frame), CGRectGetMaxY(self.newsDetail.frame), KscreenWidth/1.9, KscreenWidth/16);
+    self.newsTime.frame = CGRectMake(CGRectGetMinX(self.newsDetail.frame), CGRectGetMaxY(self.newsDetail.frame), KscreenWidth/1.95, KscreenWidth/12);
+    
 }
+
+- (void)bindModel:(NewsModel *)model
+{
+    //title
+    self.newsTitle.textColor = [UIColor colorWithRed:136/255.0 green:131/255.0 blue:110/255.0 alpha:1];
+    self.newsTitle.numberOfLines = 0;
+    //cell.newsTitle.font = [UIFont fontWithName:@"Helvetica-Bold" size:19];
+    self.newsTitle.text = model.post_title;
+    //detail
+    self.newsDetail.numberOfLines = 0;
+    self.newsDetail.font = [UIFont systemFontOfSize:15.0];
+    self.newsDetail.textAlignment=NSTextAlignmentJustified;
+    self.newsDetail.textColor = [UIColor whiteColor];
+    self.newsDetail.text = model.post_excerpt;
+    //time
+    self.newsTime.textColor = [UIColor whiteColor];
+    self.newsTime.text = model.post_date;
+    //新闻头像
+    self.newsImg.image = NULL;
+    [self.newsImg sd_setImageWithURL:[NSURL URLWithString:model.feature_image]];
+    
+        NSLog(@"path:   %@",model.feature_image);
+    
+}
+
+
+
+
 @end
