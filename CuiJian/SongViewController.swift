@@ -139,7 +139,8 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
             }
             
             let newTextView = UILabel()
-            newTextView.text = "\(players[page].player!.duration)’试听"
+            let songDuration = players[page].player!.duration
+            newTextView.text = stringFromTimeInterval(songDuration)
             newTextView.font = UIFont.systemFontOfSize(13)
             newTextView.textColor = UIColor(red: 110/255.0, green: 110/255.0, blue: 110/255.0, alpha: 1)
             newPageView.addSubview(newTextView)
@@ -163,6 +164,14 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
         }
     }
     
+    func stringFromTimeInterval(interval: NSTimeInterval) -> String {
+        let interval = Int(interval)
+        let seconds = interval % 60
+        let minutes = (interval / 60) % 60
+//        let hours = (interval / 3600)
+        return String(format: "%d:%02d", minutes, seconds)
+    }
+    
     func purgePage(page: Int) {
         if page < 0 || page >= songData.count {
             // If it's outside the range of what you have to display, then do nothing
@@ -172,6 +181,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
         // Remove a page from the scroll view and reset the container array
         if let pageView = pageViews[page] {
             pageView.removeFromSuperview()
+            players[page].stopPlayer()
             pageViews[page] = nil
         }
     }
@@ -180,6 +190,9 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
         // First, determine which page is currently visible
         let pageWidth = self.pageScrollViewSize.width
         curPageIndex = Int(floor((songScrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0)))
+        if curPageIndex < 0 {
+            curPageIndex = 0
+        }
         
         // Work out which pages you want to load
         let firstPage = curPageIndex - 1
@@ -210,7 +223,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
     func scrollViewDidScroll(scrollView: UIScrollView) {
         loadVisiblePages()
         if players[curPageIndex].player?.playing == true {
-            players[curPageIndex].stopPlayer()
+            players[curPageIndex].pausePlayer()
         }
     }
     
@@ -224,10 +237,11 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
     }
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        setContentForCurrentPage(curPageIndex)
         showSongContent()
+        setContentForCurrentPage(curPageIndex)
     }
     
+    //FIXME: 一直连续的滑动时 animation交替的BUG
     func hideSongContent() {
         songLyric.setContentOffset(CGPoint.zero, animated: false)
         UIView.animateWithDuration(0.2, animations: { () -> Void in
@@ -240,16 +254,25 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
     }
     
     func showSongContent() {
-        self.songTitle.transform = CGAffineTransformMakeScale(0.5, 0.5)
-        self.songLyric.transform = CGAffineTransformMakeScale(0.7, 0.7)
-        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.6, options: .CurveEaseIn, animations: { () -> Void in
-            self.songTitle.hidden = false
-            self.songTitle.transform = CGAffineTransformMakeScale(1, 1)
-            }, completion: nil)
-        UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: .CurveEaseIn, animations: { () -> Void in
-            self.songLyric.hidden = false
-            self.songLyric.transform = CGAffineTransformMakeScale(1, 1)
-            }, completion: nil)
+        // delay 0.3, because of hideSongContent duration is 0.2 
+        // just in case user slide very fast less then 0.2
+        let seconds = 0.3
+        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        
+        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+            // delay
+            self.songTitle.transform = CGAffineTransformMakeScale(0.5, 0.5)
+            self.songLyric.transform = CGAffineTransformMakeScale(0.7, 0.7)
+            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.6, options: .CurveEaseIn, animations: { () -> Void in
+                self.songTitle.hidden = false
+                self.songTitle.transform = CGAffineTransformMakeScale(1, 1)
+                }, completion: nil)
+            UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: .CurveEaseIn, animations: { () -> Void in
+                self.songLyric.hidden = false
+                self.songLyric.transform = CGAffineTransformMakeScale(1, 1)
+                }, completion: nil)
+        })
     }
     
     func setContentForCurrentPage(index: Int) {

@@ -9,8 +9,7 @@
 import UIKit
 import AVFoundation
 
-//TODO: AVAudioPlayerDelegate
-class SongPlayer {
+class SongPlayer: NSObject, AVAudioPlayerDelegate {
     var player: AVAudioPlayer?
     var playTriangleLayer: CALayer!
     var playerCircle: CAShapeLayer!
@@ -33,7 +32,8 @@ class SongPlayer {
     
     func stopPlayer(){
         player!.stop()
-        //TODO: animation reset
+        player!.currentTime = 0
+        playerAnimationReset(playerCircle)
     }
     
     func pausePlayer() {
@@ -44,6 +44,14 @@ class SongPlayer {
     func resumePlayer() {
         player!.play()
         playerAnimationResume(playerCircle)
+    }
+    
+    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+        stopPlayer()
+    }
+    
+    func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
+        stopPlayer()
     }
     
     //MARK: - animation
@@ -105,7 +113,14 @@ class SongPlayer {
         let pausedTime: CFTimeInterval = layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
         layer.speed = 0.0;
         layer.timeOffset = pausedTime;
-        playTriangleLayer.contents = UIImage(named: "playTriangle")?.CGImage
+        playTriangleLayer.contents = UIImage(named: "playTriangle")!.CGImage
+    }
+    
+    func playerAnimationReset(layer: CALayer) {
+        layer.speed = 0
+        layer.timeOffset = 0
+        layer.beginTime = 0
+        playTriangleLayer.contents = UIImage(named: "playTriangle")!.CGImage
     }
     
     func playerAnimationResume(layer: CALayer) {
@@ -115,7 +130,7 @@ class SongPlayer {
         layer.beginTime = 0.0
         let timeSincePause = layer.convertTime(CACurrentMediaTime(), fromLayer: nil) - pausedTime
         layer.beginTime = timeSincePause;
-        playTriangleLayer.contents = UIImage(named: "pauseBtn")?.CGImage
+        playTriangleLayer.contents = UIImage(named: "pauseBtn")!.CGImage
     }
     
 }

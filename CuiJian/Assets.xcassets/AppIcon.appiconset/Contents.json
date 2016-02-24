@@ -1,14 +1,14 @@
 {
   "images" : [
     {
-      "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "appIcon.png",
+      "size" : "29x29",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "29 - Settings Copy 2.png",
       "scale" : "3x"
     },
     {
@@ -24,7 +24,7 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "appIcon120.png",
+      "filename" : "120 - iPhone.png",
       "scale" : "2x"
     },
     {
