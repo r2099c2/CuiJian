@@ -180,11 +180,8 @@
 				1DB0523B1C5B784B00EEB58E /* SongListViewController.swift */,
 				1D31F2731C65FE0600A7F221 /* aboutViewController.swift */,
 				1DFD73881C75AB3F00B069EB /* SongListCell.swift */,
-<<<<<<< HEAD
 				4271F81D1C7AF7AE002A1F56 /* TimeLineViewController.swift */,
-=======
 				1DBF528E1C7B2493002734FF /* SongPlayer.swift */,
->>>>>>> origin/master
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -487,12 +484,9 @@
 				1DEC52161C7C340200BCDD50 /* 01guangdong.mp3 in Resources */,
 				1D315CA81C589CEB00935D41 /* art.scnassets in Resources */,
 				1D57B0551C43BC0C001C18F7 /* Assets.xcassets in Resources */,
-<<<<<<< HEAD
-=======
 				1DEC521D1C7C340200BCDD50 /* 08hunshuihumanbu.mp3 in Resources */,
 				1DEC521A1C7C340200BCDD50 /* 05kuguashu.mp3 in Resources */,
 				1D1ED46F1C4CB7670012EDD1 /* TimelineItem.xib in Resources */,
->>>>>>> origin/master
 				421AF2A41C587BAA00E9D63B /* MVStoryboard.storyboard in Resources */,
 				1D57B0531C43BC0C001C18F7 /* Main.storyboard in Resources */,
 				1DEC521B1C7C340200BCDD50 /* 06jinsezaochen.mp3 in Resources */,
@@ -522,11 +516,8 @@
 				1DFD73891C75AB3F00B069EB /* SongListCell.swift in Sources */,
 				4212F8641C5B702000C6BA6F /* SDWebImageCompat.m in Sources */,
 				42E68CB21C61ECCC00194E45 /* HelperFuc.m in Sources */,
-<<<<<<< HEAD
-=======
 				1D0276DD1C5F809C0087797D /* TimeLineModel.swift in Sources */,
 				1DBF528F1C7B2493002734FF /* SongPlayer.swift in Sources */,
->>>>>>> origin/master
 				1D31F2741C65FE0600A7F221 /* aboutViewController.swift in Sources */,
 				4212F8631C5B702000C6BA6F /* SDImageCache.m in Sources */,
 				4212F86C1C5B702000C6BA6F /* UIImage+MultiFormat.m in Sources */,
