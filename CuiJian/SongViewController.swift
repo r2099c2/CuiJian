@@ -262,6 +262,8 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
         
         dispatch_after(dispatchTime, dispatch_get_main_queue(), {
             // delay
+            self.songTitle.layer.removeAllAnimations()
+            self.songLyric.layer.removeAllAnimations()
             self.songTitle.transform = CGAffineTransformMakeScale(0.5, 0.5)
             self.songLyric.transform = CGAffineTransformMakeScale(0.7, 0.7)
             UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.6, options: .CurveEaseIn, animations: { () -> Void in
