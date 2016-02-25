@@ -65,6 +65,7 @@
             news.post_content = m.post_content;
             news.term_id = [NSNumber numberWithInt:type];
             news.feature_image = m.feature_image;
+            
             NSError * error = nil;
             BOOL isSaveSuccess = [myDelegate.managedObjectContext save:&error];
             if (isSaveSuccess && error == nil) {

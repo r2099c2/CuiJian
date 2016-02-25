@@ -12,7 +12,7 @@
 #import "NewsCell.h"
 #import "UIImageView+WebCache.h"
 #import "NewsDetailController.h"
-//#import "MJRefresh.h"
+#import "UIScrollView+SVPullToRefresh.h"
 #import "HelperFuc.h"
 
 #define KscreenHeight [[UIScreen mainScreen] bounds].size.height
@@ -29,17 +29,6 @@
 
 @implementation NewsViewController
 
-////懒加载数据数组
-//- (NSMutableArray *)dataArray
-//{
-//    if (_dataArray == nil) {
-//        self.dataArray = [NSMutableArray array];
-//    }
-//    return _dataArray;
-//}
-
-
-
 
 - (void)viewDidLoad
 {
@@ -48,10 +37,8 @@
 
     [HelperFuc getNews:NO finished:^(BOOL finished, id results) {
         self.dataArray = results;
+        [self.collectionView reloadData];
     }];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishLoadData) name:@"finishData" object:nil];
-    
     
     
     //nav上的左按钮
@@ -84,22 +71,21 @@
     [self.navigationController.navigationBar setTranslucent:true];
     
     //MJRefresh
-    //self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        
-    //    [self.collectionView.mj_header endRefreshing];
-        
-    //}];
-    //[self.collectionView.mj_header beginRefreshing];
+    __weak NewsViewController *weakSelf = self;
+    
+    [self.collectionView addPullToRefreshWithActionHandler:^{
+        [HelperFuc getNews:YES finished:^(BOOL finished, id results) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                weakSelf.dataArray = results;
+                [weakSelf.collectionView reloadData];
+                [weakSelf.collectionView.pullToRefreshView stopAnimating];
+            });
+        }];
+    } position:SVPullToRefreshPositionTop];
+    
     
     
 }
-
-//通知中心实现刷新页面
-- (void)finishLoadData
-{
-    [self.collectionView reloadData];
-}
-
 
 //nav上的左按钮点击事件
 -(void)leftAction:(UIBarButtonItem *)sender
@@ -115,8 +101,6 @@
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    //#warning Incomplete implementation, return the number of sections
-    //NSLog(@"Get sections");
     return 1;
 
    
@@ -124,8 +108,6 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    //NSLog(@"Get items per section");
-    //return self.dataArray.count;
     return self.dataArray.count;
 
     
@@ -133,17 +115,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-   // NSLog(@"Populating data");
     NewsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-   // NSLog(@"Cell get");
-/*
-//    if (_dataArray && _dataArray.count > 0) {
-//        NewsModel *data = self.dataArray[indexPath.row];
-//        if (data) {
-//            [cell bindModel:[[DataHelper defaultDataHelper] modelWithIndex:indexPath.row]];
-//        }
-//    }
- */ 
     [cell bindModel:self.dataArray[indexPath.item]];
     return cell;
 }

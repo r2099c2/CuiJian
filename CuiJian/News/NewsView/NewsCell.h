@@ -15,7 +15,6 @@
 @property (nonatomic, strong)UILabel * newsDetail;
 @property (nonatomic, strong)UILabel * newsTime;
 @property (nonatomic, strong)UIImageView * cellBackground;
-@property (nonatomic,strong)NSManagedObjectContext *managedObjectContext; 
 
 - (void)bindModel:(NewsModel *)model;
 

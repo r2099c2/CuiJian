@@ -58,6 +58,7 @@
 		421B59C41C771FA8000AE83C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 421B59C21C771FA8000AE83C /* Model.xcdatamodeld */; };
 		421B59CD1C772025000AE83C /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 421B59CA1C772025000AE83C /* News.m */; };
 		421B59CE1C772025000AE83C /* News+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 421B59CC1C772025000AE83C /* News+CoreDataProperties.m */; };
+		424CE58A1C7EE84A007E01BF /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 424CE5881C7EE84A007E01BF /* UIScrollView+SVPullToRefresh.m */; };
 		4271F81B1C7AD8F2002A1F56 /* DTRulerViewScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4271F81A1C7AD8F2002A1F56 /* DTRulerViewScale.swift */; };
 		4271F81E1C7AF7AE002A1F56 /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4271F81D1C7AF7AE002A1F56 /* TimeLineViewController.swift */; };
 		42765A551C5F39C700047A55 /* mv1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 42538DEA1C5F1A0B0064935E /* mv1.mp4 */; };
@@ -147,6 +148,8 @@
 		421B59CA1C772025000AE83C /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
 		421B59CB1C772025000AE83C /* News+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "News+CoreDataProperties.h"; sourceTree = "<group>"; };
 		421B59CC1C772025000AE83C /* News+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "News+CoreDataProperties.m"; sourceTree = "<group>"; };
+		424CE5871C7EE84A007E01BF /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+		424CE5881C7EE84A007E01BF /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		42538DEA1C5F1A0B0064935E /* mv1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mv1.mp4; sourceTree = "<group>"; };
 		42538DEB1C5F1A1A0064935E /* mv2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mv2.mp4; sourceTree = "<group>"; };
 		4271F81A1C7AD8F2002A1F56 /* DTRulerViewScale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTRulerViewScale.swift; sourceTree = "<group>"; };
@@ -262,6 +265,7 @@
 		4212F7F11C5B4D1200C6BA6F /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				424CE5831C7EE84A007E01BF /* SVPullToRefresh */,
 				4212F83E1C5B702000C6BA6F /* SDWebImage */,
 				4212F7F21C5B4D3400C6BA6F /* KRVideoPlayer */,
 			);
@@ -408,6 +412,15 @@
 			name = Timeline;
 			sourceTree = "<group>";
 		};
+		424CE5831C7EE84A007E01BF /* SVPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				424CE5871C7EE84A007E01BF /* UIScrollView+SVPullToRefresh.h */,
+				424CE5881C7EE84A007E01BF /* UIScrollView+SVPullToRefresh.m */,
+			);
+			path = SVPullToRefresh;
+			sourceTree = "<group>";
+		};
 		B707B4E3C282D2476CA8ACD3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,7 +499,6 @@
 				1D57B0551C43BC0C001C18F7 /* Assets.xcassets in Resources */,
 				1DEC521D1C7C340200BCDD50 /* 08hunshuihumanbu.mp3 in Resources */,
 				1DEC521A1C7C340200BCDD50 /* 05kuguashu.mp3 in Resources */,
-				1D1ED46F1C4CB7670012EDD1 /* TimelineItem.xib in Resources */,
 				421AF2A41C587BAA00E9D63B /* MVStoryboard.storyboard in Resources */,
 				1D57B0531C43BC0C001C18F7 /* Main.storyboard in Resources */,
 				1DEC521B1C7C340200BCDD50 /* 06jinsezaochen.mp3 in Resources */,
@@ -515,8 +527,8 @@
 				421B59CD1C772025000AE83C /* News.m in Sources */,
 				1DFD73891C75AB3F00B069EB /* SongListCell.swift in Sources */,
 				4212F8641C5B702000C6BA6F /* SDWebImageCompat.m in Sources */,
+				424CE58A1C7EE84A007E01BF /* UIScrollView+SVPullToRefresh.m in Sources */,
 				42E68CB21C61ECCC00194E45 /* HelperFuc.m in Sources */,
-				1D0276DD1C5F809C0087797D /* TimeLineModel.swift in Sources */,
 				1DBF528F1C7B2493002734FF /* SongPlayer.swift in Sources */,
 				1D31F2741C65FE0600A7F221 /* aboutViewController.swift in Sources */,
 				4212F8631C5B702000C6BA6F /* SDImageCache.m in Sources */,
