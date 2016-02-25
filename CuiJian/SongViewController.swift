@@ -241,7 +241,6 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
         setContentForCurrentPage(curPageIndex)
     }
     
-    //FIXME: 一直连续的滑动时 animation交替的BUG
     func hideSongContent() {
         songLyric.setContentOffset(CGPoint.zero, animated: false)
         UIView.animateWithDuration(0.2, animations: { () -> Void in

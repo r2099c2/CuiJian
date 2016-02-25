@@ -10,6 +10,8 @@ import UIKit
 import QuartzCore
 import SceneKit
 import CoreMotion
+import AVKit
+import AVFoundation
 
 //TODO: 首页裂屏
 //TODO: 首次打开时的导航
@@ -98,6 +100,10 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         iceTree.position = SCNVector3(0, groudPos, -100)
         rootScene.rootNode.addChildNode(iceTree)
         
+        let meteor = addNode("meteor.scn")
+        meteor.position = SCNVector3(0, 20, -20)
+        rootScene.rootNode.addChildNode(meteor)
+        
         let dollBoy = addNode("dolls/MudDoll_boy.dae")
         dollBoy.position = SCNVector3(-40, groudPos, -40)
         rootScene.rootNode.addChildNode(dollBoy)
@@ -108,6 +114,34 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         smlUfo.scale = SCNVector3(0.8, 0.8, 0.8)
         rootScene.rootNode.addChildNode(smlUfo)
         
+        let smlStone1 = addNode("star/Star_2.dae")
+        smlStone1.position = SCNVector3(-15, -15, -50)
+        smlStone1.scale = SCNVector3(2, 2, 2)
+        rootScene.rootNode.addChildNode(smlStone1)
+        
+        let smlStone2 = addNode("star/Star_2.dae")
+        smlStone2.position = SCNVector3(-10, -13, -50)
+        smlStone2.scale = SCNVector3(1.7, 1.7, 1.7)
+        rootScene.rootNode.addChildNode(smlStone2)
+        
+        let smlStone3 = addNode("star/Star_2.dae")
+        smlStone3.position = SCNVector3(-5, 0, -50)
+        smlStone3.scale = SCNVector3(2, 2, 2)
+        rootScene.rootNode.addChildNode(smlStone3)
+        
+        let smlStone4 = addNode("star/Star_2.dae")
+        smlStone4.position = SCNVector3(-3, 0, -50)
+        smlStone4.scale = SCNVector3(1.5, 1.5, 1.5)
+        rootScene.rootNode.addChildNode(smlStone4)
+        
+        let star5 = addNode("star/Star_5.dae")
+        star5.position = SCNVector3(-5, 30, -50)
+        rootScene.rootNode.addChildNode(star5)
+        
+        let star6 = addNode("star/Star.dae")
+        star6.position = SCNVector3(15, 30, -40)
+        rootScene.rootNode.addChildNode(star6)
+        
         // left
         let aboutCuijian = addNode("aboutCuijian/LavaBall.dae")
         aboutCuijian.position = SCNVector3(-60, groudPos, 0)
@@ -116,6 +150,10 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         let star1 = addNode("star/Star.dae")
         star1.position = SCNVector3(-60, 20, 40)
         rootScene.rootNode.addChildNode(star1)
+        
+        let mountainA = addNode("mountain/mountain_A.dae")
+        mountainA.position = SCNVector3(-90, groudPos-0.1, 0)
+        rootScene.rootNode.addChildNode(mountainA)
         
         // back
         let teamCuijian = addNode("cuijianTeam/cuijian_logo.dae")
@@ -215,7 +253,17 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         }
     }
     
-    
+    // MARK: - Video
+    //TODO: Video
+    func loadVideo() {
+        let path = NSBundle.mainBundle().pathForResource("mv1", ofType:"mp4")
+        let player = AVPlayer(URL: NSURL(fileURLWithPath: path!))
+        let playerController = AVPlayerViewController()
+        playerController.player = player
+        self.presentViewController(playerController, animated: true) {
+            player.play()
+        }
+    }
     
     
 
