@@ -252,6 +252,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
         }
     }
     
+    //TODO: optimize animation
     func showSongContent() {
         // delay 0.3, because of hideSongContent duration is 0.2 
         // just in case user slide very fast less then 0.2

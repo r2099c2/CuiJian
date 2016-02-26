@@ -10,16 +10,19 @@ import UIKit
 import QuartzCore
 import SceneKit
 import CoreMotion
-import AVKit
-import AVFoundation
+import MediaPlayer
 
-//TODO: 首页裂屏
-//TODO: 首次打开时的导航
+//TODO: 首次使用APP
 class GameViewController: UIViewController, SCNSceneRendererDelegate {
 
     @IBOutlet var rootView: UIView!
     
     @IBOutlet weak var sceneView: SCNView!
+    
+    var videoControlView: UIView?
+    var videoView: UIView?
+    var guideView: UIView?
+    var icePlayer: MPMoviePlayerController?
     
     var motionManager: CMMotionManager?
     let camerasNode: SCNNode? = SCNNode()
@@ -31,9 +34,15 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // video
+        loadGuideView()
+        loadVideo()
+        addVideoControlView()
+        
+        
         let groudPos: CGFloat = -20
         
-        // MARK: - 3D Scene
+        // MARK:- 3D Scene
         // Create Scene
         let rootScene = SCNScene()
         
@@ -216,6 +225,16 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         super.viewWillAppear(true)
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
         self.navigationController?.navigationBarHidden = true
+        
+        
+        //add observer to video player
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "videoEnd", name: MPMoviePlayerPlaybackDidFinishNotification, object: icePlayer)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        // remove observer
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
     
@@ -254,19 +273,56 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     }
     
     // MARK: - Video
-    //TODO: Video
     func loadVideo() {
-        let path = NSBundle.mainBundle().pathForResource("mv1", ofType:"mp4")
-        let player = AVPlayer(URL: NSURL(fileURLWithPath: path!))
-        let playerController = AVPlayerViewController()
-        playerController.player = player
-        self.presentViewController(playerController, animated: true) {
-            player.play()
+        let path = NSBundle.mainBundle().pathForResource("ice", ofType:"mov")
+        let url = NSURL(fileURLWithPath: path!)
+        if let moviePlayer = MPMoviePlayerController(contentURL: url) {
+            self.icePlayer = moviePlayer
+            moviePlayer.view.frame = self.view.bounds
+            moviePlayer.scalingMode = .AspectFill
+            moviePlayer.fullscreen = true
+            moviePlayer.prepareToPlay()
+            moviePlayer.controlStyle = .None
+            moviePlayer.shouldAutoplay = false
+            videoView = moviePlayer.view
+            self.view.addSubview(videoView!)
         }
     }
     
+    func addVideoControlView() {
+        videoControlView = UIView.loadFromNibNamed("VideoControlView")
+        videoControlView!.frame = self.view.bounds
+        self.view.addSubview(videoControlView!)
+        let tapGesture = UITapGestureRecognizer(target: self, action: "playIceVideo")
+        videoControlView!.addGestureRecognizer(tapGesture)
+    }
     
-
+    func playIceVideo() {
+        videoControlView!.removeFromSuperview()
+        self.icePlayer?.play()
+    }
+    
+    func videoEnd() {
+        videoView?.removeFromSuperview()
+    }
+    
+    // guide view
+    func loadGuideView() {
+        guideView = UIView.loadFromNibNamed("GuideView")
+        guideView!.frame = self.view.bounds
+        self.view.addSubview(guideView!)
+        let tapGesture = UITapGestureRecognizer(target: self, action: "removeGuide")
+        guideView!.addGestureRecognizer(tapGesture)
+    }
+    
+    func removeGuide() {
+        UIView.animateWithDuration(1, animations: { () -> Void in
+            self.guideView?.alpha = 0
+            }) { (finished) -> Void in
+                self.guideView?.removeFromSuperview()
+        }
+    }
+    
 }
 
 
@@ -279,6 +335,15 @@ extension UIViewController {
         } else {
             return self
         }
+    }
+}
+
+extension UIView {
+    class func loadFromNibNamed(nibNamed: String, bundle : NSBundle? = nil) -> UIView? {
+        return UINib(
+            nibName: nibNamed,
+            bundle: bundle
+            ).instantiateWithOwner(nil, options: nil)[0] as? UIView
     }
 }
 
