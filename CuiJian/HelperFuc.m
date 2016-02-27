@@ -25,6 +25,11 @@
     UIMotionEffectGroup* group = [[UIMotionEffectGroup alloc] init];
     group.motionEffects = @[horizontalMotionEffect, verticalMotionEffect];
     
+    
+    for (UIMotionEffectGroup *motion in paraView.motionEffects) {
+        [paraView removeMotionEffect:motion];
+    }
+    
     [paraView addMotionEffect:group];
 }
 

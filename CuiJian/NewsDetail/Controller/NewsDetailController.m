@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     //设置WebView
     _webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, KscreenWidth, 0)];
     _webView.delegate = self;
@@ -57,13 +57,14 @@
     
     //把导航栏设置为透明（用透明图片代替导航栏）
     
-    self.navigationItem.title = @"新闻";
+    self.navigationItem.title = @"";
     
     [self.tableView setShowsVerticalScrollIndicator:NO];
     
     //去掉cell之间的线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -105,7 +106,7 @@
         [cell.titleLabel sizeToFit];
         
         //timeLabel
-        cell.timeLabel.text = self.Nmodel.post_modified;
+        cell.timeLabel.text = self.Nmodel.post_date;
         return cell;
     }else{
         static NSString *identifier = @"cell";
@@ -149,5 +150,8 @@
     
     [self.tableView reloadData];
 }
+
+
+
 
 @end

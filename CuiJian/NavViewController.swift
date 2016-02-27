@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NavViewController: UIViewController {
+class NavViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var zhuanjiView: UIImageView!
     @IBOutlet weak var mvView: UIImageView!
@@ -25,6 +25,9 @@ class NavViewController: UIViewController {
         HelperFuc.bgParrallax(aboutCuijianView)
         HelperFuc.bgParrallax(newsView)
         HelperFuc.bgParrallax(aboutAppView)
+        
+        self.navigationController!.interactivePopGestureRecognizer!.delegate = self
+
         
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
             }, completion: nil)

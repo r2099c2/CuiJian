@@ -25,37 +25,33 @@ class MVViewController: UIViewController, UICollectionViewDataSource, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        HelperFuc.bgParrallax(self.bgView)
-        HelperFuc.bgParrallax(self.forzenLight, maximumRelativeValue: 30)
-        
-        self.collectionViewLayout = VVSpringCollectionViewFlowLayout()
-        self.collectionView.collectionViewLayout = self.collectionViewLayout
-        
         self.collectionView.registerClass(MVCell.self, forCellWithReuseIdentifier: "Cell")
         self.collectionView.allowsMultipleSelection = false
         
+
         // Do any additional setup after loading the view.
         self.forzenLight.alpha = 0
         self.collectionView.alpha = 0
-        self.videoController = KRVideoPlayerController(frame: self.view.frame)
     }
     
     override func viewDidAppear(animated: Bool) {
         
         super.viewDidAppear(animated)
-        
-
-        UIView.animateWithDuration(0.6, animations: { () -> Void in
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
             self.frozenLightConstraints.constant = 0
             self.forzenLight.alpha = 1
+            HelperFuc.bgParrallax(self.bgView)
+            HelperFuc.bgParrallax(self.forzenLight, maximumRelativeValue: 30)
             self.view.layoutIfNeeded()
             }) { (finished) -> Void in
-                UIView.animateWithDuration(0.8, delay: 0.3, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-                        self.collectionViewConstraint.constant = 0
-                        self.collectionView.alpha = 1
-                        self.view.layoutIfNeeded()
-                }, completion:nil)
-
+                UIView.animateWithDuration(0.5, delay: 0.15, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+                    self.collectionViewConstraint.constant = 0
+                    self.collectionView.alpha = 1
+                    self.view.layoutIfNeeded()
+                    }, completion: nil)
+        }
+        if(self.videoController == nil){
+            self.videoController = KRVideoPlayerController(frame: self.view.frame)
         }
         
     }
