@@ -3,18 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "TimeLineViewController.makeCollectionCenter() -&gt; ():TimeLineViewController.swift">
+         contextName = "CardCollectionViewCell.setCellData(News) -&gt; ():CardCollectionViewCell.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.collectionView.contentInset.top">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[NewsDetailController tableView:heightForRowAtIndexPath:]:NewsDetailController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "_webView.frame.size.height">
+               value = "news.feature_image">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -23,6 +15,14 @@
          <PersistentStrings>
             <PersistentString
                value = "self.dataArray.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.application(UIApplication, supportedInterfaceOrientationsForWindow : UIWindow?) -&gt; UIInterfaceOrientationMask:AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIApplication.sharedApplication().keyWindow!">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -41,15 +41,53 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "AppDelegate.application(UIApplication, supportedInterfaceOrientationsForWindow : UIWindow?) -&gt; UIInterfaceOrientationMask:AppDelegate.swift">
+         contextName = "GameViewController.addSCN(String) -&gt; SCNNode:GameViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CardCollectionViewLayout.layoutAttributesForElementsInRect(CGRect) -&gt; [UICollectionViewLayoutAttributes]?:CardCollectionViewLayout.swift">
          <PersistentStrings>
             <PersistentString
-               value = "UIApplication.sharedApplication().keyWindow!">
+               value = "array!.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.renderer(SCNSceneRenderer, updateAtTime : Double) -&gt; ():GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.ufoNode?.rotation.y">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "TimeLineViewController.scrollViewDidScroll(UIScrollView) -&gt; ():TimeLineViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.stopAnimation(SCNNode) -&gt; ():GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "node.paused">
+            </PersistentString>
+            <PersistentString
+               value = "animation!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[NewsDetailController tableView:heightForRowAtIndexPath:]:NewsDetailController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_webView.frame.size.height">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewController.makeCollectionCenter() -&gt; ():TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.collectionView.contentInset.top">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "TimeLineViewController.makeCenter() -&gt; ():TimeLineViewController.swift">
@@ -62,22 +100,6 @@
             </PersistentString>
             <PersistentString
                value = "self.rulerView.contentOffset.x">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "CardCollectionViewLayout.layoutAttributesForElementsInRect(CGRect) -&gt; [UICollectionViewLayoutAttributes]?:CardCollectionViewLayout.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "array!.count">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "CardCollectionViewCell.setCellData(News) -&gt; ():CardCollectionViewCell.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "news.feature_image">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

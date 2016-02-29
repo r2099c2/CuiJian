@@ -15,7 +15,6 @@ import MediaPlayer
 class GameViewController: UIViewController, SCNSceneRendererDelegate {
 
     @IBOutlet var rootView: UIView!
-    
     @IBOutlet weak var sceneView: SCNView!
     
     var videoControlView: UIView?
@@ -28,10 +27,13 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     var cameraRollNode: SCNNode?
     var cameraPitchNode: SCNNode?
     var cameraYawNode: SCNNode?
+    let groundPos :CGFloat = -20
+    var ufoNode :SCNNode?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+<<<<<<< HEAD
         
         // 第一次使用应用
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -51,37 +53,36 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         
         // MARK:- 3D Scene
         // Create Scene
+=======
+        self.sceneView.delegate = self
+        self.loadGuideView()
+        self.loadVideo()
+        self.addVideoControlView()
+    }
+    
+    func initSence(){
+>>>>>>> origin/master
         let rootScene = SCNScene()
+        self.sceneView!.scene = rootScene
+        self.sceneView!.autoenablesDefaultLighting = true
         
-        sceneView!.scene = rootScene
-        sceneView!.autoenablesDefaultLighting = true
+        let camera = SCNCamera()
+        camera.xFov = 45
+        camera.yFov = 45
+        camera.zFar = 2000
         
-        // Add camera to scene.
-        let camara = SCNCamera()
-        camara.xFov = 45
-        camara.yFov = 45
-        
-        self.camerasNode!.camera = camara
-        self.camerasNode!.position = SCNVector3(0, 0, 0)
-        
-        // 用户使用时手机是垂直的，所以需要相机旋转-90度
+        self.camerasNode!.camera = camera
+        self.camerasNode!.position = SCNVector3(0,20,0)
         self.camerasNode!.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
         
         let cameraRollNode = SCNNode()
         cameraRollNode.addChildNode(camerasNode!)
-        
         let cameraPitchNode = SCNNode()
         cameraPitchNode.addChildNode(cameraRollNode)
-        
         let cameraYawNode = SCNNode()
         cameraYawNode.addChildNode(cameraPitchNode)
-        
         rootScene.rootNode.addChildNode(cameraYawNode)
-        
         self.sceneView!.pointOfView = camerasNode
-        
-        // Motion; 
-        // Respond to user head movement
         self.motionManager = CMMotionManager()
         self.motionManager?.deviceMotionUpdateInterval = 1/60
         self.motionManager?.startDeviceMotionUpdatesUsingReferenceFrame(CMAttitudeReferenceFrame.XArbitraryZVertical, toQueue: NSOperationQueue.mainQueue(), withHandler: { (motion: CMDeviceMotion?, error: NSError?) -> Void in
@@ -89,15 +90,14 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
             let roll = Float(currentAttitude.roll)
             let pitch = Float(currentAttitude.pitch)
             let yaw = Float(currentAttitude.yaw)
-            
             cameraRollNode.eulerAngles = SCNVector3Make(0, 0, -roll)
             cameraPitchNode.eulerAngles = SCNVector3Make(pitch, 0, 0)
             cameraYawNode.eulerAngles = SCNVector3Make(0, yaw, 0)
+            if fabs(roll) > 3.14 / 9.0 && self.guideView != nil{
+                self.removeGuide()
+            }
         })
         
-        
-        
-        // Sky box
         rootScene.background.contents = [UIImage(named: "skybox1")!,UIImage(named: "skybox2")!,UIImage(named: "skybox3")!,UIImage(named: "skybox4")!,UIImage(named: "skybox5")!,UIImage(named: "skybox6")!] as NSArray
         
         // Floor ground
@@ -106,134 +106,40 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         floor.firstMaterial!.diffuse.contents = UIImage(named: "ground")
         let floorNode = SCNNode()
         floorNode.geometry = floor
-        floorNode.position = SCNVector3(0, groudPos, 0)
+        floorNode.position = SCNVector3(0, groundPos, 0)
         rootScene.rootNode.addChildNode(floorNode)
-        
-        
-        // add node
-        // front
-        let iceTree = addNode("iceTree/ice_tree.dae")
-        iceTree.position = SCNVector3(0, groudPos, -100)
-        rootScene.rootNode.addChildNode(iceTree)
-        
-        let meteor = addNode("meteor.scn")
-        meteor.position = SCNVector3(0, 20, -20)
-        rootScene.rootNode.addChildNode(meteor)
-        
-        let dollBoy = addNode("dolls/MudDoll_boy.dae")
-        dollBoy.position = SCNVector3(-40, groudPos, -40)
-        rootScene.rootNode.addChildNode(dollBoy)
-        
-        let smlUfo = addNode("UFO/UFO.dae")
-        smlUfo.position = SCNVector3(-20, 10, -20)
-        smlUfo.eulerAngles = SCNVector3(0, GLKMathDegreesToRadians(120), 0)
-        smlUfo.scale = SCNVector3(0.8, 0.8, 0.8)
-        rootScene.rootNode.addChildNode(smlUfo)
-        
-        let smlStone1 = addNode("star/Star_2.dae")
-        smlStone1.position = SCNVector3(-15, -15, -50)
-        smlStone1.scale = SCNVector3(2, 2, 2)
-        rootScene.rootNode.addChildNode(smlStone1)
-        
-        let smlStone2 = addNode("star/Star_2.dae")
-        smlStone2.position = SCNVector3(-10, -13, -50)
-        smlStone2.scale = SCNVector3(1.7, 1.7, 1.7)
-        rootScene.rootNode.addChildNode(smlStone2)
-        
-        let smlStone3 = addNode("star/Star_2.dae")
-        smlStone3.position = SCNVector3(-5, 0, -50)
-        smlStone3.scale = SCNVector3(2, 2, 2)
-        rootScene.rootNode.addChildNode(smlStone3)
-        
-        let smlStone4 = addNode("star/Star_2.dae")
-        smlStone4.position = SCNVector3(-3, 0, -50)
-        smlStone4.scale = SCNVector3(1.5, 1.5, 1.5)
-        rootScene.rootNode.addChildNode(smlStone4)
-        
-        let star5 = addNode("star/Star_5.dae")
-        star5.position = SCNVector3(-5, 30, -50)
-        rootScene.rootNode.addChildNode(star5)
-        
-        let star6 = addNode("star/Star.dae")
-        star6.position = SCNVector3(15, 30, -40)
-        rootScene.rootNode.addChildNode(star6)
-        
-        // left
-        let aboutCuijian = addNode("aboutCuijian/LavaBall.dae")
-        aboutCuijian.position = SCNVector3(-60, groudPos, 0)
-        rootScene.rootNode.addChildNode(aboutCuijian)
-        
-        let star1 = addNode("star/Star.dae")
-        star1.position = SCNVector3(-60, 20, 40)
-        rootScene.rootNode.addChildNode(star1)
-        
-        let mountainA = addNode("mountain/mountain_A.dae")
-        mountainA.position = SCNVector3(-90, groudPos-0.1, 0)
-        rootScene.rootNode.addChildNode(mountainA)
-        
-        // back
-        let teamCuijian = addNode("cuijianTeam/cuijian_logo.dae")
-        teamCuijian.position = SCNVector3(0, groudPos, 60)
-        rootScene.rootNode.addChildNode(teamCuijian)
-        
-        let teamBass = addNode("cuijianTeam/bass.dae")
-        teamBass.position = SCNVector3(-5, groudPos, 70)
-        rootScene.rootNode.addChildNode(teamBass)
-        
-        let teamDrums = addNode("cuijianTeam/Drums.dae")
-        teamDrums.position = SCNVector3(-20, groudPos, 90)
-        rootScene.rootNode.addChildNode(teamDrums)
-        
-        let teamGuitar = addNode("cuijianTeam/guitar.dae")
-        teamGuitar.position = SCNVector3(-20, groudPos, 70)
-        rootScene.rootNode.addChildNode(teamGuitar)
-        
-        let teamKeyboard = addNode("cuijianTeam/Keyboard.dae")
-        teamKeyboard.position = SCNVector3(15, groudPos, 80)
-        rootScene.rootNode.addChildNode(teamKeyboard)
-        
-        let teamSuona_xiao = addNode("cuijianTeam/suona_xiao.dae")
-        teamSuona_xiao.position = SCNVector3(10, groudPos, 70)
-        rootScene.rootNode.addChildNode(teamSuona_xiao)
-        
-        let star2 = addNode("star/Star_2.dae")
-        star2.position = SCNVector3(3, 10, 15)
-        rootScene.rootNode.addChildNode(star2)
-        
-        let dollGirl = addNode("dolls/MudDoll_girl.dae")
-        dollGirl.position = SCNVector3(20, groudPos, 20)
-        rootScene.rootNode.addChildNode(dollGirl)
-        
-        let star3 = addNode("star/Star_3.dae")
-        star3.position = SCNVector3(10, 10, 10)
-        rootScene.rootNode.addChildNode(star3)
-        
-        // right
-        let ufo = addNode("UFO/UFO.dae")
-        ufo.position = SCNVector3(80, groudPos, 0)
-        rootScene.rootNode.addChildNode(ufo)
-        
-        let guitar = addNode("guitar/guitar.dae")
-        guitar.position = SCNVector3(40, -21, -30)
-        rootScene.rootNode.addChildNode(guitar)
+
     }
     
-    func addNode(fileName: String) -> SCNNode {
+    func addNode(duration:CFTimeInterval, fileName: String) -> SCNNode {
         var node = SCNNode()
         if let subScene = SCNScene(named: "art.scnassets/\(fileName)") {
             if let subNode = subScene.rootNode.childNodes.first {
                 node = subNode
+                if duration > 0{
+                    stopAnimation(duration, node: node);
+                }
             }
         }
         return node
+    }
+    
+    func stopAnimation(duration:CFTimeInterval, node:SCNNode){
+        for key in node.animationKeys{
+            let animation = node.animationForKey(key)!
+            animation.duration = duration
+            node.removeAnimationForKey(key)
+            node.addAnimation(animation, forKey: key)
+        }
+        for n in node.childNodes{
+            self.stopAnimation(duration, node: n)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
         self.navigationController?.navigationBarHidden = true
-        
-        
         //add observer to video player
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "videoEnd", name: MPMoviePlayerPlaybackDidFinishNotification, object: icePlayer)
     }
@@ -243,9 +149,6 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         // remove observer
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
-
-    
-    
     
     override func shouldAutorotate() -> Bool {
         return true
@@ -270,13 +173,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     
     func renderer(aRenderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval)
     {
-        if let mm = motionManager, let motion = mm.deviceMotion {
-            let currentAttitude = motion.attitude
-            
-            cameraRollNode!.eulerAngles.x = Float(currentAttitude.roll)
-            cameraPitchNode!.eulerAngles.z = Float(currentAttitude.pitch)
-            cameraYawNode!.eulerAngles.y = Float(currentAttitude.yaw)
-        }
+
     }
     
     // MARK: - Video
@@ -305,28 +202,33 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     }
     
     func playIceVideo() {
-        videoControlView!.removeFromSuperview()
+        self.videoControlView!.removeFromSuperview()
+        self.videoControlView = nil
         self.icePlayer?.play()
     }
     
     func videoEnd() {
-        videoView?.removeFromSuperview()
+        self.initSence()
+        self.icePlayer = nil
+        self.videoView?.removeFromSuperview()
+        self.videoView = nil
     }
     
     // guide view
     func loadGuideView() {
-        guideView = UIView.loadFromNibNamed("GuideView")
-        guideView!.frame = self.view.bounds
-        self.view.addSubview(guideView!)
+        self.guideView = UIView.loadFromNibNamed("GuideView")
+        self.guideView!.frame = self.view.bounds
+        self.view.addSubview(self.guideView!)
         let tapGesture = UITapGestureRecognizer(target: self, action: "removeGuide")
-        guideView!.addGestureRecognizer(tapGesture)
+        self.guideView!.addGestureRecognizer(tapGesture)
     }
     
     func removeGuide() {
-        UIView.animateWithDuration(1, animations: { () -> Void in
+        UIView.animateWithDuration(0.35, animations: { () -> Void in
             self.guideView?.alpha = 0
             }) { (finished) -> Void in
                 self.guideView?.removeFromSuperview()
+                self.guideView = nil
         }
     }
     
