@@ -34,6 +34,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.sceneView!.backgroundColor = UIColor.blackColor()
         self.sceneView.delegate = self
         self.loadGuideView()
         self.loadVideo()
@@ -87,6 +88,33 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         floorNode.geometry = floor
         floorNode.position = SCNVector3(0, groundPos, 0)
         rootScene.rootNode.addChildNode(floorNode)
+        
+        let iceTree = addNode(5, fileName: "iceTree/ice_tree.dae")
+        iceTree.position = SCNVector3(0, self.groundPos, -50)
+        iceTree.scale = SCNVector3(8,8,8)
+        rootScene.rootNode.addChildNode(iceTree)
+        
+        self.ufoNode = addNode(0, fileName: "UFO/UFO.dae")
+        self.ufoNode!.position = SCNVector3(50, self.groundPos, 0)
+        self.ufoNode!.scale = SCNVector3(8,8,8)
+        let spin = CABasicAnimation(keyPath: "rotation")
+        // Use from-to to explicitly make a full rotation around z
+        spin.fromValue = NSValue(SCNVector4: SCNVector4(x: 0, y: 1, z: 0, w: 0))
+        spin.toValue = NSValue(SCNVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float(2 * M_PI)))
+        spin.duration = 2
+        spin.repeatCount = .infinity
+        self.ufoNode!.addAnimation(spin, forKey: "ufoAni")
+        rootScene.rootNode.addChildNode(self.ufoNode!)
+        
+        let teamCuijian = addNode(-1, fileName: "cuijianTeam/cuijian_team.dae")
+        teamCuijian.position = SCNVector3(0, self.groundPos + 2, -30)
+        teamCuijian.scale = SCNVector3(12,12,12)
+        rootScene.rootNode.addChildNode(teamCuijian)
+
+        let lavaBall = addNode(0, fileName: "aboutCuijian/LavaBall.dae")
+        lavaBall.position = SCNVector3(-50, self.groundPos, 0)
+        rootScene.rootNode.addChildNode(lavaBall)
+        
 
     }
     
@@ -150,9 +178,8 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         // Release any cached data, images, etc that aren't in use.
     }
     
-    func renderer(aRenderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval)
-    {
-
+    
+    func renderer(renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: NSTimeInterval) {
     }
     
     // MARK: - Video

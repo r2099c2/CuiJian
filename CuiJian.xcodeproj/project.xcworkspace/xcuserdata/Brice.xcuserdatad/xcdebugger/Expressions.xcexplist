@@ -30,13 +30,21 @@
          contextName = "__30-[NewsViewController makeData]_block_invoke_2:NewsViewController.m">
       </ContextState>
       <ContextState
+         contextName = "GameViewController.renderer(SCNSceneRenderer, willRenderScene : SCNScene, atTime : Double) -&gt; ():GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.ufoNode?.rotation.y">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "TimeLineViewController.initRule() -&gt; ():TimeLineViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.rulerView.frame.height">
+               value = "3.5 * width + DTRulerScaleGap / 2 + 1 - 0.5 * UIScreen.mainScreen().bounds.size.width">
             </PersistentString>
             <PersistentString
-               value = "3.5 * width + DTRulerScaleGap / 2 + 1 - 0.5 * UIScreen.mainScreen().bounds.size.width">
+               value = "self.rulerView.frame.height">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
