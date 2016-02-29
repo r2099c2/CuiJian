@@ -33,7 +33,6 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< HEAD
         
         // 第一次使用应用
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -53,7 +52,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         
         // MARK:- 3D Scene
         // Create Scene
-=======
+        
         self.sceneView.delegate = self
         self.loadGuideView()
         self.loadVideo()
@@ -61,7 +60,6 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     }
     
     func initSence(){
->>>>>>> origin/master
         let rootScene = SCNScene()
         self.sceneView!.scene = rootScene
         self.sceneView!.autoenablesDefaultLighting = true
