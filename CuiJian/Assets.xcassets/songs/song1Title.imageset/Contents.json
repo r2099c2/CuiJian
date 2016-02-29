@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "song5Title.png",
+      "filename" : "guangdong.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "guangdong-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "guangdong-2.png",
       "scale" : "3x"
     }
   ],
