@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "song3Title.png",
+      "filename" : "jinsezaochen-2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "jinsezaochen-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "jinsezaochen.png",
       "scale" : "3x"
     }
   ],

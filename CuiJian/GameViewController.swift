@@ -12,7 +12,6 @@ import SceneKit
 import CoreMotion
 import MediaPlayer
 
-//TODO: 首次使用APP
 class GameViewController: UIViewController, SCNSceneRendererDelegate {
 
     @IBOutlet var rootView: UIView!
@@ -34,10 +33,18 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // video
-        loadGuideView()
-        loadVideo()
-        addVideoControlView()
+        // 第一次使用应用
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let isFirstUse = defaults.boolForKey("isFirstUse")
+        if !isFirstUse {
+            // video
+            loadGuideView()
+            loadVideo()
+            addVideoControlView()
+            
+            defaults.setBool(true, forKey: "isFirstUse")
+        }
+        
         
         
         let groudPos: CGFloat = -20

@@ -57,6 +57,8 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
     var songTitleTop: CGFloat?
     var isCompressed: Bool = true
         
+    @IBOutlet weak var loadingImg: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -87,10 +89,17 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
         songScrollView.contentSize = CGSize(width: self.pageScrollViewSize.width * CGFloat(songData.count), height: self.pageScrollViewSize.height)
         
         // make audio player and load all audio
-        loadAudios()
-        
-        // load first 3 pages need be show
-        loadVisiblePages()
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            // do some task
+            self.loadAudios()
+            dispatch_async(dispatch_get_main_queue()) {
+                // update some UI
+                // load first 3 pages need be show
+                self.loadVisiblePages()
+                self.loadingImg.stopAnimating()
+            }
+        }
         
         addGestureToSongLyric()
         addGestureToSongTitle()
@@ -237,13 +246,15 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
     }
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        showSongContent()
         setContentForCurrentPage(curPageIndex)
+        showSongContent()
     }
     
     func hideSongContent() {
         songLyric.setContentOffset(CGPoint.zero, animated: false)
         UIView.animateWithDuration(0.2, animations: { () -> Void in
+            self.songTitle.layer.removeAllAnimations()
+            self.songLyric.layer.removeAllAnimations()
             self.songTitle.transform = CGAffineTransformMakeScale(0.001, 0.001)
             self.songLyric.transform = CGAffineTransformMakeScale(0.001, 0.001)
             }) { (finished) -> Void in
