@@ -107,7 +107,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         
         let light = SCNLight()
         light.type = SCNLightTypeOmni
-        light.color = UIColor(red: 128.0/255.0, green: 128.0/255.0, blue: 128.0/255.0, alpha: 1.0)
+        light.color = UIColor(red: 200.0/255.0, green: 200.0/255.0, blue: 200.0/255.0, alpha: 1.0)
         let lightNode = SCNNode()
         lightNode.position = SCNVector3(0, 0, 0)
         lightNode.light = light
