@@ -101,12 +101,13 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         rootScene.rootNode.addChildNode(floorNode)
         
         let iceTree = addNode(5, fileName: "iceTree/ice_tree.dae")
-        iceTree.position = SCNVector3(0, self.groundPos, -40)
-        iceTree.scale = SCNVector3(8,8,8)
+        iceTree.position = SCNVector3(0, self.groundPos, -50)
+        iceTree.scale = SCNVector3(10,10,10)
         rootScene.rootNode.addChildNode(iceTree)
         
         let light = SCNLight()
         light.type = SCNLightTypeOmni
+        light.castsShadow = true
         light.color = UIColor(red: 200.0/255.0, green: 200.0/255.0, blue: 200.0/255.0, alpha: 1.0)
         let lightNode = SCNNode()
         lightNode.position = SCNVector3(0, 0, 0)
@@ -121,61 +122,16 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         lightNode1.position = SCNVector3(0, 30, -80)
         rootScene.rootNode.addChildNode(lightNode1)
         
-        /*
-        let stone = addNode(0, fileName: "star/Star_2.dae")
-        stone.position = SCNVector3(20, -10, -30)
-        stone.scale = SCNVector3(8,8,8)
-        rootScene.rootNode.addChildNode(stone)
-        
-        let stone2 = stone.clone()
-        stone2.position = SCNVector3(50, -10, -50)
-        rootScene.rootNode.addChildNode(stone2)
-
-        let stone3 = stone.clone()
-        stone3.position = SCNVector3(25, -10, -20)
-        stone3.scale = SCNVector3(4,4,4)
-        rootScene.rootNode.addChildNode(stone3)
-        
-        let stone4 = stone.clone()
-        stone4.position = SCNVector3(-25, 10, -20)
-        stone4.scale = SCNVector3(4,4,4)
-        rootScene.rootNode.addChildNode(stone4)
-        
-        let stone5 = stone.clone()
-        stone5.position = SCNVector3(-40, 10, -20)
-        stone5.scale = SCNVector3(4,4,4)
-        rootScene.rootNode.addChildNode(stone5)
-        
-        let stone6 = stone.clone()
-        stone6.position = SCNVector3(-64, 10, -20)
-        stone6.scale = SCNVector3(4,4,4)
-        rootScene.rootNode.addChildNode(stone3)
-        
-        let stone7 = stone.clone()
-        stone7.position = SCNVector3(25, -10, -20)
-        stone7.scale = SCNVector3(4,4,4)
-        rootScene.rootNode.addChildNode(stone3)
-        
-        let stone8 = stone.clone()
-        stone8.position = SCNVector3(25, -10, -20)
-        stone8.scale = SCNVector3(4,4,4)
-        rootScene.rootNode.addChildNode(stone3)
-        
-        let stone9 = stone.clone()
-        stone9.position = SCNVector3(25, -10, -20)
-        stone9.scale = SCNVector3(4,4,4)
-        rootScene.rootNode.addChildNode(stone3)
-        
-        let stone10 = stone.clone()
-        stone10.position = SCNVector3(25, -10, -20)
-        stone10.scale = SCNVector3(4,4,4)
-        rootScene.rootNode.addChildNode(stone3)
-        */
         
         let m1 = addNode(0, fileName: "mountain/mountain_A.dae")
         m1.position = SCNVector3(500, self.groundPos - 3, -350)
         m1.scale = SCNVector3(20,20,20)
         rootScene.rootNode.addChildNode(m1)
+        
+        let m11 = m1.clone()
+        m11.position = SCNVector3(400, self.groundPos - 3, 500)
+        m11.rotation.y = 90
+        rootScene.rootNode.addChildNode(m11)
         
         let m2 = addNode(0, fileName: "mountain/mountain_B.dae")
         m2.position = SCNVector3(-500, self.groundPos - 3, 350)
@@ -186,17 +142,63 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         star5.position = SCNVector3(200, 100, -200)
         star5.scale = SCNVector3(20,20,20)
         rootScene.rootNode.addChildNode(star5)
+        
+        let redStar = addNode(0, fileName: "star/Star_4.dae")
+        redStar.position = SCNVector3(-50, 0, 400)
+        redStar.scale = SCNVector3(50,50,50)
+        rootScene.rootNode.addChildNode(redStar)
+        
+        let moon = addNode(0, fileName: "star/Star_3.dae")
+        moon.position = SCNVector3(400, 400, 400)
+        moon.scale = SCNVector3(80,80,80)
+        rootScene.rootNode.addChildNode(moon)
+        
+        let guitar = addNode(0, fileName: "guitar/guitar.dae")
+        guitar.scale = SCNVector3(15,15,15)
+        guitar.position = SCNVector3(120, self.groundPos - 1, -90)
+        rootScene.rootNode.addChildNode(guitar)
+        
+        let boy = addNode(0, fileName: "dolls/MudDoll_boy.dae")
+        boy.position = SCNVector3(50, self.groundPos, 40)
+        boy.rotation = SCNVector4Make(0, 1, 0, Float(-M_PI / 2.0))
+        rootScene.rootNode.addChildNode(boy)
+        
+        let boy1 = boy.clone()
+        boy1.position = SCNVector3(60, self.groundPos, 20)
+        rootScene.rootNode.addChildNode(boy1)
+
+        let boy2 = boy.clone()
+        boy2.position = SCNVector3(50, self.groundPos, 60)
+        rootScene.rootNode.addChildNode(boy2)
+        
+        let boy3 = boy.clone()
+        boy3.scale = SCNVector3(700,700,700)
+        boy3.rotation = SCNVector4Make(1, 0, 0, Float(M_PI/12))
+        boy3.position = SCNVector3(50, -10, 0)
+        rootScene.rootNode.addChildNode(boy3)
+
+        
+        let girl = addNode(0, fileName: "dolls/MudDoll_girl.dae")
+        girl.rotation = SCNVector4Make(0, 1, 0, Float(-M_PI))
+        girl.position = SCNVector3(30, self.groundPos, 0)
+        rootScene.rootNode.addChildNode(girl)
+        
+        let girl1 = girl.clone()
+        girl1.rotation = SCNVector4Make(0, 1, 0, Float(M_PI / 2))
+        girl1.position = SCNVector3(40, self.groundPos, -20)
+        rootScene.rootNode.addChildNode(girl1)
+
 
 
         
         self.ufoNode = addNode(0, fileName: "UFO/UFO.dae")
-        self.ufoNode!.position = SCNVector3(50, self.groundPos, 0)
+        self.ufoNode!.position = SCNVector3(50, self.groundPos + 10, 0)
         self.ufoNode!.scale = SCNVector3(8,8,8)
         let spin = CABasicAnimation(keyPath: "rotation")
         // Use from-to to explicitly make a full rotation around z
         spin.fromValue = NSValue(SCNVector4: SCNVector4(x: 0, y: 1, z: 0, w: 0))
         spin.toValue = NSValue(SCNVector4: SCNVector4(x: 0, y: 1, z: 0, w: Float(2 * M_PI)))
-        spin.duration = 2
+        spin.duration = 3
         spin.repeatCount = .infinity
         self.ufoNode!.addAnimation(spin, forKey: "ufoAni")
         rootScene.rootNode.addChildNode(self.ufoNode!)
@@ -207,7 +209,8 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         rootScene.rootNode.addChildNode(teamCuijian)
 
         let lavaBall = addNode(0, fileName: "aboutCuijian/LavaBall.dae")
-        lavaBall.position = SCNVector3(-50, self.groundPos, 0)
+        lavaBall.position = SCNVector3(-50, -15, 0)
+        lavaBall.scale = SCNVector3(1500,1500,1500)
         rootScene.rootNode.addChildNode(lavaBall)
         
 

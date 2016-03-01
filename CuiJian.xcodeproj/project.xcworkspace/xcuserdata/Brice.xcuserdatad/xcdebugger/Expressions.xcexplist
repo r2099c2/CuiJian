@@ -38,13 +38,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "GameViewController.initSence() -&gt; ():GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "boy.rotation">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "TimeLineViewController.initRule() -&gt; ():TimeLineViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "3.5 * width + DTRulerScaleGap / 2 + 1 - 0.5 * UIScreen.mainScreen().bounds.size.width">
+               value = "self.rulerView.frame.height">
             </PersistentString>
             <PersistentString
-               value = "self.rulerView.frame.height">
+               value = "3.5 * width + DTRulerScaleGap / 2 + 1 - 0.5 * UIScreen.mainScreen().bounds.size.width">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -68,9 +76,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TimeLineViewController.scrollViewDidScroll(UIScrollView) -&gt; ():TimeLineViewController.swift">
-      </ContextState>
-      <ContextState
          contextName = "GameViewController.stopAnimation(SCNNode) -&gt; ():GameViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -80,6 +85,9 @@
                value = "animation!">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TimeLineViewController.scrollViewDidScroll(UIScrollView) -&gt; ():TimeLineViewController.swift">
       </ContextState>
       <ContextState
          contextName = "-[NewsDetailController tableView:heightForRowAtIndexPath:]:NewsDetailController.m">
