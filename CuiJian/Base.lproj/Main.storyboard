@@ -490,19 +490,23 @@
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="8Qw-gR-Ego">
+                                <rect key="frame" x="141" y="245" width="37" height="37"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2JZ-j0-VrL">
-                                <rect key="frame" x="274" y="526" width="26" height="22"/>
+                                <rect key="frame" x="266" y="516" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="gTd-M4-U5H"/>
+                                </constraints>
                                 <state key="normal" image="songListBtn"/>
                                 <connections>
                                     <segue destination="9co-bn-0qF" kind="modal" identifier="songlistidentifier" modalTransitionStyle="coverVertical" id="cjh-hn-E6K"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="8Qw-gR-Ego">
-                                <rect key="frame" x="141" y="245" width="37" height="37"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="LZG-5n-bgm" firstAttribute="top" secondItem="2JZ-j0-VrL" secondAttribute="bottom" constant="8" symbolic="YES" id="1EW-cX-t0t"/>
                             <constraint firstItem="8Qw-gR-Ego" firstAttribute="centerY" secondItem="NRl-Ob-NRd" secondAttribute="centerY" id="3S4-D1-EqW"/>
                             <constraint firstItem="tla-T1-7j7" firstAttribute="top" secondItem="zH5-TD-gdc" secondAttribute="bottom" constant="15" id="3pC-IY-No3"/>
                             <constraint firstItem="zH5-TD-gdc" firstAttribute="centerX" secondItem="IWJ-7e-dKr" secondAttribute="centerX" id="5j0-ey-dMO"/>
@@ -512,15 +516,15 @@
                             <constraint firstItem="NRl-Ob-NRd" firstAttribute="top" secondItem="CuU-OP-32D" secondAttribute="top" constant="-20" id="IaN-K9-0cU"/>
                             <constraint firstItem="LZG-5n-bgm" firstAttribute="top" secondItem="IWJ-7e-dKr" secondAttribute="bottom" id="It7-5P-e5g"/>
                             <constraint firstItem="LZG-5n-bgm" firstAttribute="top" secondItem="Slb-jU-LcK" secondAttribute="bottom" id="J5U-lZ-OSm"/>
-                            <constraint firstItem="2JZ-j0-VrL" firstAttribute="leading" secondItem="Slb-jU-LcK" secondAttribute="trailing" constant="16" id="JWm-e2-rG9"/>
                             <constraint firstItem="NRl-Ob-NRd" firstAttribute="leading" secondItem="CuU-OP-32D" secondAttribute="leading" constant="-20" id="MtN-if-XrE"/>
                             <constraint firstItem="Slb-jU-LcK" firstAttribute="centerX" secondItem="CuU-OP-32D" secondAttribute="centerX" id="QX6-B4-SH2"/>
                             <constraint firstAttribute="trailing" secondItem="NRl-Ob-NRd" secondAttribute="trailing" constant="-20" id="R5f-YG-Hp2"/>
-                            <constraint firstItem="2JZ-j0-VrL" firstAttribute="bottom" secondItem="NRl-Ob-NRd" secondAttribute="bottom" id="TQz-6x-UJc"/>
+                            <constraint firstItem="2JZ-j0-VrL" firstAttribute="leading" secondItem="Slb-jU-LcK" secondAttribute="trailing" constant="8" symbolic="YES" id="VHd-lc-TJv"/>
                             <constraint firstItem="zH5-TD-gdc" firstAttribute="top" secondItem="yPe-2i-gEZ" secondAttribute="bottom" constant="8" symbolic="YES" id="aP2-HC-a74"/>
                             <constraint firstItem="tla-T1-7j7" firstAttribute="centerX" secondItem="CuU-OP-32D" secondAttribute="centerX" id="eJj-fm-N0G"/>
                             <constraint firstItem="Slb-jU-LcK" firstAttribute="top" secondItem="tla-T1-7j7" secondAttribute="bottom" constant="22" id="gpP-hr-fp9"/>
                             <constraint firstItem="IWJ-7e-dKr" firstAttribute="leading" secondItem="CuU-OP-32D" secondAttribute="leadingMargin" constant="-20" id="mi1-jo-Yi1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2JZ-j0-VrL" secondAttribute="trailing" constant="-6" id="pOS-Et-hhG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="IWJ-7e-dKr" secondAttribute="trailing" constant="-20" id="se2-Ho-klp"/>
                             <constraint firstItem="8Qw-gR-Ego" firstAttribute="centerX" secondItem="zH5-TD-gdc" secondAttribute="centerX" id="tEs-nB-RtU"/>
                         </constraints>
