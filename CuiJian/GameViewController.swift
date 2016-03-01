@@ -60,7 +60,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         let camera = SCNCamera()
         camera.xFov = 45
         camera.yFov = 45
-        camera.zFar = 2000
+        camera.zFar = 800
         
         self.camerasNode!.camera = camera
         self.camerasNode!.position = SCNVector3(0,20,0)
