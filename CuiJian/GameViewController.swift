@@ -101,9 +101,93 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         rootScene.rootNode.addChildNode(floorNode)
         
         let iceTree = addNode(5, fileName: "iceTree/ice_tree.dae")
-        iceTree.position = SCNVector3(0, self.groundPos, -50)
+        iceTree.position = SCNVector3(0, self.groundPos, -40)
         iceTree.scale = SCNVector3(8,8,8)
         rootScene.rootNode.addChildNode(iceTree)
+        
+        let light = SCNLight()
+        light.type = SCNLightTypeOmni
+        light.color = UIColor(red: 128.0/255.0, green: 128.0/255.0, blue: 128.0/255.0, alpha: 1.0)
+        let lightNode = SCNNode()
+        lightNode.position = SCNVector3(0, 0, 0)
+        lightNode.light = light
+        rootScene.rootNode.addChildNode(lightNode)
+        
+        let light1 = SCNLight()
+        light1.type = SCNLightTypeDirectional
+        light1.color = UIColor.whiteColor()
+        let lightNode1 = SCNNode()
+        lightNode1.light = light1
+        lightNode1.position = SCNVector3(0, 30, -80)
+        rootScene.rootNode.addChildNode(lightNode1)
+        
+        /*
+        let stone = addNode(0, fileName: "star/Star_2.dae")
+        stone.position = SCNVector3(20, -10, -30)
+        stone.scale = SCNVector3(8,8,8)
+        rootScene.rootNode.addChildNode(stone)
+        
+        let stone2 = stone.clone()
+        stone2.position = SCNVector3(50, -10, -50)
+        rootScene.rootNode.addChildNode(stone2)
+
+        let stone3 = stone.clone()
+        stone3.position = SCNVector3(25, -10, -20)
+        stone3.scale = SCNVector3(4,4,4)
+        rootScene.rootNode.addChildNode(stone3)
+        
+        let stone4 = stone.clone()
+        stone4.position = SCNVector3(-25, 10, -20)
+        stone4.scale = SCNVector3(4,4,4)
+        rootScene.rootNode.addChildNode(stone4)
+        
+        let stone5 = stone.clone()
+        stone5.position = SCNVector3(-40, 10, -20)
+        stone5.scale = SCNVector3(4,4,4)
+        rootScene.rootNode.addChildNode(stone5)
+        
+        let stone6 = stone.clone()
+        stone6.position = SCNVector3(-64, 10, -20)
+        stone6.scale = SCNVector3(4,4,4)
+        rootScene.rootNode.addChildNode(stone3)
+        
+        let stone7 = stone.clone()
+        stone7.position = SCNVector3(25, -10, -20)
+        stone7.scale = SCNVector3(4,4,4)
+        rootScene.rootNode.addChildNode(stone3)
+        
+        let stone8 = stone.clone()
+        stone8.position = SCNVector3(25, -10, -20)
+        stone8.scale = SCNVector3(4,4,4)
+        rootScene.rootNode.addChildNode(stone3)
+        
+        let stone9 = stone.clone()
+        stone9.position = SCNVector3(25, -10, -20)
+        stone9.scale = SCNVector3(4,4,4)
+        rootScene.rootNode.addChildNode(stone3)
+        
+        let stone10 = stone.clone()
+        stone10.position = SCNVector3(25, -10, -20)
+        stone10.scale = SCNVector3(4,4,4)
+        rootScene.rootNode.addChildNode(stone3)
+        */
+        
+        let m1 = addNode(0, fileName: "mountain/mountain_A.dae")
+        m1.position = SCNVector3(500, self.groundPos - 3, -350)
+        m1.scale = SCNVector3(20,20,20)
+        rootScene.rootNode.addChildNode(m1)
+        
+        let m2 = addNode(0, fileName: "mountain/mountain_B.dae")
+        m2.position = SCNVector3(-500, self.groundPos - 3, 350)
+        m2.scale = SCNVector3(10,10,10)
+        rootScene.rootNode.addChildNode(m2)
+
+        let star5 = addNode(0, fileName: "star/Star_5.dae")
+        star5.position = SCNVector3(200, 100, -200)
+        star5.scale = SCNVector3(20,20,20)
+        rootScene.rootNode.addChildNode(star5)
+
+
         
         self.ufoNode = addNode(0, fileName: "UFO/UFO.dae")
         self.ufoNode!.position = SCNVector3(50, self.groundPos, 0)
@@ -147,6 +231,8 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
             let animation = node.animationForKey(key)!
             animation.duration = duration
             node.removeAnimationForKey(key)
+            animation.repeatCount = 0
+            animation.removedOnCompletion = true
             node.addAnimation(animation, forKey: key)
         }
         for n in node.childNodes{
