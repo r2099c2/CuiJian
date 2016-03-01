@@ -38,7 +38,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
     
     // string 的顺序关系到图层显示
     let songPosterData: [[String]] = [
-        ["song1-1","song1-2"], ["song2-1","song2-2"], ["song3-1","song3-2","song3-3"], ["song4-1","song4-2","song4-3"], ["song5-1","song5-2","song5-3"], ["song6-1","song6-2","song6-3"], ["song7-1","song7-2"], ["song8-1","song8-2"], ["song9-1","song9-2","song9-3","song9-4"]
+        ["song1-1","song1-2"], ["song2-1","song2-2"], ["song3-1","song3-2","song3-3"], ["song4-1","song4-2","song4-3"], ["song5-1","song5-2","song5-3","song5-4"], ["song6-1","song6-2","song6-3"], ["song7-1","song7-2"], ["song8-1","song8-2"], ["song9-1","song9-2","song9-3"]
     ]
     
     let parallaxParameter:[CGFloat] = [0, 15, -10, 10]
@@ -46,7 +46,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
     var pageImages: [[UIImage]] = []
     var pageViews: [UIView?] = []
     
-    var curPageIndex = 0
+    var curPageIndex: Int = -1
     
     var players: [SongPlayer] = []
     
@@ -198,35 +198,47 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
     func loadVisiblePages() {
         // First, determine which page is currently visible
         let pageWidth = self.pageScrollViewSize.width
-        curPageIndex = Int(floor((songScrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0)))
-        if curPageIndex < 0 {
-            curPageIndex = 0
-        }
-        
-        // Work out which pages you want to load
-        let firstPage = curPageIndex - 1
-        let lastPage = curPageIndex + 1
-        
-        // Purge anything before the first page
-        for var index = 0; index < firstPage; ++index {
-            purgePage(index)
-        }
-        
-        // Load pages in our range
-        for index in firstPage...lastPage {
-            loadPage(index)
-        }
-        
-        // Purge anything after the last page
-        for var index = lastPage+1; index < songData.count; ++index {
-            purgePage(index)
-        }
-        
-        // first time in page
-        if self.songTitle.image == nil {
-            setContentForCurrentPage(curPageIndex)
+        var newPageIndex = Int(floor((songScrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0)))
+        if curPageIndex != newPageIndex {
+            if newPageIndex < 0 {
+                newPageIndex = 0
+            } else if newPageIndex >= songData.count {
+                newPageIndex = songData.count - 1
+            }
+            curPageIndex = newPageIndex
+            if curPageIndex < 0 {
+                curPageIndex = 0
+            }
+            
+            // Work out which pages you want to load
+            let firstPage = curPageIndex - 1
+            let lastPage = curPageIndex + 1
+            
+            // Purge anything before the first page
+            for var index = 0; index < firstPage; ++index {
+                purgePage(index)
+            }
+            
+            // Load pages in our range
+            for index in firstPage...lastPage {
+                loadPage(index)
+            }
+            
+            // Purge anything after the last page
+            for var index = lastPage+1; index < songData.count; ++index {
+                purgePage(index)
+            }
+            
+            // first time in page
+            if self.songTitle.image == nil {
+                setContentForCurrentPage(curPageIndex)
+            }
         }
     }
+    
+    
+    var timer = NSTimer()
+    var lyricIsHidden = false
     
     // MARK: - ScrollViewDelegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -234,57 +246,52 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
         if players[curPageIndex].player?.playing == true {
             players[curPageIndex].pausePlayer()
         }
-    }
-    
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        
         hideSongContent()
+        
+        // delay 0.3, because of hideSongContent duration is 0.2
+        // just in case user slide very fast less then 0.2
+        timer.invalidate()
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: "timeOut", userInfo: nil, repeats: false)
     }
     
-    func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
-        setContentForCurrentPage(curPageIndex)
-        showSongContent()
-    }
-    
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func timeOut() {
         setContentForCurrentPage(curPageIndex)
         showSongContent()
     }
     
     func hideSongContent() {
-        songLyric.setContentOffset(CGPoint.zero, animated: false)
-        UIView.animateWithDuration(0.2, animations: { () -> Void in
+        if !lyricIsHidden {
+            self.lyricIsHidden = true
             self.songTitle.layer.removeAllAnimations()
             self.songLyric.layer.removeAllAnimations()
-            self.songTitle.transform = CGAffineTransformMakeScale(0.001, 0.001)
-            self.songLyric.transform = CGAffineTransformMakeScale(0.001, 0.001)
-            }) { (finished) -> Void in
-                self.songTitle.hidden = true
-                self.songLyric.hidden = true
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                self.songTitle.transform = CGAffineTransformMakeScale(0.001, 0.001)
+                self.songLyric.transform = CGAffineTransformMakeScale(0.001, 0.001)
+                }) { (finished) -> Void in
+                    self.songTitle.hidden = true
+                    self.songLyric.hidden = true
+            }
         }
     }
     
-    //TODO: optimize animation
     func showSongContent() {
-        // delay 0.3, because of hideSongContent duration is 0.2 
-        // just in case user slide very fast less then 0.2
-        let seconds = 0.3
-        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
-        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        
-        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-            // delay
-            self.songTitle.layer.removeAllAnimations()
-            self.songLyric.layer.removeAllAnimations()
-            self.songTitle.transform = CGAffineTransformMakeScale(0.5, 0.5)
-            self.songLyric.transform = CGAffineTransformMakeScale(0.7, 0.7)
-            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.6, options: .CurveEaseIn, animations: { () -> Void in
-                self.songTitle.hidden = false
-                self.songTitle.transform = CGAffineTransformMakeScale(1, 1)
-                }, completion: nil)
-            UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: .CurveEaseIn, animations: { () -> Void in
-                self.songLyric.hidden = false
-                self.songLyric.transform = CGAffineTransformMakeScale(1, 1)
-                }, completion: nil)
+        self.lyricIsHidden = false
+        self.songTitle.layer.removeAllAnimations()
+        self.songLyric.layer.removeAllAnimations()
+        self.songTitle.transform = CGAffineTransformMakeScale(0.5, 0.5)
+        self.songLyric.transform = CGAffineTransformMakeScale(0.7, 0.7)
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.6, options: .CurveEaseIn, animations: { () -> Void in
+            self.songTitle.hidden = false
+            self.songTitle.transform = CGAffineTransformMakeScale(1, 1)
+            }, completion: { (finished) -> Void in
+                
+        })
+        UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: .CurveEaseIn, animations: { () -> Void in
+            self.songLyric.hidden = false
+            self.songLyric.transform = CGAffineTransformMakeScale(1, 1)
+            }, completion: { (finished) -> Void in
+//               self.lyricIsHidden = false
         })
     }
     
