@@ -83,12 +83,6 @@
                 news.post_content = m.post_content;
                 news.term_id = [NSNumber numberWithInt:type];
                 news.feature_image = m.feature_image;
-            }
-            @catch (NSException *exception) {
-                
-            }
-            
-            @finally {
                 NSError * error = nil;
                 BOOL isSaveSuccess = [myDelegate.managedObjectContext save:&error];
                 if (isSaveSuccess && error == nil) {
@@ -96,6 +90,12 @@
                 else {
                     NSLog(@"%@", error);
                 }
+            }
+            @catch (NSException *exception) {
+                [myDelegate.managedObjectContext rollback];
+            }
+            
+            @finally {
                 
             }        }
         // 当数据处理完毕
