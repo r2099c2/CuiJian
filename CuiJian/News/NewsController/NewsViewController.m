@@ -36,8 +36,10 @@
 
 
     [HelperFuc getNews:NO finished:^(BOOL finished, id results) {
-        self.dataArray = results;
-        [self.collectionView reloadData];
+        if (finished) {
+            self.dataArray = results;
+            [self.collectionView reloadData];
+        }
     }];
     
     
@@ -76,8 +78,10 @@
     [self.collectionView addPullToRefreshWithActionHandler:^{
         [HelperFuc getNews:YES finished:^(BOOL finished, id results) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                weakSelf.dataArray = results;
-                [weakSelf.collectionView reloadData];
+                if (finished) {
+                    weakSelf.dataArray = results;
+                    [weakSelf.collectionView reloadData];
+                }
                 [weakSelf.collectionView.pullToRefreshView stopAnimating];
             });
         }];

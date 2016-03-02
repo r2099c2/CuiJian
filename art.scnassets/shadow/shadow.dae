@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+ <asset>
+  <contributor>
+   <authoring_tool>SceneKit Collada Exporter v1.0</authoring_tool>
+  </contributor>
+  <created>2016-03-02T10:24:33Z</created>
+  <modified>2016-03-02T10:24:33Z</modified>
+  <unit meter="0.010000"/>
+  <up_axis>Y_UP</up_axis>
+ </asset>
+ <library_images>
+  <image id="image1">
+   <init_from>shadow.png</init_from>
+  </image>
+ </library_images>
+ <library_materials>
+  <material id="shadow" name="shadow">
+   <instance_effect url="#effect_shadow"/>
+  </material>
+ </library_materials>
+ <library_effects>
+  <effect id="effect_shadow">
+   <profile_COMMON>
+    <newparam sid="ID2_image1_surface">
+     <surface type="2D">
+      <init_from>image1</init_from>
+     </surface>
+    </newparam>
+    <newparam sid="ID2_image1">
+     <sampler2D>
+      <source>ID2_image1_surface</source>
+      <wrap_s>WRAP</wrap_s>
+      <wrap_t>WRAP</wrap_t>
+      <minfilter>LINEAR</minfilter>
+      <magfilter>LINEAR</magfilter>
+      <mipfilter>LINEAR</mipfilter>
+     </sampler2D>
+    </newparam>
+    <technique sid="common">
+     <lambert>
+      <ambient>
+       <color>0 0 0 1</color>
+      </ambient>
+      <diffuse>
+       <texture texture="ID2_image1" texcoord="CHANNEL2"/>
+      </diffuse>
+      <transparent opaque="RGB_ZERO">
+       <color>0 0 0 1</color>
+      </transparent>
+      <transparency>
+       <float>0</float>
+      </transparency>
+      <index_of_refraction>
+       <float>1</float>
+      </index_of_refraction>
+     </lambert>
+    </technique>
+   </profile_COMMON>
+   <extra>
+    <technique profile="SceneKit">
+     <litPerPixel>1</litPerPixel>
+     <ambient_diffuse_lock>1</ambient_diffuse_lock>
+    </technique>
+   </extra>
+  </effect>
+ </library_effects>
+ <library_geometries>
+  <geometry id="shadow1-lib" name="shadow1Mesh">
+   <mesh>
+    <source id="shadow1-POSITION">
+     <float_array id="ID3-array" count="363">-0.5 0 0.5 -0.4 0 0.5 -0.4 0 0.4 -0.5 0 0.4 -0.3 0 0.5 -0.3 0 0.4 -0.2 0 0.5 -0.2 0 0.4 -0.1 0 0.5 -0.1 0 0.4 0 0 0.5 0 0 0.4 0.1 0 0.5 0.1 0 0.4 0.2 0 0.5 0.2 0 0.4 0.3 0 0.5 0.3 0 0.4 0.4 0 0.5 0.4 0 0.4 0.5 0 0.5 0.5 0 0.4 -0.4 0 0.3 -0.5 0 0.3 -0.3 0 0.3 -0.2 0 0.3 -0.1 0 0.3 0 0 0.3 0.1 0 0.3 0.2 0 0.3 0.3 0 0.3 0.4 0 0.3 0.5 0 0.3 -0.4 0 0.2 -0.5 0 0.2 -0.3 0 0.2 -0.2 0 0.2 -0.1 0 0.2 0 0 0.2 0.1 0 0.2 0.2 0 0.2 0.3 0 0.2 0.4 0 0.2 0.5 0 0.2 -0.4 0 0.1 -0.5 0 0.1 -0.3 0 0.1 -0.2 0 0.1 -0.1 0 0.1 0 0 0.1 0.1 0 0.1 0.2 0 0.1 0.3 0 0.1 0.4 0 0.1 0.5 0 0.1 -0.4 0 -0 -0.5 0 -0 -0.3 0 -0 -0.2 0 -0 -0.1 0 -0 0 0 -0 0.1 0 -0 0.2 0 -0 0.3 0 -0 0.4 0 -0 0.5 0 -0 -0.4 0 -0.1 -0.5 0 -0.1 -0.3 0 -0.1 -0.2 0 -0.1 -0.1 0 -0.1 0 0 -0.1 0.1 0 -0.1 0.2 0 -0.1 0.3 0 -0.1 0.4 0 -0.1 0.5 0 -0.1 -0.4 0 -0.2 -0.5 0 -0.2 -0.3 0 -0.2 -0.2 0 -0.2 -0.1 0 -0.2 0 0 -0.2 0.1 0 -0.2 0.2 0 -0.2 0.3 0 -0.2 0.4 0 -0.2 0.5 0 -0.2 -0.4 0 -0.3 -0.5 0 -0.3 -0.3 0 -0.3 -0.2 0 -0.3 -0.1 0 -0.3 0 0 -0.3 0.1 0 -0.3 0.2 0 -0.3 0.3 0 -0.3 0.4 0 -0.3 0.5 0 -0.3 -0.4 0 -0.4 -0.5 0 -0.4 -0.3 0 -0.4 -0.2 0 -0.4 -0.1 0 -0.4 0 0 -0.4 0.1 0 -0.4 0.2 0 -0.4 0.3 0 -0.4 0.4 0 -0.4 0.5 0 -0.4 -0.4 0 -0.5 -0.5 0 -0.5 -0.3 0 -0.5 -0.2 0 -0.5 -0.1 0 -0.5 0 0 -0.5 0.1 0 -0.5 0.2 0 -0.5 0.3 0 -0.5 0.4 0 -0.5 0.5 0 -0.5 </float_array>
+     <technique_common>
+      <accessor source="#ID3-array" count="121" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="shadow1-Normal0">
+     <float_array id="ID4-array" count="363">0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 </float_array>
+     <technique_common>
+      <accessor source="#ID4-array" count="121" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="shadow1-UV0">
+     <float_array id="ID5-array" count="242">0.146086 1 0.146086 0.9 0.216868 0.9 0.216868 1 0.146086 0.8 0.216868 0.8 0.146086 0.7 0.216868 0.7 0.146086 0.6 0.216868 0.6 0.146086 0.5 0.216868 0.5 0.146086 0.4 0.216868 0.4 0.146086 0.3 0.216868 0.3 0.146086 0.2 0.216868 0.2 0.146086 0.1 0.216868 0.1 0.146086 0 0.216868 0 0.287651 0.9 0.287651 1 0.287651 0.8 0.287651 0.7 0.287651 0.6 0.287651 0.5 0.287651 0.4 0.287651 0.3 0.287651 0.2 0.287651 0.1 0.287651 0 0.358434 0.9 0.358434 1 0.358434 0.8 0.358434 0.7 0.358434 0.6 0.358434 0.5 0.358434 0.4 0.358434 0.3 0.358434 0.2 0.358434 0.1 0.358434 0 0.429217 0.9 0.429217 1 0.429217 0.8 0.429217 0.7 0.429217 0.6 0.429217 0.5 0.429217 0.4 0.429217 0.3 0.429217 0.2 0.429217 0.1 0.429217 0 0.5 0.9 0.5 1 0.5 0.8 0.5 0.7 0.5 0.6 0.5 0.5 0.5 0.4 0.5 0.3 0.5 0.2 0.5 0.1 0.5 0 0.570783 0.9 0.570783 1 0.570783 0.8 0.570783 0.7 0.570783 0.6 0.570783 0.5 0.570783 0.4 0.570783 0.3 0.570783 0.2 0.570783 0.1 0.570783 0 0.641566 0.9 0.641566 1 0.641566 0.8 0.641566 0.7 0.641566 0.6 0.641566 0.5 0.641566 0.4 0.641566 0.3 0.641566 0.2 0.641566 0.1 0.641566 0 0.712349 0.9 0.712349 1 0.712349 0.8 0.712349 0.7 0.712349 0.6 0.712349 0.5 0.712349 0.4 0.712349 0.3 0.712349 0.2 0.712349 0.1 0.712349 0 0.783132 0.9 0.783132 1 0.783132 0.8 0.783132 0.7 0.783132 0.6 0.783132 0.5 0.783132 0.4 0.783132 0.3 0.783132 0.2 0.783132 0.1 0.783132 0 0.853914 0.9 0.853914 1 0.853914 0.8 0.853914 0.7 0.853914 0.6 0.853914 0.5 0.853914 0.4 0.853914 0.3 0.853914 0.2 0.853914 0.1 0.853914 0 </float_array>
+     <technique_common>
+      <accessor source="#ID5-array" count="121" stride="2">
+       <param name="S" type="float"/>
+       <param name="T" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <vertices id="shadow1-POSITION-vertices">
+     <input semantic="POSITION" source="#shadow1-POSITION"/>
+     <input semantic="NORMAL" source="#shadow1-Normal0"/>
+    </vertices>
+    <triangles count="200" material="geometryElement6">
+     <input semantic="VERTEX" offset="0" source="#shadow1-POSITION-vertices"/>
+     <input semantic="NORMAL" offset="0" source="#shadow1-Normal0"/>
+     <input semantic="TEXCOORD" offset="0" source="#shadow1-UV0" set="1"/>
+     <p>0 1 2 0 2 3 1 4 5 1 5 2 4 6 7 4 7 5 6 8 9 6 9 7 8 10 11 8 11 9 10 12 13 10 13 11 12 14 15 12 15 13 14 16 17 14 17 15 16 18 19 16 19 17 18 20 21 18 21 19 3 2 22 3 22 23 2 5 24 2 24 22 5 7 25 5 25 24 7 9 26 7 26 25 9 11 27 9 27 26 11 13 28 11 28 27 13 15 29 13 29 28 15 17 30 15 30 29 17 19 31 17 31 30 19 21 32 19 32 31 23 22 33 23 33 34 22 24 35 22 35 33 24 25 36 24 36 35 25 26 37 25 37 36 26 27 38 26 38 37 27 28 39 27 39 38 28 29 40 28 40 39 29 30 41 29 41 40 30 31 42 30 42 41 31 32 43 31 43 42 34 33 44 34 44 45 33 35 46 33 46 44 35 36 47 35 47 46 36 37 48 36 48 47 37 38 49 37 49 48 38 39 50 38 50 49 39 40 51 39 51 50 40 41 52 40 52 51 41 42 53 41 53 52 42 43 54 42 54 53 45 44 55 45 55 56 44 46 57 44 57 55 46 47 58 46 58 57 47 48 59 47 59 58 48 49 60 48 60 59 49 50 61 49 61 60 50 51 62 50 62 61 51 52 63 51 63 62 52 53 64 52 64 63 53 54 65 53 65 64 56 55 66 56 66 67 55 57 68 55 68 66 57 58 69 57 69 68 58 59 70 58 70 69 59 60 71 59 71 70 60 61 72 60 72 71 61 62 73 61 73 72 62 63 74 62 74 73 63 64 75 63 75 74 64 65 76 64 76 75 67 66 77 67 77 78 66 68 79 66 79 77 68 69 80 68 80 79 69 70 81 69 81 80 70 71 82 70 82 81 71 72 83 71 83 82 72 73 84 72 84 83 73 74 85 73 85 84 74 75 86 74 86 85 75 76 87 75 87 86 78 77 88 78 88 89 77 79 90 77 90 88 79 80 91 79 91 90 80 81 92 80 92 91 81 82 93 81 93 92 82 83 94 82 94 93 83 84 95 83 95 94 84 85 96 84 96 95 85 86 97 85 97 96 86 87 98 86 98 97 89 88 99 89 99 100 88 90 101 88 101 99 90 91 102 90 102 101 91 92 103 91 103 102 92 93 104 92 104 103 93 94 105 93 105 104 94 95 106 94 106 105 95 96 107 95 107 106 96 97 108 96 108 107 97 98 109 97 109 108 100 99 110 100 110 111 99 101 112 99 112 110 101 102 113 101 113 112 102 103 114 102 114 113 103 104 115 103 115 114 104 105 116 104 116 115 105 106 117 105 117 116 106 107 118 106 118 117 107 108 119 107 119 118 108 109 120 108 120 119 </p>
+    </triangles>
+   </mesh>
+  </geometry>
+ </library_geometries>
+ <library_visual_scenes>
+  <visual_scene id="scene7">
+   <node id="shadow1" name="shadow1">
+    <matrix>16.192 -0 -6.993822e-07 0 0 10 -0 0 1.41555e-06 0 8 0 0 0 0 1 </matrix>
+    <instance_geometry url="#shadow1-lib">
+     <bind_material>
+      <technique_common>
+       <instance_material symbol="geometryElement6" target="#shadow">
+        <bind_vertex_input semantic="CHANNEL2" input_semantic="TEXCOORD" input_set="1"/>
+       </instance_material>
+      </technique_common>
+     </bind_material>
+    </instance_geometry>
+   </node>
+  </visual_scene>
+ </library_visual_scenes>
+ <scene>
+  <instance_visual_scene url="#scene7"/>
+ </scene>
+</COLLADA>

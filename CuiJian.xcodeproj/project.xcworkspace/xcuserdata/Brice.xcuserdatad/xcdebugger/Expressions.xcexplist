@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "GLOBAL">
+         <PersistentStrings>
+            <PersistentString
+               value = "lavaBall.childNodes[0].geometry?.materials[0].diffuse.contents">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "CardCollectionViewCell.setCellData(News) -&gt; ():CardCollectionViewCell.swift">
          <PersistentStrings>
             <PersistentString
@@ -46,13 +54,16 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "__41+[HelperFuc getDataFromNetWork:finished:]_block_invoke:HelperFuc.m">
+      </ContextState>
+      <ContextState
          contextName = "TimeLineViewController.initRule() -&gt; ():TimeLineViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.rulerView.frame.height">
+               value = "3.5 * width + DTRulerScaleGap / 2 + 1 - 0.5 * UIScreen.mainScreen().bounds.size.width">
             </PersistentString>
             <PersistentString
-               value = "3.5 * width + DTRulerScaleGap / 2 + 1 - 0.5 * UIScreen.mainScreen().bounds.size.width">
+               value = "self.rulerView.frame.height">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

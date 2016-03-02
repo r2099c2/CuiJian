@@ -43,8 +43,20 @@
     NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url];
     request.cachePolicy = NSURLRequestReloadIgnoringCacheData;
     NSURLSessionDataTask * task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingAllowFragments) error:nil];
         NSMutableArray* dataArray = [NSMutableArray array];
+        if (response == nil) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertView *unavailAlert = [[UIAlertView alloc] initWithTitle:@"网络异常"message:@"请请检查您的互联网状态。" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
+                [unavailAlert show];
+            });
+            if (finished != NULL) {
+                finished(NO, dataArray);
+            }
+            return ;
+            
+        }
+        
+        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingAllowFragments) error:nil];
         for (NSDictionary * dict in dic) {
             NewsModel * m = [[NewsModel alloc]init];
             [m setValuesForKeysWithDictionary:dict];
@@ -61,24 +73,31 @@
                 [context1 deleteObject:result];
             }
             
-            News * news = (News *)[NSEntityDescription insertNewObjectForEntityForName:@"News" inManagedObjectContext:context1];
-            news.post_title = m.post_title;
-            news.post_id = m.post_id;
-            news.post_date = m.post_date;
-            news.post_excerpt = m.post_excerpt;
-            news.post_modified = m.post_modified;
-            news.post_content = m.post_content;
-            news.term_id = [NSNumber numberWithInt:type];
-            news.feature_image = m.feature_image;
+            @try {
+                News * news = (News *)[NSEntityDescription insertNewObjectForEntityForName:@"News" inManagedObjectContext:context1];
+                news.post_title = m.post_title;
+                news.post_id = m.post_id;
+                news.post_date = m.post_date;
+                news.post_excerpt = m.post_excerpt;
+                news.post_modified = m.post_modified;
+                news.post_content = m.post_content;
+                news.term_id = [NSNumber numberWithInt:type];
+                news.feature_image = m.feature_image;
+            }
+            @catch (NSException *exception) {
+                
+            }
             
-            NSError * error = nil;
-            BOOL isSaveSuccess = [myDelegate.managedObjectContext save:&error];
-            if (isSaveSuccess && error == nil) {
-            }
-            else {
-                NSLog(@"%@", error);
-            }
-        }
+            @finally {
+                NSError * error = nil;
+                BOOL isSaveSuccess = [myDelegate.managedObjectContext save:&error];
+                if (isSaveSuccess && error == nil) {
+                }
+                else {
+                    NSLog(@"%@", error);
+                }
+                
+            }        }
         // 当数据处理完毕
         if (finished != NULL) {
             finished(YES, dataArray);
@@ -122,8 +141,11 @@
 
 }
 + (void) refreshData{
-    [HelperFuc getDataFromNetWork:2 finished:NULL];
-    [HelperFuc getDataFromNetWork:3 finished:NULL];
+    [HelperFuc getDataFromNetWork:2 finished:^(BOOL finished, id data) {
+        if (finished) {
+            [HelperFuc getDataFromNetWork:3 finished:NULL];
+        }
+    }];
 }
 
 

@@ -374,7 +374,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7F-iR-e9s">
-                                <rect key="frame" x="12" y="350" width="96" height="30"/>
+                                <rect key="frame" x="12" y="341" width="96" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <string key="text">版权信息：
 </string>
@@ -383,7 +383,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tgW-qU-imE">
-                                <rect key="frame" x="12" y="380" width="99" height="30"/>
+                                <rect key="frame" x="12" y="371" width="99" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <string key="text">Created by
 </string>
@@ -392,18 +392,18 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ldLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5FZ-Qe-dy3">
-                                <rect key="frame" x="17" y="410" width="130" height="26"/>
+                                <rect key="frame" x="17" y="401" width="130" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5FZ-Qe-dy3" secondAttribute="height" multiplier="5:1" id="rPU-Gn-Zkv"/>
                                     <constraint firstAttribute="height" constant="26" id="toh-TQ-cTo"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7RV-7s-X9M">
-                                <rect key="frame" x="12" y="436" width="244" height="51"/>
+                                <rect key="frame" x="12" y="427" width="244" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="244" id="MYK-D4-JPA"/>
-                                    <constraint firstAttribute="height" constant="50.5" id="jwd-pr-yoe"/>
+                                    <constraint firstAttribute="height" constant="60" id="jwd-pr-yoe"/>
                                 </constraints>
                                 <string key="text">℗ 2015 Beijing East West Music 
 &amp; Production Co.,Ltd.</string>
