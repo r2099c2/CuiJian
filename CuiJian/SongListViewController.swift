@@ -39,7 +39,7 @@ class SongListViewController: UIViewController, UITableViewDataSource, UITableVi
         let identifier = "songListCellIdentifier"
         let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! SongListCell
         
-        cell.songListIndex.text = String(indexPath.row)
+        cell.songListIndex.text = String(indexPath.row + 1)
         cell.songName.text = songList[indexPath.row]
         
         return cell

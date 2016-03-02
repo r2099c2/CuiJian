@@ -481,12 +481,9 @@
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Slb-jU-LcK">
-                                <rect key="frame" x="61" y="440" width="197" height="128"/>
+                                <rect key="frame" x="53" y="440" width="213" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.43137254901960786" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="197" id="Gt4-oI-4zQ"/>
-                                </constraints>
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -494,9 +491,10 @@
                                 <rect key="frame" x="141" y="245" width="37" height="37"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2JZ-j0-VrL">
-                                <rect key="frame" x="266" y="516" width="44" height="44"/>
+                                <rect key="frame" x="274" y="516" width="30" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="gTd-M4-U5H"/>
+                                    <constraint firstAttribute="width" constant="30" id="kUU-oy-yBW"/>
                                 </constraints>
                                 <state key="normal" image="songListBtn"/>
                                 <connections>
@@ -524,7 +522,7 @@
                             <constraint firstItem="tla-T1-7j7" firstAttribute="centerX" secondItem="CuU-OP-32D" secondAttribute="centerX" id="eJj-fm-N0G"/>
                             <constraint firstItem="Slb-jU-LcK" firstAttribute="top" secondItem="tla-T1-7j7" secondAttribute="bottom" constant="22" id="gpP-hr-fp9"/>
                             <constraint firstItem="IWJ-7e-dKr" firstAttribute="leading" secondItem="CuU-OP-32D" secondAttribute="leadingMargin" constant="-20" id="mi1-jo-Yi1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2JZ-j0-VrL" secondAttribute="trailing" constant="-6" id="pOS-Et-hhG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2JZ-j0-VrL" secondAttribute="trailing" id="pOS-Et-hhG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="IWJ-7e-dKr" secondAttribute="trailing" constant="-20" id="se2-Ho-klp"/>
                             <constraint firstItem="8Qw-gR-Ego" firstAttribute="centerX" secondItem="zH5-TD-gdc" secondAttribute="centerX" id="tEs-nB-RtU"/>
                         </constraints>

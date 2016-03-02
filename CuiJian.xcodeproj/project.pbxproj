@@ -471,6 +471,11 @@
 					1D57B0471C43BC0C001C18F7 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 4F7E7U4KV3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
