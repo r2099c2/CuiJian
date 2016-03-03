@@ -16,6 +16,16 @@ class NavViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var newsView: UIImageView!
     @IBOutlet weak var aboutAppView: UIImageView!
     @IBOutlet weak var scrollview: UIScrollView!
+    @IBOutlet weak var bt1: UIButton!
+    @IBOutlet weak var bt1cons: NSLayoutConstraint!
+    @IBOutlet weak var bt2: UIButton!
+    @IBOutlet weak var bt2cons: NSLayoutConstraint!
+    @IBOutlet weak var bt3: UIButton!
+    @IBOutlet weak var bt3cons: NSLayoutConstraint!
+    @IBOutlet weak var bt4: UIButton!
+    @IBOutlet weak var bt4cons: NSLayoutConstraint!
+    @IBOutlet weak var bt5: UIButton!
+    @IBOutlet weak var bt5cons: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +43,29 @@ class NavViewController: UIViewController, UIGestureRecognizerDelegate {
 
         
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+            self.bt1cons.constant = 0
+            self.bt1.alpha = 1
+            self.view.layoutIfNeeded()
+            }, completion: nil)
+        UIView.animateWithDuration(0.5, delay: 0.1, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+            self.bt2cons.constant = 0
+            self.bt2.alpha = 1
+            self.view.layoutIfNeeded()
+            }, completion: nil)
+        UIView.animateWithDuration(0.5, delay: 0.2, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+            self.bt3cons.constant = 0
+            self.bt3.alpha = 1
+            self.view.layoutIfNeeded()
+            }, completion: nil)
+        UIView.animateWithDuration(0.5, delay: 0.3, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+            self.bt4cons.constant = 0
+            self.bt4.alpha = 1
+            self.view.layoutIfNeeded()
+            }, completion: nil)
+        UIView.animateWithDuration(0.5, delay: 0.4, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+            self.bt5cons.constant = 0
+            self.bt5.alpha = 1
+            self.view.layoutIfNeeded()
             }, completion: nil)
         
         // Do any additional setup after loading the view.

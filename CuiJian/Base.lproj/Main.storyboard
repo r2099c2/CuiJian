@@ -84,8 +84,8 @@
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Albums" translatesAutoresizingMaskIntoConstraints="NO" id="bZw-z6-D3a">
                                                         <rect key="frame" x="-8" y="-10" width="336" height="121"/>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Znn-FJ-bHu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
+                                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Znn-FJ-bHu">
+                                                        <rect key="frame" x="0.0" y="50" width="320" height="101"/>
                                                         <state key="normal" image="AlbumsBt"/>
                                                         <connections>
                                                             <segue destination="vQp-Ch-gUU" kind="push" id="ddx-hh-xBU"/>
@@ -104,7 +104,7 @@
                                                     <constraint firstItem="Znn-FJ-bHu" firstAttribute="centerX" secondItem="nD2-Ap-Xem" secondAttribute="centerX" id="ASB-H6-t0M"/>
                                                     <constraint firstItem="boC-0k-fJO" firstAttribute="centerX" secondItem="nD2-Ap-Xem" secondAttribute="centerX" id="G07-MF-Bbg"/>
                                                     <constraint firstItem="Znn-FJ-bHu" firstAttribute="height" secondItem="nD2-Ap-Xem" secondAttribute="height" id="HJq-Ds-Du6"/>
-                                                    <constraint firstItem="Znn-FJ-bHu" firstAttribute="centerY" secondItem="nD2-Ap-Xem" secondAttribute="centerY" id="KcU-SO-PCA"/>
+                                                    <constraint firstItem="Znn-FJ-bHu" firstAttribute="centerY" secondItem="nD2-Ap-Xem" secondAttribute="centerY" constant="50" id="KcU-SO-PCA"/>
                                                     <constraint firstItem="bZw-z6-D3a" firstAttribute="width" secondItem="nD2-Ap-Xem" secondAttribute="width" multiplier="1.05" id="Pep-j0-Crc"/>
                                                     <constraint firstItem="bZw-z6-D3a" firstAttribute="centerX" secondItem="nD2-Ap-Xem" secondAttribute="centerX" id="WVP-nq-iM8"/>
                                                     <constraint firstItem="bZw-z6-D3a" firstAttribute="centerY" secondItem="nD2-Ap-Xem" secondAttribute="centerY" id="j8k-X5-fi3"/>
@@ -121,8 +121,8 @@
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MV" translatesAutoresizingMaskIntoConstraints="NO" id="j6m-Bu-Wpk">
                                                         <rect key="frame" x="-8" y="-11" width="336" height="122"/>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9W-25-u1F">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
+                                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9W-25-u1F">
+                                                        <rect key="frame" x="0.0" y="50" width="320" height="101"/>
                                                         <state key="normal" image="MVBt"/>
                                                         <connections>
                                                             <action selector="MVClicked:" destination="GFv-yb-n9U" eventType="touchUpInside" id="mmb-k5-sce"/>
@@ -136,7 +136,7 @@
                                                     </imageView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="N9W-25-u1F" firstAttribute="centerY" secondItem="sat-RY-OEa" secondAttribute="centerY" id="DFD-wv-QTJ"/>
+                                                    <constraint firstItem="N9W-25-u1F" firstAttribute="centerY" secondItem="sat-RY-OEa" secondAttribute="centerY" constant="50" id="DFD-wv-QTJ"/>
                                                     <constraint firstItem="j6m-Bu-Wpk" firstAttribute="centerX" secondItem="sat-RY-OEa" secondAttribute="centerX" id="DQ4-Hi-jB3"/>
                                                     <constraint firstItem="N9W-25-u1F" firstAttribute="width" secondItem="sat-RY-OEa" secondAttribute="width" id="Dus-Kb-dOb"/>
                                                     <constraint firstItem="j6m-Bu-Wpk" firstAttribute="height" secondItem="sat-RY-OEa" secondAttribute="height" multiplier="1.2" id="RZq-rt-z2H"/>
@@ -158,8 +158,8 @@
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutCuijian" translatesAutoresizingMaskIntoConstraints="NO" id="GGo-ma-v7m">
                                                         <rect key="frame" x="-8" y="-11" width="336" height="122"/>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YVs-JR-SR4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
+                                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YVs-JR-SR4">
+                                                        <rect key="frame" x="0.0" y="50" width="320" height="101"/>
                                                         <state key="normal" image="aboutCuijianBt"/>
                                                         <connections>
                                                             <action selector="AboutClicked:" destination="GFv-yb-n9U" eventType="touchUpInside" id="BA0-Jv-ZDY"/>
@@ -179,7 +179,7 @@
                                                     <constraint firstItem="aPw-pM-SL7" firstAttribute="width" secondItem="4NL-CI-FYF" secondAttribute="width" multiplier="0.9" id="SxD-gE-hlF"/>
                                                     <constraint firstItem="YVs-JR-SR4" firstAttribute="width" secondItem="4NL-CI-FYF" secondAttribute="width" id="VPm-0r-vjm"/>
                                                     <constraint firstItem="GGo-ma-v7m" firstAttribute="centerY" secondItem="4NL-CI-FYF" secondAttribute="centerY" id="bqO-Jo-rLx"/>
-                                                    <constraint firstItem="YVs-JR-SR4" firstAttribute="centerY" secondItem="4NL-CI-FYF" secondAttribute="centerY" id="dUe-q0-Icj"/>
+                                                    <constraint firstItem="YVs-JR-SR4" firstAttribute="centerY" secondItem="4NL-CI-FYF" secondAttribute="centerY" constant="50" id="dUe-q0-Icj"/>
                                                     <constraint firstItem="YVs-JR-SR4" firstAttribute="centerX" secondItem="4NL-CI-FYF" secondAttribute="centerX" id="e7y-WG-fTp"/>
                                                     <constraint firstItem="GGo-ma-v7m" firstAttribute="width" secondItem="4NL-CI-FYF" secondAttribute="width" multiplier="1.05" id="fJr-9i-L3i"/>
                                                     <constraint firstItem="YVs-JR-SR4" firstAttribute="height" secondItem="4NL-CI-FYF" secondAttribute="height" id="q1i-Zk-Exr"/>
@@ -195,8 +195,8 @@
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news" translatesAutoresizingMaskIntoConstraints="NO" id="s19-kO-bUF">
                                                         <rect key="frame" x="-8" y="-10" width="336" height="121"/>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Isa-gE-0yG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
+                                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Isa-gE-0yG">
+                                                        <rect key="frame" x="0.0" y="50" width="320" height="101"/>
                                                         <state key="normal" image="newsBt"/>
                                                         <connections>
                                                             <action selector="newsClicked:" destination="GFv-yb-n9U" eventType="touchUpInside" id="W3Z-Ie-uCi"/>
@@ -216,7 +216,7 @@
                                                     <constraint firstItem="Isa-gE-0yG" firstAttribute="width" secondItem="KHm-hH-HRn" secondAttribute="width" id="E0J-z8-qbB"/>
                                                     <constraint firstItem="Hxb-VI-FsF" firstAttribute="centerX" secondItem="KHm-hH-HRn" secondAttribute="centerX" id="FH0-at-rAh"/>
                                                     <constraint firstItem="s19-kO-bUF" firstAttribute="width" secondItem="KHm-hH-HRn" secondAttribute="width" multiplier="1.05" id="Inq-FT-yGV"/>
-                                                    <constraint firstItem="Isa-gE-0yG" firstAttribute="centerY" secondItem="KHm-hH-HRn" secondAttribute="centerY" id="Jpt-VZ-L8u"/>
+                                                    <constraint firstItem="Isa-gE-0yG" firstAttribute="centerY" secondItem="KHm-hH-HRn" secondAttribute="centerY" constant="50" id="Jpt-VZ-L8u"/>
                                                     <constraint firstItem="s19-kO-bUF" firstAttribute="centerY" secondItem="KHm-hH-HRn" secondAttribute="centerY" id="Mm7-F9-9ix"/>
                                                     <constraint firstItem="Isa-gE-0yG" firstAttribute="centerX" secondItem="KHm-hH-HRn" secondAttribute="centerX" id="QVb-hU-QH1"/>
                                                     <constraint firstItem="s19-kO-bUF" firstAttribute="centerX" secondItem="KHm-hH-HRn" secondAttribute="centerX" id="T2T-4L-dyS"/>
@@ -229,11 +229,11 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iis-HM-ams" userLabel="aboutAppBt">
                                                 <rect key="frame" x="0.0" y="404" width="320" height="100"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutApp" translatesAutoresizingMaskIntoConstraints="NO" id="NU2-uy-frX">
-                                                        <rect key="frame" x="-8" y="-9.5" width="336" height="120"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="aboutApp" translatesAutoresizingMaskIntoConstraints="NO" id="NU2-uy-frX">
+                                                        <rect key="frame" x="-8" y="-10" width="336" height="121"/>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QB-Dz-3IN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QB-Dz-3IN">
+                                                        <rect key="frame" x="0.0" y="50" width="320" height="100"/>
                                                         <state key="normal" image="aboutAppBt"/>
                                                         <connections>
                                                             <segue destination="Wxx-jR-ZG4" kind="push" id="ceC-dB-Uaa"/>
@@ -241,7 +241,7 @@
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="1QB-Dz-3IN" firstAttribute="centerY" secondItem="iis-HM-ams" secondAttribute="centerY" id="1Fu-GS-Ijk"/>
+                                                    <constraint firstItem="1QB-Dz-3IN" firstAttribute="centerY" secondItem="iis-HM-ams" secondAttribute="centerY" constant="50" id="1Fu-GS-Ijk"/>
                                                     <constraint firstItem="NU2-uy-frX" firstAttribute="height" secondItem="iis-HM-ams" secondAttribute="height" multiplier="1.2" id="4DA-aK-lNQ"/>
                                                     <constraint firstItem="NU2-uy-frX" firstAttribute="centerX" secondItem="iis-HM-ams" secondAttribute="centerX" id="9Kj-y0-ffo"/>
                                                     <constraint firstItem="1QB-Dz-3IN" firstAttribute="centerX" secondItem="iis-HM-ams" secondAttribute="centerX" id="POa-R3-FfJ"/>
@@ -323,6 +323,16 @@
                     <connections>
                         <outlet property="aboutAppView" destination="NU2-uy-frX" id="CZK-xD-tmP"/>
                         <outlet property="aboutCuijianView" destination="GGo-ma-v7m" id="z3Y-iX-MBY"/>
+                        <outlet property="bt1" destination="Znn-FJ-bHu" id="wAS-Og-OvW"/>
+                        <outlet property="bt1cons" destination="KcU-SO-PCA" id="ZJl-nj-cV2"/>
+                        <outlet property="bt2" destination="N9W-25-u1F" id="Ow7-r5-Tfy"/>
+                        <outlet property="bt2cons" destination="DFD-wv-QTJ" id="X35-aD-e4J"/>
+                        <outlet property="bt3" destination="YVs-JR-SR4" id="NHy-fm-Djp"/>
+                        <outlet property="bt3cons" destination="dUe-q0-Icj" id="cnw-bj-ghh"/>
+                        <outlet property="bt4" destination="Isa-gE-0yG" id="V1C-Un-3me"/>
+                        <outlet property="bt4cons" destination="Jpt-VZ-L8u" id="0zi-ca-yKg"/>
+                        <outlet property="bt5" destination="1QB-Dz-3IN" id="plw-HW-yk1"/>
+                        <outlet property="bt5cons" destination="1Fu-GS-Ijk" id="648-b7-tTN"/>
                         <outlet property="mvView" destination="j6m-Bu-Wpk" id="HPa-bZ-o7q"/>
                         <outlet property="newsView" destination="s19-kO-bUF" id="pkB-7R-vRd"/>
                         <outlet property="scrollview" destination="E4X-VL-Uay" id="5qH-ar-dLw"/>
