@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(error.localizedDescription)
         }
         
-        songPlayer.loadSong(0)
+        songPlayer.loadSong()
         HelperFuc.refreshData()
         return true
     }
@@ -142,23 +142,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if songPlayer.curIndex == (songPlayer.songDatas.count - 1) {
                     songPlayer.curIndex = 0
                 } else {
-                    songPlayer.curIndex = songPlayer.curIndex! + 1
+                    songPlayer.curIndex = songPlayer.curIndex + 1
                 }
-                songPlayer.playNewSong(songPlayer.curIndex!)
+                songPlayer.playNewSong(songPlayer.curIndex)
             } else if event!.subtype == UIEventSubtype.RemoteControlPreviousTrack {
                 // 上一曲
                 if songPlayer.curIndex == 0 {
                     songPlayer.curIndex = (songPlayer.songDatas.count - 1)
                 } else {
-                    songPlayer.curIndex = songPlayer.curIndex! - 1
+                    songPlayer.curIndex = songPlayer.curIndex - 1
                 }
-                songPlayer.playNewSong(songPlayer.curIndex!)
+                songPlayer.playNewSong(songPlayer.curIndex)
             } else if event!.subtype == UIEventSubtype.RemoteControlPause{
                 // 暂停按钮
-                songPlayer.pausePlayer(songPlayer.curIndex!)
+                songPlayer.pausePlayer()
             } else if event!.subtype == UIEventSubtype.RemoteControlPlay{
                 // 播放按钮
-                songPlayer.resumePlayer(songPlayer.curIndex!)
+                songPlayer.resumePlayer()
             }
         }
     }

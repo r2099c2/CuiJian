@@ -14,18 +14,18 @@ class SongPlayer: NSObject, AVAudioPlayerDelegate {
     var playTriangleLayers: [CALayer!] = [nil,nil,nil,nil,nil,nil,nil,nil,nil]
     var playerCircles: [CAShapeLayer!] = [nil,nil,nil,nil,nil,nil,nil,nil,nil]
     
-    var curIndex: Int?
+    var curIndex: Int = 0
     
     let songDatas:[String] = ["01guangdong.mp3","02sibuhuitou.mp3","03yuniaozhilian.mp3","04waimiandeniu.mp3","05kuguashu.mp3","06jinsezaochen.mp3","07gundongdedan.mp3","08hunshuihumanbu.mp3","09yangguangxiademeng.mp3"]
+    
     let songDuration: [NSTimeInterval] = [NSTimeInterval(453.56),NSTimeInterval(249.213333333333),NSTimeInterval(378.96),NSTimeInterval(483.866666666667),NSTimeInterval(318.813333333333),NSTimeInterval(308.44),NSTimeInterval(446.72),NSTimeInterval(262.066666666667),NSTimeInterval(298.333333333333)]
     
     //MARK: - player
-    func loadSong(index:Int) {
-        if index >= songDatas.count || index < 0 {
-            return
+    func loadSong() {
+        if curIndex >= songDatas.count || curIndex < 0 {
+            curIndex = 0
         }
-        curIndex = index
-        let fileFullName = songDatas[index]
+        let fileFullName = songDatas[curIndex]
         let strSplit = fileFullName.componentsSeparatedByString(".")
         let fileName = String(strSplit[0])
         let fileType = String(strSplit[1])
@@ -37,14 +37,15 @@ class SongPlayer: NSObject, AVAudioPlayerDelegate {
     
     func playNewSong(index: Int) {
         // stop old song
-        stopPlayer(curIndex!)
-        // load new song
-        loadSong(index)
-        resumePlayer(index)
+        stopPlayer()
+        // update index
         curIndex = index
+        // load new song
+        loadSong()
+        resumePlayer()
     }
     
-    func setupAudioPlayerWithFile(file: String, type: String) -> AVAudioPlayer? {
+    private func setupAudioPlayerWithFile(file: String, type: String) -> AVAudioPlayer? {
         let path = NSBundle.mainBundle().pathForResource(file, ofType: type)
         let url = NSURL.fileURLWithPath(path!)
         
@@ -59,28 +60,28 @@ class SongPlayer: NSObject, AVAudioPlayerDelegate {
         return audioPlayer
     }
     
-    func stopPlayer(index: Int){
+    func stopPlayer(){
         player!.stop()
         player!.currentTime = 0
-        playerAnimationReset(index)
+        playerAnimationStop(curIndex)
     }
     
-    func pausePlayer(index: Int) {
+    func pausePlayer() {
         player!.stop()
-        playerAnimationPause(index)
+        playerAnimationPause(curIndex)
     }
     
-    func resumePlayer(index: Int) {
+    func resumePlayer() {
         player!.play()
-        playerAnimationResume(index)
+        playerAnimationResume(curIndex)
     }
     
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
-        stopPlayer(curIndex!)
+        stopPlayer()
     }
     
     func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
-        stopPlayer(curIndex!)
+        stopPlayer()
     }
     
     //MARK: - animation
@@ -97,15 +98,19 @@ class SongPlayer: NSObject, AVAudioPlayerDelegate {
         playTriangleLayers[index].bounds.size = CGSize(width: spView.bounds.width * 0.5, height: spView.bounds.height * 0.5)
         playTriangleLayers[index].frame.origin = CGPoint(x: (spView.bounds.width - playTriangleLayers[index].bounds.width)/2, y: (spView.bounds.height - playTriangleLayers[index].bounds.height)/2)
         
+        updatePlayerBtn(index)
+        
+        spView.layer.addSublayer(playTriangleLayers[index])
+        
+        setupCircleLayer(spView, index: index)
+    }
+    
+    func updatePlayerBtn(index: Int) {
         if index == curIndex && player!.playing {
             playTriangleLayers[index].contents = UIImage(named: "pauseBtn")?.CGImage
         } else {
             playTriangleLayers[index].contents = UIImage(named: "playTriangle")?.CGImage
         }
-        
-        spView.layer.addSublayer(playTriangleLayers[index])
-        
-        setupCircleLayer(spView, index: index)
     }
     
     func setupCircleLayer(spView: UIView, index: Int) {
@@ -126,15 +131,14 @@ class SongPlayer: NSObject, AVAudioPlayerDelegate {
         playerCircles[index].strokeStart = 0.0
         playerCircles[index].strokeEnd = 1.0
         
-        playerAnimation(index)
-        playerCircles[index].speed = 0.0
+        playerAnimationInit(index)
     }
     
     func degreeToRadian(degree: CGFloat) -> CGFloat {
         return CGFloat(M_PI / 180) * degree
     }
     
-    func playerAnimation(index: Int) {
+    func playerAnimationInit(index: Int) {
         if let layer = playerCircles[index] {
             let playerAnimation = CABasicAnimation(keyPath: "strokeEnd")
             playerAnimation.duration = songDuration[index]
@@ -150,6 +154,7 @@ class SongPlayer: NSObject, AVAudioPlayerDelegate {
             playerAnimation.repeatCount = 0
             
             layer.addAnimation(playerAnimation, forKey: "playerAnimation")
+            layer.speed = 0
         }
     }
     
@@ -162,7 +167,7 @@ class SongPlayer: NSObject, AVAudioPlayerDelegate {
         }
     }
     
-    func playerAnimationReset(index: Int) {
+    func playerAnimationStop(index: Int) {
         if let layer = playerCircles[index] {
             layer.speed = 0
             layer.timeOffset = 0
@@ -185,13 +190,9 @@ class SongPlayer: NSObject, AVAudioPlayerDelegate {
     
     func resetPlayerAnimation() {
         for (var index = 0; index < songDatas.count; index++) {
-            playerAnimation(index)
-            if let playLayer = playTriangleLayers[index] {
-                if index == curIndex && player!.playing {
-                    playLayer.contents = UIImage(named: "pauseBtn")?.CGImage
-                } else {
-                    playLayer.contents = UIImage(named: "playTriangle")?.CGImage
-                }
+            playerAnimationInit(index)
+            if let _ = playTriangleLayers[index] {
+                updatePlayerBtn(index)
             }
         }
     }
