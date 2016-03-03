@@ -11,12 +11,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "CardCollectionViewCell.setCellData(News) -&gt; ():CardCollectionViewCell.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "news.feature_image">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "__41+[HelperFuc getDataFromNetWork:finished:]_block_invoke:HelperFuc.m">
       </ContextState>
       <ContextState
          contextName = "-[NewsViewController collectionView:numberOfItemsInSection:]:NewsViewController.m">
@@ -43,6 +38,9 @@
             <PersistentString
                value = "self.ufoNode?.rotation.y">
             </PersistentString>
+            <PersistentString
+               value = "self.motionManager!">
+            </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
@@ -54,16 +52,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "__41+[HelperFuc getDataFromNetWork:finished:]_block_invoke:HelperFuc.m">
+         contextName = "CardCollectionViewCell.setCellData(News) -&gt; ():CardCollectionViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "news.feature_image">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "TimeLineViewController.initRule() -&gt; ():TimeLineViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "3.5 * width + DTRulerScaleGap / 2 + 1 - 0.5 * UIScreen.mainScreen().bounds.size.width">
+               value = "self.rulerView.frame.height">
             </PersistentString>
             <PersistentString
-               value = "self.rulerView.frame.height">
+               value = "3.5 * width + DTRulerScaleGap / 2 + 1 - 0.5 * UIScreen.mainScreen().bounds.size.width">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -71,18 +74,18 @@
          contextName = "GameViewController.addSCN(String) -&gt; SCNNode:GameViewController.swift">
       </ContextState>
       <ContextState
-         contextName = "CardCollectionViewLayout.layoutAttributesForElementsInRect(CGRect) -&gt; [UICollectionViewLayoutAttributes]?:CardCollectionViewLayout.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "array!.count">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "GameViewController.renderer(SCNSceneRenderer, updateAtTime : Double) -&gt; ():GameViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "self.ufoNode?.rotation.y">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CardCollectionViewLayout.layoutAttributesForElementsInRect(CGRect) -&gt; [UICollectionViewLayoutAttributes]?:CardCollectionViewLayout.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "array!.count">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

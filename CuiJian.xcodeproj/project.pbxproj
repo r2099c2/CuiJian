@@ -61,6 +61,7 @@
 		421B59C41C771FA8000AE83C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 421B59C21C771FA8000AE83C /* Model.xcdatamodeld */; };
 		421B59CD1C772025000AE83C /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 421B59CA1C772025000AE83C /* News.m */; };
 		421B59CE1C772025000AE83C /* News+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 421B59CC1C772025000AE83C /* News+CoreDataProperties.m */; };
+		424B67FF1C881E3600FFA25B /* bg.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 424B67FE1C881E3600FFA25B /* bg.mp3 */; };
 		424CE58A1C7EE84A007E01BF /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 424CE5881C7EE84A007E01BF /* UIScrollView+SVPullToRefresh.m */; };
 		4271F81B1C7AD8F2002A1F56 /* DTRulerViewScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4271F81A1C7AD8F2002A1F56 /* DTRulerViewScale.swift */; };
 		4271F81E1C7AF7AE002A1F56 /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4271F81D1C7AF7AE002A1F56 /* TimeLineViewController.swift */; };
@@ -154,6 +155,7 @@
 		421B59CA1C772025000AE83C /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
 		421B59CB1C772025000AE83C /* News+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "News+CoreDataProperties.h"; sourceTree = "<group>"; };
 		421B59CC1C772025000AE83C /* News+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "News+CoreDataProperties.m"; sourceTree = "<group>"; };
+		424B67FE1C881E3600FFA25B /* bg.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg.mp3; sourceTree = "<group>"; };
 		424CE5871C7EE84A007E01BF /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
 		424CE5881C7EE84A007E01BF /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		42538DEA1C5F1A0B0064935E /* mv1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mv1.mp4; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 		1DE982A61C61FBAC00014268 /* Songs */ = {
 			isa = PBXGroup;
 			children = (
+				424B67FE1C881E3600FFA25B /* bg.mp3 */,
 				1DEC520D1C7C340200BCDD50 /* 01guangdong.mp3 */,
 				1DEC520E1C7C340200BCDD50 /* 02sibuhuitou.mp3 */,
 				1DEC520F1C7C340200BCDD50 /* 03yuniaozhilian.mp3 */,
@@ -510,6 +513,7 @@
 				1DE982AC1C622BE000014268 /* testSong.mp3 in Resources */,
 				1DEC521C1C7C340200BCDD50 /* 07gundongdedan.mp3 in Resources */,
 				1DEC52161C7C340200BCDD50 /* 01guangdong.mp3 in Resources */,
+				424B67FF1C881E3600FFA25B /* bg.mp3 in Resources */,
 				1D315CA81C589CEB00935D41 /* art.scnassets in Resources */,
 				1D57B0551C43BC0C001C18F7 /* Assets.xcassets in Resources */,
 				1DEC521D1C7C340200BCDD50 /* 08hunshuihumanbu.mp3 in Resources */,

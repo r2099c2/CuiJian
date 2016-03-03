@@ -34,26 +34,26 @@ class MVViewController: UIViewController, UICollectionViewDataSource, UICollecti
         self.collectionView.alpha = 0
     }
     
-    override func viewDidAppear(animated: Bool) {
-        
-        super.viewDidAppear(animated)
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        UIView.animateWithDuration(0.8, animations: { () -> Void in
             self.frozenLightConstraints.constant = 0
             self.forzenLight.alpha = 1
-            HelperFuc.bgParrallax(self.bgView)
-            HelperFuc.bgParrallax(self.forzenLight, maximumRelativeValue: 30)
             self.view.layoutIfNeeded()
             }) { (finished) -> Void in
-                UIView.animateWithDuration(0.5, delay: 0.15, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+                UIView.animateWithDuration(0.35, animations: { () -> Void in
                     self.collectionViewConstraint.constant = 0
                     self.collectionView.alpha = 1
                     self.view.layoutIfNeeded()
-                    }, completion: nil)
+                    }){(finished) -> Void in
+                        HelperFuc.bgParrallax(self.bgView)
+                        HelperFuc.bgParrallax(self.forzenLight, maximumRelativeValue: 30)
+                }
         }
         if(self.videoController == nil){
             self.videoController = KRVideoPlayerController(frame: self.view.frame)
         }
-        
+
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

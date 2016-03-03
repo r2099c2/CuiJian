@@ -66,44 +66,33 @@
                         <viewControllerLayoutGuide type="bottom" id="tkS-Zb-ce8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3WC-md-Y2t">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="JXn-bO-iee">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8E-Tc-gLM" userLabel="closeBt">
-                                <rect key="frame" x="277" y="30" width="33" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="33" id="4WP-Ln-Lbb"/>
-                                    <constraint firstAttribute="height" constant="22" id="zHw-H5-KHI"/>
-                                </constraints>
-                                <state key="normal" image="close"/>
-                                <connections>
-                                    <action selector="dismissVC:" destination="GFv-yb-n9U" eventType="touchUpInside" id="PPN-Mh-Xpb"/>
-                                </connections>
-                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E4X-VL-Uay">
-                                <rect key="frame" x="0.0" y="62" width="320" height="506"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rrv-0e-uhs" userLabel="contentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="506"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nD2-Ap-Xem" userLabel="zhuanjiBt">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Albums" translatesAutoresizingMaskIntoConstraints="NO" id="bZw-z6-D3a">
-                                                        <rect key="frame" x="-8" y="-10" width="336" height="122"/>
+                                                        <rect key="frame" x="-8" y="-10" width="336" height="121"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Znn-FJ-bHu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
                                                         <state key="normal" image="AlbumsBt"/>
                                                         <connections>
                                                             <segue destination="vQp-Ch-gUU" kind="push" id="ddx-hh-xBU"/>
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splitor" translatesAutoresizingMaskIntoConstraints="NO" id="boC-0k-fJO">
-                                                        <rect key="frame" x="16" y="101" width="288" height="1"/>
+                                                        <rect key="frame" x="16" y="100" width="288" height="1"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="6T0-PB-VdN"/>
                                                         </constraints>
@@ -127,10 +116,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sat-RY-OEa" userLabel="MVBt">
-                                                <rect key="frame" x="0.0" y="102" width="320" height="101"/>
+                                                <rect key="frame" x="0.0" y="101" width="320" height="101"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MV" translatesAutoresizingMaskIntoConstraints="NO" id="j6m-Bu-Wpk">
-                                                        <rect key="frame" x="-8" y="-10" width="336" height="121"/>
+                                                        <rect key="frame" x="-8" y="-11" width="336" height="122"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9W-25-u1F">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
@@ -164,10 +153,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4NL-CI-FYF" userLabel="aboutCuijianBt">
-                                                <rect key="frame" x="0.0" y="203" width="320" height="101"/>
+                                                <rect key="frame" x="0.0" y="202" width="320" height="101"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutCuijian" translatesAutoresizingMaskIntoConstraints="NO" id="GGo-ma-v7m">
-                                                        <rect key="frame" x="-8" y="-10" width="336" height="121"/>
+                                                        <rect key="frame" x="-8" y="-11" width="336" height="122"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YVs-JR-SR4">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
@@ -201,7 +190,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KHm-hH-HRn" userLabel="NewsBt">
-                                                <rect key="frame" x="0.0" y="304" width="320" height="101"/>
+                                                <rect key="frame" x="0.0" y="303" width="320" height="101"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news" translatesAutoresizingMaskIntoConstraints="NO" id="s19-kO-bUF">
                                                         <rect key="frame" x="-8" y="-10" width="336" height="121"/>
@@ -238,13 +227,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iis-HM-ams" userLabel="aboutAppBt">
-                                                <rect key="frame" x="0.0" y="405" width="320" height="101"/>
+                                                <rect key="frame" x="0.0" y="404" width="320" height="100"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutApp" translatesAutoresizingMaskIntoConstraints="NO" id="NU2-uy-frX">
-                                                        <rect key="frame" x="-8" y="-10" width="336" height="121"/>
+                                                        <rect key="frame" x="-8" y="-9.5" width="336" height="120"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QB-Dz-3IN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                                         <state key="normal" image="aboutAppBt"/>
                                                         <connections>
                                                             <segue destination="Wxx-jR-ZG4" kind="push" id="ceC-dB-Uaa"/>
@@ -302,22 +291,35 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="g8E-Tc-gLM" firstAttribute="top" secondItem="x36-t8-eC5" secondAttribute="bottom" constant="10" id="0oG-LT-rCM"/>
                             <constraint firstItem="E4X-VL-Uay" firstAttribute="width" secondItem="3WC-md-Y2t" secondAttribute="width" id="IVG-zp-eKo"/>
                             <constraint firstItem="JXn-bO-iee" firstAttribute="centerY" secondItem="3WC-md-Y2t" secondAttribute="centerY" id="R5v-He-9Us"/>
                             <constraint firstItem="E4X-VL-Uay" firstAttribute="centerX" secondItem="3WC-md-Y2t" secondAttribute="centerX" id="SlQ-NW-F2o"/>
                             <constraint firstItem="tkS-Zb-ce8" firstAttribute="top" secondItem="E4X-VL-Uay" secondAttribute="bottom" id="Vlq-xy-pdB"/>
                             <constraint firstItem="JXn-bO-iee" firstAttribute="centerX" secondItem="3WC-md-Y2t" secondAttribute="centerX" id="iPV-62-rsA"/>
-                            <constraint firstAttribute="trailing" secondItem="g8E-Tc-gLM" secondAttribute="trailing" constant="10" id="nNN-cL-8FW"/>
                             <constraint firstItem="JXn-bO-iee" firstAttribute="width" secondItem="3WC-md-Y2t" secondAttribute="width" id="rKc-v0-cB8"/>
                             <constraint firstItem="JXn-bO-iee" firstAttribute="height" secondItem="3WC-md-Y2t" secondAttribute="height" id="uEh-I7-h5n"/>
-                            <constraint firstItem="E4X-VL-Uay" firstAttribute="height" secondItem="3WC-md-Y2t" secondAttribute="height" constant="-62" id="z0R-Hy-sZe"/>
+                            <constraint firstItem="E4X-VL-Uay" firstAttribute="top" secondItem="x36-t8-eC5" secondAttribute="bottom" id="v2g-QR-7kA"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" id="UIm-1w-7EQ"/>
+                    <navigationItem key="navigationItem" id="UIm-1w-7EQ">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="NaE-UA-0aW">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="g8E-Tc-gLM" userLabel="closeBt">
+                                <rect key="frame" x="271" y="11" width="33" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="33" id="4WP-Ln-Lbb"/>
+                                    <constraint firstAttribute="height" constant="22" id="zHw-H5-KHI"/>
+                                </constraints>
+                                <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="dismissVC:" destination="GFv-yb-n9U" eventType="touchUpInside" id="PPN-Mh-Xpb"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="aboutAppView" destination="NU2-uy-frX" id="CZK-xD-tmP"/>
                         <outlet property="aboutCuijianView" destination="GGo-ma-v7m" id="z3Y-iX-MBY"/>
@@ -617,7 +619,7 @@
                                                     <rect key="frame" x="0.0" y="28" width="328" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="99v-70-frk" id="ij2-Uu-o9A">
-                                                        <rect key="frame" x="0.0" y="0.0" width="328" height="49.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="328" height="50"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="wil-EQ-b4c">
@@ -735,20 +737,20 @@
     </scenes>
     <resources>
         <image name="Albums" width="414" height="134"/>
-        <image name="AlbumsBt" width="89" height="93"/>
+        <image name="AlbumsBt" width="77" height="84"/>
         <image name="MV" width="414" height="134"/>
-        <image name="MVBt" width="89" height="66"/>
-        <image name="aboutApp" width="414" height="134"/>
-        <image name="aboutAppBt" width="93" height="69"/>
+        <image name="MVBt" width="71" height="47"/>
+        <image name="aboutApp" width="415" height="134"/>
+        <image name="aboutAppBt" width="88" height="59"/>
         <image name="aboutCuijian" width="414" height="134"/>
-        <image name="aboutCuijianBt" width="102" height="77"/>
+        <image name="aboutCuijianBt" width="85" height="83"/>
         <image name="aboutPageBg" width="623" height="915"/>
         <image name="backArrow" width="13" height="21"/>
         <image name="close" width="18" height="18"/>
         <image name="hamburger" width="23" height="16"/>
         <image name="ldLogo" width="130" height="28"/>
         <image name="news" width="414" height="134"/>
-        <image name="newsBt" width="92" height="86"/>
+        <image name="newsBt" width="89" height="62"/>
         <image name="rightArrow" width="8" height="13"/>
         <image name="songBgImage" width="750" height="1334"/>
         <image name="songBgParaImage" width="958" height="1618"/>

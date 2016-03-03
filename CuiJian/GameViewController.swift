@@ -29,10 +29,18 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     var cameraYawNode: SCNNode?
     let groundPos :CGFloat = -20
     var ufoNode :SCNNode?
+    var player:AVAudioPlayer?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        do {
+            try self.player = AVAudioPlayer(contentsOfURL: NSURL(string: NSBundle.mainBundle().pathForResource("bg", ofType: "mp3")!)!)
+        } catch {
+            print("wrong audio")
+        }
+        
         
         self.sceneView!.backgroundColor = UIColor.blackColor()
         self.sceneView.delegate = self
@@ -66,28 +74,17 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         self.camerasNode!.position = SCNVector3(0,20,0)
         self.camerasNode!.eulerAngles = SCNVector3Make(GLKMathDegreesToRadians(-90), 0, 0)
         
-        let cameraRollNode = SCNNode()
-        cameraRollNode.addChildNode(camerasNode!)
-        let cameraPitchNode = SCNNode()
-        cameraPitchNode.addChildNode(cameraRollNode)
-        let cameraYawNode = SCNNode()
-        cameraYawNode.addChildNode(cameraPitchNode)
-        rootScene.rootNode.addChildNode(cameraYawNode)
+        self.cameraRollNode = SCNNode()
+        self.cameraRollNode!.addChildNode(self.camerasNode!)
+        self.cameraPitchNode = SCNNode()
+        self.cameraPitchNode!.addChildNode(self.cameraRollNode!)
+        self.cameraYawNode = SCNNode()
+        self.cameraYawNode!.addChildNode(self.cameraPitchNode!)
+        rootScene.rootNode.addChildNode(self.cameraYawNode!)
         self.sceneView!.pointOfView = camerasNode
         self.motionManager = CMMotionManager()
         self.motionManager?.deviceMotionUpdateInterval = 1/60
-        self.motionManager?.startDeviceMotionUpdatesUsingReferenceFrame(CMAttitudeReferenceFrame.XArbitraryZVertical, toQueue: NSOperationQueue.mainQueue(), withHandler: { (motion: CMDeviceMotion?, error: NSError?) -> Void in
-            let currentAttitude = motion!.attitude
-            let roll = Float(currentAttitude.roll)
-            let pitch = Float(currentAttitude.pitch)
-            let yaw = Float(currentAttitude.yaw)
-            cameraRollNode.eulerAngles = SCNVector3Make(0, 0, -roll)
-            cameraPitchNode.eulerAngles = SCNVector3Make(pitch, 0, 0)
-            cameraYawNode.eulerAngles = SCNVector3Make(0, yaw, 0)
-            if fabs(yaw) > 3.14 / 9.0 && self.guideView != nil{
-                self.removeGuide()
-            }
-        })
+        self.motionManager?.startDeviceMotionUpdatesUsingReferenceFrame(CMAttitudeReferenceFrame.XArbitraryCorrectedZVertical)
         
         rootScene.background.contents = [UIImage(named: "skybox1")!,UIImage(named: "skybox2")!,UIImage(named: "skybox3")!,UIImage(named: "skybox4")!,UIImage(named: "skybox5")!,UIImage(named: "skybox6")!] as NSArray
         
@@ -284,7 +281,11 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
+        if (UIApplication.sharedApplication().delegate as! AppDelegate).songPlayer.player?.playing != true{
+            self.player?.play()
+        }
         super.viewWillAppear(true)
+        self.sceneView!.scene?.paused = false
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
         self.navigationController?.navigationBarHidden = true
         //add observer to video player
@@ -292,7 +293,9 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     }
     
     override func viewWillDisappear(animated: Bool) {
+        self.player?.pause()
         super.viewWillDisappear(true)
+        self.sceneView!.scene?.paused = true
         // remove observer
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
@@ -320,6 +323,11 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     
     
     func renderer(renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: NSTimeInterval) {
+        if self.cameraRollNode != nil && self.cameraPitchNode != nil && self.cameraYawNode != nil && self.motionManager!.deviceMotion != nil{
+            self.cameraRollNode!.eulerAngles.z = -Float(self.motionManager!.deviceMotion!.attitude.roll)
+            self.cameraPitchNode!.eulerAngles.x = Float(self.motionManager!.deviceMotion!.attitude.pitch)
+            self.cameraYawNode!.eulerAngles.y = Float(self.motionManager!.deviceMotion!.attitude.yaw)
+        }
     }
     
     // MARK: - Video

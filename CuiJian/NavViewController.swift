@@ -27,6 +27,9 @@ class NavViewController: UIViewController, UIGestureRecognizerDelegate {
         HelperFuc.bgParrallax(aboutAppView)
         
         self.navigationController!.interactivePopGestureRecognizer!.delegate = self
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.None)
 
         
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
@@ -35,8 +38,8 @@ class NavViewController: UIViewController, UIGestureRecognizerDelegate {
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(animated: Bool) {
-        self.navigationController!.navigationBarHidden = true
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
         UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.None)

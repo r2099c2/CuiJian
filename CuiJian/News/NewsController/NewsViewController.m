@@ -68,10 +68,6 @@
     self.collectionView.delegate = self;
     [self.view addSubview:self.collectionView];
     
-    [self.navigationController.navigationBar setBackgroundImage:NULL forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setBarTintColor:[UIColor blackColor]];
-    [self.navigationController.navigationBar setTranslucent:true];
-    
     //MJRefresh
     __weak NewsViewController *weakSelf = self;
     
@@ -89,6 +85,13 @@
     
     
     
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.navigationController.navigationBar setBackgroundImage:NULL forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor blackColor]];
+    [self.navigationController.navigationBar setTranslucent:true];
 }
 
 //nav上的左按钮点击事件
