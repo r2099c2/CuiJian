@@ -17,6 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+//            print("AVAudioSession Category Playback OK")
+            do {
+                try AVAudioSession.sharedInstance().setActive(true)
+//                print("AVAudioSession is Active")
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
         songPlayer.loadSong(0)
         HelperFuc.refreshData()
         return true
@@ -30,10 +43,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+        self.becomeFirstResponder()
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        UIApplication.sharedApplication().endReceivingRemoteControlEvents()
+        self.resignFirstResponder()
+        
+        
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
@@ -108,6 +127,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let nserror = error as NSError
                 NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
                 abort()
+            }
+        }
+    }
+    
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func remoteControlReceivedWithEvent(event: UIEvent?) {
+        if event!.type == UIEventType.RemoteControl {
+            if event!.subtype == UIEventSubtype.RemoteControlNextTrack {
+                // 下一曲
+                if songPlayer.curIndex == (songPlayer.songDatas.count - 1) {
+                    songPlayer.curIndex = 0
+                } else {
+                    songPlayer.curIndex = songPlayer.curIndex! + 1
+                }
+                songPlayer.playNewSong(songPlayer.curIndex!)
+            } else if event!.subtype == UIEventSubtype.RemoteControlPreviousTrack {
+                // 上一曲
+                if songPlayer.curIndex == 0 {
+                    songPlayer.curIndex = (songPlayer.songDatas.count - 1)
+                } else {
+                    songPlayer.curIndex = songPlayer.curIndex! - 1
+                }
+                songPlayer.playNewSong(songPlayer.curIndex!)
+            } else if event!.subtype == UIEventSubtype.RemoteControlPause{
+                // 暂停按钮
+                songPlayer.pausePlayer(songPlayer.curIndex!)
+            } else if event!.subtype == UIEventSubtype.RemoteControlPlay{
+                // 播放按钮
+                songPlayer.resumePlayer(songPlayer.curIndex!)
             }
         }
     }

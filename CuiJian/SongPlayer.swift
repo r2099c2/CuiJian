@@ -135,48 +135,65 @@ class SongPlayer: NSObject, AVAudioPlayerDelegate {
     }
     
     func playerAnimation(index: Int) {
-        let layer = playerCircles[index]
-        let playerAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        playerAnimation.duration = songDuration[index]
-        
-        if curIndex == index && player!.playing {
-            let stokeStart = (player?.currentTime)! / (player?.duration)!
-            playerAnimation.fromValue = CGFloat(stokeStart)
-        } else {
-            playerAnimation.fromValue = 0
+        if let layer = playerCircles[index] {
+            let playerAnimation = CABasicAnimation(keyPath: "strokeEnd")
+            playerAnimation.duration = songDuration[index]
+            
+            if curIndex == index && player!.playing {
+                let stokeStart = (player?.currentTime)! / (player?.duration)!
+                playerAnimation.fromValue = CGFloat(stokeStart)
+            } else {
+                playerAnimation.fromValue = 0
+            }
+            playerAnimation.toValue = 1
+            playerAnimation.autoreverses = false
+            playerAnimation.repeatCount = 0
+            
+            layer.addAnimation(playerAnimation, forKey: "playerAnimation")
         }
-        playerAnimation.toValue = 1
-        playerAnimation.autoreverses = false
-        playerAnimation.repeatCount = 0
-        
-        layer.addAnimation(playerAnimation, forKey: "playerAnimation")
     }
     
     func playerAnimationPause(index: Int) {
-        let layer = playerCircles[index]
-        let pausedTime: CFTimeInterval = layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
-        layer.speed = 0.0;
-        layer.timeOffset = pausedTime;
-        playTriangleLayers[index].contents = UIImage(named: "playTriangle")!.CGImage
+        if let layer = playerCircles[index] {
+            let pausedTime: CFTimeInterval = layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
+            layer.speed = 0.0;
+            layer.timeOffset = pausedTime;
+            playTriangleLayers[index].contents = UIImage(named: "playTriangle")!.CGImage
+        }
     }
     
     func playerAnimationReset(index: Int) {
-        let layer = playerCircles[index]
-        layer.speed = 0
-        layer.timeOffset = 0
-        layer.beginTime = 0
-        playTriangleLayers[index].contents = UIImage(named: "playTriangle")!.CGImage
+        if let layer = playerCircles[index] {
+            layer.speed = 0
+            layer.timeOffset = 0
+            layer.beginTime = 0
+            playTriangleLayers[index].contents = UIImage(named: "playTriangle")!.CGImage
+        }
     }
     
     func playerAnimationResume(index: Int) {
-        let layer = playerCircles[index]
-        let pausedTime = layer.timeOffset
-        layer.speed = 1
-        layer.timeOffset = 0.0
-        layer.beginTime = 0.0
-        let timeSincePause = layer.convertTime(CACurrentMediaTime(), fromLayer: nil) - pausedTime
-        layer.beginTime = timeSincePause;
-        playTriangleLayers[index].contents = UIImage(named: "pauseBtn")!.CGImage
+        if let layer = playerCircles[index] {
+            let pausedTime = layer.timeOffset
+            layer.speed = 1
+            layer.timeOffset = 0.0
+            layer.beginTime = 0.0
+            let timeSincePause = layer.convertTime(CACurrentMediaTime(), fromLayer: nil) - pausedTime
+            layer.beginTime = timeSincePause;
+            playTriangleLayers[index].contents = UIImage(named: "pauseBtn")!.CGImage
+        }
+    }
+    
+    func resetPlayerAnimation() {
+        for (var index = 0; index < songDatas.count; index++) {
+            playerAnimation(index)
+            if let playLayer = playTriangleLayers[index] {
+                if index == curIndex && player!.playing {
+                    playLayer.contents = UIImage(named: "pauseBtn")?.CGImage
+                } else {
+                    playLayer.contents = UIImage(named: "playTriangle")?.CGImage
+                }
+            }
+        }
     }
     
 }

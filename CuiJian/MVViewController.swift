@@ -75,6 +75,8 @@ class MVViewController: UIViewController, UICollectionViewDataSource, UICollecti
         self.videoController.contentURL = url
         self.videoController.showInWindow()
 
+        let player = (UIApplication.sharedApplication().delegate as! AppDelegate).songPlayer
+        player.stopPlayer(player.curIndex!)
     }
     
     @IBAction func backBt(sender: AnyObject) {

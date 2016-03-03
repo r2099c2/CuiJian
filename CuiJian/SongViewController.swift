@@ -102,6 +102,19 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
         
         addGestureToSongLyric()
         addGestureToSongTitle()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "willEnterForeground:", name: UIApplicationWillEnterForegroundNotification, object: nil)
+    }
+    
+    func willEnterForeground(notification: NSNotification!) {
+        // update player animation layer state when the app is brought back to the foreground
+        updatePlayerState()
+    }
+    
+    deinit {
+        // make sure to remove the observer when this view controller is dismissed/deallocated
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: nil, object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -302,7 +315,12 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
     }
     
 
-    // Player
+    // MARK: - Player
+    func updatePlayerState() {
+        songScrollView.setContentOffset(CGPoint(x: pageScrollViewSize.width * CGFloat(player.curIndex!), y: 0), animated: true)
+        player.resetPlayerAnimation()
+    }
+    
     @IBAction func playAudio(sender: AnyObject) {
         if player.curIndex == curPageIndex {
             if player.player!.playing == true {
