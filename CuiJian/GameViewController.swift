@@ -37,11 +37,12 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         
         do {
             try self.player = AVAudioPlayer(contentsOfURL: NSURL(string: NSBundle.mainBundle().pathForResource("bg", ofType: "mp3")!)!)
+            self.player?.numberOfLoops = Int.max
         } catch {
             print("wrong audio")
         }
         
-        
+        self.view.backgroundColor = UIColor.blackColor()
         self.sceneView!.backgroundColor = UIColor.blackColor()
         self.sceneView.delegate = self
 
@@ -271,7 +272,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
             node.removeAnimationForKey(key)
             animation.repeatCount = 0
             animation.removedOnCompletion = true
-            animation.beginTime = CACurrentMediaTime() + 3.0
+            animation.beginTime = CACurrentMediaTime() + 5.0
             animation.fillMode = kCAFillModeForwards
             node.addAnimation(animation, forKey: key)
         }
