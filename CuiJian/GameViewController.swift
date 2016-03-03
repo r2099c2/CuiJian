@@ -21,6 +21,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     var videoView: UIView?
     var guideView: UIView?
     var icePlayer: MPMoviePlayerController?
+    var clicked:Int?
     
     var motionManager: CMMotionManager?
     let camerasNode: SCNNode? = SCNNode()
@@ -30,7 +31,6 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     let groundPos :CGFloat = -20
     var ufoNode :SCNNode?
     var player:AVAudioPlayer?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,10 +61,40 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         }
     }
     
+    func tapHandle(recognizer: UITapGestureRecognizer) {
+        let location = recognizer.locationInView(self.sceneView)
+        let hitResults = self.sceneView!.hitTest(location, options: nil)
+        if hitResults.count > 0 {
+        let hitedNode =  hitResults[0].node
+            if hitedNode.name?.hasPrefix("icetree_") == true{
+                self.clicked = 1
+                self.performSegueWithIdentifier("open nav", sender: self)
+            }
+            else if hitedNode.name?.hasPrefix("ufo_") == true{
+                self.clicked = 2
+                self.performSegueWithIdentifier("open nav", sender: self)
+            }
+            else if hitedNode.name?.hasPrefix("team_") == true{
+                self.clicked = 3
+                self.performSegueWithIdentifier("open nav", sender: self)
+            }
+            else if hitedNode.name?.hasPrefix("mvs_") == true{
+                self.clicked = 4
+                self.performSegueWithIdentifier("open nav", sender: self)
+            }
+            else {
+                self.clicked = 0
+            }
+        }
+    }
+    
     func initSence(){
         let rootScene = SCNScene()
         self.sceneView!.scene = rootScene
         self.sceneView!.autoenablesDefaultLighting = true
+        // add a tap gesture recognizer
+        let tapGesture = UITapGestureRecognizer(target: self, action: Selector("tapHandle:"))
+        self.sceneView!.addGestureRecognizer(tapGesture)
         
         let camera = SCNCamera()
         camera.xFov = 45
@@ -98,14 +128,14 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         floorNode.position = SCNVector3(0, groundPos, 0)
         rootScene.rootNode.addChildNode(floorNode)
         
-        let iceTree = addNode(36000, fileName: "iceTree/ice_tree.dae")
+        let iceTree = addNode(6, fileName: "iceTree/ice_tree.dae", namePre: "icetree_")
         iceTree.position = SCNVector3(0, self.groundPos, -50)
         iceTree.scale = SCNVector3(10,10,10)
         rootScene.rootNode.addChildNode(iceTree)
         
         let light = SCNLight()
         light.type = SCNLightTypeOmni
-        light.color = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
+        light.color = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 1.0)
         let lightNode = SCNNode()
         lightNode.position = SCNVector3(0, 0, 0)
         lightNode.light = light
@@ -122,14 +152,14 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         
         let light2 = SCNLight()
         light2.type = SCNLightTypeSpot
-        light2.color = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 1.0)
+        light2.color = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1.0)
         let lightNode2 = SCNNode()
         lightNode2.rotation = SCNVector4Make(1, 0, 0, Float(-M_PI / 2))
         lightNode2.light = light2
         lightNode2.position = SCNVector3(0, 900, 0)
         rootScene.rootNode.addChildNode(lightNode2)
         
-        let m1 = addNode(0, fileName: "mountain/mountain_A.dae")
+        let m1 = addNode("mountain/mountain_A.dae")
         m1.position = SCNVector3(500, self.groundPos - 3, -350)
         m1.scale = SCNVector3(20,20,20)
         rootScene.rootNode.addChildNode(m1)
@@ -139,30 +169,30 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         m11.rotation.y = 90
         rootScene.rootNode.addChildNode(m11)
         
-        let m2 = addNode(0, fileName: "mountain/mountain_B.dae")
+        let m2 = addNode("mountain/mountain_B.dae")
         m2.position = SCNVector3(-500, self.groundPos - 3, 350)
         m2.scale = SCNVector3(10,10,10)
         rootScene.rootNode.addChildNode(m2)
 
-        let star5 = addNode(0, fileName: "star/Star_5.dae")
+        let star5 = addNode("star/Star_5.dae")
         star5.position = SCNVector3(200, 100, -200)
         star5.scale = SCNVector3(20,20,20)
         rootScene.rootNode.addChildNode(star5)
         
-        let redStar = addNode(0, fileName: "star/Star_4.dae")
+        let redStar = addNode("star/Star_4.dae")
         redStar.position = SCNVector3(-50, 0, 400)
         redStar.scale = SCNVector3(50,50,50)
         rootScene.rootNode.addChildNode(redStar)
         
-        let moon = addNode(0, fileName: "star/Star_3.dae")
+        let moon = addNode("star/Star_3.dae")
         moon.position = SCNVector3(400, 400, 400)
         moon.scale = SCNVector3(80,80,80)
         rootScene.rootNode.addChildNode(moon)
         
-        let shadow = addNode(0, fileName: "shadow/shadow.dae")
+        let shadow = addNode("shadow/shadow.dae")
         
         
-        let guitar = addNode(0, fileName: "guitar/guitar.dae")
+        let guitar = addNode("guitar/guitar.dae")
         guitar.scale = SCNVector3(15,15,15)
         guitar.position = SCNVector3(120, self.groundPos - 1, -90)
         rootScene.rootNode.addChildNode(guitar)
@@ -172,7 +202,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         rootScene.rootNode.addChildNode(shadowguitar)
 
         
-        let boy = addNode(0, fileName: "dolls/MudDoll_boy.dae")
+        let boy = addNode("dolls/MudDoll_boy.dae")
         boy.position = SCNVector3(50, self.groundPos + 1, 40)
         boy.rotation = SCNVector4Make(0, 1, 0, Float(-M_PI / 4.0))
         rootScene.rootNode.addChildNode(boy)
@@ -194,7 +224,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         boy3.position = SCNVector3(50, -10, 0)
         rootScene.rootNode.addChildNode(boy3)
         
-        let girl = addNode(0, fileName: "dolls/MudDoll_girl.dae")
+        let girl = addNode("dolls/MudDoll_girl.dae")
         girl.rotation = SCNVector4Make(0, 1, 0, Float(-M_PI))
         girl.position = SCNVector3(35, self.groundPos + 1, -15)
         rootScene.rootNode.addChildNode(girl)
@@ -207,7 +237,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         girl1.position = SCNVector3(40, self.groundPos + 1, -20)
         rootScene.rootNode.addChildNode(girl1)
         
-        self.ufoNode = addNode(0, fileName: "UFO/UFO.dae")
+        self.ufoNode = addNode(0, fileName: "UFO/UFO.dae", namePre: "ufo_")
         self.ufoNode!.position = SCNVector3(50, self.groundPos + 10, 0)
         self.ufoNode!.scale = SCNVector3(8,8,8)
         let spin = CABasicAnimation(keyPath: "rotation")
@@ -218,17 +248,17 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         self.ufoNode!.addAnimation(spin, forKey: "ufoAni")
         rootScene.rootNode.addChildNode(self.ufoNode!)
         
-        let teamCuijian = addNode(-1, fileName: "cuijianTeam/cuijian_team.dae")
+        let teamCuijian = addNode(0, fileName: "cuijianTeam/cuijian_team.dae", namePre: "team_")
         teamCuijian.position = SCNVector3(0, self.groundPos + 2, -30)
         teamCuijian.scale = SCNVector3(12,12,12)
         rootScene.rootNode.addChildNode(teamCuijian)
 
-        let lavaBall = addNode(0, fileName: "aboutCuijian/LavaBall.dae")
+        let lavaBall = addNode(0, fileName: "aboutCuijian/LavaBall.dae", namePre: "mvs_")
         lavaBall.position = SCNVector3(-50, -15, 0)
         lavaBall.scale = SCNVector3(1500,1500,1500)
         rootScene.rootNode.addChildNode(lavaBall)
         
-        let stone = addNode(0, fileName: "star/Star_2.dae");
+        let stone = addNode("star/Star_2.dae");
         stone.scale = SCNVector3(12, 12, 12)
         stone.position = SCNVector3(-50, 0, 50)
         rootScene.rootNode.addChildNode(stone)
@@ -241,7 +271,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         stone3.position = SCNVector3(50, 15, 50)
         rootScene.rootNode.addChildNode(stone3)
         
-        let starStone = addNode(0, fileName: "star/Star.dae");
+        let starStone = addNode("star/Star.dae");
         starStone.scale = SCNVector3(4, 4, 4)
         starStone.position = SCNVector3(-55, 5, 40)
         rootScene.rootNode.addChildNode(starStone)
@@ -252,32 +282,39 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         
     }
     
-    func addNode(duration:CFTimeInterval, fileName: String) -> SCNNode {
+    func addNode(fileName: String) -> SCNNode{
         var node = SCNNode()
         if let subScene = SCNScene(named: "art.scnassets/\(fileName)") {
             if let subNode = subScene.rootNode.childNodes.first {
                 node = subNode
-                if duration > 0{
-                    stopAnimation(duration, node: node);
-                }
             }
         }
         return node
+
     }
     
-    func stopAnimation(duration:CFTimeInterval, node:SCNNode){
-        for key in node.animationKeys{
-            let animation = node.animationForKey(key)!
-            animation.duration = duration
-            node.removeAnimationForKey(key)
-            animation.repeatCount = 0
-            animation.removedOnCompletion = true
-            animation.beginTime = CACurrentMediaTime() + 5.0
-            animation.fillMode = kCAFillModeForwards
-            node.addAnimation(animation, forKey: key)
+    func addNode(duration:CFTimeInterval, fileName: String, namePre: String) -> SCNNode {
+        let node = self.addNode(fileName)
+        stopAnimation(duration, node: node, namePre: namePre);
+        return node
+    }
+    
+    func stopAnimation(duration:CFTimeInterval, node:SCNNode, namePre: String){
+        node.name = namePre + node.name!
+        if duration > 0{
+            for key in node.animationKeys{
+                let animation = node.animationForKey(key)!
+                animation.duration = duration
+                node.removeAnimationForKey(key)
+                //animation.repeatCount = 0
+                //animation.removedOnCompletion = true
+                //animation.beginTime = CACurrentMediaTime() + 5.0
+                //animation.fillMode = kCAFillModeForwards
+                node.addAnimation(animation, forKey: key)
+            }
         }
         for n in node.childNodes{
-            self.stopAnimation(duration, node: n)
+            self.stopAnimation(duration, node: n, namePre: namePre)
         }
     }
     
@@ -385,6 +422,34 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
                 self.guideView?.removeFromSuperview()
                 self.guideView = nil
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let target = segue.destinationViewController as! UINavigationController
+        target.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        target.navigationBar.shadowImage = UIImage()
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.None)
+
+        if self.clicked == 1{
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewControllerWithIdentifier("songViewController") as UIViewController
+            target.pushViewController(controller, animated: true)
+        }
+        else if self.clicked == 2{
+            let newsController:NewsViewController = NewsViewController();
+            target.pushViewController(newsController, animated: true)
+        }
+        else if self.clicked == 3{
+            let storyboard = UIStoryboard(name: "MVStoryboard", bundle: nil)
+            let controller = storyboard.instantiateViewControllerWithIdentifier("aboutController") as UIViewController
+            target.pushViewController(controller, animated: true)
+        }
+        else if self.clicked == 4{
+            let storyboard = UIStoryboard(name: "MVStoryboard", bundle: nil)
+            let controller = storyboard.instantiateViewControllerWithIdentifier("MvController") as UIViewController
+            target.pushViewController(controller, animated: true)
+        }
+        self.clicked = 0
     }
     
 }

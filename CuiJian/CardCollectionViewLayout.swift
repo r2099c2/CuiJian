@@ -63,7 +63,7 @@ class CardCollectionViewLayout: UICollectionViewFlowLayout {
                 transform = CATransform3DScale(transform, scale, scale, 1)
             }
             else{
-                let scale = max(1 - pow(fabs(deltaCenter) / self.itemSize.width / 4, 2), 0)
+                let scale = max(1 - fabs(deltaCenter) / self.itemSize.width / 5, 0)
                 transform = CATransform3DTranslate(transform, 0, deltaCenter - 60 * deltaCenter / self.itemSize.width, 0)
                 transform = CATransform3DScale(transform, scale, scale, 1)
             }

@@ -38,7 +38,8 @@ class TimeLineViewController: UIViewController, UIScrollViewDelegate, UICollecti
         self.rulerView.delegate = self
         self.initRule()
         self.rulerView.showsHorizontalScrollIndicator = false
-        
+        self.navigationController!.interactivePopGestureRecognizer!.delegate = self.navigationController!.viewControllers[0] as! NavViewController
+
         self.collectionView.registerClass(CardCollectionViewCell.self, forCellWithReuseIdentifier: "ItemIdentifier")
         self.collectionView.indicatorStyle = .White
         self.collectionView.showsHorizontalScrollIndicator = false

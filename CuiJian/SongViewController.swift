@@ -75,6 +75,8 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
             }
         }
         
+        self.navigationController!.interactivePopGestureRecognizer!.delegate = self.navigationController!.viewControllers[0] as! NavViewController
+        
         // init pageViews
         let pageCount = songData.count
         

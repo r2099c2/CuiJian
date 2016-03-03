@@ -88,7 +88,7 @@
                                                         <rect key="frame" x="0.0" y="50" width="320" height="101"/>
                                                         <state key="normal" image="AlbumsBt"/>
                                                         <connections>
-                                                            <segue destination="vQp-Ch-gUU" kind="push" id="ddx-hh-xBU"/>
+                                                            <segue destination="vQp-Ch-gUU" kind="push" identifier="music" id="ddx-hh-xBU"/>
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splitor" translatesAutoresizingMaskIntoConstraints="NO" id="boC-0k-fJO">
@@ -464,7 +464,7 @@
         <!--专辑试听-->
         <scene sceneID="R3b-nb-gSF">
             <objects>
-                <viewController id="vQp-Ch-gUU" customClass="SongViewController" customModule="CuiJian" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="songViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vQp-Ch-gUU" customClass="SongViewController" customModule="CuiJian" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yPe-2i-gEZ"/>
                         <viewControllerLayoutGuide type="bottom" id="LZG-5n-bgm"/>

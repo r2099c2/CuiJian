@@ -63,15 +63,23 @@
          contextName = "TimeLineViewController.initRule() -&gt; ():TimeLineViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.rulerView.frame.height">
+               value = "3.5 * width + DTRulerScaleGap / 2 + 1 - 0.5 * UIScreen.mainScreen().bounds.size.width">
             </PersistentString>
             <PersistentString
-               value = "3.5 * width + DTRulerScaleGap / 2 + 1 - 0.5 * UIScreen.mainScreen().bounds.size.width">
+               value = "self.rulerView.frame.height">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "GameViewController.addSCN(String) -&gt; SCNNode:GameViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CardCollectionViewLayout.layoutAttributesForElementsInRect(CGRect) -&gt; [UICollectionViewLayoutAttributes]?:CardCollectionViewLayout.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "array!.count">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "GameViewController.renderer(SCNSceneRenderer, updateAtTime : Double) -&gt; ():GameViewController.swift">
@@ -82,10 +90,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "CardCollectionViewLayout.layoutAttributesForElementsInRect(CGRect) -&gt; [UICollectionViewLayoutAttributes]?:CardCollectionViewLayout.swift">
+         contextName = "GameViewController.prepareForSegue(UIStoryboardSegue, sender : AnyObject?) -&gt; ():GameViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "array!.count">
+               value = "target.interactivePopGestureRecognizer">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -108,6 +116,14 @@
          <PersistentStrings>
             <PersistentString
                value = "_webView.frame.size.height">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameViewController.tapHandle(UITapGestureRecognizer) -&gt; ():GameViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "hitedNode.name?.hasPrefix(&quot;icetree_&quot;)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

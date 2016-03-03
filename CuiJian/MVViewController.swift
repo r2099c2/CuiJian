@@ -28,7 +28,7 @@ class MVViewController: UIViewController, UICollectionViewDataSource, UICollecti
         self.collectionView.registerClass(MVCell.self, forCellWithReuseIdentifier: "Cell")
         self.collectionView.allowsMultipleSelection = false
         
-
+        self.navigationController!.interactivePopGestureRecognizer!.delegate = self.navigationController!.viewControllers[0] as! NavViewController
         // Do any additional setup after loading the view.
         self.forzenLight.alpha = 0
         self.collectionView.alpha = 0
