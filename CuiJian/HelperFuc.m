@@ -60,6 +60,9 @@
         for (NSDictionary * dict in dic) {
             NewsModel * m = [[NewsModel alloc]init];
             [m setValuesForKeysWithDictionary:dict];
+            if (m.post_id == nil) {
+                continue;
+            }
             [dataArray addObject:m];
             AppDelegate * myDelegate = [[UIApplication sharedApplication]delegate];
             NSManagedObjectContext * context1 = myDelegate.managedObjectContext;

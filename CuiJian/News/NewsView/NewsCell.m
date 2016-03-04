@@ -55,7 +55,7 @@
     
     self.newsDetail = [[UILabel alloc]init];
     self.newsDetail.numberOfLines = 0;
-    self.newsDetail.textColor = [UIColor colorWithRed:136/255.0 green:131/255.0 blue:110/255.0 alpha:1];
+    self.newsDetail.textColor = [UIColor colorWithRed:136/255.0 green:131/255.0 blue:109/255.0 alpha:1];
     [self.contentView addSubview:self.newsDetail];
     
     self.newsTitle = [[UILabel alloc]init];
@@ -64,7 +64,7 @@
     [self.contentView addSubview:self.newsTitle];
     
     self.newsTime = [[UILabel alloc]init];
-    self.newsTime.textColor = [UIColor colorWithRed:136/255.0 green:131/255.0 blue:110/255.0 alpha:1];
+    self.newsTime.textColor = [UIColor colorWithRed:136/255.0 green:131/255.0 blue:109/255.0 alpha:1];
     [self.newsTime setFont:[UIFont systemFontOfSize:11]];
     [self.contentView addSubview:self.newsTime];
     

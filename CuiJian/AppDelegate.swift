@@ -29,9 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch let error as NSError {
             print(error.localizedDescription)
         }
-        
+        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
         songPlayer.loadSong()
         HelperFuc.refreshData()
+        UIScreen.mainScreen().brightness = 1.0;
         return true
     }
 
@@ -43,16 +44,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("applicationDidEnterBackground", object: nil)
+
         UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
         self.becomeFirstResponder()
     }
-
+    
     func applicationWillEnterForeground(application: UIApplication) {
+        UIScreen.mainScreen().brightness = 1.0;
+        NSNotificationCenter.defaultCenter().postNotificationName("applicationWillEnterForeground", object: nil)
+
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-        UIApplication.sharedApplication().endReceivingRemoteControlEvents()
+        //UIApplication.sharedApplication().endReceivingRemoteControlEvents()
         self.resignFirstResponder()
-        
-        
     }
 
     func applicationDidBecomeActive(application: UIApplication) {

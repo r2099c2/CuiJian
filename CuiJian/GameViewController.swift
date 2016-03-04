@@ -34,7 +34,8 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("ApplicationDidEnterBackground"), name: "applicationDidEnterBackground", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("ApplicationWillEnterForeground"), name: "applicationWillEnterForeground", object: nil)
         do {
             try self.player = AVAudioPlayer(contentsOfURL: NSURL(string: NSBundle.mainBundle().pathForResource("bg", ofType: "mp3")!)!)
             self.player?.numberOfLoops = Int.max
@@ -58,6 +59,15 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         }
         else{
             self.initSence()
+        }
+    }
+    
+    func ApplicationDidEnterBackground(){
+        self.player?.stop()
+    }
+    func ApplicationWillEnterForeground(){
+        if (UIApplication.sharedApplication().delegate as! AppDelegate).songPlayer.player?.playing != true{
+            self.player?.play()
         }
     }
     
@@ -135,24 +145,15 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         
         let light = SCNLight()
         light.type = SCNLightTypeOmni
-        light.color = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 1.0)
+        light.color = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
         let lightNode = SCNNode()
         lightNode.position = SCNVector3(0, 0, 0)
         lightNode.light = light
         rootScene.rootNode.addChildNode(lightNode)
         
-        let light1 = SCNLight()
-        light1.type = SCNLightTypeDirectional
-        light1.color = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
-        let lightNode1 = SCNNode()
-        lightNode1.rotation = SCNVector4Make(1, 0, 0, Float(-M_PI / 2))
-        lightNode1.light = light1
-        lightNode1.position = SCNVector3(0, 500, 0)
-        rootScene.rootNode.addChildNode(lightNode1)
-        
         let light2 = SCNLight()
         light2.type = SCNLightTypeSpot
-        light2.color = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1.0)
+        light2.color = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 1.0)
         let lightNode2 = SCNNode()
         lightNode2.rotation = SCNVector4Make(1, 0, 0, Float(-M_PI / 2))
         lightNode2.light = light2
