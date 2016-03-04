@@ -33,8 +33,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationController.interactivePopGestureRecognizer.delegate = self.navigationController.viewControllers[0];
-
 
     [HelperFuc getNews:NO finished:^(BOOL finished, id results) {
         if (finished) {

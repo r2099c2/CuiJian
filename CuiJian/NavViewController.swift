@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NavViewController: UIViewController, UIGestureRecognizerDelegate {
+class NavViewController: UIViewController {
     
     @IBOutlet weak var zhuanjiView: UIImageView!
     @IBOutlet weak var mvView: UIImageView!
@@ -35,12 +35,6 @@ class NavViewController: UIViewController, UIGestureRecognizerDelegate {
         HelperFuc.bgParrallax(aboutCuijianView)
         HelperFuc.bgParrallax(newsView)
         HelperFuc.bgParrallax(aboutAppView)
-        
-        self.navigationController!.interactivePopGestureRecognizer!.delegate = self
-        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        self.navigationController!.navigationBar.shadowImage = UIImage()
-        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.None)
-
         
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
             self.bt1cons.constant = 0
@@ -73,15 +67,12 @@ class NavViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        self.navigationController!.navigationBar.shadowImage = UIImage()
-        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.None)
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        self.navigationController?.navigationBarHidden = false
+    override func viewWillAppear(animated: Bool) {
+        self.navigationItem.setHidesBackButton(true, animated: false)
     }
-
+    
     
     @IBAction func MVClicked(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "MVStoryboard", bundle: nil)
@@ -106,13 +97,13 @@ class NavViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     override func prefersStatusBarHidden() -> Bool {
-        return true
+        return false
     }
     
-    @IBAction func dismissVC(sender: UIButton) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func dissmissVC(sender: AnyObject) {
+        self.navigationController!.popViewControllerAnimated(true)
     }
-        
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation

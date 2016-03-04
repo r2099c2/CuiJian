@@ -74,9 +74,6 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
                 pageImages[i].append(UIImage(named: songPosterData[i][j])!)
             }
         }
-        
-        self.navigationController!.interactivePopGestureRecognizer!.delegate = self.navigationController!.viewControllers[0] as! NavViewController
-        
         // init pageViews
         let pageCount = songData.count
         

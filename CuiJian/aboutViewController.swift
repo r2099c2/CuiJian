@@ -18,8 +18,6 @@ class aboutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController!.interactivePopGestureRecognizer!.delegate = self.navigationController!.viewControllers[0] as! NavViewController
-
         HelperFuc.bgParrallax(aboutBg)
     }
     

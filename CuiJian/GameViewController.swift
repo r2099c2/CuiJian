@@ -12,7 +12,7 @@ import SceneKit
 import CoreMotion
 import MediaPlayer
 
-class GameViewController: UIViewController, SCNSceneRendererDelegate {
+class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet var rootView: UIView!
     @IBOutlet weak var sceneView: SCNView!
@@ -21,7 +21,6 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     var videoView: UIView?
     var guideView: UIView?
     var icePlayer: MPMoviePlayerController?
-    var clicked:Int?
     
     var motionManager: CMMotionManager?
     let camerasNode: SCNNode? = SCNNode()
@@ -42,7 +41,12 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         } catch {
             print("wrong audio")
         }
-        
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
+
+        self.navigationController!.interactivePopGestureRecognizer!.delegate = self
+
         self.view.backgroundColor = UIColor.blackColor()
         self.sceneView!.backgroundColor = UIColor.blackColor()
         self.sceneView.delegate = self
@@ -77,23 +81,23 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         if hitResults.count > 0 {
         let hitedNode =  hitResults[0].node
             if hitedNode.name?.hasPrefix("icetree_") == true{
-                self.clicked = 1
-                self.performSegueWithIdentifier("open nav", sender: self)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let controller = storyboard.instantiateViewControllerWithIdentifier("songViewController") as UIViewController
+                self.navigationController!.pushViewController(controller, animated: true)
             }
             else if hitedNode.name?.hasPrefix("ufo_") == true{
-                self.clicked = 2
-                self.performSegueWithIdentifier("open nav", sender: self)
+                let newsController:NewsViewController = NewsViewController();
+                self.navigationController!.pushViewController(newsController, animated: true)
             }
             else if hitedNode.name?.hasPrefix("team_") == true{
-                self.clicked = 3
-                self.performSegueWithIdentifier("open nav", sender: self)
+                let storyboard = UIStoryboard(name: "MVStoryboard", bundle: nil)
+                let controller = storyboard.instantiateViewControllerWithIdentifier("aboutController") as UIViewController
+                self.navigationController!.pushViewController(controller, animated: true)
             }
             else if hitedNode.name?.hasPrefix("mvs_") == true{
-                self.clicked = 4
-                self.performSegueWithIdentifier("open nav", sender: self)
-            }
-            else {
-                self.clicked = 0
+                let storyboard = UIStoryboard(name: "MVStoryboard", bundle: nil)
+                let controller = storyboard.instantiateViewControllerWithIdentifier("MvController") as UIViewController
+                self.navigationController!.pushViewController(controller, animated: true)
             }
         }
     }
@@ -319,14 +323,18 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+    }
+    
     override func viewWillAppear(animated: Bool) {
         if (UIApplication.sharedApplication().delegate as! AppDelegate).songPlayer.player?.playing != true{
             self.player?.play()
         }
         super.viewWillAppear(true)
         self.sceneView!.scene?.paused = false
-        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None)
-        self.navigationController?.navigationBarHidden = true
+        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
         //add observer to video player
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "videoEnd", name: MPMoviePlayerPlaybackDidFinishNotification, object: icePlayer)
     }
@@ -334,6 +342,8 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     override func viewWillDisappear(animated: Bool) {
         self.player?.pause()
         super.viewWillDisappear(true)
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.Fade)
+
         self.sceneView!.scene?.paused = true
         // remove observer
         NSNotificationCenter.defaultCenter().removeObserver(self)
@@ -424,7 +434,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
                 self.guideView = nil
         }
     }
-    
+    /*
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let target = segue.destinationViewController as! UINavigationController
         target.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
@@ -452,6 +462,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         }
         self.clicked = 0
     }
+    */
     
 }
 
