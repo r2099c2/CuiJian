@@ -65,7 +65,7 @@ static const CGFloat kVideoPlayerControllerAnimationTimeInterval = 0.3f;
     [UIView animateWithDuration:kVideoPlayerControllerAnimationTimeInterval animations:^{
         self.view.alpha = 1.0;
     } completion:^(BOOL finished) {
-        
+        [self fullScreenButtonClick];
     }];
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
 }
@@ -74,6 +74,7 @@ static const CGFloat kVideoPlayerControllerAnimationTimeInterval = 0.3f;
 {
     [self stopDurationTimer];
     [self stop];
+    [self shrinkScreenButtonClick];
     [UIView animateWithDuration:kVideoPlayerControllerAnimationTimeInterval animations:^{
         self.view.alpha = 0.0;
     } completion:^(BOOL finished) {

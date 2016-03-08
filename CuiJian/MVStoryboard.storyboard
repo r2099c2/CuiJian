@@ -126,9 +126,6 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewLayout key="collectionViewLayout" id="KF8-rX-6Xs" customClass="CardCollectionViewLayout" customModule="CuiJian" customModuleProvider="target"/>
                                 <cells/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="8" y="-55" width="400" height="800"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="Iqr-V8-m9L" id="nAI-EU-61K"/>
                                     <outlet property="delegate" destination="Iqr-V8-m9L" id="r1A-SI-3be"/>

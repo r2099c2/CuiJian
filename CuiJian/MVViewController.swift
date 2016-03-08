@@ -52,6 +52,7 @@ class MVViewController: UIViewController, UICollectionViewDataSource, UICollecti
         }
         if(self.videoController == nil){
             self.videoController = KRVideoPlayerController(frame: self.view.frame)
+            self.videoController.allowsAirPlay = true
         }
 
     }
@@ -74,7 +75,6 @@ class MVViewController: UIViewController, UICollectionViewDataSource, UICollecti
         let url = NSURL(fileURLWithPath: path!)
         self.videoController.contentURL = url
         self.videoController.showInWindow()
-
         let player = (UIApplication.sharedApplication().delegate as! AppDelegate).songPlayer
         player.stopPlayer()
     }
