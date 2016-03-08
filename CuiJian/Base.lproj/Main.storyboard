@@ -63,7 +63,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newslistbg" translatesAutoresizingMaskIntoConstraints="NO" id="JXn-bO-iee">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutCuijianBt" translatesAutoresizingMaskIntoConstraints="NO" id="JXn-bO-iee">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E4X-VL-Uay">
@@ -617,7 +617,7 @@
                                                     <rect key="frame" x="0.0" y="28" width="328" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="99v-70-frk" id="ij2-Uu-o9A">
-                                                        <rect key="frame" x="0.0" y="0.0" width="328" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="328" height="49.5"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="wil-EQ-b4c">
@@ -749,7 +749,6 @@
         <image name="ldLogo" width="130" height="28"/>
         <image name="news" width="414" height="134"/>
         <image name="newsBt" width="100" height="75"/>
-        <image name="newslistbg" width="414" height="736"/>
         <image name="rightArrow" width="8" height="13"/>
         <image name="songBgImage" width="750" height="1334"/>
         <image name="songBgParaImage" width="958" height="1618"/>

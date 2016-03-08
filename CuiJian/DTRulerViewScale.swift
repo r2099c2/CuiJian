@@ -77,8 +77,8 @@ class DTRulerViewScale: UIView {
             if i % 2 == 1{
                 CGContextMoveToPoint(context, startX, endY * 0.75);
                 CGContextAddLineToPoint(context, startX, endY*0.9);
+                CGContextDrawPath(context, .Stroke);
             }
-            CGContextDrawPath(context, .Stroke);
         }
 
     }
