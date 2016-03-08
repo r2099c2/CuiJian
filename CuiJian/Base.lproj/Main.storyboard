@@ -63,7 +63,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutCuijianBt" translatesAutoresizingMaskIntoConstraints="NO" id="JXn-bO-iee">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutcuijianbg" translatesAutoresizingMaskIntoConstraints="NO" id="JXn-bO-iee">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E4X-VL-Uay">
@@ -743,6 +743,7 @@
         <image name="aboutCuijian" width="414" height="134"/>
         <image name="aboutCuijianBt" width="106" height="75"/>
         <image name="aboutPageBg" width="623" height="915"/>
+        <image name="aboutcuijianbg" width="414" height="736"/>
         <image name="backArrow" width="13" height="21"/>
         <image name="close" width="18" height="18"/>
         <image name="hamburger" width="23" height="16"/>

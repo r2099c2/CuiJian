@@ -50,7 +50,7 @@
     //添加背景的星空图
     self.starBackground = [[UIImageView alloc]initWithFrame:CGRectMake(-15, -15, KscreenWidth + 30, KscreenHeight + 30)];
     [HelperFuc bgParrallax:self.starBackground];
-    self.starBackground.image = [UIImage imageNamed:@"aboutCuijianBt"];
+    self.starBackground.image = [UIImage imageNamed:@"aboutcuijianbg"];
     [self.view addSubview:self.starBackground];
     
     
