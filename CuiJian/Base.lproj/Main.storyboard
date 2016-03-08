@@ -340,10 +340,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutPageBg" translatesAutoresizingMaskIntoConstraints="NO" id="yJe-Xo-9Zp">
-                                <rect key="frame" x="-24" y="-20" width="368" height="608"/>
+                                <rect key="frame" x="-24" y="-40" width="368" height="628"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9l-zq-x9P">
-                                <rect key="frame" x="16" y="91" width="196" height="218"/>
+                                <rect key="frame" x="16" y="71" width="196" height="218"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="196" id="6wX-YW-YWu"/>
@@ -457,26 +457,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="songBgImage" translatesAutoresizingMaskIntoConstraints="NO" id="IWJ-7e-dKr">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="songBgImage" translatesAutoresizingMaskIntoConstraints="NO" id="IWJ-7e-dKr">
                                 <rect key="frame" x="-4" y="0.0" width="328" height="568"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="songBgParaImage" translatesAutoresizingMaskIntoConstraints="NO" id="NRl-Ob-NRd">
                                 <rect key="frame" x="-20" y="-20" width="360" height="568"/>
                             </imageView>
-                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zH5-TD-gdc">
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zH5-TD-gdc">
                                 <rect key="frame" x="36" y="72" width="248" height="248"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="zH5-TD-gdc" secondAttribute="height" multiplier="1:1" id="QQ3-cO-a7H"/>
                                 </constraints>
                             </scrollView>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tla-T1-7j7">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tla-T1-7j7">
                                 <rect key="frame" x="116" y="335" width="89" height="83"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="83" id="5mj-gn-2M8"/>
                                     <constraint firstAttribute="width" constant="89" id="kJO-6A-hEW"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Slb-jU-LcK">
+                            <textView clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Slb-jU-LcK">
                                 <rect key="frame" x="53" y="440" width="213" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.43137254901960786" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>

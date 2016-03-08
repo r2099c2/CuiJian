@@ -309,7 +309,8 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
         style.alignment = .Center
         let attributes = [NSParagraphStyleAttributeName : style,
             NSForegroundColorAttributeName: UIColor.whiteColor(),
-            NSFontAttributeName: UIFont.systemFontOfSize(15)]
+            NSFontAttributeName: UIFont.systemFontOfSize(15),
+            NSKernAttributeName: CGFloat(5)]
         songLyric.attributedText = NSAttributedString(string: songLyric.text, attributes:attributes)
     }
     
@@ -350,8 +351,12 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
     }
     
     func songTextGestureAction(pan: UIPanGestureRecognizer) {
-        let songTitleTopOffset:CGFloat = 80
+        let songTitleTopOffset: CGFloat = 80
+        let songScrollViewAlphaParameter: CGFloat = 300
         let songTitleBottomOffset = self.songScrollView.bounds.height + self.songScrollView.frame.origin.y + 15.0
+        let songLyricSpacingToTitleNotCompress: CGFloat = 40
+        let songLyricSpacingToBottomNotCompress: CGFloat = 50
+        let songLyricSpacingToBottomCompress: CGFloat = 20
         // scrollbar on the top
         if songLyric.contentOffset.y <= CGPointZero.y {
             let translationInView = pan.translationInView(self.view).y
@@ -364,7 +369,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
                         self.songLyric.bounds.size.height = tanslationABS + lyricHeight!
                         self.songLyric.frame.origin.y = lyricTop! - tanslationABS
                         if self.songScrollView.alpha > 0.0 {
-                            self.songScrollView.alpha = (300 - tanslationABS) / 300
+                            self.songScrollView.alpha = (songScrollViewAlphaParameter - tanslationABS) / songScrollViewAlphaParameter
                         }
                         self.songTitle.frame.origin.y = songTitleTop! - tanslationABS
                     }
@@ -377,8 +382,8 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
                     UIView.animateWithDuration(0.2, animations: { () -> Void in
                         self.songScrollView.alpha = 0.0
                         self.songTitle.frame.origin.y = songTitleTopOffset
-                        self.songLyric.bounds.size.height = self.view.bounds.height - self.songTitle.bounds.height - 100.0 - 30.0
-                        self.songLyric.frame.origin.y = self.songTitle.bounds.height + songTitleTopOffset + 15.0
+                        self.songLyric.bounds.size.height = self.view.bounds.height - self.songTitle.bounds.height - songTitleTopOffset - songLyricSpacingToBottomNotCompress
+                        self.songLyric.frame.origin.y = self.songTitle.bounds.height + songTitleTopOffset + songLyricSpacingToTitleNotCompress
                         }, completion: { (finish) -> Void in
                             self.songScrollView.hidden = true
                             self.songLyric.scrollEnabled = true
@@ -395,7 +400,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
                     self.songLyric.bounds.size.height = lyricHeight! - tanslationABS
                     self.songLyric.frame.origin.y = lyricTop! + tanslationABS
                     if self.songScrollView.alpha < 1.0 {
-                        self.songScrollView.alpha = tanslationABS / 300
+                        self.songScrollView.alpha = tanslationABS / songScrollViewAlphaParameter
                     }
                     self.songTitle.frame.origin.y = songTitleTop! + tanslationABS
                     break
@@ -408,7 +413,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
                     UIView.animateWithDuration(0.2, animations: { () -> Void in
                         self.songScrollView.alpha = 1.0
                         self.songTitle.frame.origin.y = songTitleBottomOffset
-                        self.songLyric.bounds.size.height = self.view.bounds.height - self.songTitle.frame.origin.y - self.songTitle.bounds.height - 15.0
+                        self.songLyric.bounds.size.height = self.view.bounds.height - self.songTitle.frame.origin.y - self.songTitle.bounds.height - songLyricSpacingToBottomCompress
                         self.songLyric.frame.origin.y = self.songTitle.frame.origin.y + self.songTitle.bounds.height + 15.0
                         }, completion: { (finish) -> Void in
                             self.isCompressed = true
