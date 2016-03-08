@@ -22,22 +22,26 @@ class CardCollectionViewCell: UICollectionViewCell {
         
         let maskView = UIView(frame: frame)
         maskView.frame.origin = CGPointZero
-        maskView.backgroundColor = UIColor(red: 136.0/255.0, green: 131.0/255.0, blue: 109.0/255.0, alpha: 0.8)
+        maskView.backgroundColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 0.9)
         self.addSubview(maskView)
         
         self.titleLabel = UILabel(frame: CGRect(x: 32, y: 24, width: frame.width - 64, height: 48))
-        self.titleLabel.textColor = UIColor.whiteColor()
+        self.titleLabel.textColor = UIColor(red: 49.0/255.0, green: 44.0/255.0, blue: 23.0/255.0, alpha: 1)
         if #available(iOS 8.2, *) {
-            self.titleLabel.font = UIFont.systemFontOfSize(36, weight: UIFontWeightLight)
+            self.titleLabel.font = UIFont(name: "IowanOldStyle-Bold", size: 36)//UIFont.systemFontOfSize(36, weight: UIFontWeightLight)
         } else {
-            self.titleLabel.font = UIFont.systemFontOfSize(32)
+            self.titleLabel.font = UIFont.systemFontOfSize(36)
         }
         self.addSubview(self.titleLabel)
         
         self.contentLabel = UILabel(frame: CGRect(x: 32, y: 84, width: frame.width - 64, height: frame.height - 100))
-        self.contentLabel.textColor = UIColor.whiteColor()
+        self.contentLabel.textColor = UIColor(red: 49.0/255.0, green: 44.0/255.0, blue: 23.0/255.0, alpha: 1)
         self.contentLabel.numberOfLines = 0
-        self.contentLabel.font = UIFont.systemFontOfSize(13)
+        if #available(iOS 8.2, *) {
+            self.contentLabel.font = UIFont.systemFontOfSize(13, weight: UIFontWeightLight)
+        } else {
+            self.contentLabel.font = UIFont.systemFontOfSize(13)
+        }
         self.contentLabel.textAlignment = .Justified
 
         self.addSubview(self.contentLabel)

@@ -26,9 +26,9 @@ class TimeLineViewController: UIViewController, UIScrollViewDelegate, UICollecti
     }
     
     override func viewDidLoad() {
-        self.leftCoverImage = UIImageView(frame: CGRect(x: -10, y: 0, width: 160, height: 70))
+        self.leftCoverImage = UIImageView(frame: CGRect(x: -5, y: 0, width: UIScreen.mainScreen().bounds.width / 2, height: 70))
         self.leftCoverImage.image = UIImage(named: "rulerCoverL")
-        self.rightCoverImage = UIImageView(frame: CGRect(x: UIScreen.mainScreen().bounds.size.width - 150, y: 0, width: 160, height: 70))
+        self.rightCoverImage = UIImageView(frame: CGRect(x: UIScreen.mainScreen().bounds.size.width / 2 + 5, y: 0, width: UIScreen.mainScreen().bounds.width / 2, height: 70))
         self.rightCoverImage.image = UIImage(named: "rullerCover")
         self.rulerView.addSubview(self.leftCoverImage)
         self.rulerView.addSubview(self.rightCoverImage)

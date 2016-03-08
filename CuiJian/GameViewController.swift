@@ -68,6 +68,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
     
     func ApplicationDidEnterBackground(){
         self.player?.stop()
+        print("stop")
     }
     func ApplicationWillEnterForeground(){
         if (UIApplication.sharedApplication().delegate as! AppDelegate).songPlayer.player?.playing != true{
@@ -146,6 +147,12 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         iceTree.position = SCNVector3(0, self.groundPos, -50)
         iceTree.scale = SCNVector3(10,10,10)
         rootScene.rootNode.addChildNode(iceTree)
+        
+        let iceText = addNode("iceTree/zhuanji.dae")
+        //iceText.geometry = SCNPlane(width: 20, height: 16)
+        //iceText.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "999")
+        iceText.position = SCNVector3(0, 20, -30)
+        rootScene.rootNode.addChildNode(iceText)
         
         let light = SCNLight()
         light.type = SCNLightTypeOmni
@@ -345,8 +352,6 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.Fade)
 
         self.sceneView!.scene?.paused = true
-        // remove observer
-        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func shouldAutorotate() -> Bool {

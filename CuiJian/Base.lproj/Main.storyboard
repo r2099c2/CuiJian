@@ -63,7 +63,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="JXn-bO-iee">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newslistbg" translatesAutoresizingMaskIntoConstraints="NO" id="JXn-bO-iee">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E4X-VL-Uay">
@@ -75,7 +75,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nD2-Ap-Xem" userLabel="zhuanjiBt">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="105"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Albums" translatesAutoresizingMaskIntoConstraints="NO" id="bZw-z6-D3a">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Albums" translatesAutoresizingMaskIntoConstraints="NO" id="bZw-z6-D3a">
                                                         <rect key="frame" x="-8" y="-11" width="336" height="126"/>
                                                     </imageView>
                                                     <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Znn-FJ-bHu">
@@ -112,7 +112,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sat-RY-OEa" userLabel="MVBt">
                                                 <rect key="frame" x="0.0" y="105" width="320" height="105"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MV" translatesAutoresizingMaskIntoConstraints="NO" id="j6m-Bu-Wpk">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MV" translatesAutoresizingMaskIntoConstraints="NO" id="j6m-Bu-Wpk">
                                                         <rect key="frame" x="-8" y="-10.5" width="336" height="126"/>
                                                     </imageView>
                                                     <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9W-25-u1F">
@@ -149,7 +149,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4NL-CI-FYF" userLabel="aboutCuijianBt">
                                                 <rect key="frame" x="0.0" y="210" width="320" height="105"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutCuijian" translatesAutoresizingMaskIntoConstraints="NO" id="GGo-ma-v7m">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutCuijian" translatesAutoresizingMaskIntoConstraints="NO" id="GGo-ma-v7m">
                                                         <rect key="frame" x="-8" y="-10.5" width="336" height="126"/>
                                                     </imageView>
                                                     <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YVs-JR-SR4">
@@ -186,7 +186,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KHm-hH-HRn" userLabel="NewsBt">
                                                 <rect key="frame" x="0.0" y="315" width="320" height="105"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news" translatesAutoresizingMaskIntoConstraints="NO" id="s19-kO-bUF">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news" translatesAutoresizingMaskIntoConstraints="NO" id="s19-kO-bUF">
                                                         <rect key="frame" x="-8" y="-11" width="336" height="126"/>
                                                     </imageView>
                                                     <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Isa-gE-0yG">
@@ -223,7 +223,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iis-HM-ams" userLabel="aboutAppBt">
                                                 <rect key="frame" x="0.0" y="420" width="320" height="104"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutApp" translatesAutoresizingMaskIntoConstraints="NO" id="NU2-uy-frX">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutApp" translatesAutoresizingMaskIntoConstraints="NO" id="NU2-uy-frX">
                                                         <rect key="frame" x="-8" y="-10.5" width="336" height="125"/>
                                                     </imageView>
                                                     <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QB-Dz-3IN">
@@ -340,17 +340,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutPageBg" translatesAutoresizingMaskIntoConstraints="NO" id="yJe-Xo-9Zp">
-                                <rect key="frame" x="-24" y="-20" width="368" height="608"/>
+                                <rect key="frame" x="-24" y="-40" width="368" height="628"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9l-zq-x9P">
-                                <rect key="frame" x="16" y="91" width="196" height="218"/>
+                                <rect key="frame" x="16" y="71" width="196" height="218"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="196" id="6wX-YW-YWu"/>
                                     <constraint firstAttribute="height" constant="218" id="MvA-iF-xwa"/>
                                 </constraints>
-                                <string key="text">一个音乐孕育的灵魂， 一道冲破光冻的束缚，
-一次穿越星际的探索，   【崔健】
+                                <string key="text">一个音乐孕育的灵魂，
+一道冲破光冻的束缚，
+一次穿越星际的探索，
+
+
+【崔健】
 带你重识崔健</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Light" family="PingFang SC" pointSize="18"/>
@@ -458,26 +462,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="songBgImage" translatesAutoresizingMaskIntoConstraints="NO" id="IWJ-7e-dKr">
-                                <rect key="frame" x="-4" y="0.0" width="328" height="568"/>
+                                <rect key="frame" x="-4" y="-20" width="328" height="588"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="songBgParaImage" translatesAutoresizingMaskIntoConstraints="NO" id="NRl-Ob-NRd">
                                 <rect key="frame" x="-20" y="-20" width="360" height="568"/>
                             </imageView>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zH5-TD-gdc">
-                                <rect key="frame" x="36" y="72" width="248" height="248"/>
+                                <rect key="frame" x="36" y="52" width="248" height="248"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="zH5-TD-gdc" secondAttribute="height" multiplier="1:1" id="QQ3-cO-a7H"/>
                                 </constraints>
                             </scrollView>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tla-T1-7j7">
-                                <rect key="frame" x="116" y="335" width="89" height="83"/>
+                                <rect key="frame" x="116" y="315" width="89" height="83"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="83" id="5mj-gn-2M8"/>
                                     <constraint firstAttribute="width" constant="89" id="kJO-6A-hEW"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Slb-jU-LcK">
-                                <rect key="frame" x="53" y="440" width="213" height="128"/>
+                                <rect key="frame" x="53" y="420" width="213" height="148"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.43137254901960786" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
                                 <attributedString key="attributedText"/>
@@ -613,7 +617,7 @@
                                                     <rect key="frame" x="0.0" y="28" width="328" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="99v-70-frk" id="ij2-Uu-o9A">
-                                                        <rect key="frame" x="0.0" y="0.0" width="328" height="49.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="328" height="50"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="wil-EQ-b4c">
@@ -731,25 +735,25 @@
     </scenes>
     <resources>
         <image name="Albums" width="414" height="134"/>
-        <image name="AlbumsBt" width="77" height="84"/>
+        <image name="AlbumsBt" width="117" height="85"/>
         <image name="MV" width="414" height="134"/>
-        <image name="MVBt" width="71" height="47"/>
+        <image name="MVBt" width="101" height="80"/>
         <image name="aboutApp" width="415" height="134"/>
-        <image name="aboutAppBt" width="88" height="59"/>
+        <image name="aboutAppBt" width="101" height="88"/>
         <image name="aboutCuijian" width="414" height="134"/>
-        <image name="aboutCuijianBt" width="85" height="83"/>
+        <image name="aboutCuijianBt" width="106" height="75"/>
         <image name="aboutPageBg" width="623" height="915"/>
         <image name="backArrow" width="13" height="21"/>
         <image name="close" width="18" height="18"/>
         <image name="hamburger" width="23" height="16"/>
         <image name="ldLogo" width="130" height="28"/>
         <image name="news" width="414" height="134"/>
-        <image name="newsBt" width="89" height="62"/>
+        <image name="newsBt" width="100" height="75"/>
+        <image name="newslistbg" width="414" height="736"/>
         <image name="rightArrow" width="8" height="13"/>
         <image name="songBgImage" width="750" height="1334"/>
         <image name="songBgParaImage" width="958" height="1618"/>
         <image name="songListBtn" width="26" height="16"/>
         <image name="splitor" width="346" height="1"/>
-        <image name="star" width="414" height="736"/>
     </resources>
 </document>

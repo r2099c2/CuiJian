@@ -21,6 +21,7 @@ class CardCollectionViewLayout: UICollectionViewFlowLayout {
         super.init(coder: aDecoder)
         self.scrollDirection = .Vertical
     }
+
     
     override func prepareLayout() {
         self.superView = self.collectionView!.superview
@@ -54,22 +55,24 @@ class CardCollectionViewLayout: UICollectionViewFlowLayout {
             
             let deltaCenter = outPoint.y - centerInMainView.y
             
-            var transform:CATransform3D = CATransform3DIdentity
+            var transform:CGAffineTransform = CGAffineTransformIdentity
             var alpha:CGFloat = 1.0
             
             if deltaCenter < 0 {
-                alpha = max((1 - fabs(deltaCenter) / self.itemSize.width), 0)
+                alpha = max((1 - pow(fabs(deltaCenter) / self.itemSize.width, 4)), 0)
                 let scale = min(2, fabs(deltaCenter) / self.itemSize.width + 1)
-                transform = CATransform3DScale(transform, scale, scale, 1)
+                transform = CGAffineTransformScale(transform, scale, scale)
             }
             else{
                 let scale = max(1 - fabs(deltaCenter) / self.itemSize.width / 5, 0)
-                transform = CATransform3DTranslate(transform, 0, deltaCenter - 60 * deltaCenter / self.itemSize.width, 0)
-                transform = CATransform3DScale(transform, scale, scale, 1)
+                transform = CGAffineTransformTranslate(transform, 0, deltaCenter)
+                transform = CGAffineTransformScale(transform, scale, scale)
+                let transform1 = CGAffineTransformMakeTranslation(0, -self.itemSize.width * (1 - scale) / 2 - self.itemSize.width * pow(scale, 0.3) * (1 - scale) / 2)
+                transform = CGAffineTransformConcat(transform, transform1)
+                alpha = scale
             }
-            
             attr.alpha = alpha
-            attr.transform3D = transform
+            attr.transform = transform
             attr.zIndex = index
             
             modifiedLayoutAttributesArray.append(attr)

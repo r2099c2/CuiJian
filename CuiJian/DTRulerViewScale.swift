@@ -56,7 +56,7 @@ class DTRulerViewScale: UIView {
         valueLabel.drawInRect(CGRect(x: startX - textSize.width / 2, y: startY + 14, width: textSize.width, height: textSize.height), withAttributes: textFontAttributes)
         
         CGContextSetStrokeColorWithColor(context, UIColor.whiteColor().CGColor)
-        CGContextSetLineWidth(context, 2.0)
+        CGContextSetLineWidth(context, 0.5)
         CGContextMoveToPoint(context, startX, endY * 0.6)
         CGContextAddLineToPoint(context, startX, endY)
         CGContextDrawPath(context, .Stroke)
@@ -66,7 +66,7 @@ class DTRulerViewScale: UIView {
     }
     
     func doScaleFromMidToEgdeWithStartX(var startX: CGFloat, endY: CGFloat, counter:Int, plus:Bool, context:CGContextRef){
-        CGContextSetLineWidth(context, 1)
+        CGContextSetLineWidth(context, 0.5)
         for (var i = 0; i < counter; i++) {
             if(plus){
                 startX += DTRulerScaleGap
@@ -74,8 +74,10 @@ class DTRulerViewScale: UIView {
             else{
                 startX -= DTRulerScaleGap
             }
-            CGContextMoveToPoint(context, startX, endY * 0.8);
-            CGContextAddLineToPoint(context, startX, endY);
+            if i % 2 == 1{
+                CGContextMoveToPoint(context, startX, endY * 0.75);
+                CGContextAddLineToPoint(context, startX, endY*0.9);
+            }
             CGContextDrawPath(context, .Stroke);
         }
 
