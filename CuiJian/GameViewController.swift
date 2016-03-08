@@ -68,6 +68,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
     
     func ApplicationDidEnterBackground(){
         self.player?.stop()
+        print("stop")
     }
     func ApplicationWillEnterForeground(){
         if (UIApplication.sharedApplication().delegate as! AppDelegate).songPlayer.player?.playing != true{
@@ -345,8 +346,6 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.Fade)
 
         self.sceneView!.scene?.paused = true
-        // remove observer
-        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func shouldAutorotate() -> Bool {
