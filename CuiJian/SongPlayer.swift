@@ -143,7 +143,7 @@ class SongPlayer: NSObject, AVAudioPlayerDelegate {
             let playerAnimation = CABasicAnimation(keyPath: "strokeEnd")
             playerAnimation.duration = songDuration[index]
             
-            if curIndex == index && player!.playing {
+            if curIndex == index {
                 let stokeStart = (player?.currentTime)! / (player?.duration)!
                 playerAnimation.fromValue = CGFloat(stokeStart)
             } else {
