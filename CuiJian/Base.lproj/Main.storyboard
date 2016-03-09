@@ -339,14 +339,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutPageBg" translatesAutoresizingMaskIntoConstraints="NO" id="yJe-Xo-9Zp">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutPageBg" translatesAutoresizingMaskIntoConstraints="NO" id="yJe-Xo-9Zp">
                                 <rect key="frame" x="-24" y="-40" width="368" height="628"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qR1-1y-BrZ">
-                                <rect key="frame" x="16" y="52" width="288" height="508"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m05-sz-aCa">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="1223"/>
+                                        <rect key="frame" x="20" y="0.0" width="280" height="1175"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="出品" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="6c1-Rt-5gQ">
                                                 <rect key="frame" x="0.0" y="970" width="33" height="30"/>
@@ -396,7 +396,7 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFc-9E-1Sd">
-                                                <rect key="frame" x="0.0" y="1115" width="288" height="44"/>
+                                                <rect key="frame" x="0.0" y="1115" width="280" height="44"/>
                                                 <color key="backgroundColor" red="0.53333333329999999" green="0.51372549020000002" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="XeM-D2-if9"/>
@@ -415,8 +415,8 @@
                                                     <constraint firstAttribute="height" constant="30" id="bPr-ij-vA3"/>
                                                 </constraints>
                                             </imageView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ijt-Xf-eXe">
-                                                <rect key="frame" x="0.0" y="0.0" width="288" height="962"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ijt-Xf-eXe">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="962"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="962" id="hJM-eg-pEO"/>
@@ -429,7 +429,7 @@
                                                         <attributes>
                                                             <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <font key="NSFont" size="15" name="PingFangSC-Regular"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.3" tighteningFactorForTruncation="0.0"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.3" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
@@ -442,8 +442,7 @@
                                             <constraint firstItem="ty8-jp-fOw" firstAttribute="leading" secondItem="6c1-Rt-5gQ" secondAttribute="trailing" constant="8" id="2to-oZ-hyB"/>
                                             <constraint firstItem="xUr-WY-OtM" firstAttribute="leading" secondItem="J4r-2J-gMc" secondAttribute="trailing" constant="8" id="Gsc-yv-XHQ"/>
                                             <constraint firstItem="xUr-WY-OtM" firstAttribute="centerY" secondItem="J4r-2J-gMc" secondAttribute="centerY" id="MBn-oy-YT3"/>
-                                            <constraint firstAttribute="width" constant="288" id="MWe-VO-UlW"/>
-                                            <constraint firstAttribute="height" constant="1223" id="Nkw-7I-Z2Z"/>
+                                            <constraint firstAttribute="height" constant="1175" id="Nkw-7I-Z2Z"/>
                                             <constraint firstItem="J4r-2J-gMc" firstAttribute="top" secondItem="hnN-ZS-ZEP" secondAttribute="bottom" constant="16" id="Tsx-fW-kwR"/>
                                             <constraint firstAttribute="trailing" secondItem="yFc-9E-1Sd" secondAttribute="trailing" id="WF7-pf-xlE"/>
                                             <constraint firstItem="yFc-9E-1Sd" firstAttribute="top" secondItem="J4r-2J-gMc" secondAttribute="bottom" constant="31" id="WFt-v8-BdC"/>
@@ -465,8 +464,8 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="m05-sz-aCa" secondAttribute="bottom" id="1Xy-ow-QqG"/>
                                     <constraint firstItem="m05-sz-aCa" firstAttribute="top" secondItem="qR1-1y-BrZ" secondAttribute="top" id="B0K-Zi-j6V"/>
-                                    <constraint firstAttribute="trailing" secondItem="m05-sz-aCa" secondAttribute="trailing" id="OaV-ok-VqB"/>
-                                    <constraint firstItem="m05-sz-aCa" firstAttribute="leading" secondItem="qR1-1y-BrZ" secondAttribute="leading" id="dDA-7G-XlO"/>
+                                    <constraint firstAttribute="trailing" secondItem="m05-sz-aCa" secondAttribute="trailing" constant="20" id="OaV-ok-VqB"/>
+                                    <constraint firstItem="m05-sz-aCa" firstAttribute="leading" secondItem="qR1-1y-BrZ" secondAttribute="leading" constant="20" id="dDA-7G-XlO"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -475,11 +474,12 @@
                             <constraint firstAttribute="trailingMargin" secondItem="yJe-Xo-9Zp" secondAttribute="trailing" constant="-40" id="6Om-f7-beF"/>
                             <constraint firstItem="yJe-Xo-9Zp" firstAttribute="leading" secondItem="TaE-pV-4Xe" secondAttribute="leadingMargin" constant="-40" id="Gwx-pq-Art"/>
                             <constraint firstItem="uSS-9r-eBC" firstAttribute="top" secondItem="yJe-Xo-9Zp" secondAttribute="bottom" constant="-20" id="KbK-ee-NAu"/>
-                            <constraint firstItem="uSS-9r-eBC" firstAttribute="top" secondItem="qR1-1y-BrZ" secondAttribute="bottom" constant="8" symbolic="YES" id="PQf-MB-F3F"/>
+                            <constraint firstItem="uSS-9r-eBC" firstAttribute="top" secondItem="qR1-1y-BrZ" secondAttribute="bottom" id="PQf-MB-F3F"/>
                             <constraint firstItem="yJe-Xo-9Zp" firstAttribute="top" secondItem="vel-KO-U5g" secondAttribute="bottom" constant="-84" id="fIx-wu-iko"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qR1-1y-BrZ" secondAttribute="trailing" id="hU7-oy-EPC"/>
-                            <constraint firstItem="qR1-1y-BrZ" firstAttribute="top" secondItem="vel-KO-U5g" secondAttribute="bottom" constant="8" symbolic="YES" id="sRr-cA-Dl6"/>
-                            <constraint firstItem="qR1-1y-BrZ" firstAttribute="leading" secondItem="TaE-pV-4Xe" secondAttribute="leadingMargin" id="scf-MA-Mo0"/>
+                            <constraint firstAttribute="trailing" secondItem="qR1-1y-BrZ" secondAttribute="trailing" id="hU7-oy-EPC"/>
+                            <constraint firstItem="m05-sz-aCa" firstAttribute="width" secondItem="TaE-pV-4Xe" secondAttribute="width" constant="-40" id="pRA-VT-1r5"/>
+                            <constraint firstItem="qR1-1y-BrZ" firstAttribute="top" secondItem="vel-KO-U5g" secondAttribute="bottom" id="sRr-cA-Dl6"/>
+                            <constraint firstItem="qR1-1y-BrZ" firstAttribute="leading" secondItem="TaE-pV-4Xe" secondAttribute="leading" id="scf-MA-Mo0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="关于" id="cJg-Fl-HBy">
@@ -494,7 +494,6 @@
                         <outlet property="aboutBg" destination="yJe-Xo-9Zp" id="Yn8-lb-eem"/>
                         <outlet property="contentView" destination="m05-sz-aCa" id="LGv-1W-Eme"/>
                         <outlet property="contentViewHeight" destination="Nkw-7I-Z2Z" id="kBH-34-L3q"/>
-                        <outlet property="contentViewWidth" destination="MWe-VO-UlW" id="UnD-lI-VvK"/>
                         <outlet property="scrollView" destination="qR1-1y-BrZ" id="w5x-3z-lDa"/>
                         <outlet property="shareBtn" destination="yFc-9E-1Sd" id="SSu-0r-V9P"/>
                         <outlet property="textView" destination="Ijt-Xf-eXe" id="uIa-R9-sFo"/>

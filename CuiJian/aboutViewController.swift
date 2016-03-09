@@ -12,7 +12,6 @@ class aboutViewController: UIViewController {
 
     @IBOutlet weak var aboutBg: UIImageView!
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var contentViewWidth: NSLayoutConstraint!
     
     @IBOutlet weak var shareBtn: UIButton!
     @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
@@ -24,29 +23,32 @@ class aboutViewController: UIViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        HelperFuc.bgParrallax(aboutBg)
-    }
-    
     override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         
-        let uiScreenWidth: CGFloat = UIScreen.mainScreen().bounds.width - 40
-        contentViewWidth.constant = uiScreenWidth
+        let uiScreenWidth: CGFloat = UIScreen.mainScreen().bounds.width
         
-        let rect = textView.attributedText?.boundingRectWithSize(CGSizeMake(uiScreenWidth, 5000),
+        let rect = textView.attributedText?.boundingRectWithSize(CGSizeMake(uiScreenWidth - 40, 5000),
             options: .UsesLineFragmentOrigin, context: nil)
-        textViewHeight.constant = rect!.height
-        contentViewHeight.constant = shareBtn.frame.origin.y + shareBtn.bounds.height
-        
-        
-        self.view.layoutIfNeeded()
-        contentViewHeight.constant = shareBtn.frame.origin.y + shareBtn.bounds.height
-        self.view.layoutIfNeeded()
-        
+        textViewHeight.constant = rect!.height + 60
+        contentViewHeight.constant = contentView.bounds.height + (rect!.height - textView.bounds.height + 60)
+        print("\(uiScreenWidth - 40)");
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        HelperFuc.bgParrallax(aboutBg)
+        print("\(textView.bounds.width)")
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return false
+    }
+
     
     
     @IBAction func share(sender: UIButton) {

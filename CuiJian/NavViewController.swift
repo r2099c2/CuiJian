@@ -67,7 +67,10 @@ class NavViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
     }
+
     
     override func viewWillAppear(animated: Bool) {
         self.navigationItem.setHidesBackButton(true, animated: false)
