@@ -11,6 +11,14 @@ import UIKit
 class aboutViewController: UIViewController {
 
     @IBOutlet weak var aboutBg: UIImageView!
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var contentViewWidth: NSLayoutConstraint!
+    
+    @IBOutlet weak var shareBtn: UIButton!
+    @IBOutlet weak var contentViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var textViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
     
     @IBAction func dismiss(sender: UIBarButtonItem) {
         self.navigationController?.popViewControllerAnimated(true)
@@ -20,6 +28,26 @@ class aboutViewController: UIViewController {
         super.viewDidLoad()
         HelperFuc.bgParrallax(aboutBg)
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        let uiScreenWidth: CGFloat = UIScreen.mainScreen().bounds.width - 40
+        contentViewWidth.constant = uiScreenWidth
+        
+        let rect = textView.attributedText?.boundingRectWithSize(CGSizeMake(uiScreenWidth, 5000),
+            options: .UsesLineFragmentOrigin, context: nil)
+        textViewHeight.constant = rect!.height
+        contentViewHeight.constant = shareBtn.frame.origin.y + shareBtn.bounds.height
+        
+        
+        self.view.layoutIfNeeded()
+        contentViewHeight.constant = shareBtn.frame.origin.y + shareBtn.bounds.height
+        self.view.layoutIfNeeded()
+        
+    }
+    
+    
     
     @IBAction func share(sender: UIButton) {
         //TODO: Change URL
