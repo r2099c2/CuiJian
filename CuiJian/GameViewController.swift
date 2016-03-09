@@ -33,8 +33,6 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("ApplicationDidEnterBackground"), name: "applicationDidEnterBackground", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("ApplicationWillEnterForeground"), name: "applicationWillEnterForeground", object: nil)
         do {
             try self.player = AVAudioPlayer(contentsOfURL: NSURL(string: NSBundle.mainBundle().pathForResource("bg", ofType: "mp3")!)!)
             self.player?.numberOfLoops = Int.max
@@ -68,7 +66,6 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
     
     func ApplicationDidEnterBackground(){
         self.player?.stop()
-        print("stop")
     }
     func ApplicationWillEnterForeground(){
         if (UIApplication.sharedApplication().delegate as! AppDelegate).songPlayer.player?.playing != true{
@@ -344,13 +341,15 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
         //add observer to video player
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "videoEnd", name: MPMoviePlayerPlaybackDidFinishNotification, object: icePlayer)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("ApplicationDidEnterBackground"), name: "applicationDidEnterBackground", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("ApplicationWillEnterForeground"), name: "applicationWillEnterForeground", object: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {
         self.player?.pause()
         super.viewWillDisappear(true)
         UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.Fade)
-
+        NSNotificationCenter.defaultCenter().removeObserver(self)
         self.sceneView!.scene?.paused = true
     }
     
