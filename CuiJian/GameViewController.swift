@@ -145,10 +145,11 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         iceTree.scale = SCNVector3(10,10,10)
         rootScene.rootNode.addChildNode(iceTree)
         
-        let iceText = addNode("iceTree/zhuanji.dae")
-        //iceText.geometry = SCNPlane(width: 20, height: 16)
-        //iceText.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "999")
-        iceText.position = SCNVector3(0, 20, -30)
+        let iceText = SCNNode()
+        iceText.name = "icetree_Text"
+        iceText.geometry = SCNPlane(width: 25, height: 20)
+        iceText.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "art.scnassets/iceTree/05.png")
+        iceText.position = SCNVector3(0, 20, -50)
         rootScene.rootNode.addChildNode(iceText)
         
         let light = SCNLight()
@@ -189,7 +190,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         rootScene.rootNode.addChildNode(star5)
         
         let redStar = addNode("star/Star_4.dae")
-        redStar.position = SCNVector3(-50, 0, 400)
+        redStar.position = SCNVector3(0, 0, 400)
         redStar.scale = SCNVector3(50,50,50)
         rootScene.rootNode.addChildNode(redStar)
         
@@ -257,15 +258,41 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         self.ufoNode!.addAnimation(spin, forKey: "ufoAni")
         rootScene.rootNode.addChildNode(self.ufoNode!)
         
+        let ufoText = SCNNode()
+        ufoText.name = "ufo_Text"
+        ufoText.geometry = SCNPlane(width: 25, height: 20)
+        ufoText.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "art.scnassets/UFO/01.png")
+        ufoText.position = SCNVector3(50, 35, 0)
+        ufoText.rotation = SCNVector4Make(0, 1, 0, Float(-M_PI/2))
+        rootScene.rootNode.addChildNode(ufoText)
+
+        
         let teamCuijian = addNode(0, fileName: "cuijianTeam/cuijian_team.dae", namePre: "team_")
         teamCuijian.position = SCNVector3(0, self.groundPos + 2, -30)
         teamCuijian.scale = SCNVector3(12,12,12)
         rootScene.rootNode.addChildNode(teamCuijian)
-
+        
+        let teamCuijianText = SCNNode()
+        teamCuijianText.name = "team_Text"
+        teamCuijianText.scale = SCNVector3Make(5, 5, 5)
+        teamCuijianText.geometry = SCNPlane(width: 25, height: 20)
+        teamCuijianText.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "art.scnassets/cuijianTeam/02.png")
+        teamCuijianText.position = SCNVector3(0, 280, 400)
+        teamCuijianText.rotation = SCNVector4Make(0, 1, 0, Float(M_PI))
+        rootScene.rootNode.addChildNode(teamCuijianText)
+    
         let lavaBall = addNode(0, fileName: "aboutCuijian/LavaBall.dae", namePre: "mvs_")
         lavaBall.position = SCNVector3(-50, -15, 0)
         lavaBall.scale = SCNVector3(1500,1500,1500)
         rootScene.rootNode.addChildNode(lavaBall)
+        
+        let lavaBallText = SCNNode()
+        lavaBallText.name = "mvs_Text"
+        lavaBallText.geometry = SCNPlane(width: 25, height: 20)
+        lavaBallText.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "art.scnassets/aboutCuijian/03.png")
+        lavaBallText.position = SCNVector3(-50, 40, 0)
+        lavaBallText.rotation = SCNVector4Make(0, 1, 0, Float(M_PI/2))
+        rootScene.rootNode.addChildNode(lavaBallText)
         
         let stone = addNode("star/Star_2.dae");
         stone.scale = SCNVector3(12, 12, 12)

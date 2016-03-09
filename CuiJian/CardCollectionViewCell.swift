@@ -27,11 +27,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         
         self.titleLabel = UILabel(frame: CGRect(x: 32, y: 24, width: frame.width - 64, height: 48))
         self.titleLabel.textColor = UIColor(red: 49.0/255.0, green: 44.0/255.0, blue: 23.0/255.0, alpha: 1)
-        if #available(iOS 8.2, *) {
-            self.titleLabel.font = UIFont(name: "IowanOldStyle-Bold", size: 36)//UIFont.systemFontOfSize(36, weight: UIFontWeightLight)
-        } else {
-            self.titleLabel.font = UIFont.systemFontOfSize(36)
-        }
+        self.titleLabel.font = UIFont(name: "Georgia", size: 36)//UIFont.systemFontOfSize(36, weight: UIFontWeightLight)
         self.addSubview(self.titleLabel)
         
         self.contentLabel = UILabel(frame: CGRect(x: 32, y: 84, width: frame.width - 64, height: frame.height - 100))
