@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "starbg01 .png",
+      "filename" : "xiangLogo@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "starbg01@2x.png",
+      "filename" : "xiangLogo@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "starbg01@3x.png",
+      "filename" : "xiangLogo@3x.png",
       "scale" : "3x"
     }
   ],

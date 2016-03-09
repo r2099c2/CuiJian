@@ -13,6 +13,8 @@ import QuartzCore
 class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate, SongListDelegate {
     
     @IBOutlet weak var bgImageView: UIImageView!
+    @IBOutlet weak var bgParaImage: UIImageView!
+    
     
     @IBOutlet weak var songScrollView: UIScrollView! {
         didSet {
@@ -62,7 +64,8 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        HelperFuc.bgParrallax(bgImageView)
+        HelperFuc.bgParrallax(bgImageView, maximumRelativeValue: 20)
+        HelperFuc.bgParrallax(bgParaImage, maximumRelativeValue: -20)
         
         // 防止溢出，解决返回超出的bug
         self.view.layer.masksToBounds = true
