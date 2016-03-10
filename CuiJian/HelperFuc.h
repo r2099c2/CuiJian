@@ -13,7 +13,6 @@
 #import <CoreMotion/CoreMotion.h>
 #import <UIKit/UIKit.h>
 #import "NewsModel.h"
-#import "News.h"
 
 typedef void(^Completion)(BOOL, id);
 

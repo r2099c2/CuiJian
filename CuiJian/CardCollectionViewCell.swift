@@ -55,7 +55,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setCellData(news:News){
+    func setCellData(news:NewsModel){
         self.titleLabel.text = "\(news.post_title!)"
         
         let attrText = NSMutableAttributedString(string: "\(news.post_content!)")
@@ -74,7 +74,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         self.contentLabel.frame = frame
         
         if(news.feature_image != nil){
-            self.imageView.sd_setImageWithURL(NSURL(string: news.feature_image as! String)!)
+            self.imageView.sd_setImageWithURL(NSURL(string: news.feature_image)!)
         }
         else{
             self.imageView.image = UIImage(named: "defaultAbout")

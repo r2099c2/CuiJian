@@ -58,9 +58,6 @@
 		4212F8721C5E05CB00C6BA6F /* MVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212F8711C5E05CB00C6BA6F /* MVCell.swift */; };
 		421AF2A41C587BAA00E9D63B /* MVStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421AF2A31C587BAA00E9D63B /* MVStoryboard.storyboard */; };
 		421AF2A61C58891C00E9D63B /* MVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421AF2A51C58891C00E9D63B /* MVViewController.swift */; };
-		421B59C41C771FA8000AE83C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 421B59C21C771FA8000AE83C /* Model.xcdatamodeld */; };
-		421B59CD1C772025000AE83C /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 421B59CA1C772025000AE83C /* News.m */; };
-		421B59CE1C772025000AE83C /* News+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 421B59CC1C772025000AE83C /* News+CoreDataProperties.m */; };
 		424B67FF1C881E3600FFA25B /* bg.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 424B67FE1C881E3600FFA25B /* bg.mp3 */; };
 		424CE58A1C7EE84A007E01BF /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 424CE5881C7EE84A007E01BF /* UIScrollView+SVPullToRefresh.m */; };
 		4271F81B1C7AD8F2002A1F56 /* DTRulerViewScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4271F81A1C7AD8F2002A1F56 /* DTRulerViewScale.swift */; };
@@ -150,11 +147,6 @@
 		4212F8711C5E05CB00C6BA6F /* MVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVCell.swift; sourceTree = "<group>"; };
 		421AF2A31C587BAA00E9D63B /* MVStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MVStoryboard.storyboard; sourceTree = "<group>"; };
 		421AF2A51C58891C00E9D63B /* MVViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVViewController.swift; sourceTree = "<group>"; };
-		421B59C31C771FA8000AE83C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		421B59C91C772025000AE83C /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
-		421B59CA1C772025000AE83C /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
-		421B59CB1C772025000AE83C /* News+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "News+CoreDataProperties.h"; sourceTree = "<group>"; };
-		421B59CC1C772025000AE83C /* News+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "News+CoreDataProperties.m"; sourceTree = "<group>"; };
 		424B67FE1C881E3600FFA25B /* bg.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg.mp3; sourceTree = "<group>"; };
 		424CE5871C7EE84A007E01BF /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
 		424CE5881C7EE84A007E01BF /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
@@ -219,11 +211,6 @@
 			children = (
 				42E68CB31C61ED8C00194E45 /* HelperFuc.h */,
 				42E68CB11C61ECCC00194E45 /* HelperFuc.m */,
-				421B59C21C771FA8000AE83C /* Model.xcdatamodeld */,
-				421B59C91C772025000AE83C /* News.h */,
-				421B59CA1C772025000AE83C /* News.m */,
-				421B59CB1C772025000AE83C /* News+CoreDataProperties.h */,
-				421B59CC1C772025000AE83C /* News+CoreDataProperties.m */,
 				4212F8291C5B702000C6BA6F /* News */,
 				4212F8351C5B702000C6BA6F /* NewsDetail */,
 				421B59BF1C771897000AE83C /* Timeline */,
@@ -536,7 +523,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				421B59CE1C772025000AE83C /* News+CoreDataProperties.m in Sources */,
 				4212F86D1C5B702000C6BA6F /* UIImageView+HighlightedWebCache.m in Sources */,
 				4212F8721C5E05CB00C6BA6F /* MVCell.swift in Sources */,
 				4212F8651C5B702000C6BA6F /* SDWebImageDecoder.m in Sources */,
@@ -545,7 +531,6 @@
 				421AF2A61C58891C00E9D63B /* MVViewController.swift in Sources */,
 				4212F8611C5B702000C6BA6F /* NewsDetailCell.m in Sources */,
 				4212F8601C5B702000C6BA6F /* NewsDetailController.m in Sources */,
-				421B59CD1C772025000AE83C /* News.m in Sources */,
 				1DFD73891C75AB3F00B069EB /* SongListCell.swift in Sources */,
 				4212F8641C5B702000C6BA6F /* SDWebImageCompat.m in Sources */,
 				424CE58A1C7EE84A007E01BF /* UIScrollView+SVPullToRefresh.m in Sources */,
@@ -567,7 +552,6 @@
 				1D57B0501C43BC0C001C18F7 /* GameViewController.swift in Sources */,
 				1D3285BE1C46611800ADAFDC /* TransparentNavBar.swift in Sources */,
 				1DB0523C1C5B784B00EEB58E /* SongListViewController.swift in Sources */,
-				421B59C41C771FA8000AE83C /* Model.xcdatamodeld in Sources */,
 				4212F8671C5B702000C6BA6F /* SDWebImageDownloaderOperation.m in Sources */,
 				4271F81E1C7AF7AE002A1F56 /* TimeLineViewController.swift in Sources */,
 				1D57B04C1C43BC0C001C18F7 /* AppDelegate.swift in Sources */,
@@ -745,19 +729,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		421B59C21C771FA8000AE83C /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				421B59C31C771FA8000AE83C /* Model.xcdatamodel */,
-			);
-			currentVersion = 421B59C31C771FA8000AE83C /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 1D57B0401C43BC0B001C18F7 /* Project object */;
 }

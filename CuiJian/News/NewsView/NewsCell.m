@@ -11,7 +11,6 @@
 #import "UIImageView+WebCache.h"
 //引入头文件 对coredata进行操作
 #import "CuiJian-swift.h"
-#import "News.h"
 
 #define KscreenHeight [[UIScreen mainScreen] bounds].size.height
 #define KscreenWidth [[UIScreen mainScreen] bounds].size.width
@@ -96,7 +95,7 @@
     
 }
 
-- (void)bindModel:(News *)model
+- (void)bindModel:(NewsModel *)model
 {
     //title
     

@@ -342,10 +342,6 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
                 let animation = node.animationForKey(key)!
                 animation.duration = duration
                 node.removeAnimationForKey(key)
-                //animation.repeatCount = 0
-                //animation.removedOnCompletion = true
-                //animation.beginTime = CACurrentMediaTime() + 5.0
-                //animation.fillMode = kCAFillModeForwards
                 node.addAnimation(animation, forKey: key)
             }
         }

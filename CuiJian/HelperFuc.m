@@ -53,8 +53,9 @@
                 finished(NO, dataArray);
             }
             return ;
-            
         }
+        
+        [HelperFuc writeJsonData:type jsonData:data];
         
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingAllowFragments) error:nil];
         for (NSDictionary * dict in dic) {
@@ -63,44 +64,13 @@
             if (m.post_id == nil) {
                 continue;
             }
-            [dataArray addObject:m];
-            AppDelegate * myDelegate = [[UIApplication sharedApplication]delegate];
-            NSManagedObjectContext * context1 = myDelegate.managedObjectContext;
-            
-            NSFetchRequest * request = [[NSFetchRequest alloc] initWithEntityName:@"News"];
-            NSPredicate * predicate = [NSPredicate predicateWithFormat:@"post_id==%@", m.post_id];
-            [request setPredicate:predicate];
-            NSArray * results = [context1 executeFetchRequest:request error:nil];
-            
-            for (NSManagedObject* result in results) {
-                [context1 deleteObject:result];
+            if (type == 2) {
+                [dataArray addObject:m];
             }
-            
-            @try {
-                News * news = (News *)[NSEntityDescription insertNewObjectForEntityForName:@"News" inManagedObjectContext:context1];
-                news.post_title = m.post_title;
-                news.post_id = m.post_id;
-                news.post_date = m.post_date;
-                news.post_excerpt = m.post_excerpt;
-                news.post_modified = m.post_modified;
-                news.post_content = m.post_content;
-                news.term_id = [NSNumber numberWithInt:type];
-                news.feature_image = m.feature_image;
-                NSError * error = nil;
-                BOOL isSaveSuccess = [myDelegate.managedObjectContext save:&error];
-                if (isSaveSuccess && error == nil) {
-                }
-                else {
-                    NSLog(@"%@", error);
-                }
+            else{
+                [dataArray insertObject:m atIndex:0];
             }
-            @catch (NSException *exception) {
-                [myDelegate.managedObjectContext rollback];
-            }
-            
-            @finally {
-                
-            }        }
+        }
         // 当数据处理完毕
         if (finished != NULL) {
             finished(YES, dataArray);
@@ -115,14 +85,7 @@
         [HelperFuc getDataFromNetWork:2 finished:finished];
     }
     else{
-        AppDelegate * myDelegate = [[UIApplication sharedApplication]delegate];
-        NSManagedObjectContext * context1 = myDelegate.managedObjectContext;
-        NSFetchRequest * request = [[NSFetchRequest alloc] initWithEntityName:@"News"];
-        NSPredicate * predicate = [NSPredicate predicateWithFormat:@"term_id==%d", 2];
-        NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"post_date" ascending:NO];
-        [request setPredicate:predicate];
-        [request setSortDescriptors:@[sort]];
-        NSArray * result = [context1 executeFetchRequest:request error:nil];
+        NSArray * result = [HelperFuc readJsonData:2];
         finished(YES, result);
     }
 }
@@ -131,14 +94,7 @@
         [HelperFuc getDataFromNetWork:3 finished:finished];
     }
     else{
-        AppDelegate * myDelegate = [[UIApplication sharedApplication]delegate];
-        NSManagedObjectContext * context1 = myDelegate.managedObjectContext;
-        NSFetchRequest * request = [[NSFetchRequest alloc] initWithEntityName:@"News"];
-        NSPredicate * predicate = [NSPredicate predicateWithFormat:@"term_id==%d", 3];
-        NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"post_date" ascending:YES];
-        [request setPredicate:predicate];
-        [request setSortDescriptors:@[sort]];
-        NSArray * result = [context1 executeFetchRequest:request error:nil];
+        NSArray * result = [HelperFuc readJsonData:3];
         finished(YES, result);
     }
 
@@ -149,6 +105,35 @@
             [HelperFuc getDataFromNetWork:3 finished:NULL];
         }
     }];
+}
+
++ (void) writeJsonData: (int)fileType jsonData:(NSData*) jsonData{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"data%d.json", fileType]];
+    [jsonData writeToFile:filePath atomically:YES];
+}
+
++ (NSArray*) readJsonData: (int)fileType{
+    NSMutableArray* dataArray = [NSMutableArray array];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"data%d.json", fileType]];
+    NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:(NSJSONReadingAllowFragments) error:nil];
+    for (NSDictionary * dict in dic) {
+        NewsModel * m = [[NewsModel alloc]init];
+        [m setValuesForKeysWithDictionary:dict];
+        if (m.post_id == nil) {
+            continue;
+        }
+        if (fileType == 2) {
+            [dataArray addObject:m];
+        }
+        else{
+            [dataArray insertObject:m atIndex:0];
+        }
+
+    }
+
+    return dataArray;
 }
 
 

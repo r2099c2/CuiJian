@@ -16,7 +16,7 @@ class TimeLineViewController: UIViewController, UIScrollViewDelegate, UICollecti
     var leftCoverImage:UIImageView!
     var rightCoverImage:UIImageView!
     
-    var data:[News]?
+    var data:[NewsModel]?
     
     func getDataCount() -> Int{
         if self.data != nil{
@@ -45,7 +45,7 @@ class TimeLineViewController: UIViewController, UIScrollViewDelegate, UICollecti
         self.collectionView.showsVerticalScrollIndicator = false
         
         HelperFuc.getAbout(false) { (finished, results) -> Void in
-            self.data = results as? [News]
+            self.data = results as? [NewsModel]
             self.collectionView.reloadData()
         }
         
