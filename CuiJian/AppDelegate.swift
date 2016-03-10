@@ -9,20 +9,17 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 
     var window: UIWindow?
     var songPlayer = SongPlayer()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-//            print("AVAudioSession Category Playback OK")
             do {
                 try AVAudioSession.sharedInstance().setActive(true)
-//                print("AVAudioSession is Active")
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
@@ -41,7 +38,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             defaults.setObject(today, forKey: "lastupdateTime")
         }
         UIScreen.mainScreen().brightness = 1.0;
+        WXApi.registerApp("wxee47d32e7c23bf21")
         return true
+    }
+    
+    func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
+        return WXApi.handleOpenURL(url, delegate: self)
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        return WXApi.handleOpenURL(url, delegate: self)
     }
 
     func applicationWillResignActive(application: UIApplication) {

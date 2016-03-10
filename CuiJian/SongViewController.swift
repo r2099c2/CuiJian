@@ -311,7 +311,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
         style.lineSpacing = 15
         style.alignment = .Center
         let attributes = [NSParagraphStyleAttributeName : style,
-            NSForegroundColorAttributeName: UIColor.whiteColor(),
+            NSForegroundColorAttributeName: UIColor(white: 1, alpha: 0.6),
             NSFontAttributeName: UIFont.systemFontOfSize(15),
             NSKernAttributeName: CGFloat(5)]
         songLyric.attributedText = NSAttributedString(string: songLyric.text, attributes:attributes)

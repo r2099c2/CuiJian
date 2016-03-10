@@ -20,18 +20,19 @@ class CardCollectionViewCell: UICollectionViewCell {
         self.imageView.frame.origin = CGPointZero
         self.addSubview(self.imageView)
         
-        let maskView = UIView(frame: frame)
-        maskView.frame.origin = CGPointZero
-        maskView.backgroundColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 0.9)
-        self.addSubview(maskView)
+        let myMaskView = UIImageView(frame: frame)
+        myMaskView.frame.origin = CGPointZero
+        myMaskView.contentMode = .ScaleAspectFill
+        myMaskView.image = UIImage(named: "aboutCover")
+        self.addSubview(myMaskView)
         
         self.titleLabel = UILabel(frame: CGRect(x: 32, y: 24, width: frame.width - 64, height: 48))
-        self.titleLabel.textColor = UIColor(red: 49.0/255.0, green: 44.0/255.0, blue: 23.0/255.0, alpha: 1)
+        self.titleLabel.textColor = UIColor(white: 1, alpha: 0.8)
         self.titleLabel.font = UIFont(name: "Georgia", size: 36)//UIFont.systemFontOfSize(36, weight: UIFontWeightLight)
         self.addSubview(self.titleLabel)
         
         self.contentLabel = UILabel(frame: CGRect(x: 32, y: 84, width: frame.width - 64, height: frame.height - 100))
-        self.contentLabel.textColor = UIColor(red: 49.0/255.0, green: 44.0/255.0, blue: 23.0/255.0, alpha: 1)
+        self.contentLabel.textColor = UIColor(white: 1, alpha: 0.9)
         self.contentLabel.numberOfLines = 0
         if #available(iOS 8.2, *) {
             self.contentLabel.font = UIFont.systemFontOfSize(13, weight: UIFontWeightLight)

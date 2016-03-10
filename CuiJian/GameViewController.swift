@@ -30,12 +30,17 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
     let groundPos :CGFloat = -20
     var ufoNode :SCNNode?
     var player:AVAudioPlayer?
+    var clickPlayer:AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.sceneView.alpha = 0
         do {
             try self.player = AVAudioPlayer(contentsOfURL: NSURL(string: NSBundle.mainBundle().pathForResource("bg", ofType: "mp3")!)!)
             self.player?.numberOfLoops = Int.max
+            
+            try self.clickPlayer = AVAudioPlayer(contentsOfURL: NSURL(string: NSBundle.mainBundle().pathForResource("click", ofType: "mp3")!)!)
+            self.clickPlayer?.numberOfLoops = 0
         } catch {
             print("wrong audio")
         }
@@ -82,20 +87,24 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let controller = storyboard.instantiateViewControllerWithIdentifier("songViewController") as UIViewController
                 self.navigationController!.pushViewController(controller, animated: true)
+                self.clickPlayer?.play()
             }
             else if hitedNode.name?.hasPrefix("ufo_") == true{
                 let newsController:NewsViewController = NewsViewController();
                 self.navigationController!.pushViewController(newsController, animated: true)
+                self.clickPlayer?.play()
             }
             else if hitedNode.name?.hasPrefix("team_") == true{
                 let storyboard = UIStoryboard(name: "MVStoryboard", bundle: nil)
                 let controller = storyboard.instantiateViewControllerWithIdentifier("aboutController") as UIViewController
                 self.navigationController!.pushViewController(controller, animated: true)
+                self.clickPlayer?.play()
             }
             else if hitedNode.name?.hasPrefix("mvs_") == true{
                 let storyboard = UIStoryboard(name: "MVStoryboard", bundle: nil)
                 let controller = storyboard.instantiateViewControllerWithIdentifier("MvController") as UIViewController
                 self.navigationController!.pushViewController(controller, animated: true)
+                self.clickPlayer?.play()
             }
         }
     }
@@ -248,7 +257,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         rootScene.rootNode.addChildNode(girl1)
         
         self.ufoNode = addNode(0, fileName: "UFO/UFO.dae", namePre: "ufo_")
-        self.ufoNode!.position = SCNVector3(50, self.groundPos + 10, 0)
+        self.ufoNode!.position = SCNVector3(50, self.groundPos, 0)
         self.ufoNode!.scale = SCNVector3(8,8,8)
         let spin = CABasicAnimation(keyPath: "rotation")
         spin.fromValue = NSValue(SCNVector4: SCNVector4(x: 0, y: 1, z: 0, w: 0))
@@ -257,6 +266,15 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         spin.repeatCount = .infinity
         self.ufoNode!.addAnimation(spin, forKey: "ufoAni")
         rootScene.rootNode.addChildNode(self.ufoNode!)
+        let spin2 = CABasicAnimation(keyPath: "transform.translation.y")
+        spin2.fromValue = NSNumber(float: Float(self.groundPos))
+        spin2.toValue = NSNumber(float: Float(self.groundPos + 20.0))
+        spin2.duration = 6
+        spin2.autoreverses = true
+        spin2.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        spin2.repeatCount = .infinity
+        self.ufoNode!.addAnimation(spin2, forKey: "mvsAni")
+
         
         let ufoText = SCNNode()
         ufoText.name = "ufo_Text"
@@ -282,7 +300,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         rootScene.rootNode.addChildNode(teamCuijianText)
     
         let lavaBall = addNode(0, fileName: "aboutCuijian/LavaBall.dae", namePre: "mvs_")
-        lavaBall.position = SCNVector3(-50, -15, 0)
+        lavaBall.position = SCNVector3(-50, -20, 0)
         lavaBall.scale = SCNVector3(1500,1500,1500)
         rootScene.rootNode.addChildNode(lavaBall)
         
@@ -293,6 +311,15 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         lavaBallText.position = SCNVector3(-50, 40, 0)
         lavaBallText.rotation = SCNVector4Make(0, 1, 0, Float(M_PI/2))
         rootScene.rootNode.addChildNode(lavaBallText)
+        let spin1 = CABasicAnimation(keyPath: "transform.translation.y")
+        spin1.fromValue = NSNumber(double: -20.0)
+        spin1.toValue = NSNumber(double: -10.0)
+        spin1.duration = 3
+        spin1.autoreverses = true
+        spin1.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        spin1.repeatCount = .infinity
+        lavaBall.addAnimation(spin1, forKey: "mvsAni")
+
         
         let stone = addNode("star/Star_2.dae");
         stone.scale = SCNVector3(12, 12, 12)
@@ -316,6 +343,10 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         starStone2.position = SCNVector3(50, 15, 70)
         rootScene.rootNode.addChildNode(starStone2)
         
+        
+        UIView.animateWithDuration(1) { () -> Void in
+            self.sceneView.alpha = 1
+        }
     }
     
     func addNode(fileName: String) -> SCNNode{
@@ -402,13 +433,13 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         if self.cameraRollNode != nil && self.cameraPitchNode != nil && self.cameraYawNode != nil && self.motionManager!.deviceMotion != nil{
             self.cameraRollNode!.eulerAngles.z = -Float(self.motionManager!.deviceMotion!.attitude.roll)
             self.cameraPitchNode!.eulerAngles.x = Float(self.motionManager!.deviceMotion!.attitude.pitch)
-            self.cameraYawNode!.eulerAngles.y = Float(self.motionManager!.deviceMotion!.attitude.yaw)
+            self.cameraYawNode!.eulerAngles.y = Float(self.motionManager!.deviceMotion!.attitude.yaw + M_PI)
         }
     }
     
     // MARK: - Video
     func loadVideo() {
-        let path = NSBundle.mainBundle().pathForResource("ice", ofType:"mov")
+        let path = NSBundle.mainBundle().pathForResource("ice", ofType:"mp4")
         let url = NSURL(fileURLWithPath: path!)
         if let moviePlayer = MPMoviePlayerController(contentURL: url) {
             self.icePlayer = moviePlayer
@@ -438,10 +469,14 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
     }
     
     func videoEnd() {
-        self.initSence()
-        self.icePlayer = nil
-        self.videoView?.removeFromSuperview()
-        self.videoView = nil
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.videoView?.alpha = 0
+            }) { (finished) -> Void in
+                self.videoView?.removeFromSuperview()
+                self.videoView = nil
+                self.initSence()
+                self.icePlayer = nil
+        }
     }
     
     // guide view
@@ -461,35 +496,6 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
                 self.guideView = nil
         }
     }
-    /*
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let target = segue.destinationViewController as! UINavigationController
-        target.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        target.navigationBar.shadowImage = UIImage()
-        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.None)
-
-        if self.clicked == 1{
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewControllerWithIdentifier("songViewController") as UIViewController
-            target.pushViewController(controller, animated: true)
-        }
-        else if self.clicked == 2{
-            let newsController:NewsViewController = NewsViewController();
-            target.pushViewController(newsController, animated: true)
-        }
-        else if self.clicked == 3{
-            let storyboard = UIStoryboard(name: "MVStoryboard", bundle: nil)
-            let controller = storyboard.instantiateViewControllerWithIdentifier("aboutController") as UIViewController
-            target.pushViewController(controller, animated: true)
-        }
-        else if self.clicked == 4{
-            let storyboard = UIStoryboard(name: "MVStoryboard", bundle: nil)
-            let controller = storyboard.instantiateViewControllerWithIdentifier("MvController") as UIViewController
-            target.pushViewController(controller, animated: true)
-        }
-        self.clicked = 0
-    }
-    */
     
 }
 

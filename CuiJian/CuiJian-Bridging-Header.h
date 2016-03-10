@@ -9,3 +9,4 @@
 #import "HelperFuc.h"
 #import <CoreData/CoreData.h>
 #import "UIImageView+WebCache.h"
+#import "WXApi.h"

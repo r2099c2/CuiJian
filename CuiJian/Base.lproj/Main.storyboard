@@ -112,8 +112,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sat-RY-OEa" userLabel="MVBt">
                                                 <rect key="frame" x="0.0" y="105" width="320" height="105"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MV" translatesAutoresizingMaskIntoConstraints="NO" id="j6m-Bu-Wpk">
-                                                        <rect key="frame" x="-8" y="-10.5" width="336" height="126"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="MV" translatesAutoresizingMaskIntoConstraints="NO" id="j6m-Bu-Wpk">
+                                                        <rect key="frame" x="-8" y="-11" width="336" height="127"/>
                                                     </imageView>
                                                     <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9W-25-u1F">
                                                         <rect key="frame" x="0.0" y="50" width="320" height="105"/>
@@ -149,8 +149,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4NL-CI-FYF" userLabel="aboutCuijianBt">
                                                 <rect key="frame" x="0.0" y="210" width="320" height="105"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutCuijian" translatesAutoresizingMaskIntoConstraints="NO" id="GGo-ma-v7m">
-                                                        <rect key="frame" x="-8" y="-10.5" width="336" height="126"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="aboutCuijian" translatesAutoresizingMaskIntoConstraints="NO" id="GGo-ma-v7m">
+                                                        <rect key="frame" x="-8" y="-11" width="336" height="127"/>
                                                     </imageView>
                                                     <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YVs-JR-SR4">
                                                         <rect key="frame" x="0.0" y="50" width="320" height="105"/>
@@ -223,8 +223,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iis-HM-ams" userLabel="aboutAppBt">
                                                 <rect key="frame" x="0.0" y="420" width="320" height="104"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutApp" translatesAutoresizingMaskIntoConstraints="NO" id="NU2-uy-frX">
-                                                        <rect key="frame" x="-8" y="-10.5" width="336" height="125"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="aboutApp" translatesAutoresizingMaskIntoConstraints="NO" id="NU2-uy-frX">
+                                                        <rect key="frame" x="-8" y="-11" width="336" height="126"/>
                                                     </imageView>
                                                     <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QB-Dz-3IN">
                                                         <rect key="frame" x="0.0" y="50" width="320" height="104"/>
@@ -359,7 +359,7 @@
                                                 <fontDescription key="fontDescription" name="PingFangSC-Ultralight" family="PingFang SC" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="设计及开发" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hnN-ZS-ZEP">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="创意及实现" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hnN-ZS-ZEP">
                                                 <rect key="frame" x="0.0" y="1008" width="76" height="30"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -371,7 +371,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="3D模型" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J4r-2J-gMc">
-                                                <rect key="frame" x="0.0" y="1054" width="52" height="30"/>
+                                                <rect key="frame" x="0.0" y="1046" width="52" height="30"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="Ft5-ch-c7Y"/>
@@ -396,7 +396,7 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFc-9E-1Sd">
-                                                <rect key="frame" x="0.0" y="1115" width="280" height="44"/>
+                                                <rect key="frame" x="0.0" y="1107" width="280" height="44"/>
                                                 <color key="backgroundColor" red="0.53333333329999999" green="0.51372549020000002" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="XeM-D2-if9"/>
@@ -409,7 +409,7 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xiangLogo" translatesAutoresizingMaskIntoConstraints="NO" id="xUr-WY-OtM">
-                                                <rect key="frame" x="60" y="1054" width="137" height="30"/>
+                                                <rect key="frame" x="60" y="1046" width="137" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="137" id="YAe-Fv-f2F"/>
                                                     <constraint firstAttribute="height" constant="30" id="bPr-ij-vA3"/>
@@ -427,9 +427,9 @@
 
 迈向转变的第四年，也是暌违10载，崔健携全新专辑《光冻》强势回归。这是一张跟光有关系的专辑。当光成为枷锁的时候，自由就是黑暗的！当城市和田野在强光的笼罩之下时，沙漠就是自由的！一个来自黄土的泥娃，更有仰望星空的权利！也许这个泥娃正是我们身上的半两灵气，拒绝城市和教育的污染，被海风吹入沙漠之中。仅有的雨水将其固化，烈日之下形成了躯体。在等待着［外面的妞］的救援。就像鱼与鸟之间隔阂着一个宇宙一样。一次［鱼鸟之恋］就是一次星际的穿越。当你随着我一起［死不回头］地撞透了南墙，听完这张专辑；你看到的就是如上的那般景色。</string>
                                                         <attributes>
-                                                            <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="NSColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                                             <font key="NSFont" size="15" name="PingFangSC-Regular"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.3" tighteningFactorForTruncation="0.0"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.3" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
@@ -443,7 +443,7 @@
                                             <constraint firstItem="xUr-WY-OtM" firstAttribute="leading" secondItem="J4r-2J-gMc" secondAttribute="trailing" constant="8" id="Gsc-yv-XHQ"/>
                                             <constraint firstItem="xUr-WY-OtM" firstAttribute="centerY" secondItem="J4r-2J-gMc" secondAttribute="centerY" id="MBn-oy-YT3"/>
                                             <constraint firstAttribute="height" constant="1175" id="Nkw-7I-Z2Z"/>
-                                            <constraint firstItem="J4r-2J-gMc" firstAttribute="top" secondItem="hnN-ZS-ZEP" secondAttribute="bottom" constant="16" id="Tsx-fW-kwR"/>
+                                            <constraint firstItem="J4r-2J-gMc" firstAttribute="top" secondItem="hnN-ZS-ZEP" secondAttribute="bottom" constant="8" id="Tsx-fW-kwR"/>
                                             <constraint firstAttribute="trailing" secondItem="yFc-9E-1Sd" secondAttribute="trailing" id="WF7-pf-xlE"/>
                                             <constraint firstItem="yFc-9E-1Sd" firstAttribute="top" secondItem="J4r-2J-gMc" secondAttribute="bottom" constant="31" id="WFt-v8-BdC"/>
                                             <constraint firstItem="6c1-Rt-5gQ" firstAttribute="leading" secondItem="m05-sz-aCa" secondAttribute="leading" id="WZr-rK-qhf"/>
@@ -676,7 +676,7 @@
                                                     <rect key="frame" x="0.0" y="28" width="328" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="99v-70-frk" id="ij2-Uu-o9A">
-                                                        <rect key="frame" x="0.0" y="0.0" width="328" height="49.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="328" height="50"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="wil-EQ-b4c">

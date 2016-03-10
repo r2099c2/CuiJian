@@ -17,7 +17,6 @@
 		1D57B0551C43BC0C001C18F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D57B0541C43BC0C001C18F7 /* Assets.xcassets */; };
 		1D57B0581C43BC0C001C18F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D57B0561C43BC0C001C18F7 /* LaunchScreen.storyboard */; };
 		1DB0523C1C5B784B00EEB58E /* SongListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0523B1C5B784B00EEB58E /* SongListViewController.swift */; };
-		1DBB180C1C8020D10064C6F4 /* ice.mov in Resources */ = {isa = PBXBuildFile; fileRef = 1DBB180B1C8020D10064C6F4 /* ice.mov */; };
 		1DBB180E1C80479C0064C6F4 /* VideoControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DBB180D1C80479C0064C6F4 /* VideoControlView.xib */; };
 		1DBB18101C8056120064C6F4 /* GuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DBB180F1C8056120064C6F4 /* GuideView.xib */; };
 		1DBF528F1C7B2493002734FF /* SongPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBF528E1C7B2493002734FF /* SongPlayer.swift */; };
@@ -65,6 +64,14 @@
 		42765A551C5F39C700047A55 /* mv1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 42538DEA1C5F1A0B0064935E /* mv1.mp4 */; };
 		42765A561C5F39C700047A55 /* mv2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 42538DEB1C5F1A1A0064935E /* mv2.mp4 */; };
 		42E68CB21C61ECCC00194E45 /* HelperFuc.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E68CB11C61ECCC00194E45 /* HelperFuc.m */; };
+		42EC07E01C91628E0084219B /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42EC07DD1C91628E0084219B /* libWeChatSDK.a */; };
+		42EC07E21C9163400084219B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42EC07E11C9163400084219B /* SystemConfiguration.framework */; };
+		42EC07E41C9163570084219B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 42EC07E31C9163570084219B /* libz.tbd */; };
+		42EC07E61C9163620084219B /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 42EC07E51C9163620084219B /* libsqlite3.0.tbd */; };
+		42EC07E81C91636D0084219B /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 42EC07E71C91636D0084219B /* libc++.tbd */; };
+		42EC07EA1C91689C0084219B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42EC07E91C91689C0084219B /* CoreTelephony.framework */; };
+		42EC07EC1C9178F10084219B /* ice.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 42EC07EB1C9178F10084219B /* ice.mp4 */; };
+		42EC07EE1C91799A0084219B /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42EC07ED1C91799A0084219B /* click.mp3 */; };
 		42FECA611C7C1B5100BB78E4 /* CardCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FECA601C7C1B5100BB78E4 /* CardCollectionViewLayout.swift */; };
 		42FECA631C7C1BC500BB78E4 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FECA621C7C1BC500BB78E4 /* CardCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -82,7 +89,6 @@
 		1D57B0571C43BC0C001C18F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D57B0591C43BC0C001C18F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DB0523B1C5B784B00EEB58E /* SongListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongListViewController.swift; sourceTree = "<group>"; };
-		1DBB180B1C8020D10064C6F4 /* ice.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = ice.mov; sourceTree = "<group>"; };
 		1DBB180D1C80479C0064C6F4 /* VideoControlView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoControlView.xib; sourceTree = "<group>"; };
 		1DBB180F1C8056120064C6F4 /* GuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GuideView.xib; path = ../GuideView.xib; sourceTree = "<group>"; };
 		1DBF528E1C7B2493002734FF /* SongPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongPlayer.swift; sourceTree = "<group>"; };
@@ -156,6 +162,16 @@
 		4271F81D1C7AF7AE002A1F56 /* TimeLineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
 		42E68CB11C61ECCC00194E45 /* HelperFuc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperFuc.m; sourceTree = "<group>"; };
 		42E68CB31C61ED8C00194E45 /* HelperFuc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelperFuc.h; sourceTree = "<group>"; };
+		42EC07DD1C91628E0084219B /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		42EC07DE1C91628E0084219B /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		42EC07DF1C91628E0084219B /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		42EC07E11C9163400084219B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		42EC07E31C9163570084219B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		42EC07E51C9163620084219B /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		42EC07E71C91636D0084219B /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		42EC07E91C91689C0084219B /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		42EC07EB1C9178F10084219B /* ice.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ice.mp4; sourceTree = "<group>"; };
+		42EC07ED1C91799A0084219B /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
 		42FECA601C7C1B5100BB78E4 /* CardCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionViewLayout.swift; sourceTree = "<group>"; };
 		42FECA621C7C1BC500BB78E4 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		6F96F82292D284480C76E61B /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +182,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42EC07EA1C91689C0084219B /* CoreTelephony.framework in Frameworks */,
+				42EC07E81C91636D0084219B /* libc++.tbd in Frameworks */,
+				42EC07E61C9163620084219B /* libsqlite3.0.tbd in Frameworks */,
+				42EC07E41C9163570084219B /* libz.tbd in Frameworks */,
+				42EC07E21C9163400084219B /* SystemConfiguration.framework in Frameworks */,
+				42EC07E01C91628E0084219B /* libWeChatSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +258,7 @@
 		1DE982A61C61FBAC00014268 /* Songs */ = {
 			isa = PBXGroup;
 			children = (
+				42EC07ED1C91799A0084219B /* click.mp3 */,
 				424B67FE1C881E3600FFA25B /* bg.mp3 */,
 				1DEC520D1C7C340200BCDD50 /* 01guangdong.mp3 */,
 				1DEC520E1C7C340200BCDD50 /* 02sibuhuitou.mp3 */,
@@ -254,7 +277,7 @@
 		4212F7E71C5A121400C6BA6F /* mvs */ = {
 			isa = PBXGroup;
 			children = (
-				1DBB180B1C8020D10064C6F4 /* ice.mov */,
+				42EC07EB1C9178F10084219B /* ice.mp4 */,
 				42538DEA1C5F1A0B0064935E /* mv1.mp4 */,
 				42538DEB1C5F1A1A0064935E /* mv2.mp4 */,
 			);
@@ -264,6 +287,7 @@
 		4212F7F11C5B4D1200C6BA6F /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				42EC07DC1C9162730084219B /* weixinSDK */,
 				424CE5831C7EE84A007E01BF /* SVPullToRefresh */,
 				4212F83E1C5B702000C6BA6F /* SDWebImage */,
 				4212F7F21C5B4D3400C6BA6F /* KRVideoPlayer */,
@@ -420,9 +444,24 @@
 			path = SVPullToRefresh;
 			sourceTree = "<group>";
 		};
+		42EC07DC1C9162730084219B /* weixinSDK */ = {
+			isa = PBXGroup;
+			children = (
+				42EC07DD1C91628E0084219B /* libWeChatSDK.a */,
+				42EC07DE1C91628E0084219B /* WXApi.h */,
+				42EC07DF1C91628E0084219B /* WXApiObject.h */,
+			);
+			name = weixinSDK;
+			sourceTree = "<group>";
+		};
 		B707B4E3C282D2476CA8ACD3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42EC07E91C91689C0084219B /* CoreTelephony.framework */,
+				42EC07E71C91636D0084219B /* libc++.tbd */,
+				42EC07E51C9163620084219B /* libsqlite3.0.tbd */,
+				42EC07E31C9163570084219B /* libz.tbd */,
+				42EC07E11C9163400084219B /* SystemConfiguration.framework */,
 				6F96F82292D284480C76E61B /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -492,7 +531,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DBB180C1C8020D10064C6F4 /* ice.mov in Resources */,
 				1DEC52181C7C340200BCDD50 /* 03yuniaozhilian.mp3 in Resources */,
 				42765A551C5F39C700047A55 /* mv1.mp4 in Resources */,
 				42765A561C5F39C700047A55 /* mv2.mp4 in Resources */,
@@ -502,9 +540,11 @@
 				1DEC52161C7C340200BCDD50 /* 01guangdong.mp3 in Resources */,
 				424B67FF1C881E3600FFA25B /* bg.mp3 in Resources */,
 				1D315CA81C589CEB00935D41 /* art.scnassets in Resources */,
+				42EC07EC1C9178F10084219B /* ice.mp4 in Resources */,
 				1D57B0551C43BC0C001C18F7 /* Assets.xcassets in Resources */,
 				1DEC521D1C7C340200BCDD50 /* 08hunshuihumanbu.mp3 in Resources */,
 				1DEC521A1C7C340200BCDD50 /* 05kuguashu.mp3 in Resources */,
+				42EC07EE1C91799A0084219B /* click.mp3 in Resources */,
 				1DBB180E1C80479C0064C6F4 /* VideoControlView.xib in Resources */,
 				421AF2A41C587BAA00E9D63B /* MVStoryboard.storyboard in Resources */,
 				1D57B0531C43BC0C001C18F7 /* Main.storyboard in Resources */,
@@ -680,7 +720,11 @@
 				INFOPLIST_FILE = CuiJian/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.logicdesign.CuiJian;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CuiJian",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cn.logicdesign.CuiJian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CuiJian/CuiJian-Bridging-Header.h";
@@ -699,7 +743,11 @@
 				INFOPLIST_FILE = CuiJian/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.logicdesign.CuiJian;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CuiJian",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cn.logicdesign.CuiJian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CuiJian/CuiJian-Bridging-Header.h";

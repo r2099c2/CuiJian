@@ -8,7 +8,7 @@
 
 import UIKit
 
-class aboutViewController: UIViewController {
+class aboutViewController: UIViewController, UIActionSheetDelegate {
 
     @IBOutlet weak var aboutBg: UIImageView!
     @IBOutlet weak var textView: UITextView!
@@ -32,13 +32,11 @@ class aboutViewController: UIViewController {
             options: .UsesLineFragmentOrigin, context: nil)
         textViewHeight.constant = rect!.height + 60
         contentViewHeight.constant = contentView.bounds.height + (rect!.height - textView.bounds.height + 60)
-        print("\(uiScreenWidth - 40)");
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         HelperFuc.bgParrallax(aboutBg)
-        print("\(textView.bounds.width)")
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -52,11 +50,45 @@ class aboutViewController: UIViewController {
     
     
     @IBAction func share(sender: UIButton) {
+        
+        let actionSheet = UIActionSheet(title: nil, delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: nil, otherButtonTitles: "分享到微信朋友圈", "分享给微信好友", "更多选项")
+        
+        actionSheet.showInView(self.view)
+        
+        /*
         //TODO: Change URL
-        let url = NSURL(string: "https://itunes.apple.com/app/63-bits/id1016437119")
         
-        let controller:UIActivityViewController = UIActivityViewController(activityItems: [url!], applicationActivities: nil)
+        */
+    }
+    
+    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+        let message = WXMediaMessage()
+        message.title = "分享崔健"
+        message.description = "分享崔健描述"
+        message.setThumbImage(UIImage(named: "AppIcon"))
+        let url = WXWebpageObject()
+        url.webpageUrl = "https://itunes.apple.com/app/cui-jianapp/id1091981718"
+        message.mediaObject = url
+        let req = SendMessageToWXReq()
+        req.bText = false
+        req.message = message
         
-        self.presentViewController(controller, animated: true, completion: nil)
+        switch buttonIndex{
+        case 1:
+            req.scene = Int32(WXSceneTimeline.rawValue)
+            WXApi.sendReq(req)
+            break
+        case 2:
+            req.scene = Int32(WXSceneSession.rawValue)
+            WXApi.sendReq(req)
+            break
+        case 3:
+            let url = NSURL(string: "https://itunes.apple.com/app/cui-jianapp/id1091981718")
+            let controller:UIActivityViewController = UIActivityViewController(activityItems: [url!], applicationActivities: nil)
+            self.presentViewController(controller, animated: true, completion: nil)
+            break
+        default:
+            break
+        }
     }
 }
