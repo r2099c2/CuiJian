@@ -112,8 +112,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sat-RY-OEa" userLabel="MVBt">
                                                 <rect key="frame" x="0.0" y="105" width="320" height="105"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="MV" translatesAutoresizingMaskIntoConstraints="NO" id="j6m-Bu-Wpk">
-                                                        <rect key="frame" x="-8" y="-11" width="336" height="127"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MV" translatesAutoresizingMaskIntoConstraints="NO" id="j6m-Bu-Wpk">
+                                                        <rect key="frame" x="-8" y="-10.5" width="336" height="126"/>
                                                     </imageView>
                                                     <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9W-25-u1F">
                                                         <rect key="frame" x="0.0" y="50" width="320" height="105"/>
@@ -149,8 +149,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4NL-CI-FYF" userLabel="aboutCuijianBt">
                                                 <rect key="frame" x="0.0" y="210" width="320" height="105"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="aboutCuijian" translatesAutoresizingMaskIntoConstraints="NO" id="GGo-ma-v7m">
-                                                        <rect key="frame" x="-8" y="-11" width="336" height="127"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutCuijian" translatesAutoresizingMaskIntoConstraints="NO" id="GGo-ma-v7m">
+                                                        <rect key="frame" x="-8" y="-10.5" width="336" height="126"/>
                                                     </imageView>
                                                     <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YVs-JR-SR4">
                                                         <rect key="frame" x="0.0" y="50" width="320" height="105"/>
@@ -223,8 +223,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iis-HM-ams" userLabel="aboutAppBt">
                                                 <rect key="frame" x="0.0" y="420" width="320" height="104"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="aboutApp" translatesAutoresizingMaskIntoConstraints="NO" id="NU2-uy-frX">
-                                                        <rect key="frame" x="-8" y="-11" width="336" height="126"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutApp" translatesAutoresizingMaskIntoConstraints="NO" id="NU2-uy-frX">
+                                                        <rect key="frame" x="-8" y="-10.5" width="336" height="125"/>
                                                     </imageView>
                                                     <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QB-Dz-3IN">
                                                         <rect key="frame" x="0.0" y="50" width="320" height="104"/>
@@ -676,7 +676,7 @@
                                                     <rect key="frame" x="0.0" y="28" width="328" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="99v-70-frk" id="ij2-Uu-o9A">
-                                                        <rect key="frame" x="0.0" y="0.0" width="328" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="328" height="49.5"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="wil-EQ-b4c">
@@ -812,7 +812,7 @@
         <image name="newsBt" width="100" height="75"/>
         <image name="rightArrow" width="8" height="13"/>
         <image name="songBgImage" width="414" height="736"/>
-        <image name="songBgParaImage" width="471" height="790"/>
+        <image name="songBgParaImage" width="471" height="791"/>
         <image name="songListBtn" width="26" height="16"/>
         <image name="splitor" width="346" height="1"/>
         <image name="xiangLogo" width="129" height="13"/>

@@ -116,35 +116,16 @@
                                     </constraint>
                                 </constraints>
                             </scrollView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="pointer" translatesAutoresizingMaskIntoConstraints="NO" id="Qa2-LW-dfB">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="8" id="0Ad-0i-7cY"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="0Ad-0i-7cY"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="0Ad-0i-7cY"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="NcA-xo-Hp3" firstAttribute="width" secondItem="JxB-Ve-ejj" secondAttribute="width" id="05j-dU-NEC"/>
-                            <constraint firstItem="Qa2-LW-dfB" firstAttribute="width" secondItem="JxB-Ve-ejj" secondAttribute="width" id="EUR-LX-8IS"/>
                             <constraint firstItem="NcA-xo-Hp3" firstAttribute="centerX" secondItem="JxB-Ve-ejj" secondAttribute="centerX" id="Eh7-2j-Kep"/>
-                            <constraint firstItem="Qa2-LW-dfB" firstAttribute="centerX" secondItem="JxB-Ve-ejj" secondAttribute="centerX" id="F8E-hk-q9X"/>
                             <constraint firstItem="NcA-xo-Hp3" firstAttribute="centerY" secondItem="JxB-Ve-ejj" secondAttribute="centerY" id="MfK-fs-yIf"/>
                             <constraint firstItem="7oD-Xo-hkc" firstAttribute="width" secondItem="JxB-Ve-ejj" secondAttribute="width" id="YDB-f2-4Kk"/>
                             <constraint firstItem="VXj-su-O5a" firstAttribute="centerY" secondItem="JxB-Ve-ejj" secondAttribute="centerY" id="d9t-0D-trt"/>
                             <constraint firstItem="VXj-su-O5a" firstAttribute="centerX" secondItem="JxB-Ve-ejj" secondAttribute="centerX" id="dvB-TV-mDA"/>
                             <constraint firstItem="VXj-su-O5a" firstAttribute="height" secondItem="JxB-Ve-ejj" secondAttribute="height" id="esg-n2-zgX"/>
-                            <constraint firstItem="Qa2-LW-dfB" firstAttribute="top" secondItem="7oD-Xo-hkc" secondAttribute="top" id="hFJ-pu-31d"/>
                             <constraint firstItem="NcA-xo-Hp3" firstAttribute="height" secondItem="JxB-Ve-ejj" secondAttribute="height" id="iW5-0l-DYA"/>
                             <constraint firstItem="7oD-Xo-hkc" firstAttribute="centerX" secondItem="JxB-Ve-ejj" secondAttribute="centerX" id="nSY-8S-yby"/>
                             <constraint firstItem="EJA-EW-XaI" firstAttribute="top" secondItem="7oD-Xo-hkc" secondAttribute="bottom" id="u4d-rW-ERp"/>
@@ -196,6 +177,5 @@
         <image name="backArrow" width="13" height="21"/>
         <image name="mvBackground" width="414" height="736"/>
         <image name="mvForzenlight" width="56" height="126"/>
-        <image name="pointer" width="414" height="7"/>
     </resources>
 </document>
