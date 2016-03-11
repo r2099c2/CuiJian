@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "ldLogo.png",
+      "filename" : "logicdesign.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ldLogo2.png",
+      "filename" : "logicdesign@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ldLogo3.png",
+      "filename" : "logicdesign@3x.png",
       "scale" : "3x"
     }
   ],
