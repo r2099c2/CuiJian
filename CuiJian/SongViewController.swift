@@ -21,6 +21,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
             songScrollView.delegate = self
         }
     }
+    @IBOutlet weak var titlecons: NSLayoutConstraint!
     
     @IBOutlet weak var songTitle: UIImageView!
     
@@ -53,10 +54,11 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
     var player =  (UIApplication.sharedApplication().delegate as! AppDelegate).songPlayer
     
     var pageScrollViewSize:CGSize!
-    
+    /*
     var lyricHeight: CGFloat?
     var lyricTop: CGFloat?
     var songTitleTop: CGFloat?
+    */
     var isCompressed: Bool = true
         
     @IBOutlet weak var loadingImg: UIActivityIndicatorView!
@@ -66,6 +68,8 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
         
         HelperFuc.bgParrallax(bgImageView, maximumRelativeValue: 20)
         HelperFuc.bgParrallax(bgParaImage, maximumRelativeValue: -20)
+        
+        self.songTitle.tag = 1
         
         // 防止溢出，解决返回超出的bug
         self.view.layer.masksToBounds = true
@@ -122,19 +126,19 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
-        updateSizeData()
+        //updateSizeData()
     }
     
     func changeSongIndex(index: Int) {
         songScrollView.setContentOffset(CGPoint(x: pageScrollViewSize.width * CGFloat(index), y: 0), animated: true)
     }
-    
+    /*
     func updateSizeData() {
         lyricHeight = self.songLyric.bounds.height
         lyricTop = self.songLyric.frame.origin.y
         songTitleTop = self.songTitle.frame.origin.y
     }
-    
+    */
     func loadPage(page: Int) {
         if page < 0 || page >= songData.count {
             return
@@ -356,25 +360,31 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
     func songTextGestureAction(pan: UIPanGestureRecognizer) {
         let songTitleTopOffset: CGFloat = 80
         let songScrollViewAlphaParameter: CGFloat = 300
+        /*
         let songTitleBottomOffset = self.songScrollView.bounds.height + self.songScrollView.frame.origin.y + 15.0
         let songLyricSpacingToTitleNotCompress: CGFloat = 40
         let songLyricSpacingToBottomNotCompress: CGFloat = 50
         let songLyricSpacingToBottomCompress: CGFloat = 20
+        */
         // scrollbar on the top
-        if songLyric.contentOffset.y <= CGPointZero.y {
+        if songLyric.contentOffset.y <= CGPointZero.y || pan.view?.tag == 1{
             let translationInView = pan.translationInView(self.view).y
-            let tanslationABS = abs(translationInView)
-            if isCompressed && translationInView < 0 {
+            let tanslationABS = translationInView
+            if isCompressed {
                 
                 switch pan.state {
                 case .Changed:
                     if songTitle.frame.origin.y > 30 {
+                        /*
                         self.songLyric.bounds.size.height = tanslationABS + lyricHeight!
                         self.songLyric.frame.origin.y = lyricTop! - tanslationABS
-                        if self.songScrollView.alpha > 0.0 {
-                            self.songScrollView.alpha = (songScrollViewAlphaParameter - tanslationABS) / songScrollViewAlphaParameter
-                        }
                         self.songTitle.frame.origin.y = songTitleTop! - tanslationABS
+                        */
+                        if self.songScrollView.alpha > 0.0 {
+                            self.songScrollView.alpha = (songScrollViewAlphaParameter + tanslationABS) / songScrollViewAlphaParameter
+                        }
+                        titlecons.constant = 15 + tanslationABS
+                        self.view.layoutIfNeeded()
                     }
                     break
                 case .Ended:
@@ -382,30 +392,41 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
                 case .Cancelled:
                     fallthrough
                 case .Failed:
+                    self.songLyric.scrollEnabled = true
+
                     UIView.animateWithDuration(0.2, animations: { () -> Void in
                         self.songScrollView.alpha = 0.0
+                        self.titlecons.constant = songTitleTopOffset - self.songScrollView.frame.maxY
+                        self.view.layoutIfNeeded()
+
+                        /*
                         self.songTitle.frame.origin.y = songTitleTopOffset
                         self.songLyric.bounds.size.height = self.view.bounds.height - self.songTitle.bounds.height - songTitleTopOffset - songLyricSpacingToBottomNotCompress
                         self.songLyric.frame.origin.y = self.songTitle.bounds.height + songTitleTopOffset + songLyricSpacingToTitleNotCompress
+                        */
                         }, completion: { (finish) -> Void in
                             self.songScrollView.hidden = true
-                            self.songLyric.scrollEnabled = true
+                            self.view.layoutIfNeeded()
                             self.isCompressed = false
-                            self.updateSizeData()
+                            //self.updateSizeData()
                     })
                     break
                 default: break
                 }
-            } else if !isCompressed && translationInView > 0 {
+            } else if !isCompressed {
                 self.songScrollView.hidden = false
                 switch pan.state {
                 case .Changed:
-                    self.songLyric.bounds.size.height = lyricHeight! - tanslationABS
-                    self.songLyric.frame.origin.y = lyricTop! + tanslationABS
                     if self.songScrollView.alpha < 1.0 {
                         self.songScrollView.alpha = tanslationABS / songScrollViewAlphaParameter
                     }
+                    titlecons.constant = songTitleTopOffset - self.songScrollView.frame.maxY + tanslationABS
+                    self.view.layoutIfNeeded()
+                    /*
+                    self.songLyric.bounds.size.height = lyricHeight! - tanslationABS
+                    self.songLyric.frame.origin.y = lyricTop! + tanslationABS
                     self.songTitle.frame.origin.y = songTitleTop! + tanslationABS
+                    */
                     break
                 case .Ended:
                     fallthrough
@@ -414,15 +435,18 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
                 case .Failed:
                     
                     UIView.animateWithDuration(0.2, animations: { () -> Void in
+                        self.titlecons.constant = 15
+                        self.view.layoutIfNeeded()
                         self.songScrollView.alpha = 1.0
+                        /*
                         self.songTitle.frame.origin.y = songTitleBottomOffset
                         self.songLyric.bounds.size.height = self.view.bounds.height - self.songTitle.frame.origin.y - self.songTitle.bounds.height - songLyricSpacingToBottomCompress
                         self.songLyric.frame.origin.y = self.songTitle.frame.origin.y + self.songTitle.bounds.height + 15.0
+                        */
                         }, completion: { (finish) -> Void in
                             self.isCompressed = true
-                            self.updateSizeData()
+                            //self.updateSizeData()
                             self.songLyric.scrollEnabled = false
-                            self.songLyric.layoutIfNeeded()
                     })
                     break
                 default: break

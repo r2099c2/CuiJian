@@ -33,10 +33,10 @@ class MVViewController: UIViewController, UICollectionViewDataSource, UICollecti
         self.collectionView.alpha = 0
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
-        UIView.animateWithDuration(0.35, delay: 0.3, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+        UIView.animateWithDuration(0.35, animations: { () -> Void in
             self.frozenLightConstraints.constant = 0
             self.forzenLight.alpha = 1
             self.view.layoutIfNeeded()

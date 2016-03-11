@@ -30,7 +30,7 @@ class MVCell: UICollectionViewCell {
         self.addSubview(self.imageView!)
         
         self.playBt = UIButton(type: UIButtonType.Custom)
-        self.playBt.frame = CGRect(x: self.frame.width * 0.92 - 70, y: self.frame.height * 0.93 - 70, width: 70, height: 70)
+        self.playBt.frame = CGRect(x: self.frame.width * 0.92 - 70, y: self.frame.height * 0.9 - 70, width: 70, height: 70)
         self.playBt.setImage(UIImage(named: "mvplay"), forState: UIControlState.Normal)
         self.addSubview(self.playBt)
 

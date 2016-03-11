@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
             defaults.setObject(today, forKey: "lastupdateTime")
         }
         UIScreen.mainScreen().brightness = 1.0;
-        WXApi.registerApp("wxee47d32e7c23bf21")
+        WXApi.registerApp("wxca0cdbe9306c44da", withDescription: "崔健")
         return true
     }
     

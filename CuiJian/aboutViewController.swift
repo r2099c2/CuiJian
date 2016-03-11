@@ -23,15 +23,12 @@ class aboutViewController: UIViewController, UIActionSheetDelegate {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        let uiScreenWidth: CGFloat = UIScreen.mainScreen().bounds.width
-        
-        let rect = textView.attributedText?.boundingRectWithSize(CGSizeMake(uiScreenWidth - 40, 5000),
+    override func layoutSublayersOfLayer(layer: CALayer) {
+        let rect = textView.attributedText?.boundingRectWithSize(CGSizeMake(self.textView.frame.width, 5000),
             options: .UsesLineFragmentOrigin, context: nil)
-        textViewHeight.constant = rect!.height + 60
-        contentViewHeight.constant = contentView.bounds.height + (rect!.height - textView.bounds.height + 60)
+        textViewHeight.constant = rect!.height + 30
+        contentViewHeight.constant = contentView.bounds.height + (rect!.height - textView.bounds.height + 30)
+
     }
     
     override func viewDidAppear(animated: Bool) {

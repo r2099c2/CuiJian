@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "SongViewController.(songTextGestureAction(SongViewController) -&gt; (UIPanGestureRecognizer) -&gt; ()).(closure #2):SongViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.songLyric.frame.height">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "aboutViewController.viewWillAppear(Bool) -&gt; ():aboutViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "textView.attributedText">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SongViewController.songTextGestureAction(UIPanGestureRecognizer) -&gt; ():SongViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "pan.view?.tag">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
