@@ -77,6 +77,7 @@
     self.newsImg.frame = CGRectMake(20, 8, KscreenWidth/2.8, KscreenWidth/2.8);
     
     self.newsTitle.frame = CGRectMake(CGRectGetMaxX(self.newsImg.frame)+10, CGRectGetMinY(self.newsImg.frame) + 6, KscreenWidth/1.95, KscreenWidth/5);
+    
     CGRect rect = [self.newsTitle.attributedText boundingRectWithSize:CGSizeMake(self.newsTitle.frame.size.width, KscreenWidth/5) options:NSStringDrawingUsesLineFragmentOrigin context:Nil];
     CGRect labelFrame = self.newsTitle.frame;
     labelFrame.size.height = fmin(rect.size.height, KscreenWidth/5);

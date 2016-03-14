@@ -24,7 +24,7 @@ class MVViewController: UIViewController, UICollectionViewDataSource, UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.layer.masksToBounds = true
         self.collectionView.registerClass(MVCell.self, forCellWithReuseIdentifier: "Cell")
         self.collectionView.allowsMultipleSelection = false
         

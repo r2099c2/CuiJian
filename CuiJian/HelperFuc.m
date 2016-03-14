@@ -46,7 +46,7 @@
         NSMutableArray* dataArray = [NSMutableArray array];
         if (response == nil) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                UIAlertView *unavailAlert = [[UIAlertView alloc] initWithTitle:@"网络异常"message:@"请请检查您的互联网状态。" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
+                UIAlertView *unavailAlert = [[UIAlertView alloc] initWithTitle:@"网络异常"message:@"请检查您的互联网状态。" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
                 [unavailAlert show];
             });
             if (finished != NULL) {
@@ -117,7 +117,14 @@
     NSMutableArray* dataArray = [NSMutableArray array];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"data%d.json", fileType]];
-    NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:(NSJSONReadingAllowFragments) error:nil];
+    NSData* data = [NSData dataWithContentsOfFile:filePath];
+    if (data == nil) {
+        [HelperFuc refreshData];
+        UIAlertView *unavailAlert = [[UIAlertView alloc] initWithTitle:@"网络异常" message:@"网络异常，请稍后再试。" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
+        [unavailAlert show];
+        return dataArray;
+    }
+    NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:(NSJSONReadingAllowFragments) error:nil];
     for (NSDictionary * dict in dic) {
         NewsModel * m = [[NewsModel alloc]init];
         [m setValuesForKeysWithDictionary:dict];

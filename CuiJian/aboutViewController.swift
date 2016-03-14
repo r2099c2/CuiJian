@@ -23,6 +23,10 @@ class aboutViewController: UIViewController, UIActionSheetDelegate {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
+    override func viewDidLoad() {
+        self.view.layer.masksToBounds = true
+    }
+    
     override func layoutSublayersOfLayer(layer: CALayer) {
         let rect = textView.attributedText?.boundingRectWithSize(CGSizeMake(self.textView.frame.width, 5000),
             options: .UsesLineFragmentOrigin, context: nil)

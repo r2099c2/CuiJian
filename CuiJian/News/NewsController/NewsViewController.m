@@ -33,7 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.view.layer.masksToBounds = YES;
     [HelperFuc getNews:NO finished:^(BOOL finished, id results) {
         if (finished) {
             self.dataArray = results;
@@ -73,11 +73,11 @@
     [self.collectionView addPullToRefreshWithActionHandler:^{
         [HelperFuc getNews:YES finished:^(BOOL finished, id results) {
             dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf.collectionView.pullToRefreshView stopAnimating];
                 if (finished) {
                     weakSelf.dataArray = results;
                     [weakSelf.collectionView reloadData];
                 }
-                [weakSelf.collectionView.pullToRefreshView stopAnimating];
             });
         }];
     } position:SVPullToRefreshPositionTop];
