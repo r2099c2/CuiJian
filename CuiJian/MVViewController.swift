@@ -70,8 +70,8 @@ class MVViewController: UIViewController, UICollectionViewDataSource, UICollecti
         // Dispose of any resources that can be recreated.
     }
     
-    func BtnClick(sender: AnyObject) {
-        let path = NSBundle.mainBundle().pathForResource(self.data[(sender as! UIButton).tag].videoName, ofType:"mp4")
+    func BtnClick(sender: UITapGestureRecognizer) {
+        let path = NSBundle.mainBundle().pathForResource(self.data[sender.view!.tag].videoName, ofType:"mp4")
         let url = NSURL(fileURLWithPath: path!)
         self.videoController.contentURL = url
         self.videoController.showInWindow()
@@ -88,8 +88,8 @@ class MVViewController: UIViewController, UICollectionViewDataSource, UICollecti
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! MVCell
         cell.setData(self.data[indexPath.item])
-        cell.playBt.tag = indexPath.item
-        cell.playBt.addTarget(self, action: Selector("BtnClick:"), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.tag = indexPath.item
+        cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("BtnClick:")))
         return cell
     }
     

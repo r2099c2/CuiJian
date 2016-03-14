@@ -22,6 +22,12 @@
          contextName = "SongViewController.songTextGestureAction(UIPanGestureRecognizer) -&gt; ():SongViewController.swift">
          <PersistentStrings>
             <PersistentString
+               value = "(self.maxCon! - self.minCon!) / (self.beginCon! + translationInView - self.minCon!)">
+            </PersistentString>
+            <PersistentString
+               value = "self.songScrollView.alpha">
+            </PersistentString>
+            <PersistentString
                value = "pan.view?.tag">
             </PersistentString>
          </PersistentStrings>
