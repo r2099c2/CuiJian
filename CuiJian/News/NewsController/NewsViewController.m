@@ -12,7 +12,6 @@
 #import "NewsCell.h"
 #import "UIImageView+WebCache.h"
 #import "NewsDetailController.h"
-#import "UIScrollView+SVPullToRefresh.h"
 #import "HelperFuc.h"
 
 #define KscreenHeight [[UIScreen mainScreen] bounds].size.height
@@ -68,22 +67,30 @@
     [self.view addSubview:self.collectionView];
     
     //MJRefresh
-    __weak NewsViewController *weakSelf = self;
-    
-    [self.collectionView addPullToRefreshWithActionHandler:^{
-        [HelperFuc getNews:YES finished:^(BOOL finished, id results) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf.collectionView.pullToRefreshView stopAnimating];
-                if (finished) {
-                    weakSelf.dataArray = results;
-                    [weakSelf.collectionView reloadData];
-                }
-            });
-        }];
-    } position:SVPullToRefreshPositionTop];
-    
-    
-    
+    UIRefreshControl* refresh = [[UIRefreshControl alloc] init];
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新" attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    [refresh addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
+    [self.collectionView addSubview:refresh];
+    refresh.tintColor = [UIColor whiteColor];
+    self.collectionView.alwaysBounceVertical = YES;
+}
+
+-(void)refreshView:(UIRefreshControl *)refresh {
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"正在刷新数据..." attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    [HelperFuc getNews:YES finished:^(BOOL finished, id results) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [refresh endRefreshing];
+            if (finished) {
+                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                [formatter setDateFormat:@"MMM d, h:mm a"];
+                NSString *lastUpdated = [NSString stringWithFormat:@"最后更新于 %@", [formatter stringFromDate:[NSDate date]]];
+                refresh.attributedTitle = [[NSAttributedString alloc] initWithString:lastUpdated attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+            }
+            else{
+                refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新" attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+            }
+        });
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -108,15 +115,11 @@
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
-
-   
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.dataArray.count;
-
-    
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -139,7 +142,4 @@
     dVC.Nmodel = self.dataArray[indexPath.item];
     [self.navigationController pushViewController:dVC animated:YES];
 }
-
-
-
 @end
