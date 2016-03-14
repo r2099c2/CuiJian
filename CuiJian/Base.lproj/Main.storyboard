@@ -684,7 +684,7 @@
                                                     <rect key="frame" x="0.0" y="28" width="328" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="99v-70-frk" id="ij2-Uu-o9A">
-                                                        <rect key="frame" x="0.0" y="0.0" width="328" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="328" height="49.5"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="wil-EQ-b4c">
@@ -809,7 +809,7 @@
         <image name="aboutAppBt" width="101" height="88"/>
         <image name="aboutCuijian" width="414" height="134"/>
         <image name="aboutCuijianBt" width="106" height="75"/>
-        <image name="aboutPageBg" width="623" height="915"/>
+        <image name="aboutPageBg" width="414" height="745"/>
         <image name="aboutcuijianbg" width="414" height="736"/>
         <image name="backArrow" width="13" height="21"/>
         <image name="close" width="18" height="18"/>

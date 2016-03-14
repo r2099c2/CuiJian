@@ -102,6 +102,11 @@ class TimeLineViewController: UIViewController, UIScrollViewDelegate, UICollecti
                 self.makeCollectionCenter()
             }
         }
+        else{
+            if scrollView.tag == 1{
+                scrollView.decelerationRate = scrollView.decelerationRate / 2
+            }
+        }
     }
     
     func makeCenter(){
@@ -117,15 +122,19 @@ class TimeLineViewController: UIViewController, UIScrollViewDelegate, UICollecti
         
         let currentYears = 1960 + Int(finalDistance) / 10
         let itemWidth = (self.collectionView!.collectionViewLayout as! UICollectionViewFlowLayout).itemSize.width
+        
+        let collectionViewDistance = self.collectionView!.contentOffset.y
+        let collectionViewCurrentYears = Int(floor(CGFloat(self.getYear(self.data![Int(round(collectionViewDistance / itemWidth))].post_date!)) / 10.0)) * 10
 
-        for(var index = 0; index < self.getDataCount(); index++){
-            if(self.getYear(self.data![index].post_date!) >= currentYears)
-            {
-                self.collectionView.scrollRectToVisible(CGRect(x: 0, y: CGFloat(index) * itemWidth, width: self.collectionView!.frame.width, height: self.collectionView!.frame.height), animated: true)
-                break;
+        if currentYears != collectionViewCurrentYears{
+            for(var index = 0; index < self.getDataCount(); index++){
+                if(self.getYear(self.data![index].post_date!) >= currentYears)
+                {
+                    self.collectionView.scrollRectToVisible(CGRect(x: 0, y: CGFloat(index) * itemWidth, width: self.collectionView!.frame.width, height: self.collectionView!.frame.height), animated: true)
+                    break;
+                }
             }
         }
-        
     }
     
     func makeCollectionCenter(){

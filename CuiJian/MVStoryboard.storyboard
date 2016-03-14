@@ -10,7 +10,7 @@
         <!--MV-->
         <scene sceneID="QMj-wg-4tK">
             <objects>
-                <viewController storyboardIdentifier="MvController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jjP-mx-YJz" customClass="MVViewController" customModule="CuiJian" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MvController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jjP-mx-YJz" customClass="MVViewController" customModule="CuiJian" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Nog-7s-TeH"/>
                         <viewControllerLayoutGuide type="bottom" id="91n-GG-kfc"/>
@@ -95,7 +95,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="aboutcuijianbg" translatesAutoresizingMaskIntoConstraints="NO" id="VXj-su-O5a">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NcA-xo-Hp3">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>

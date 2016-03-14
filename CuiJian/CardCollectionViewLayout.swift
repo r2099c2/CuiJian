@@ -69,7 +69,7 @@ class CardCollectionViewLayout: UICollectionViewFlowLayout {
                 transform = CGAffineTransformScale(transform, scale, scale)
                 let transform1 = CGAffineTransformMakeTranslation(0, -self.itemSize.width * (1 - scale) / 2 - self.itemSize.width * pow(scale, 0.3) * (1 - scale) / 2)
                 transform = CGAffineTransformConcat(transform, transform1)
-                alpha = scale
+                //alpha = scale
             }
             attr.alpha = alpha
             attr.transform = transform
