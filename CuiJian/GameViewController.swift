@@ -31,6 +31,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
     var ufoNode :SCNNode?
     var player:AVAudioPlayer?
     var clickPlayer:AVAudioPlayer?
+    var hints:[SCNNode] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -161,6 +162,16 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         iceText.position = SCNVector3(0, 20, -50)
         rootScene.rootNode.addChildNode(iceText)
         
+        let hintGeometry = SCNPlane(width: 5, height: 5)
+        hintGeometry.firstMaterial?.diffuse.contents = UIImage(named: "clickHint")
+        
+        let iceHint = SCNNode(geometry: hintGeometry)
+        iceHint.name = "icetree_Hint"
+        iceHint.position = SCNVector3(0, 0, -20)
+        rootScene.rootNode.addChildNode(iceHint)
+        self.hints.append(iceHint)
+
+        
         let light = SCNLight()
         light.type = SCNLightTypeOmni
         light.color = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
@@ -283,6 +294,13 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         ufoText.position = SCNVector3(50, 35, 0)
         ufoText.rotation = SCNVector4Make(0, 1, 0, Float(-M_PI/2))
         rootScene.rootNode.addChildNode(ufoText)
+        let ufoHint = SCNNode(geometry: hintGeometry)
+        ufoHint.name = "ufo_Text"
+        ufoHint.rotation = SCNVector4Make(0, 1, 0, Float(-M_PI/2))
+        ufoHint.position = SCNVector3(20, 0, 0)
+        rootScene.rootNode.addChildNode(ufoHint)
+        self.hints.append(ufoHint)
+
 
         
         let teamCuijian = addNode(0, fileName: "cuijianTeam/cuijian_team.dae", namePre: "team_")
@@ -298,6 +316,12 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         teamCuijianText.position = SCNVector3(0, 280, 400)
         teamCuijianText.rotation = SCNVector4Make(0, 1, 0, Float(M_PI))
         rootScene.rootNode.addChildNode(teamCuijianText)
+        let teamHint = SCNNode(geometry: hintGeometry)
+        teamHint.name = "team_Text"
+        teamHint.position = SCNVector3(0, 0, 20)
+        teamHint.rotation = SCNVector4Make(0, 1, 0, Float(M_PI))
+        rootScene.rootNode.addChildNode(teamHint)
+        self.hints.append(teamHint)
     
         let lavaBall = addNode(0, fileName: "aboutCuijian/LavaBall.dae", namePre: "mvs_")
         lavaBall.position = SCNVector3(-50, -20, 0)
@@ -319,6 +343,13 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         spin1.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         spin1.repeatCount = .infinity
         lavaBall.addAnimation(spin1, forKey: "mvsAni")
+        let lavaBallHint = SCNNode(geometry: hintGeometry)
+        lavaBallHint.name = "mvs_Text"
+        lavaBallHint.rotation = SCNVector4Make(0, 1, 0, Float(M_PI/2))
+        lavaBallHint.position = SCNVector3(-20, 0, 0)
+        rootScene.rootNode.addChildNode(lavaBallHint)
+        self.hints.append(lavaBallHint)
+
 
         
         let stone = addNode("star/Star_2.dae");
@@ -428,12 +459,22 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         // Release any cached data, images, etc that aren't in use.
     }
     
-    
+    var alp:Float = 0.0
     func renderer(renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: NSTimeInterval) {
         if self.cameraRollNode != nil && self.cameraPitchNode != nil && self.cameraYawNode != nil && self.motionManager!.deviceMotion != nil{
             self.cameraRollNode!.eulerAngles.z = -Float(self.motionManager!.deviceMotion!.attitude.roll)
             self.cameraPitchNode!.eulerAngles.x = Float(self.motionManager!.deviceMotion!.attitude.pitch)
             self.cameraYawNode!.eulerAngles.y = Float(self.motionManager!.deviceMotion!.attitude.yaw + M_PI)
+        }
+        self.alp = self.alp + 0.01
+        let opacity = fmax(0.0, CGFloat(1.0) - CGFloat(self.alp))
+        let scale = SCNVector3Make(1.0 + self.alp, 1.0 + self.alp, 1.0 + self.alp)
+        for node:SCNNode in self.hints{
+            node.scale = scale
+            node.opacity = opacity
+        }
+        if self.alp > 3{
+            self.alp = 0
         }
     }
     

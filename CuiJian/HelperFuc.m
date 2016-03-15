@@ -118,7 +118,7 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"data%d.json", fileType]];
     NSData* data = [NSData dataWithContentsOfFile:filePath];
-    if (data == nil) {
+    if (data == nil || data.length == 0) {
         [HelperFuc refreshData];
         UIAlertView *unavailAlert = [[UIAlertView alloc] initWithTitle:@"网络异常" message:@"网络异常，请稍后再试。" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
         [unavailAlert show];

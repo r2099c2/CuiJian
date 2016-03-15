@@ -77,18 +77,10 @@
 
 -(void)refreshView:(UIRefreshControl *)refresh {
     refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"正在刷新数据..." attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-    [HelperFuc getNews:YES finished:^(BOOL finished, id results) {
+        [HelperFuc getNews:YES finished:^(BOOL finished, id results) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [refresh endRefreshing];
-            if (finished) {
-                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-                [formatter setDateFormat:@"MMM d, h:mm a"];
-                NSString *lastUpdated = [NSString stringWithFormat:@"最后更新于 %@", [formatter stringFromDate:[NSDate date]]];
-                refresh.attributedTitle = [[NSAttributedString alloc] initWithString:lastUpdated attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-            }
-            else{
-                refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新" attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-            }
+            refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新" attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
         });
     }];
 }
