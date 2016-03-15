@@ -65,9 +65,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
             self.addVideoControlView()
             defaults.setBool(true, forKey: "isFirstUse")
         }
-        else{
-            self.initSence()
-        }
+        self.initSence()
     }
     
     func ApplicationDidEnterBackground(){
@@ -515,7 +513,6 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
             }) { (finished) -> Void in
                 self.videoView?.removeFromSuperview()
                 self.videoView = nil
-                self.initSence()
                 self.icePlayer = nil
         }
     }
