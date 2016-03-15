@@ -3,6 +3,20 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "SongViewController.songTextGestureAction(UIPanGestureRecognizer) -&gt; ():SongViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(self.maxCon! - self.minCon!) / (self.beginCon! + translationInView - self.minCon!)">
+            </PersistentString>
+            <PersistentString
+               value = "pan.view?.tag">
+            </PersistentString>
+            <PersistentString
+               value = "self.songScrollView.alpha">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "SongViewController.(songTextGestureAction(SongViewController) -&gt; (UIPanGestureRecognizer) -&gt; ()).(closure #2):SongViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -11,24 +25,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "aboutViewController.viewWillAppear(Bool) -&gt; ():aboutViewController.swift">
+         contextName = "GameViewController.stopAnimation(Double, node : SCNNode, namePre : String) -&gt; ():GameViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "textView.attributedText">
+               value = "node">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "SongViewController.songTextGestureAction(UIPanGestureRecognizer) -&gt; ():SongViewController.swift">
+         contextName = "aboutViewController.viewWillAppear(Bool) -&gt; ():aboutViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "(self.maxCon! - self.minCon!) / (self.beginCon! + translationInView - self.minCon!)">
-            </PersistentString>
-            <PersistentString
-               value = "self.songScrollView.alpha">
-            </PersistentString>
-            <PersistentString
-               value = "pan.view?.tag">
+               value = "textView.attributedText">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

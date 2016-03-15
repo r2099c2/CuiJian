@@ -165,7 +165,11 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
                 newPageView.addSubview(newImageView)
                 newImageView.frame = newPageView.bounds
                 if pageImageIndex > 0 {
-                    HelperFuc.bgParrallax(newImageView, maximumRelativeValue: parallaxParameter[pageImageIndex])
+                    var bs = 1
+                    if page == 0 || page == 2 || page == 3 || page == 4 || page == 5 || page == 6{
+                        bs = 2
+                    }
+                    HelperFuc.bgParrallax(newImageView, maximumRelativeValue: parallaxParameter[pageImageIndex] * CGFloat(bs))
                 }
             }
             

@@ -160,7 +160,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         iceText.position = SCNVector3(0, 20, -50)
         rootScene.rootNode.addChildNode(iceText)
         
-        let hintGeometry = SCNPlane(width: 5, height: 5)
+        let hintGeometry = SCNPlane(width: 3, height: 3)
         hintGeometry.firstMaterial?.diffuse.contents = UIImage(named: "clickHint")
         
         let iceHint = SCNNode(geometry: hintGeometry)
@@ -398,6 +398,13 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
     func stopAnimation(duration:CFTimeInterval, node:SCNNode, namePre: String){
         node.name = namePre + node.name!
         if duration > 0{
+            if #available(iOS 9.0, *) {
+            }
+            else{
+                if node.geometry != nil && node.geometry!.firstMaterial != nil{
+                    node.geometry!.firstMaterial!.doubleSided = true
+                }
+            }
             for key in node.animationKeys{
                 let animation = node.animationForKey(key)!
                 animation.duration = duration
@@ -458,21 +465,26 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
     }
     
     var alp:Float = 0.0
+    var times = 0
     func renderer(renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: NSTimeInterval) {
         if self.cameraRollNode != nil && self.cameraPitchNode != nil && self.cameraYawNode != nil && self.motionManager!.deviceMotion != nil{
             self.cameraRollNode!.eulerAngles.z = -Float(self.motionManager!.deviceMotion!.attitude.roll)
             self.cameraPitchNode!.eulerAngles.x = Float(self.motionManager!.deviceMotion!.attitude.pitch)
             self.cameraYawNode!.eulerAngles.y = Float(self.motionManager!.deviceMotion!.attitude.yaw + M_PI)
         }
-        self.alp = self.alp + 0.01
+        self.alp = self.alp + 0.03
         let opacity = fmax(0.0, CGFloat(1.0) - CGFloat(self.alp))
         let scale = SCNVector3Make(1.0 + self.alp, 1.0 + self.alp, 1.0 + self.alp)
         for node:SCNNode in self.hints{
             node.scale = scale
             node.opacity = opacity
         }
-        if self.alp > 3{
+        if (self.times < 2 && self.alp >= 1) || self.alp > 5{
             self.alp = 0
+            self.times = self.times + 1
+        }
+        if self.times > 2{
+            self.times = 0
         }
     }
     

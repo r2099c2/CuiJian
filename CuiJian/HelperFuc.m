@@ -44,7 +44,7 @@
     request.cachePolicy = NSURLRequestReloadIgnoringCacheData;
     NSURLSessionDataTask * task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSMutableArray* dataArray = [NSMutableArray array];
-        if (response == nil) {
+        if (response == nil || data.length == 0) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 UIAlertView *unavailAlert = [[UIAlertView alloc] initWithTitle:@"网络异常"message:@"请检查您的互联网状态。" delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil];
                 [unavailAlert show];

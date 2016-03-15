@@ -81,6 +81,10 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [refresh endRefreshing];
             refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新" attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+            if (finished) {
+                self.dataArray = results;
+                [self.collectionView reloadData];
+            }
         });
     }];
 }
