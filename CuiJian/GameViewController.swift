@@ -316,7 +316,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         rootScene.rootNode.addChildNode(teamCuijianText)
         let teamHint = SCNNode(geometry: hintGeometry)
         teamHint.name = "team_Text"
-        teamHint.position = SCNVector3(0, 0, 20)
+        teamHint.position = SCNVector3(0, 15, 20)
         teamHint.rotation = SCNVector4Make(0, 1, 0, Float(M_PI))
         rootScene.rootNode.addChildNode(teamHint)
         self.hints.append(teamHint)

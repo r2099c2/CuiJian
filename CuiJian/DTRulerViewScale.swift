@@ -44,7 +44,7 @@ class DTRulerViewScale: UIView {
         let endY = CGRectGetMaxY(rect)
         let valueLabel:NSString = "\(self.value!)"
         
-        let actualFont = UIFont.systemFontOfSize(14)
+        let actualFont:UIFont = UIFont(name: "Georgia", size: 14)!
         let textFontAttributes = [
             NSFontAttributeName: actualFont,
             NSForegroundColorAttributeName: UIColor.whiteColor()
