@@ -473,7 +473,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
             self.cameraYawNode!.eulerAngles.y = Float(self.motionManager!.deviceMotion!.attitude.yaw + M_PI)
         }
         self.alp = self.alp + 0.03
-        let opacity = fmax(0.0, CGFloat(1.0) - CGFloat(self.alp))
+        let opacity = fmin(fmax(0.0, CGFloat(1.0) - CGFloat(self.alp)), 0.8)
         let scale = SCNVector3Make(1.0 + self.alp, 1.0 + self.alp, 1.0 + self.alp)
         for node:SCNNode in self.hints{
             node.scale = scale
