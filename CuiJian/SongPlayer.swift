@@ -189,7 +189,7 @@ class SongPlayer: NSObject, AVAudioPlayerDelegate {
     }
     
     func resetPlayerAnimation() {
-        for (var index = 0; index < songDatas.count; index++) {
+        for index in 0 ..< songDatas.count {
             playerAnimationInit(index)
             if let _ = playTriangleLayers[index] {
                 updatePlayerBtn(index)

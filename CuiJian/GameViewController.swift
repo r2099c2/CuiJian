@@ -113,7 +113,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         self.sceneView!.scene = rootScene
         self.sceneView!.autoenablesDefaultLighting = true
         // add a tap gesture recognizer
-        let tapGesture = UITapGestureRecognizer(target: self, action: Selector("tapHandle:"))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(GameViewController.tapHandle(_:)))
         self.sceneView!.addGestureRecognizer(tapGesture)
         
         let camera = SCNCamera()
@@ -430,9 +430,9 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         self.sceneView!.scene?.paused = false
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
         //add observer to video player
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "videoEnd", name: MPMoviePlayerPlaybackDidFinishNotification, object: icePlayer)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("ApplicationDidEnterBackground"), name: "applicationDidEnterBackground", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("ApplicationWillEnterForeground"), name: "applicationWillEnterForeground", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.videoEnd), name: MPMoviePlayerPlaybackDidFinishNotification, object: icePlayer)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.ApplicationDidEnterBackground), name: "applicationDidEnterBackground", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.ApplicationWillEnterForeground), name: "applicationWillEnterForeground", object: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -509,7 +509,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         videoControlView = UIView.loadFromNibNamed("VideoControlView")
         videoControlView!.frame = self.view.bounds
         self.view.addSubview(videoControlView!)
-        let tapGesture = UITapGestureRecognizer(target: self, action: "playIceVideo")
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(GameViewController.playIceVideo))
         videoControlView!.addGestureRecognizer(tapGesture)
     }
     
@@ -534,7 +534,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate, UIGestureR
         self.guideView = UIView.loadFromNibNamed("GuideView")
         self.guideView!.frame = self.view.bounds
         self.view.addSubview(self.guideView!)
-        let tapGesture = UITapGestureRecognizer(target: self, action: "removeGuide")
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(GameViewController.removeGuide))
         self.guideView!.addGestureRecognizer(tapGesture)
     }
     

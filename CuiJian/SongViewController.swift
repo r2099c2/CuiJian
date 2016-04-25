@@ -79,9 +79,9 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
         self.view.layer.masksToBounds = true
         
         // get img url data and send to pageImages
-        for (var i = 0; i < songPosterData.count; i++) {
+        for i in 0 ..< songPosterData.count {
             pageImages.append([])
-            for (var j = 0; j < songPosterData[i].count; j++) {
+            for j in 0 ..< songPosterData[i].count {
                 pageImages[i].append(UIImage(named: songPosterData[i][j])!)
             }
         }
@@ -113,7 +113,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
         addGestureToSongLyric()
         addGestureToSongTitle()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "willEnterForeground:", name: UIApplicationWillEnterForegroundNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SongViewController.willEnterForeground(_:)), name: UIApplicationWillEnterForegroundNotification, object: nil)
     }
     
     func willEnterForeground(notification: NSNotification!) {
@@ -159,7 +159,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
             let newPageView = UIView()
             newPageView.frame = frame
             
-            for (var pageImageIndex = 0; pageImageIndex < pageImages[page].count; pageImageIndex++) {
+            for pageImageIndex in 0 ..< pageImages[page].count {
                 let newImageView = UIImageView(image: pageImages[page][pageImageIndex])
                 newImageView.contentMode = .ScaleAspectFit
                 newPageView.addSubview(newImageView)
@@ -188,7 +188,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
             playerBtnView.bounds.size = CGSize(width: 0.16 * newPageView.bounds.width, height: 0.16 * newPageView.bounds.width)
             playerBtnView.frame.origin.x = newTextView.frame.origin.x - 8 - playerBtnView.bounds.width
             playerBtnView.frame.origin.y = newPageView.bounds.height - playerBtnView.bounds.height
-            playerBtnView.addTarget(self, action: "playAudio:", forControlEvents: .TouchUpInside)
+            playerBtnView.addTarget(self, action: #selector(SongViewController.playAudio(_:)), forControlEvents: .TouchUpInside)
             
             player.setupPlayerBtnLayer(playerBtnView, index: page)
             
@@ -240,7 +240,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
             let lastPage = curPageIndex + 1
             
             // Purge anything before the first page
-            for var index = 0; index < firstPage; ++index {
+            for index in 0 ..< firstPage {
                 purgePage(index)
             }
             
@@ -250,7 +250,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
             }
             
             // Purge anything after the last page
-            for var index = lastPage+1; index < songData.count; ++index {
+            for index in lastPage+1 ..< songData.count {
                 purgePage(index)
             }
             
@@ -273,7 +273,7 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
         // delay 0.3, because of hideSongContent duration is 0.2
         // just in case user slide very fast less then 0.2
         timer.invalidate()
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: "timeOut", userInfo: nil, repeats: false)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: #selector(SongViewController.timeOut), userInfo: nil, repeats: false)
     }
     
     func timeOut() {
@@ -355,13 +355,13 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
     // if lyric is compressed -> scroll up -> release lyric(lyric add height & title image and img scroll view subtract offset y)
     // if lyric is releaseed -> scroll down -> if lyric scroll bar is on the top -> compress lyric
     func addGestureToSongLyric() {
-        let panGesture = UIPanGestureRecognizer(target: self, action: "songTextGestureAction:")
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(SongViewController.songTextGestureAction(_:)))
         songLyric.addGestureRecognizer(panGesture)
         panGesture.delegate = self
     }
     
     func addGestureToSongTitle() {
-        let panGesture = UIPanGestureRecognizer(target: self, action: "songTextGestureAction:")
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(SongViewController.songTextGestureAction(_:)))
         songTitle.addGestureRecognizer(panGesture)
     }
     

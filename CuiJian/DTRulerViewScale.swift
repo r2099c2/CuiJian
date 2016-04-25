@@ -65,9 +65,10 @@ class DTRulerViewScale: UIView {
         
     }
     
-    func doScaleFromMidToEgdeWithStartX(var startX: CGFloat, endY: CGFloat, counter:Int, plus:Bool, context:CGContextRef){
+    func doScaleFromMidToEgdeWithStartX(let x: CGFloat, let endY: CGFloat, let counter:Int, let plus:Bool, let context:CGContextRef){
         CGContextSetLineWidth(context, 0.5)
-        for (var i = 0; i < counter; i++) {
+        for i in 0 ..< counter {
+            var startX = x;
             if(plus){
                 startX += DTRulerScaleGap
             }

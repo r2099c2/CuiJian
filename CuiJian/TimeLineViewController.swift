@@ -63,7 +63,7 @@ class TimeLineViewController: UIViewController, UIScrollViewDelegate, UICollecti
     
     func initRule(){
         var width:CGFloat! = 0
-        for(var i = 0; i < 12; i++){
+        for i in 0 ..< 12{
             let ruleCell = DTRulerViewScale(value: 1930 + i * 10, height: 70)
             ruleCell.frame.origin.x = ruleCell.frame.width * CGFloat(i)
             self.rulerView.addSubview(ruleCell)
@@ -127,7 +127,7 @@ class TimeLineViewController: UIViewController, UIScrollViewDelegate, UICollecti
         let collectionViewCurrentYears = Int(floor(CGFloat(self.getYear(self.data![Int(round(collectionViewDistance / itemWidth))].post_date!)) / 10.0)) * 10
 
         if currentYears != collectionViewCurrentYears{
-            for(var index = 0; index < self.getDataCount(); index++){
+            for index in 0 ..< self.getDataCount(){
                 if(self.getYear(self.data![index].post_date!) >= currentYears)
                 {
                     self.collectionView.scrollRectToVisible(CGRect(x: 0, y: CGFloat(index) * itemWidth, width: self.collectionView!.frame.width, height: self.collectionView!.frame.height), animated: true)

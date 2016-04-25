@@ -81,7 +81,7 @@ class MVViewController: UIViewController, UICollectionViewDataSource, UICollecti
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! MVCell
         cell.setData(self.data[indexPath.item])
         cell.tag = indexPath.item
-        cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("BtnClick:")))
+        cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MVViewController.BtnClick(_:))))
         return cell
     }
     
