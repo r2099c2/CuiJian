@@ -37,8 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
             HelperFuc.refreshData()
             defaults.setObject(today, forKey: "lastupdateTime")
         }
-        UIScreen.mainScreen().brightness = 1.0;
         WXApi.registerApp("wxca0cdbe9306c44da", withDescription: "崔健")
+        
+        TCPlayerView.setPlayerBottomViewClass(TCPlayerBottomView)
+        TCPlayerView.setPlayerCtrlViewClass(TCCloudPlayerControlView)
+        
         return true
     }
     

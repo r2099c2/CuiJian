@@ -20,7 +20,7 @@ class MVViewController: UIViewController, UICollectionViewDataSource, UICollecti
     @IBOutlet weak var collectionViewConstraint: NSLayoutConstraint!
     var collectionViewLayout: VVSpringCollectionViewFlowLayout!
     
-    var videoController:KRVideoPlayerController!
+    var videoViewController:TCPlayerViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,9 +50,8 @@ class MVViewController: UIViewController, UICollectionViewDataSource, UICollecti
                         HelperFuc.bgParrallax(self.forzenLight, maximumRelativeValue: 30)
                 }
         }
-        if(self.videoController == nil){
-            self.videoController = KRVideoPlayerController(frame: self.view.frame)
-            self.videoController.allowsAirPlay = true
+        if(self.videoViewController == nil){
+            self.videoViewController = TCPlayerViewController()
         }
 
     }
@@ -63,10 +62,7 @@ class MVViewController: UIViewController, UICollectionViewDataSource, UICollecti
     }
     
     func BtnClick(sender: UITapGestureRecognizer) {
-        let path = NSBundle.mainBundle().pathForResource(self.data[sender.view!.tag].videoName, ofType:"mp4")
-        let url = NSURL(fileURLWithPath: path!)
-        self.videoController.contentURL = url
-        self.videoController.showInWindow()
+        self.videoViewController.play(self.data[sender.view!.tag].video1, video2: self.data[sender.view!.tag].video2)
         let player = (UIApplication.sharedApplication().delegate as! AppDelegate).songPlayer
         player.stopPlayer()
     }
@@ -75,7 +71,7 @@ class MVViewController: UIViewController, UICollectionViewDataSource, UICollecti
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    var data = [MVData(imageName: "mv1", videoName: "mv1"), MVData(imageName: "mv2", videoName: "mv2")]
+    var data = [MVData(imageName: "mv1", video1: "http://200015869.vod.myqcloud.com/200015869_3d1c2dca18ef11e6b5044318f5e8dafb.f20.mp4", video2: "http://200015869.vod.myqcloud.com/200015869_3d1c2dca18ef11e6b5044318f5e8dafb.f30.mp4"), MVData(imageName: "mv2", video1: "http://200015869.vod.myqcloud.com/200015869_2ff5e6f81b2a11e6b1b1e3da568f98d7.f20.mp4", video2: "http://200015869.vod.myqcloud.com/200015869_2ff5e6f81b2a11e6b1b1e3da568f98d7.f30.mp4")]
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! MVCell

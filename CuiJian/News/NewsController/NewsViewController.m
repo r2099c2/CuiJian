@@ -90,7 +90,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     [self.navigationController.navigationBar setBackgroundImage:NULL forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setBarTintColor:[UIColor blackColor]];
     [self.navigationController.navigationBar setTranslucent:true];

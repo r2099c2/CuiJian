@@ -10,7 +10,7 @@ import UIKit
 
 class MVCell: UICollectionViewCell {
     var imageView:UIImageView!
-    var playBt:UIButton!
+    var playBt:UIImageView!
     var _mvData:MVData?
     
     override init(frame: CGRect) {
@@ -29,9 +29,9 @@ class MVCell: UICollectionViewCell {
         self.imageView!.contentMode = UIViewContentMode.ScaleAspectFill
         self.addSubview(self.imageView!)
         
-        self.playBt = UIButton(type: UIButtonType.Custom)
+        self.playBt = UIImageView()
         self.playBt.frame = CGRect(x: self.frame.width * 0.92 - 70, y: self.frame.height * 0.9 - 70, width: 70, height: 70)
-        self.playBt.setImage(UIImage(named: "mvplay"), forState: UIControlState.Normal)
+        self.playBt.image = UIImage(named: "mvplay")
         self.addSubview(self.playBt)
 
     }
@@ -45,9 +45,11 @@ class MVCell: UICollectionViewCell {
 
 class MVData {
     var imageName:String = ""
-    var videoName:String = ""
-    init(imageName:String, videoName:String){
+    var video1:String = ""
+    var video2:String = ""
+    init(imageName:String, video1:String, video2:String){
         self.imageName = imageName
-        self.videoName = videoName
+        self.video1 = video1
+        self.video2 = video2
     }
 }

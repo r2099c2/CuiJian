@@ -32,8 +32,6 @@
 		1DEC521D1C7C340200BCDD50 /* 08hunshuihumanbu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC52141C7C340200BCDD50 /* 08hunshuihumanbu.mp3 */; };
 		1DEC521E1C7C340200BCDD50 /* 09yangguangxiademeng.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC52151C7C340200BCDD50 /* 09yangguangxiademeng.mp3 */; };
 		1DFD73891C75AB3F00B069EB /* SongListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFD73881C75AB3F00B069EB /* SongListCell.swift */; };
-		4212F8071C5B5B5300C6BA6F /* KRVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212F8041C5B5B5300C6BA6F /* KRVideoPlayerController.m */; };
-		4212F8081C5B5B5300C6BA6F /* KRVideoPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212F8061C5B5B5300C6BA6F /* KRVideoPlayerControlView.m */; };
 		4212F85C1C5B702000C6BA6F /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212F82C1C5B702000C6BA6F /* NewsViewController.m */; };
 		4212F85D1C5B702000C6BA6F /* VVSpringCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212F82E1C5B702000C6BA6F /* VVSpringCollectionViewFlowLayout.m */; };
 		4212F85E1C5B702000C6BA6F /* NewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4212F8311C5B702000C6BA6F /* NewsModel.m */; };
@@ -60,8 +58,6 @@
 		424B67FF1C881E3600FFA25B /* bg.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 424B67FE1C881E3600FFA25B /* bg.mp3 */; };
 		4271F81B1C7AD8F2002A1F56 /* DTRulerViewScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4271F81A1C7AD8F2002A1F56 /* DTRulerViewScale.swift */; };
 		4271F81E1C7AF7AE002A1F56 /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4271F81D1C7AF7AE002A1F56 /* TimeLineViewController.swift */; };
-		42765A551C5F39C700047A55 /* mv1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 42538DEA1C5F1A0B0064935E /* mv1.mp4 */; };
-		42765A561C5F39C700047A55 /* mv2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 42538DEB1C5F1A1A0064935E /* mv2.mp4 */; };
 		42E68CB21C61ECCC00194E45 /* HelperFuc.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E68CB11C61ECCC00194E45 /* HelperFuc.m */; };
 		42EC07E01C91628E0084219B /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42EC07DD1C91628E0084219B /* libWeChatSDK.a */; };
 		42EC07E21C9163400084219B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42EC07E11C9163400084219B /* SystemConfiguration.framework */; };
@@ -73,6 +69,18 @@
 		42EC07EE1C91799A0084219B /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42EC07ED1C91799A0084219B /* click.mp3 */; };
 		42FECA611C7C1B5100BB78E4 /* CardCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FECA601C7C1B5100BB78E4 /* CardCollectionViewLayout.swift */; };
 		42FECA631C7C1BC500BB78E4 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FECA621C7C1BC500BB78E4 /* CardCollectionViewCell.swift */; };
+		9DBFADF61CE9C0EC003079BA /* TCPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBFADF51CE9C0EC003079BA /* TCPlayerViewController.swift */; };
+		9DBFAE111CE9E05A003079BA /* TCCloudPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBFADFF1CE9E05A003079BA /* TCCloudPlayerControlView.m */; };
+		9DBFAE121CE9E05A003079BA /* TCCloudPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBFAE011CE9E05A003079BA /* TCCloudPlayerView.m */; };
+		9DBFAE131CE9E05A003079BA /* TCPlayerActionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBFAE031CE9E05A003079BA /* TCPlayerActionHandler.m */; };
+		9DBFAE141CE9E05A003079BA /* TCPlayerBaseControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBFAE051CE9E05A003079BA /* TCPlayerBaseControlView.m */; };
+		9DBFAE151CE9E05A003079BA /* TCPlayerBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBFAE071CE9E05A003079BA /* TCPlayerBottomView.m */; };
+		9DBFAE161CE9E05A003079BA /* TCPlayerSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBFAE091CE9E05A003079BA /* TCPlayerSlider.m */; };
+		9DBFAE171CE9E05A003079BA /* TCPlayerVideoTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBFAE0B1CE9E05A003079BA /* TCPlayerVideoTypeView.m */; };
+		9DBFAE181CE9E05A003079BA /* TCPlayItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DBFAE0D1CE9E05A003079BA /* TCPlayItem.m */; };
+		9DE686441CE99AC000E2AF74 /* TCPlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE686431CE99AC000E2AF74 /* TCPlayerSDK.framework */; };
+		9DE686461CE99CA700E2AF74 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE686451CE99CA700E2AF74 /* CoreMedia.framework */; };
+		9DE686481CE99CB700E2AF74 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE686471CE99CB700E2AF74 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,10 +112,6 @@
 		1DEC52151C7C340200BCDD50 /* 09yangguangxiademeng.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 09yangguangxiademeng.mp3; sourceTree = "<group>"; };
 		1DFD73881C75AB3F00B069EB /* SongListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongListCell.swift; sourceTree = "<group>"; };
 		4212F7EE1C5B4D0500C6BA6F /* CuiJian-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CuiJian-Bridging-Header.h"; sourceTree = "<group>"; };
-		4212F8031C5B5B5300C6BA6F /* KRVideoPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRVideoPlayerController.h; sourceTree = "<group>"; };
-		4212F8041C5B5B5300C6BA6F /* KRVideoPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRVideoPlayerController.m; sourceTree = "<group>"; };
-		4212F8051C5B5B5300C6BA6F /* KRVideoPlayerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRVideoPlayerControlView.h; sourceTree = "<group>"; };
-		4212F8061C5B5B5300C6BA6F /* KRVideoPlayerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRVideoPlayerControlView.m; sourceTree = "<group>"; };
 		4212F82B1C5B702000C6BA6F /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		4212F82C1C5B702000C6BA6F /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		4212F82D1C5B702000C6BA6F /* VVSpringCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVSpringCollectionViewFlowLayout.h; sourceTree = "<group>"; };
@@ -153,8 +157,6 @@
 		421AF2A31C587BAA00E9D63B /* MVStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MVStoryboard.storyboard; sourceTree = "<group>"; };
 		421AF2A51C58891C00E9D63B /* MVViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVViewController.swift; sourceTree = "<group>"; };
 		424B67FE1C881E3600FFA25B /* bg.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg.mp3; sourceTree = "<group>"; };
-		42538DEA1C5F1A0B0064935E /* mv1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mv1.mp4; sourceTree = "<group>"; };
-		42538DEB1C5F1A1A0064935E /* mv2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mv2.mp4; sourceTree = "<group>"; };
 		4271F81A1C7AD8F2002A1F56 /* DTRulerViewScale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTRulerViewScale.swift; sourceTree = "<group>"; };
 		4271F81D1C7AF7AE002A1F56 /* TimeLineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
 		42E68CB11C61ECCC00194E45 /* HelperFuc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperFuc.m; sourceTree = "<group>"; };
@@ -172,6 +174,27 @@
 		42FECA601C7C1B5100BB78E4 /* CardCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionViewLayout.swift; sourceTree = "<group>"; };
 		42FECA621C7C1BC500BB78E4 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		6F96F82292D284480C76E61B /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DBFADF51CE9C0EC003079BA /* TCPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCPlayerViewController.swift; sourceTree = "<group>"; };
+		9DBFADFE1CE9E05A003079BA /* TCCloudPlayerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCloudPlayerControlView.h; sourceTree = "<group>"; };
+		9DBFADFF1CE9E05A003079BA /* TCCloudPlayerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCloudPlayerControlView.m; sourceTree = "<group>"; };
+		9DBFAE001CE9E05A003079BA /* TCCloudPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCloudPlayerView.h; sourceTree = "<group>"; };
+		9DBFAE011CE9E05A003079BA /* TCCloudPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCloudPlayerView.m; sourceTree = "<group>"; };
+		9DBFAE021CE9E05A003079BA /* TCPlayerActionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPlayerActionHandler.h; sourceTree = "<group>"; };
+		9DBFAE031CE9E05A003079BA /* TCPlayerActionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPlayerActionHandler.m; sourceTree = "<group>"; };
+		9DBFAE041CE9E05A003079BA /* TCPlayerBaseControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPlayerBaseControlView.h; sourceTree = "<group>"; };
+		9DBFAE051CE9E05A003079BA /* TCPlayerBaseControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPlayerBaseControlView.m; sourceTree = "<group>"; };
+		9DBFAE061CE9E05A003079BA /* TCPlayerBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPlayerBottomView.h; sourceTree = "<group>"; };
+		9DBFAE071CE9E05A003079BA /* TCPlayerBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPlayerBottomView.m; sourceTree = "<group>"; };
+		9DBFAE081CE9E05A003079BA /* TCPlayerSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPlayerSlider.h; sourceTree = "<group>"; };
+		9DBFAE091CE9E05A003079BA /* TCPlayerSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPlayerSlider.m; sourceTree = "<group>"; };
+		9DBFAE0A1CE9E05A003079BA /* TCPlayerVideoTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPlayerVideoTypeView.h; sourceTree = "<group>"; };
+		9DBFAE0B1CE9E05A003079BA /* TCPlayerVideoTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPlayerVideoTypeView.m; sourceTree = "<group>"; };
+		9DBFAE0C1CE9E05A003079BA /* TCPlayItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPlayItem.h; sourceTree = "<group>"; };
+		9DBFAE0D1CE9E05A003079BA /* TCPlayItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPlayItem.m; sourceTree = "<group>"; };
+		9DBFAE1C1CE9EA28003079BA /* TCPlayerDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TCPlayerDemo-Prefix.pch"; sourceTree = "<group>"; };
+		9DE686431CE99AC000E2AF74 /* TCPlayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TCPlayerSDK.framework; path = CuiJian/TCPlayerSDK.framework; sourceTree = "<group>"; };
+		9DE686451CE99CA700E2AF74 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		9DE686471CE99CB700E2AF74 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,12 +202,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DE686481CE99CB700E2AF74 /* AVFoundation.framework in Frameworks */,
 				42EC07EA1C91689C0084219B /* CoreTelephony.framework in Frameworks */,
 				42EC07E81C91636D0084219B /* libc++.tbd in Frameworks */,
 				42EC07E61C9163620084219B /* libsqlite3.0.tbd in Frameworks */,
 				42EC07E41C9163570084219B /* libz.tbd in Frameworks */,
 				42EC07E21C9163400084219B /* SystemConfiguration.framework in Frameworks */,
 				42EC07E01C91628E0084219B /* libWeChatSDK.a in Frameworks */,
+				9DE686461CE99CA700E2AF74 /* CoreMedia.framework in Frameworks */,
+				9DE686441CE99AC000E2AF74 /* TCPlayerSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,8 +301,6 @@
 			isa = PBXGroup;
 			children = (
 				42EC07EB1C9178F10084219B /* ice.mp4 */,
-				42538DEA1C5F1A0B0064935E /* mv1.mp4 */,
-				42538DEB1C5F1A1A0064935E /* mv2.mp4 */,
 			);
 			name = mvs;
 			sourceTree = "<group>";
@@ -284,22 +308,12 @@
 		4212F7F11C5B4D1200C6BA6F /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				9DBFAE1C1CE9EA28003079BA /* TCPlayerDemo-Prefix.pch */,
+				9DBFADF91CE9E05A003079BA /* TCPlayerUI */,
 				42EC07DC1C9162730084219B /* weixinSDK */,
 				4212F83E1C5B702000C6BA6F /* SDWebImage */,
-				4212F7F21C5B4D3400C6BA6F /* KRVideoPlayer */,
 			);
 			name = vendor;
-			sourceTree = "<group>";
-		};
-		4212F7F21C5B4D3400C6BA6F /* KRVideoPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				4212F8031C5B5B5300C6BA6F /* KRVideoPlayerController.h */,
-				4212F8041C5B5B5300C6BA6F /* KRVideoPlayerController.m */,
-				4212F8051C5B5B5300C6BA6F /* KRVideoPlayerControlView.h */,
-				4212F8061C5B5B5300C6BA6F /* KRVideoPlayerControlView.m */,
-			);
-			name = KRVideoPlayer;
 			sourceTree = "<group>";
 		};
 		4212F8291C5B702000C6BA6F /* News */ = {
@@ -417,6 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				4212F8711C5E05CB00C6BA6F /* MVCell.swift */,
+				9DBFADF51CE9C0EC003079BA /* TCPlayerViewController.swift */,
 			);
 			name = MVItems;
 			sourceTree = "<group>";
@@ -441,9 +456,35 @@
 			name = weixinSDK;
 			sourceTree = "<group>";
 		};
+		9DBFADF91CE9E05A003079BA /* TCPlayerUI */ = {
+			isa = PBXGroup;
+			children = (
+				9DBFADFE1CE9E05A003079BA /* TCCloudPlayerControlView.h */,
+				9DBFADFF1CE9E05A003079BA /* TCCloudPlayerControlView.m */,
+				9DBFAE001CE9E05A003079BA /* TCCloudPlayerView.h */,
+				9DBFAE011CE9E05A003079BA /* TCCloudPlayerView.m */,
+				9DBFAE021CE9E05A003079BA /* TCPlayerActionHandler.h */,
+				9DBFAE031CE9E05A003079BA /* TCPlayerActionHandler.m */,
+				9DBFAE041CE9E05A003079BA /* TCPlayerBaseControlView.h */,
+				9DBFAE051CE9E05A003079BA /* TCPlayerBaseControlView.m */,
+				9DBFAE061CE9E05A003079BA /* TCPlayerBottomView.h */,
+				9DBFAE071CE9E05A003079BA /* TCPlayerBottomView.m */,
+				9DBFAE081CE9E05A003079BA /* TCPlayerSlider.h */,
+				9DBFAE091CE9E05A003079BA /* TCPlayerSlider.m */,
+				9DBFAE0A1CE9E05A003079BA /* TCPlayerVideoTypeView.h */,
+				9DBFAE0B1CE9E05A003079BA /* TCPlayerVideoTypeView.m */,
+				9DBFAE0C1CE9E05A003079BA /* TCPlayItem.h */,
+				9DBFAE0D1CE9E05A003079BA /* TCPlayItem.m */,
+			);
+			path = TCPlayerUI;
+			sourceTree = "<group>";
+		};
 		B707B4E3C282D2476CA8ACD3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9DE686431CE99AC000E2AF74 /* TCPlayerSDK.framework */,
+				9DE686471CE99CB700E2AF74 /* AVFoundation.framework */,
+				9DE686451CE99CA700E2AF74 /* CoreMedia.framework */,
 				42EC07E91C91689C0084219B /* CoreTelephony.framework */,
 				42EC07E71C91636D0084219B /* libc++.tbd */,
 				42EC07E51C9163620084219B /* libsqlite3.0.tbd */,
@@ -519,8 +560,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DEC52181C7C340200BCDD50 /* 03yuniaozhilian.mp3 in Resources */,
-				42765A551C5F39C700047A55 /* mv1.mp4 in Resources */,
-				42765A561C5F39C700047A55 /* mv2.mp4 in Resources */,
 				1D57B0581C43BC0C001C18F7 /* LaunchScreen.storyboard in Resources */,
 				1DE982AC1C622BE000014268 /* testSong.mp3 in Resources */,
 				1DEC521C1C7C340200BCDD50 /* 07gundongdedan.mp3 in Resources */,
@@ -555,24 +594,29 @@
 				4212F8651C5B702000C6BA6F /* SDWebImageDecoder.m in Sources */,
 				4212F85E1C5B702000C6BA6F /* NewsModel.m in Sources */,
 				1DD024F11C461AC40000D316 /* SongViewController.swift in Sources */,
+				9DBFAE111CE9E05A003079BA /* TCCloudPlayerControlView.m in Sources */,
 				421AF2A61C58891C00E9D63B /* MVViewController.swift in Sources */,
 				4212F8611C5B702000C6BA6F /* NewsDetailCell.m in Sources */,
 				4212F8601C5B702000C6BA6F /* NewsDetailController.m in Sources */,
 				1DFD73891C75AB3F00B069EB /* SongListCell.swift in Sources */,
 				4212F8641C5B702000C6BA6F /* SDWebImageCompat.m in Sources */,
+				9DBFAE181CE9E05A003079BA /* TCPlayItem.m in Sources */,
 				42E68CB21C61ECCC00194E45 /* HelperFuc.m in Sources */,
+				9DBFAE121CE9E05A003079BA /* TCCloudPlayerView.m in Sources */,
 				1DBF528F1C7B2493002734FF /* SongPlayer.swift in Sources */,
+				9DBFAE141CE9E05A003079BA /* TCPlayerBaseControlView.m in Sources */,
 				1D31F2741C65FE0600A7F221 /* aboutViewController.swift in Sources */,
 				4212F8631C5B702000C6BA6F /* SDImageCache.m in Sources */,
 				4212F86C1C5B702000C6BA6F /* UIImage+MultiFormat.m in Sources */,
+				9DBFAE171CE9E05A003079BA /* TCPlayerVideoTypeView.m in Sources */,
+				9DBFADF61CE9C0EC003079BA /* TCPlayerViewController.swift in Sources */,
 				42FECA611C7C1B5100BB78E4 /* CardCollectionViewLayout.swift in Sources */,
 				4212F86B1C5B702000C6BA6F /* UIImage+GIF.m in Sources */,
 				4212F8661C5B702000C6BA6F /* SDWebImageDownloader.m in Sources */,
+				9DBFAE131CE9E05A003079BA /* TCPlayerActionHandler.m in Sources */,
 				42FECA631C7C1BC500BB78E4 /* CardCollectionViewCell.swift in Sources */,
-				4212F8071C5B5B5300C6BA6F /* KRVideoPlayerController.m in Sources */,
 				4212F86A1C5B702000C6BA6F /* UIButton+WebCache.m in Sources */,
 				4212F86F1C5B702000C6BA6F /* UIView+WebCacheOperation.m in Sources */,
-				4212F8081C5B5B5300C6BA6F /* KRVideoPlayerControlView.m in Sources */,
 				1D3285C01C4667D900ADAFDC /* NavViewController.swift in Sources */,
 				4271F81B1C7AD8F2002A1F56 /* DTRulerViewScale.swift in Sources */,
 				1D57B0501C43BC0C001C18F7 /* GameViewController.swift in Sources */,
@@ -584,8 +628,10 @@
 				4212F85C1C5B702000C6BA6F /* NewsViewController.m in Sources */,
 				4212F8691C5B702000C6BA6F /* SDWebImagePrefetcher.m in Sources */,
 				4212F8681C5B702000C6BA6F /* SDWebImageManager.m in Sources */,
+				9DBFAE161CE9E05A003079BA /* TCPlayerSlider.m in Sources */,
 				4212F8621C5B702000C6BA6F /* NSData+ImageContentType.m in Sources */,
 				4212F85D1C5B702000C6BA6F /* VVSpringCollectionViewFlowLayout.m in Sources */,
+				9DBFAE151CE9E05A003079BA /* TCPlayerBottomView.m in Sources */,
 				4212F86E1C5B702000C6BA6F /* UIImageView+WebCache.m in Sources */,
 				4212F85F1C5B702000C6BA6F /* NewsCell.m in Sources */,
 			);
@@ -703,6 +749,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CuiJian",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CuiJian/TCPlayerDemo-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/CuiJian/TCPlayerSDK/TCPlayerSDK/include";
 				INFOPLIST_FILE = CuiJian/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -710,6 +764,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/CuiJian",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.logicdesign.CuiJian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -726,6 +781,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Logicdesign Co., Ltd. (4F7E7U4KV3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Logicdesign Co., Ltd. (4F7E7U4KV3)";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CuiJian",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CuiJian/TCPlayerDemo-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/CuiJian/TCPlayerSDK/TCPlayerSDK/include";
 				INFOPLIST_FILE = CuiJian/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -733,6 +796,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/CuiJian",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.logicdesign.CuiJian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4c6a2b3b-c00f-4123-97f6-759d980b4788";
