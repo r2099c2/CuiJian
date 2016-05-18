@@ -240,18 +240,24 @@ class SongViewController: UIViewController, UIScrollViewDelegate, UIGestureRecog
             let lastPage = curPageIndex + 1
             
             // Purge anything before the first page
-            for index in 0 ..< firstPage {
-                purgePage(index)
+            if firstPage >= 0{
+                for index in 0 ..< firstPage {
+                    purgePage(index)
+                }
             }
             
             // Load pages in our range
-            for index in firstPage...lastPage {
-                loadPage(index)
+            if firstPage <= lastPage{
+                for index in firstPage...lastPage {
+                    loadPage(index)
+                }
             }
             
             // Purge anything after the last page
-            for index in lastPage+1 ..< songData.count {
-                purgePage(index)
+            if lastPage < songData.count{
+                for index in lastPage+1 ..< songData.count {
+                    purgePage(index)
+                }
             }
             
             // first time in page

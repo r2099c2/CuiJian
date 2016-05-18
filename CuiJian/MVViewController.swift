@@ -33,6 +33,11 @@ class MVViewController: UIViewController, UICollectionViewDataSource, UICollecti
         self.collectionView.alpha = 0
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        TCPlayerView.clearAllPlayCache()
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
