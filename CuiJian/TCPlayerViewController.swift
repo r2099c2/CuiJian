@@ -37,14 +37,15 @@ class TCPlayerViewController: UIViewController, TCPlayerEngineDelegate {
     }
     
     func onPlayerFailed(player: TCPlayerEngine!, errorType errType: TCPlayerErrorType) {
-        // failure
+        self.playerView.changeToFullScreen(false)
+        let alertView:UIAlertView = UIAlertView(title: "网络异常", message: "网络访问出现异常，请确保网络连接正常再尝试。", delegate: self, cancelButtonTitle: "确定")
+        alertView.show()
     }
     
     func onPlayOver(player: TCPlayerEngine!) {
         self.endplay()
     }
     func endplay() {
-        self.playerView.changeToFullScreen(false)
         self.playerView.stop()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
