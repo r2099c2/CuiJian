@@ -46,6 +46,7 @@ class TCPlayerViewController: UIViewController, TCPlayerEngineDelegate {
         self.endplay()
     }
     func endplay() {
+        self.playerView.changeToFullScreen(false)
         self.playerView.stop()
         self.dismissViewControllerAnimated(true, completion: nil)
     }

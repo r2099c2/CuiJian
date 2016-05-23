@@ -76,7 +76,7 @@ class MVViewController: UIViewController, UICollectionViewDataSource, UICollecti
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    var data = [MVData(imageName: "mv1", video1: "http://200015869.vod.myqcloud.com/200015869_3d1c2dca18ef11e6b5044318f5e8dafb.f20.mp4", video2: "http://200015869.vod.myqcloud.com/200015869_3d1c2dca18ef11e6b5044318f5e8dafb.f30.mp4"), MVData(imageName: "mv2", video1: "http://200015869.vod.myqcloud.com/200015869_2ff5e6f81b2a11e6b1b1e3da568f98d7.f20.mp4", video2: "http://200015869.vod.myqcloud.com/200015869_2ff5e6f81b2a11e6b1b1e3da568f98d7.f30.mp4")]
+    var data = [MVData(imageName: "mv1", video1: "http://youpai.ucoding.cn/mv1.mp4", video2: "http://youpai.ucoding.cn/mv1.mp4"), MVData(imageName: "mv2", video1: "http://youpai.ucoding.cn/mv2.mp4", video2: "http://youpai.ucoding.cn/mv2.mp4")]
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! MVCell
